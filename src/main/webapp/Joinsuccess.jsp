@@ -11,7 +11,7 @@
 
     
     <link rel="stylesheet" href="css/common.css">
-   
+    <link rel="stylesheet" href="css/Joinsuccess.css">
     
 </head>
 <body>
@@ -47,5 +47,21 @@
         </section>
     </header>
 
+    <section class="main">  
+        <div class="mb-wrap mb-style-2">  
+          <blockquote>  
+            <p>    
+                <br>
+                Join success!
+                <br>
+                Welcome to the page
+
+            </p>
+          </blockquote>
+        </div><!--#mb-wrap-->
+        
+        
+  
+    </section>
 </body>
 </html>
