@@ -47,6 +47,7 @@
 		</header>
 
 		<div class="hidden_menu">
+		
 			<div class="scroll_inner">
 				<div class="user">
 					<div class="thumb_img">
