@@ -65,7 +65,7 @@
     </section>
     
      <div class="btn-container">
-            <a href="#" class="btn-3d green">메인메뉴 돌아가기</a>
+            <a href="Main.jsp" class="btn-3d green">메인메뉴 돌아가기</a>
           </div>
         </section>
         <script>
