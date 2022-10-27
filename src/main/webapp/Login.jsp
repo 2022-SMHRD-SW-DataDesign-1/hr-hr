@@ -78,7 +78,7 @@
         <div class="wrapper">
             <div class="container">
               <div class="sign-up-container">
-                <form action="Joinsuccess.html">
+                <form action="Joinsuccess.jsp">
                   <h1>Create Account</h1>
                   <div class="social-links">
                     <div>
