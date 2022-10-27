@@ -42,6 +42,7 @@
 					<a href="Profile.jsp"><div class="sprite_user_icon_outline"></div></a>
 					<a href="Top10Ranking.jsp"><div class="sprite_user_icon_outline"></div></a>
 					<a href="DM.jsp"><div class="sprite_user_icon_outline"></div></a>
+					<a href="ProfileEdit.jsp"><div class="sprite_user_icon_outline"></div></a>
 					
 				</div>
 				
