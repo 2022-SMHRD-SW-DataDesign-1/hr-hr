@@ -47,6 +47,7 @@
 		</header>
 
 		<div class="hidden_menu">
+		
 			<div class="scroll_inner">
 				<div class="user">
 					<div class="thumb_img">
@@ -65,7 +66,7 @@
 					<div class="thumb_img">
 						<img src="imgs/thumb.jpeg" alt="프로필사진">
 					</div>
-					<div class="id">kindtigerrr</div>
+					<div class="id">ㄴㅁㄹㄴㅁㄹㄴㄷㅁㅈㄻㅈㄻㄴㅇ</div>
 				</div>
 				<div class="user">
 					<div class="thumb_img">
