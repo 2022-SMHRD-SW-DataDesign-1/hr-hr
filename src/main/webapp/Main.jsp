@@ -41,7 +41,10 @@
 					 <a href="Follow.jsp"><div class="sprite_heart_icon_outline"></div></a>
 					<a href="Profile.jsp"><div class="sprite_user_icon_outline"></div></a>
 					<a href="Top10Ranking.jsp"><div class="sprite_user_icon_outline"></div></a>
+					<a href="DM.jsp"><div class="sprite_user_icon_outline"></div></a>
+					
 				</div>
+				
 
 			</section>
 
