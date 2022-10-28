@@ -72,48 +72,6 @@
 					</div>
 					<div class="id">ㄴㅁㄹㄴㅁㄹㄴㄷㅁㅈㄻㅈㄻㄴㅇ</div>
 				</div>
-				<div class="user">
-					<div class="thumb_img">
-						<img src="imgs/thumb.jpeg" alt="프로필사진">
-					</div>
-					<div class="id">kindtigerrr</div>
-				</div>
-				<div class="user">
-					<div class="thumb_img">
-						<img src="imgs/thumb.jpeg" alt="프로필사진">
-					</div>
-					<div class="id">kindtigerrr</div>
-				</div>
-				<div class="user">
-					<div class="thumb_img">
-						<img src="imgs/thumb.jpeg" alt="프로필사진">
-					</div>
-					<div class="id">kindtigerrr</div>
-				</div>
-				<div class="user">
-					<div class="thumb_img">
-						<img src="imgs/thumb.jpeg" alt="프로필사진">
-					</div>
-					<div class="id">kindtigerrr</div>
-				</div>
-				<div class="user">
-					<div class="thumb_img">
-						<img src="imgs/thumb.jpeg" alt="프로필사진">
-					</div>
-					<div class="id">kindtigerrr</div>
-				</div>
-				<div class="user">
-					<div class="thumb_img">
-						<img src="imgs/thumb.jpeg" alt="프로필사진">
-					</div>
-					<div class="id">kindtigerrr</div>
-				</div>
-				<div class="user">
-					<div class="thumb_img">
-						<img src="imgs/thumb.jpeg" alt="프로필사진">
-					</div>
-					<div class="id">kindtigerrr</div>
-				</div>
 
 			</div>
 		</div>
@@ -130,7 +88,7 @@
 									<img src="imgs/thumb.jpeg" alt="프로필이미지">
 								</div>
 								<div class="user_name">
-									<div class="nick_name m_text">KindTiger</div>
+									<div class="nick_name m_text">ㅋㅋ~닉네임인데~ㅋㅋ</div>
 									<div class="country s_text">Seoul, South Korea</div>
 								</div>
 
@@ -176,8 +134,8 @@
 						<div class="comment_container">
 							<div class="comment" id="comment-list-ajax-post37">
 								<div class="comment-detail">
-									<div class="nick_name m_text">dongdong2</div>
-									<div>강아지가 너무 귀여워요~!</div>
+									<div class="nick_name m_text">수리남 박상현</div>
+									<div>강아지가 눈을 왜 그렇게 뜨죠?</div>
 								</div>
 							</div>
 							<div class="small_heart">
@@ -192,212 +150,6 @@
 							<div class="upload_btn m_text" data-name="comment">게시</div>
 						</div>
 					</article>
-					<article class="contents">
-						<header class="top">
-							<div class="user_container">
-								<div class="profile_img">
-									<img src="imgs/thumb.jpeg" alt="프로필이미지">
-								</div>
-								<div class="user_name">
-									<div class="nick_name m_text">KindTiger</div>
-									<div class="country s_text">Seoul, South Korea</div>
-								</div>
-
-							</div>
-
-							<div class="sprite_more_icon" data-name="more">
-								<ul class="toggle_box">
-									<li><input type="submit" class="follow" value="팔로우"
-										data-name="follow"></li>
-									<li>수정</li>
-									<li>삭제</li>
-								</ul>
-							</div>
-						</header>
-
-						<div class="img_section">
-							<div class="trans_inner">
-								<div>
-									<img src="imgs/img_section/img01.jpg" alt="visual01">
-								</div>
-							</div>
-						</div>
-
-						<div class="bottom_icons">
-							<div class="left_icons">
-								<div class="heart_btn">
-									<div class="sprite_heart_icon_outline" name="39"
-										data-name="heartbeat"></div>
-								</div>
-								<div class="sprite_bubble_icon"></div>
-								<div class="sprite_share_icon" data-name="share"></div>
-							</div>
-							<div class="right_icon">
-								<div class="sprite_bookmark_outline" data-name="bookmark"></div>
-							</div>
-						</div>
-
-						<div class="likes m_text">
-							좋아요 <span id="like-count-39">2,346</span> 개
-						</div>
-
-						<div class="comment_container">
-							<div class="comment" id="comment-list-ajax-post37">
-								<div class="comment-detail">
-									<div class="nick_name m_text">dongdong2</div>
-									<div>강아지가 너무 귀여워요~!</div>
-								</div>
-							</div>
-							<div class="small_heart">
-								<div class="sprite_small_heart_icon_outline"></div>
-							</div>
-						</div>
-
-						<div class="timer">1시간 전</div>
-
-						<div class="comment_field" id="add-comment-post37">
-							<input type="text" placeholder="댓글달기...">
-							<div class="upload_btn m_text" data-name="comment">게시</div>
-						</div>
-					</article>
-					<article class="contents">
-						<header class="top">
-							<div class="user_container">
-								<div class="profile_img">
-									<img src="imgs/thumb.jpeg" alt="프로필이미지">
-								</div>
-								<div class="user_name">
-									<div class="nick_name m_text">KindTiger</div>
-									<div class="country s_text">Seoul, South Korea</div>
-								</div>
-
-							</div>
-
-							<div class="sprite_more_icon" data-name="more">
-								<ul class="toggle_box">
-									<li><input type="submit" class="follow" value="팔로우"
-										data-name="follow"></li>
-									<li>수정</li>
-									<li>삭제</li>
-								</ul>
-							</div>
-						</header>
-
-						<div class="img_section">
-							<div class="trans_inner">
-								<div>
-									<img src="imgs/img_section/img01.jpg" alt="visual01">
-								</div>
-							</div>
-						</div>
-
-						<div class="bottom_icons">
-							<div class="left_icons">
-								<div class="heart_btn">
-									<div class="sprite_heart_icon_outline" name="39"
-										data-name="heartbeat"></div>
-								</div>
-								<div class="sprite_bubble_icon"></div>
-								<div class="sprite_share_icon" data-name="share"></div>
-							</div>
-							<div class="right_icon">
-								<div class="sprite_bookmark_outline" data-name="bookmark"></div>
-							</div>
-						</div>
-
-						<div class="likes m_text">
-							좋아요 <span id="like-count-39">2,346</span> 개
-						</div>
-
-						<div class="comment_container">
-							<div class="comment" id="comment-list-ajax-post37">
-								<div class="comment-detail">
-									<div class="nick_name m_text">dongdong2</div>
-									<div>강아지가 너무 귀여워요~!</div>
-								</div>
-							</div>
-							<div class="small_heart">
-								<div class="sprite_small_heart_icon_outline"></div>
-							</div>
-						</div>
-
-						<div class="timer">1시간 전</div>
-
-						<div class="comment_field" id="add-comment-post37">
-							<input type="text" placeholder="댓글달기...">
-							<div class="upload_btn m_text" data-name="comment">게시</div>
-						</div>
-					</article>
-					<article class="contents">
-						<header class="top">
-							<div class="user_container">
-								<div class="profile_img">
-									<img src="imgs/thumb.jpeg" alt="프로필이미지">
-								</div>
-								<div class="user_name">
-									<div class="nick_name m_text">KindTiger</div>
-									<div class="country s_text">Seoul, South Korea</div>
-								</div>
-
-							</div>
-
-							<div class="sprite_more_icon" data-name="more">
-								<ul class="toggle_box">
-									<li><input type="submit" class="follow" value="팔로우"
-										data-name="follow"></li>
-									<li>수정</li>
-									<li>삭제</li>
-								</ul>
-							</div>
-						</header>
-
-						<div class="img_section">
-							<div class="trans_inner">
-								<div>
-									<img src="imgs/img_section/img01.jpg" alt="visual01">
-								</div>
-							</div>
-						</div>
-
-						<div class="bottom_icons">
-							<div class="left_icons">
-								<div class="heart_btn">
-									<div class="sprite_heart_icon_outline" name="39"
-										data-name="heartbeat"></div>
-								</div>
-								<div class="sprite_bubble_icon"></div>
-								<div class="sprite_share_icon" data-name="share"></div>
-							</div>
-							<div class="right_icon">
-								<div class="sprite_bookmark_outline" data-name="bookmark"></div>
-							</div>
-						</div>
-
-						<div class="likes m_text">
-							좋아요 <span id="like-count-39">2,346</span> 개
-						</div>
-
-						<div class="comment_container">
-							<div class="comment" id="comment-list-ajax-post37">
-								<div class="comment-detail">
-									<div class="nick_name m_text">dongdong2</div>
-									<div>강아지가 너무 귀여워요~!</div>
-								</div>
-							</div>
-							<div class="small_heart">
-								<div class="sprite_small_heart_icon_outline"></div>
-							</div>
-						</div>
-
-						<div class="timer">1시간 전</div>
-
-						<div class="comment_field" id="add-comment-post37">
-							<input type="text" placeholder="댓글달기...">
-							<div class="upload_btn m_text" data-name="comment">게시</div>
-						</div>
-					</article>
-
-
 
 				</div>
 				<input type="hidden" id="page" value="1">
@@ -408,8 +160,8 @@
 							<img src="imgs/thumb.jpeg" alt="프로필사진">
 						</div>
 						<div class="detail">
-							<div class="id m_text">KindTiger</div>
-							<div class="ko_name">심선범</div>
+							<div class="id m_text">ㅋㅋ~닉네임인데~ㅋㅋ</div>
+							<div class="ko_name">김하랑</div>
 						</div>
 					</div>
 
@@ -425,43 +177,7 @@
 									<img src="imgs/thumb02.jpg" alt="프로필사진">
 								</div>
 								<div class="detail">
-									<div class="id">kind_tigerrrr</div>
-									<div class="time">1시간 전</div>
-								</div>
-							</div>
-							<div class="thumb_user">
-								<div class="profile_thumb">
-									<img src="imgs/thumb02.jpg" alt="프로필사진">
-								</div>
-								<div class="detail">
-									<div class="id">kind_tigerrrr</div>
-									<div class="time">1시간 전</div>
-								</div>
-							</div>
-							<div class="thumb_user">
-								<div class="profile_thumb">
-									<img src="imgs/thumb02.jpg" alt="프로필사진">
-								</div>
-								<div class="detail">
-									<div class="id">kind_tigerrrr</div>
-									<div class="time">1시간 전</div>
-								</div>
-							</div>
-							<div class="thumb_user">
-								<div class="profile_thumb">
-									<img src="imgs/thumb02.jpg" alt="프로필사진">
-								</div>
-								<div class="detail">
-									<div class="id">kind_tigerrrr</div>
-									<div class="time">1시간 전</div>
-								</div>
-							</div>
-							<div class="thumb_user">
-								<div class="profile_thumb">
-									<img src="imgs/thumb02.jpg" alt="프로필사진">
-								</div>
-								<div class="detail">
-									<div class="id">kind_tigerrrr</div>
+									<div class="id">그르르르</div>
 									<div class="time">1시간 전</div>
 								</div>
 							</div>
@@ -479,16 +195,7 @@
 								<img src="imgs/thumb02.jpg" alt="프로필사진">
 							</div>
 							<div class="detail">
-								<div class="id">kind_tigerrrr</div>
-								<div class="time">1시간 전</div>
-							</div>
-						</div>
-						<div class="thumb_user">
-							<div class="profile_thumb">
-								<img src="imgs/thumb02.jpg" alt="프로필사진">
-							</div>
-							<div class="detail">
-								<div class="id">kind_tigerrrr</div>
+								<div class="id">그르르</div>
 								<div class="time">1시간 전</div>
 							</div>
 						</div>
