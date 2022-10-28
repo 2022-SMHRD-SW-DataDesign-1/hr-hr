@@ -36,10 +36,15 @@
 
 				<div class="right_icons">
 					<a href="NewPost.jsp"><div class="sprite_camera_icon"></div></a>
-					<a href="Login.jsp"><div class="sprite_compass_icon"></div></a> <a
-						href="Follow.jsp"><div class="sprite_heart_icon_outline"></div></a>
+					<a href="Login.jsp"><div class="sprite_compass_icon"></div></a>
+					 <a href="Follow.jsp"><div class="sprite_heart_icon_outline"></div></a>
 					<a href="Profile.jsp"><div class="sprite_user_icon_outline"></div></a>
+					<a href="Top10Ranking.jsp"><div class="sprite_user_icon_outline"></div></a>
+					<a href="DM.jsp"><div class="sprite_user_icon_outline"></div></a>
+					<a href="ProfileEdit.jsp"><div class="sprite_user_icon_outline"></div></a>
+					
 				</div>
+				
 
 			</section>
 

@@ -72,3 +72,37 @@
     line-height : 80px; 
     text-shadow : 0 10px 1px rgba(255, 255, 255, 0.5);  
   } 
+  
+  .btn-container{
+    
+    border-radius: 4px;
+    text-align: center;
+    margin-bottom: 40px;
+    margin-top: 45px;
+
+  }
+  .btn-3d {
+    position: relative;
+    display: inline-block;
+    font-size: 22px;
+    padding: 20px 60px;
+    color: white;
+    margin: 20px 10px 10px;
+    border-radius: 6px;
+    text-align: center;
+    transition: top .01s linear;
+    text-shadow: 0 1px 0 rgba(0,0,0,0.15);
+  }
+  .btn-3d.green:hover  {background-color: rgba(111, 159, 196, 0.8); }
+
+  .btn-3d:active {
+    top: 9px;
+  }
+  .btn-3d.green {
+    background-color: rgba(140, 176, 204, 0.8); 
+    box-shadow: 0 0 0 1px #e2e9e5 inset,
+          0 0 0 1px rgba(255,255,255,0.15) inset,
+          0 4px 0 0 rgba(164, 182, 196, 0.8),
+          0 4px 0 1px rgba(136, 156, 172, 0.8),
+          0 4px 4px 1px rgba(197, 216, 231, 0.8);
+  }
