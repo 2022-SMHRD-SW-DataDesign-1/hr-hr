@@ -6,9 +6,6 @@
 
 	<properties resource="com/smhrd/db/db.properties" />
 
-	<typeAliases>
-		<typeAlias type="com.smhrd.model.example" alias="example" />
-	</typeAliases>
 	<environments default="development">
 		<environment id="development">
 			<transactionManager type="JDBC" />
@@ -21,6 +18,6 @@
 		</environment>
 	</environments>
 	<mappers>
-		<mapper resource="com/smhrd/mapper/exMapper.xml" />
+		<mapper resource="com/smhrd/mapper/testMapper.xml" />
 	</mappers>
 </configuration>
