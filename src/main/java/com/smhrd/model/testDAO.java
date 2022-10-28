@@ -1,4 +1,4 @@
-package com.smhrd.controller;
+package com.smhrd.model;
 
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
