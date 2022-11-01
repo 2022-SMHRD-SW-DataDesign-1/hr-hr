@@ -2,7 +2,10 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
-  
-<mapper namespace="com.smhrd.db.Mapper">
-	<insert id="join" parameterType="com.smhrd.model"></insert>
+
+<mapper namespace="com.smhrd.mapper.MemberMapper">
+
+	<select id="IDCheck" parameterType="String" resultType="boolean">
+		select case when count(*) > 0 then 1 else 0 end result from t_member where m_id = #{inputID}
+	</select>
 </mapper>
