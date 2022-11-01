@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.smhrd.model.MemberDAO;
+
 public class IDCheckService extends HttpServlet {
 
 	protected void service(HttpServletRequest request, HttpServletResponse response)
