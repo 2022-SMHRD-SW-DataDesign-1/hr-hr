@@ -35,17 +35,18 @@ public class JoinService extends HttpServlet {
 		MemberDTO dto = new MemberDTO(m_Id, m_Pw, m_Name, m_Nickname, m_Phone);
 		
 		int row = new MemberDAO().join(dto);
+		System.out.println(row);
 		
-		// 결과값 확인 -> 페이지이동
+		// 결과값 확인 -> 페이지이동 // 회원가입 성공했을 시 어디로 이동할지??
 		String moveURL = null;
 		if(row > 0) {
 			System.out.println("회원가입 성공");
-			moveURL = "./JoinSuccess.jsp";
+			moveURL = "./testResult.jsp";
 			request.setAttribute("m_Id", m_Id);
 			
 		}else {
 			System.out.println("회원가입 실패");
-			moveURL = "./Main.jsp";
+			moveURL = "./testResult.jsp";
 		}
 		
 		RequestDispatcher rd = request.getRequestDispatcher(moveURL);

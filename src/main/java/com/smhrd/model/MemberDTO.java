@@ -50,7 +50,7 @@ public class MemberDTO {
     private String m_Type;
     
     // 회원가입 DTO
-   
+    
     @Builder
     public MemberDTO(String m_Id, String m_Pw, String m_Name, String m_Nickname, String m_Phone ) {
     	this.m_Id = m_Id;
@@ -58,6 +58,7 @@ public class MemberDTO {
     	this.m_Name = m_Name;
     	this.m_Nickname = m_Nickname;
     	this.m_Phone = m_Phone;
+    	
     }
    
     
