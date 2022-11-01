@@ -243,8 +243,8 @@ body {
 
 #main_container {
     /*height: 100vh;*/
-    padding-top: 135px;
-    display: flex;
+  	padding-top: 135px;
+  	display: flex;
     justify-content: center;
     order: 1;
 }
