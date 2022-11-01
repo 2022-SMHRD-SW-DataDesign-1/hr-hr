@@ -14,32 +14,32 @@ import lombok.RequiredArgsConstructor;
 public class MemberDTO {
 	 // 회원 아이디 
    @NonNull
-	private String mId;
+	private String m_Id;
 
     // 회원 비밀번호 
     @NonNull
-    private String mPw;
+    private String m_Pw;
 
     // 회원 이름 
-    private String mName;
+    private String m_Name;
 
     // 회원 닉네임 
-    private String mNickname;
+    private String m_Nickname;
 
     // 회원 연락처 
-    private String mPhone;
+    private String m_Phone;
 
     // 회원 가입일자 
-    private Date mJoindate;
+    private Date m_Joindate;
 
     // 회원 프로필 
-    private String mProfile;
+    private String m_Profile;
 
     // 회원 포인트 
-    private Double mPoint;
+    private Double m_Point;
 
     // 회원 유형 
-    private String mType;
+    private String m_Type;
     
    
     
