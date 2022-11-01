@@ -1,1 +1,21 @@
-select * from test_board
+select * from t_member
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+)

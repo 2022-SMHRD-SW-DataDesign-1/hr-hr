@@ -4,10 +4,20 @@
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.smhrd.mapper.MemberMapper">
+	<insert id="join" parameterType="MemberDTO">
+		insert into t_member
+		values(#{m_id}, #{m_pw}, #{m_name}, #{m_nickname}, #{m_phone},
+		sysdate,'자기소개를 입력하세요','0','u')
+	</insert>
 	
+	<select id="login" parameterType="MemberDTO" resultType="MemberDTO">
+		select * from t_member where m_id = #{m_id} and pw = #{m_pw}
+	</select>
 
 
 	<select id="IDCheck" parameterType="String" resultType="boolean">
-		select case when count(*) > 0 then 1 else 0 end result from t_member where m_id = #{inputID}
+		select
+		case when count(*) > 0 then 1 else 0 end result from t_member where
+		m_id = #{inputID}
 	</select>
 </mapper>

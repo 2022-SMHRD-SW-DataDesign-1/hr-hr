@@ -21,7 +21,7 @@ public class MemberDAO {
 	}
 
 	public MemberDTO login(MemberDTO dto) {
-
+		System.out.println("로그인성공");
 		SqlSession session = sqlSessionFactory.openSession(true);
 
 		MemberDTO info = session.selectOne("login", dto); // 받아온 객체가 MemberDTO 타입으로 sql 문장에서 id가 "login" 문장을 실행한다.
