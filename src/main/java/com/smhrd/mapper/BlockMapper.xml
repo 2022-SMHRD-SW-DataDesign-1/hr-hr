@@ -4,5 +4,11 @@
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.smhrd.mapper.BlockMapper">
-
+	<insert id="block" parameterType="BlockDTO">
+		insert into t_block values
+		(${m_id},${block_id})
+	</insert>
+	<delete id="unBlock" parameterType="BlockDTO">
+		delete from t_block where m_id = ${m_id} and block_id = ${block_id}
+	</delete>
 </mapper>
