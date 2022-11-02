@@ -13,8 +13,6 @@ public class BoardDTO {
 	
 	// 게시글 번호
 	private int b_num;
-	// 게시글 제목
-	private String b_title;
 	// 게시글 작성자
 	private String b_writer;
 	// 게시글 내용

@@ -30,6 +30,7 @@ public class LoginService extends HttpServlet {
 		
 		MemberDTO info = new MemberDAO().login(dto);
 		
+		
 		if (info != null) {
 			System.out.println("로그인 성공");
 			
@@ -42,7 +43,7 @@ public class LoginService extends HttpServlet {
 		}
 		
 		//일단은 메인으로 가게끔 하고 나중에 수정..!
-		RequestDispatcher rd = request.getRequestDispatcher("./Main.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("./testResult.jsp");
 		rd.forward(request, response);
 		
 		
