@@ -1,42 +1,69 @@
-
-
-.contents{
-    max-width:933px;
+.contents {
+    max-width: 933px;
     display: flex;
-    border: 1px solid rgba(0,0,0,.0975);
+    border: 1px solid rgba(0, 0, 0, .0975);
     border-radius: 3px;
     background: #fff;
 }
 
-.contents .img_section{
+.contents .img_section {
     overflow: hidden;
-    max-width: 598px;
-    border-right: 1px solid rgba(0,0,0,.0975);
+    max-width: 600px;
+    border-right: 1px solid rgba(0, 0, 0, .0975);
+
+}
+/* 다시 애 먹음... 뭐지... 반응형 다시 end */
+.contents.cont01 {
+    /* position: absolute;
+    left:20%; */
+    width: max-content;
+    flex: 0%;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
 
 }
 
-.contents .img_section .trans_inner{
-    /*width: 2448px;*/
+.contents .img_section .trans_inner {
+    /* width: 2448px; */
     font-size: 0;
+
+
 }
 
-.contents .img_section .trans_inner > div{
+.contents .img_section .trans_inner>div {
     width: 100%;
     display: inline-block;
 }
-.contents .img_section .trans_inner img{
+
+.contents .img_section .trans_inner img {
     width: 100%;
     height: 100%;
+    justify-content: center;
+
 }
 
-
-
-.user_container{
-    display: flex;
+.contents_box{
+    justify-content: center;
     align-items: center;
 }
 
-.user_container .profile_img{
+
+
+
+.user_container {
+    display: flex;
+    /* 반응형 페이지 center 없어지면 없어짐 */
+    align-items:center;
+    margin-inline-end: auto;
+    /* float: inline-start;*/
+    /* margin-right: 780px;  */
+    padding: 5px;
+
+}
+
+
+.user_container .profile_img {
     width: 32px;
     height: 32px;
     border-radius: 50%;
@@ -44,167 +71,175 @@
     margin-right: 10px;
 }
 
-.user_container .profile_img img{
+.user_container .profile_img img {
     height: 100%;
     width: 100%;
 }
 
-.user_container .user_name{
-    color:#262626;
+.user_container .user_name {
+    color: #262626;
 }
-.user_container .nick_name{
+
+.user_container .nick_name {
     font-size: 14px;
     font-weight: bold;
     margin-bottom: 5px;
 }
 
 
-.contents .top{
+.contents .top {}
 
-}
-.top .more_detail{
+.top .more_detail {
     position: absolute;
     right: -60px;
     top: 40px;
-    background:white;
-    border: 1px solid rgba(0,0,0,.0975);
+    background: white;
+    border: 1px solid rgba(0, 0, 0, .0975);
     border-radius: 3px;
     z-index: 100;
     box-shadow: 2px 2px 2px rgba(128, 128, 128, 0.34);
     /*display: none;*/
     transform-origin: left top;
-    transform:scale(0);
-    transition:all 0.3s ;
+    transform: scale(0);
+    transition: all 0.3s;
 }
 
-.sprite_more_icon.on .more_detail{
+.sprite_more_icon.on .more_detail {
     /*display: block;*/
-    transform:scale(1);
+    transform: scale(1);
 
 
 }
 
-.top .more_detail > li{
+.top .more_detail>li {
     padding: 10px 20px;
     cursor: pointer;
 }
 
-.top .more_detail > li:hover{
-    background:gray;
-}
-.user_container .country{
+
+
+
+
+.user_container .country {
     font-size: 12px;
 }
 
-.contents .img_section{
+.contents .img_section {
+    
     overflow: hidden;
 }
 
-.contents .img_section .trans_inner{
+.contents .img_section .trans_inner {
     /*width: 2448px;*/
     font-size: 0;
 }
 
-.contents .img_section .trans_inner > div{
+.contents .img_section .trans_inner>div {
     width: 100%;
     display: inline-block;
 }
-.contents .img_section .trans_inner img{
+
+.contents .img_section .trans_inner img {
     width: 100%;
     height: 100%;
 }
 
-.detail--right_box{
-    max-width:335px;
+.detail--right_box {
+    max-width: 930px;
     width: 100%;
 }
 
 
-.detail--right_box .top{
+.detail--right_box .top {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 13px 17px;
     position: relative;
 
-    border-bottom: 1px solid rgba(0,0,0,.0975);
+    border-bottom: 1px solid rgba(0, 0, 0, .0975);
 }
 
-.detail--right_box .top .sprite_more_icon{
+.detail--right_box .top .sprite_more_icon {
     cursor: pointer;
     padding: 5px 5px;
 }
 
-.scroll_section{
-    padding:12px 16px;
+.scroll_section {
+    padding: 12px 16px;
     /*height: 240px;*/
     overflow-x: hidden;
     overflow-y: scroll;
 }
-.scroll_section .admin_container{
+
+.scroll_section .admin_container {
     margin-bottom: 10px;
 }
 
-.scroll_section .user_container-detail{
+.scroll_section .user_container-detail {
     margin-bottom: 10px;
 }
+
 .scroll_section .admin_container,
-.scroll_section .user_container-detail{
+.scroll_section .user_container-detail {
     display: flex;
 }
 
 
 .scroll_section .admin_container .admin,
-.scroll_section .user_container-detail .user{
+.scroll_section .user_container-detail .user {
     width: 32px;
     height: 32px;
-    min-width:32px;
+    min-width: 32px;
     border-radius: 50%;
-    overflow:hidden;
+    overflow: hidden;
     margin-right: 10px;
 }
 
 
 
 .scroll_section .admin_container .admin img,
-.scroll_section .user_container-detail .user img{
+.scroll_section .user_container-detail .user img {
     width: 100%;
     height: 100%;
 }
 
 /* 댓글 css 추가  */
-.commet_container{
+.commet_container {
     padding: 5px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    color:#262626;
+    color: #262626;
     font-size: 14px;
 
 }
-.commet_container .nick_name{
+
+.commet_container .nick_name {
     font-weight: bold;
     margin-right: 10px;
     padding: 1px;
 }
 
-.commet_container .commet{
+.commet_container .commet {
     display: flex;
 
 }
 
-.scroll_section .user_id{
-    color:#262626;
+.scroll_section .user_id {
+    color: #262626;
     font-size: 14px;
     font-weight: bold;
-    margin-right:5px;
+    margin-right: 5px;
 }
-.scroll_section .comment{
-    line-height:1.4;
+
+.scroll_section .comment {
+    line-height: 1.4;
     position: relative;
     width: 100%;
 }
-.scroll_section .comment .icon_wrap{
+
+.scroll_section .comment .icon_wrap {
     position: absolute;
     right: -23px;
     top: -9px;
@@ -212,109 +247,107 @@
     align-items: center;
 }
 
-.scroll_section .comment .icon_wrap:hover > div:nth-child(1){
+.scroll_section .comment .icon_wrap:hover>div:nth-child(1) {
     display: block;
 }
 
-.scroll_section .comment .icon_wrap > div{
+.scroll_section .comment .icon_wrap>div {
     background: #fff;
     display: flex;
     align-items: center;
     width: 40px;
     height: 40px;
     justify-content: center;
-    cursor: pointer;text-align: center;
+    cursor: pointer;
+    text-align: center;
 }
 
-.scroll_section .comment .icon_wrap > div:nth-child(1){
+.scroll_section .comment .icon_wrap>div:nth-child(1) {
     display: none;
-    transform: translate(10px,4px);
+    transform: translate(10px, 4px);
 }
 
-.scroll_section .comment .icon_wrap > div:nth-child(2){
+.scroll_section .comment .icon_wrap>div:nth-child(2) {
     background: transparent;
 }
 
 
-.try_comment{
+.try_comment {
     font-size: 12px;
     margin-left: 10px;
     cursor: pointer;
 }
-.scroll_section .comment .time{
+
+.scroll_section .comment .time {
     font-size: 15px;
-    color:#999;
+    color: #999;
     margin-top: 10px;
 }
 
 
-.bottom_icons{
+.bottom_icons {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
 }
 
-.bottom_icons .left_icons{
+.bottom_icons .left_icons {
     display: flex;
 }
 
-.bottom_icons .left_icons > div{
+.bottom_icons .left_icons>div {
     margin-right: 10px;
     cursor: pointer;
 
 
 }
 
-.bottom_icons .left_icons > div.on{
+.bottom_icons .left_icons>div.on {}
 
-}
-
-.sprite_heart_icon_outline.on{
+.sprite_heart_icon_outline.on {
     background: url('../imgs/background01.png') no-repeat -26px -261px;
-    animation:heart_bounce 1s linear;
+    animation: heart_bounce 1s linear;
 }
 
 
-.sprite_bookmark_outline.on{
-
-}
+.sprite_bookmark_outline.on {}
 
 .animation-target {
     animation: animation 1000ms linear both;
 }
 
 
-.count_likes{
+.count_likes {
     font-weight: bold;
     font-size: 14px;
-    color:#262626;
+    color: #262626;
     padding: 5px 20px;
 }
 
-.count_bookmark{
+.count_bookmark {
     font-weight: bold;
     font-size: 14px;
-    color:#262626;
+    color: #262626;
     padding: 5px 20px;
 }
 
-.timer{
+.timer {
     font-size: 10px;
     letter-spacing: .2px;
-    color:#999;
+    color: #999;
     /* border-bottom: 1px solid rgba(0,0,0,.0975); */
     padding: 10px 20px;
 }
 
 
-.commit_field{
+.commit_field {
     min-height: 56px;
     padding: 0 20px;
     position: relative;
 }
 
-.content{
+.content {
     font-size: 35px;
     font-weight: 200;
     display: inline-block;
@@ -324,43 +357,42 @@
 }
 
 
-.commit_field input{
+.commit_field input {
     width: 100%;
     height: 56px;
     border: none;
-    outline:none;
-    background:transparent;
+    outline: none;
+    background: transparent;
 }
 
 
-.commit_field input::placeholder{
-    color:gray;
+.commit_field input::placeholder {
+    color: gray;
 }
 
-.commit_field .upload_btn{
+.commit_field .upload_btn {
     font-weight: bold;
     font-size: 14px;
-    color:#3897f0;
+    color: #3897f0;
     position: absolute;
     right: 20px;
     top: 50%;
-    transform:translateY(-50%);
+    transform: translateY(-50%);
     cursor: pointer;
     opacity: 0.6;
     pointer-events: none;
 }
 
-.commit_field input:focus ~ .upload_btn{
+.commit_field input:focus~.upload_btn {
     pointer-events: initial;
     opacity: 1;
 }
-.commit_field .upload_btn.on{
 
-}
-
+.commit_field .upload_btn.on {}
 
 
-.del_pop{
+
+.del_pop {
     width: 100%;
     height: 100%;
     position: fixed;
@@ -371,34 +403,34 @@
     background: rgba(0, 0, 0, 0.48);
     z-index: -1;
     opacity: 0;
-    transition:all 0.3s;
+    transition: all 0.3s;
 }
 
-.del_pop.on{
+.del_pop.on {
     opacity: 1;
     z-index: 99999999999;
 }
 
-.del_pop.on .btn_box{
-    transform:translate(-50%,-50%)scale(1);
+.del_pop.on .btn_box {
+    transform: translate(-50%, -50%)scale(1);
 
 }
 
-.del_pop .btn_box{
+.del_pop .btn_box {
     border-radius: 10px;
     width: 400px;
     background: #fff;
     position: absolute;
     left: 50%;
     top: 50%;
-    transform:translate(-50%,-50%)scale(1.1);
-    transition:all 0.2s;
+    transform: translate(-50%, -50%)scale(1.1);
+    transition: all 0.2s;
 
 }
 
 
 
-.del_pop .btn_box > div{
+.del_pop .btn_box>div {
     padding: 20px 0;
 
     text-align: center;
@@ -406,11 +438,37 @@
 
 }
 
-.del_pop .btn_box > div:nth-child(1){
-    border-bottom: 1px solid rgba(0,0,0,0.09);
-    color:#ed4956;
+.del_pop .btn_box>div:nth-child(1) {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.09);
+    color: #ed4956;
 }
+
 /*---------------------------detail-page*/
 
 
 
+.detail--right_box {}
+
+
+
+.scroll_section {
+    flex-direction: column;
+    flex-wrap: wrap;
+
+}
+
+.scroll_section.user_container {
+    display: flex;
+    flex: none;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+
+.user_id {
+
+    color: #262626;
+    font-size: 14px;
+    font-weight: bold;
+    margin-right: 5px;
+}
