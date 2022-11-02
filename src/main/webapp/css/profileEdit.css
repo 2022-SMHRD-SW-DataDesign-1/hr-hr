@@ -1,0 +1,109 @@
+/* 프로필 박스 */
+.profile_form_container{
+    max-width: 550x;
+    margin: 0 auto;
+}
+
+/* 상자 틀 */
+.profile_form{
+    padding: 40px;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid #e6e6e6;
+    margin: 0 0 10px;
+}
+
+.profile_form .title{
+    margin: 0 10px 40px;
+    font-weight: 400px;
+    font-size: 30px;
+    text-align: center;
+}
+
+/* 이미지 넣는 공간과 파일선택 사이의 간격 */
+.profile_form .preview{
+    margin-bottom: 50px;
+}
+/* 이미지 넣는 공간 틀 */
+.profile_form .preview .upload{
+    max-width: 300px;
+    height: 300px;
+    border: 1px solid #5a5555;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+/* 이미지 넣는 동간 동그라미 아이콘 */
+.plus_icon{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin: 0 auto 10px;
+    border: 1px solid rgb(172, 174, 177);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 이미지 넣는 공간 플러스 이모티콘 */
+.plus_icon span{
+    position: absolute;
+    display: block;
+    width: 2px;
+    height: 30px;
+    background: dodgerblue;
+
+}
+/* 이미지 넣는 공간 플러스 구호 */
+.plus_icon span:nth-child(2){
+    transform:rotate(90deg);
+}
+/* 이미지 넣는 공간 */
+.post_form p{
+    margin-bottom: 20px;
+}
+/* 파일 선택버튼 공간 */
+.post_form input[type=file]{
+    width: 100%;
+    background: 0 0;
+    border: 1px solid #ffffff;
+    border-radius: 3px;
+    box-sizing: border-box;
+    color: #262626;
+    font-size: 14px;
+    padding: 7px 8px 7px;
+}
+
+/* 텍스트 쓰는 box */
+.post_form textarea{
+    width: 100%;
+    background: 0 0;
+    border: 1px solid #420f0f;
+    border-radius: 3px;
+    box-sizing: border-box;
+    color: #262626;
+    font-size: 14px;
+    padding: 7px 8px 7px;
+}
+
+
+
+.editsubmit_btn {
+    /* 저장 버튼 색깔 지정*/
+    background: #2d95eb;
+    border-color: #ffffff;
+    color: #fff;
+    border-radius: 3px;
+    border-style: solid;
+    border-width: 1px;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 28px;
+    outline: none;
+    width: 100%;
+    padding: 0;
+    margin-top: 10px;
+}
+
+
