@@ -86,7 +86,7 @@
 					<div class="detail">
 						<div class="top">
 							<div class="user_name">KindTiger</div>
-							<a href="profile_edit.html" class="profile_edit">프로필편집</a> <a
+							<a href="ProfileEdit.jsp" class="profile_edit">프로필편집</a> <a
 								href="#" class="logout">로그아웃</a>
 						</div>
 
