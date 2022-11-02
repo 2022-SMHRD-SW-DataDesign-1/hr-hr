@@ -28,5 +28,14 @@ public class MemberDAO {
 
 		return info;
 	}
+	
+	public boolean IDCheck(String inputID) {
+		SqlSession session = sqlSessionFactory.openSession(true);
+		boolean checkID = session.selectOne("IDCheck", inputID);
+		session.close();
+		System.out.println(checkID);
+		
+		return checkID;
+	}
 
 }

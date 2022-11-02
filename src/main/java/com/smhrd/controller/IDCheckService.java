@@ -15,7 +15,7 @@ public class IDCheckService extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// 입력한 아이디
-		String inputID = request.getParameter("입력아이디");
+		String inputID = request.getParameter("inputID");
 		
 		// dao idcheck()호출
 		MemberDAO dao = new MemberDAO();

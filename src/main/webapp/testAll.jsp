@@ -6,15 +6,16 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
+<script src="http://code.jquery.com/jquery-latest.js"></script>
 <body>
 	<!-- 기능 테스트 페이지 -->
 
 	<hr>
 	<!-- 회원가입 -->
-	<form action="JoinService">
+	<form action="JoinService" method="post">
 		Id:<input type="text" name="m_Id" id="inputID">
-		 <input type="button" value="ID중복체크" onclick="checkID()" class="button fit"><br>
-		<span id="resultCheckID">123</span> <br> 
+		 <input type="button" value="ID중복체크" onclick="checkID()"><br>
+		<span id="resultCheckID"></span> <br> 
 		
 		Pw: <input type="password" name="m_Pw"> <br> 
 		Name: <input type="text" name="m_Name"><br>
@@ -23,6 +24,7 @@
 			type="submit" value="test 전송">
 	</form>
 	<!-- 아이디 중복 체크 -->
+	
 	<script>
 		function checkID() {
 			let inputID = $("#inputID").val();
@@ -32,15 +34,14 @@
 				// 요청서버 url
 				url : "IDCheckService",
 				// 요청할 때 같이 보내줄 데이터
-				data : {
-					"inputID" : inputID
-				},
+				data : {"inputID" : inputID},
 				// 요청 타입
-				type : "get",
+				type : 'get',
+				dataType: 'json', 
 				// 통신 성공 function(넘겨준데이터)
 				success : function(data) {
-					console.log(typeof data);
-					if (data == "true") {
+					console.log(data);
+					if (data == true) {
 						$("#resultCheckID").text("중복");
 					} else {
 						$("#resultCheckID").text("가능");
