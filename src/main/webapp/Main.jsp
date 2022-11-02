@@ -12,7 +12,7 @@
 <link rel="stylesheet" href="css/reset.css">
 <link rel="stylesheet" href="css/common.css">
 <link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="css/Top10Ranking.css">
+
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 <body>
 
@@ -83,18 +83,7 @@
 
 		<section id="main_container">
             
-            <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#staticBackdrop" aria-controls="staticBackdrop">
-               랭킹보드
-              </button>
-              
-              <div class="offcanvas offcanvas-start" data-bs-backdrop="static" tabindex="-1" id="staticBackdrop" aria-labelledby="staticBackdropLabel">
-                <div class="offcanvas-header">
-                  <h5 class="offcanvas-title" id="staticBackdropLabel">
-                  </h5>
-                  <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                </div>
-                <div class="offcanvas-body">
-                  <div>
+			<div class="left_side_box">
                     <div class="ranking_box">
                         <div class="user_profile">
                             <div class="profile_thumb">
@@ -106,10 +95,10 @@
                             </div>
                         </div>
     
-                        <article class="story">
-                            <header class="story_header">
+                        <article class="month_ranking">
+                            <header class="ranking_header">
                                 <div>월간랭킹</div>
-                                <div class="more">모두 보기</div>
+                                <div class="more"><a href="Top10Ranking.html" class="ranking_a">모두 보기</a></div>
                             </header>
     
                             <div class="scroll_inner">
@@ -145,11 +134,11 @@
 								
                             </div>
                         </article>
-    
-						<article class="story">
+					
+						<article class="daily_ranking">
                             <header class="story_header">
                                 <div>일간랭킹</div>
-                                <div class="more">모두 보기</div>
+                                <div class="more"><a href="Top10Ranking.html" class="ranking_a">모두 보기</a></div>
                             </header>
     
                             <div class="scroll_inner">
@@ -185,12 +174,9 @@
 								
                             </div>
                         </article>
+						</div>
                     </div>
-                  </div>
-                </div>
-              </div>
-			  
-			</div>	
+                  
 			<div class="inner">
 				<div class="contents_box">
                     
@@ -324,9 +310,9 @@
 
 	</section>
 
-	
+	<script src="js/chat.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 	<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 </body>
-</html>
+</html></html>
