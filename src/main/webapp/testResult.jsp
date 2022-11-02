@@ -8,15 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<%
-	MemberDTO info = (MemberDTO)session.getAttribute("info");
-	
-	String m_Id = request.getParameter("m_Id");
-	String m_Pw = request.getParameter("m_Pw");
-	
-%>
 
-<%= info.getM_Id() %>
 
 </body>
 </html>
