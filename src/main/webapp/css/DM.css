@@ -1,6 +1,4 @@
-@charset "UTF-8";
-
-
+				
 /* 노말라이징 */
 body, ul, li {
    
@@ -27,9 +25,9 @@ body, html {
 
 #chat-room {
     height:70%;
-    width: 80%;
+    width: 50%;
     margin-top: 100px;
-    left: 10%;
+    left: 25%;
     background-color:#fff;
     /* 임시 */
     outline:2px solid black;
@@ -51,11 +49,13 @@ body, html {
     padding:0.3rem 0;
     color:white;
     font-size:1.0rem;
+    margin-bottom: 10px;
 }
 
 #chat-room .chat-message {
     margin-left:3rem;
     position:relative;
+    margin-bottom: 1rem;
 }
 
 #chat-room .chat-message > section {
@@ -166,4 +166,4 @@ body, html {
     font-size:2rem;
     color:#CBCBCB;
     user-select:none;
-}
+}	
