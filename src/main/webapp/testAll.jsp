@@ -1,3 +1,4 @@
+<%@page import="com.smhrd.model.MemberDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -8,10 +9,14 @@
 </head>
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 <body>
+
+	<%
+	MemberDTO info = (MemberDTO) session.getAttribute("info");
+	%>
 	<!-- 기능 테스트 페이지 -->
 
 	<hr>
-	<!-- 회원가입 -->
+	<!-- 회원가입 o -->
 	<form action="JoinService" method="post">
 		Id:<input type="text" name="m_Id" id="inputID">
 		 <input type="button" value="ID중복체크" onclick="checkID()"><br>
@@ -23,7 +28,8 @@
 		Phone: <input type="text" name="m_Phone"> <br> <input
 			type="submit" value="test 전송">
 	</form>
-	<!-- 아이디 중복 체크 -->
+
+	<!-- 아이디 중복 체크 o -->
 	
 	<script>
 		function checkID() {
@@ -57,10 +63,24 @@
 
 	<hr>
 
-	<!-- 로그인 -->
+	<!-- 로그인 o -->
+	<form action="LoginService" method="post">
+		Id:<input type="text" name="m_Id"><br>
+		Pw: <input type="password" name="m_Pw"> <br> 
+		<input type="submit" value="test 로그인">
+	</form>
+	<%if(info != null){ %>
+	 멤버정보 :<%= info.toString() %>~~~~
+	 <%} %>
 	<hr>
-
+	
+	<!-- 로그아웃 o -->
+	<br>
+	<%if(info != null){ %>
+	<a href="LogoutService">로그아웃</a> 
+	<%} %>
 	<!-- 게시글 작성 -->
+	
 	<hr>
 
 	<!-- 게시글 목록 출력 + 댓글 작성 -->

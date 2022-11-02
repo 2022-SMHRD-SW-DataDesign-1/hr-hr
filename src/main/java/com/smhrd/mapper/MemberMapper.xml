@@ -11,12 +11,12 @@
 	</insert>
 	
 	<select id="login" parameterType="MemberDTO" resultType="MemberDTO">
-		select * from t_member where m_id = #{m_Id} and m_Pw = #{m_Pw}
+		select * from t_member where m_Id = #{m_Id} and m_Pw = #{m_Pw}
 	</select>
 
 
 	<select id="IDCheck" parameterType="String" resultType="boolean">
-		select
+		select	
 		case when count(*) > 0 then 1 else 0 end result from t_member where
 		m_id = #{inputID}
 	</select>
