@@ -1,108 +1,146 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-<style>
-        /* 아래 페이지에 할 수 있음  */
-        .post_form_container {
-            max-width: 550px;
-            margin: 0 auto;
-        }
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 
-        /* 네모난 칸 */
-        .post_form {
-            padding: 40px;
-            background-color: #fff;
-            border: 1px solid #e6e6e6;
-            margin: 0 0 10px;
-        }
+    <!-- Facebook Meta Tags / 페이스북 오픈 그래프 -->
+    <meta property="og:url" content="http://kindtiger.dothome.co.kr/insta">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="instagram">
+    <meta property="og:description" content="instagram clone">
+    <meta property="og:image" content="http://kindtiger.dothome.co.kr/insta/imgs/instagram.jpeg">
+    .
+    <!-- Twitter Meta Tags / 트위터 -->
+    <meta name="twitter:card" content="instagram clone">
+    <meta name="twitter:title" content="instagram">
+    <meta name="twitter:description" content="instagram clone">
+    <meta name="twitter:image" content="http://kindtiger.dothome.co.kr/insta/imgs/instagram.jpeg">
 
-        /* 무엇인지 모르겠음  */
-        .post_form .title {
-            margin: 0 10px 40px;
-            font-weight: 400;
-            font-size: 30px;
-            text-align: center;
-        }
+    <!-- Google / Search Engine Tags / 구글 검색 엔진 -->
+    <meta itemprop="name" content="instagram">
+    <meta itemprop="description" content="instagram clone">
+    <meta itemprop="image" content="http://kindtiger.dothome.co.kr/insta/imgs/instagram.jpeg">
 
 
-        .post_form .preview {
-            margin-bottom: 30px;
-        }
-
-        .post_form .preview .upload {
-            max-width: 300px;
-            height: 300px;
-            border: 1px solid #e6e6e6;
-            margin: 0 auto;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-        }
-    </style>
+    <title>instagram</title>
+    <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/new_post.css">
+    <link rel="stylesheet" href="css/profileEdit.css">
+    <link rel="shortcut icon" href="imgs/instagram.png">
+
+
 </head>
 <body>
-	<header id="header">
-		<section class="h_inner">
-
-			<h1 class="logo">
-				<a href="index.html">
-					<div class="sprite_insta_icon"></div>
-					<div>
-						<div class="sprite_write_logo"></div>
-					</div>
-				</a>
-			</h1>
-
-			<div class="search_field">
-				<input type="text" placeholder="검색" tabindex="0">
-
-				<div class="fake_field">
-					<span class=sprite_small_search_icon></span> <span>검색</span>
-				</div>
-			</div>
 
 
-			<div class="right_icons">
-				<a href="new_post.html">
-					<div class="sprite_camera_icon"></div>
-				</a> <a href="login.html">
-					<div class="sprite_compass_icon"></div>
-				</a> <a href="follow.html">
-					<div class="sprite_heart_icon_outline"></div>
-				</a> <a href="profile.html">
-					<div class="sprite_user_icon_outline"></div>
-				</a>
-			</div>
-		</section>
-
-	</header>
-
-	<section id="main_container">
-		<div class="post_form_container">
-			<div class="post_form">
-				<h1>프로필 수정 페이지</h1>
-				<div class="title">
-					<h2>해야한다.</h2>
-
-				</div>
-			</div>
-			<div class="preview">
-				<h2>preview</h2>
-
-			</div>
-			<div class="upload">
-
-				<h5>upload</h5>
-			</div>
+<section id="container">
 
 
-		</div>
-	</section>
+    <header id="header">
+        <section class="h_inner">
+
+            <h1 class="logo">
+                <a href="index.html">
+                    <div class="sprite_insta_icon"></div>
+                    <div>
+                        <div class="sprite_write_logo"></div>
+                    </div>
+                </a>
+            </h1>
+
+            <div class="search_field">
+                <input type="text" placeholder="검색" tabindex="0">
+
+                <div class="fake_field">
+                    <span class=sprite_small_search_icon></span>
+                    <span>검색</span>
+                </div>
+            </div>
+
+
+            <div class="right_icons">
+                <a href="new_post.html"><div class="sprite_camera_icon"></div></a>
+                <a href="login.html"><div class="sprite_compass_icon"></div></a>
+                <a href="follow.html"><div class="sprite_heart_icon_outline"></div></a>
+                <a href="profile.html"><div class="sprite_user_icon_outline"></div></a>
+            </div>
+        </section>
+    </header>
+
+
+
+    <div id="main_container">
+
+        <div class="profile_form_container">
+            <form action="#" class="profile_form">
+                <div class="title">
+                    프로필 수정
+                </div>
+                <div class="preview">
+                    <div class="upload">
+                        <div class="post_btn">
+                            <div class="plus_icon">
+                                <span></span>
+                                <span></span>
+                            </div>
+                            <p>프로필 이미지 수정</p>
+                            <canvas id="imageCanvas"></canvas>
+                            <!--<p><img id="img_id" src="#" style="width: 300px; height: 300px; object-fit: cover" alt="thumbnail"></p>-->
+                        </div>
+                    </div>
+                </div>
+                <p>
+                    <input type="file" name="photo" id="id_photo" required="required">
+                </p>
+                <p>
+                    <textarea name="content" id="text_field" cols="50" rows="5" placeholder="자기소개 부탁드립니다."></textarea>
+                </p>
+                <input class="editsubmit_btn" type="submit" value="저장">
+            </form>
+
+        </div>
+
+    </div>
+
+
+</section>
+
+
+<script>
+       var fileInput  = document.querySelector( "#id_photo" ),
+           button     = document.querySelector( ".input-file-trigger" ),
+           the_return = document.querySelector(".file-return");
+
+       // Show image
+       fileInput.addEventListener('change', handleImage, false);
+       var canvas = document.getElementById('imageCanvas');
+       var ctx = canvas.getContext('2d');
+
+
+        function handleImage(e){
+           var reader = new FileReader();
+           reader.onload = function(event){
+               var img = new Image();
+               // var imgWidth =
+               img.onload = function(){
+                   canvas.width = 300;
+                   canvas.height = 300;
+                   ctx.drawImage(img,0,0,300,300);
+               };
+               img.src = event.target.result;
+               // img.width = img.width*0.5
+               // canvas.height = img.height;
+           };
+           reader.readAsDataURL(e.target.files[0]);
+       }
+
+
+</script>
 </body>
 </html>
