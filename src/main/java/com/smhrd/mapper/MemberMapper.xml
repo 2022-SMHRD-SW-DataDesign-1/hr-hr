@@ -5,13 +5,13 @@
 
 <mapper namespace="com.smhrd.mapper.MemberMapper">
 	<insert id="join" parameterType="MemberDTO">
-		insert into t_member
-		values(#{m_id}, #{m_pw}, #{m_name}, #{m_nickname}, #{m_phone},
+		insert into t_member(M_ID, M_PW, M_NAME, M_NICKNAME, M_PHONE, M_JOINDATE, M_PROFILE, M_POINT, M_TYPE)
+		values(#{m_Id}, #{m_Pw}, #{m_Name}, #{m_Nickname}, #{m_Phone},
 		sysdate,'자기소개를 입력하세요','0','u')
 	</insert>
 	
 	<select id="login" parameterType="MemberDTO" resultType="MemberDTO">
-		select * from t_member where m_id = #{m_id} and pw = #{m_pw}
+		select * from t_member where m_id = #{m_Id} and pw = #{m_Pw}
 	</select>
 
 

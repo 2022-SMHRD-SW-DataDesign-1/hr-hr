@@ -13,7 +13,16 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 
 public class MemberDTO {
-	
+    @Builder
+    public MemberDTO(String m_Id, String m_Pw, String m_Name, String m_Nickname, String m_Phone ) {
+    	this.m_Id = m_Id;
+    	this.m_Pw = m_Pw;
+    	this.m_Name = m_Name;
+    	this.m_Nickname = m_Nickname;
+    	this.m_Phone = m_Phone;
+    	
+    }
+   
 
 // 회원 아이디 
    @NonNull
@@ -51,16 +60,7 @@ public class MemberDTO {
     
     // 회원가입 DTO
     
-    @Builder
-    public MemberDTO(String m_Id, String m_Pw, String m_Name, String m_Nickname, String m_Phone ) {
-    	this.m_Id = m_Id;
-    	this.m_Pw = m_Pw;
-    	this.m_Name = m_Name;
-    	this.m_Nickname = m_Nickname;
-    	this.m_Phone = m_Phone;
-    	
-    }
-   
+
     
     
     

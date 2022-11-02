@@ -76,6 +76,7 @@
   	<description></description>
   	<servlet-class>com.smhrd.controller.ReviewService</servlet-class>
   </servlet>
+  
   <servlet-mapping>
   	<servlet-name>test</servlet-name>
   	<url-pattern>/test</url-pattern>

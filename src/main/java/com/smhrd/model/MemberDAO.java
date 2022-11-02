@@ -9,10 +9,9 @@ public class MemberDAO {
 	private SqlSessionFactory sqlSessionFactory = SqlSessionManager.getSqlSession();
 
 	public int join(MemberDTO dto) {
-		System.out.println("조인성공");
 
 		SqlSession session = sqlSessionFactory.openSession(true);
-
+		System.out.println(dto.getM_Id());
 		int row = session.insert("join", dto);
 		session.close();
 
