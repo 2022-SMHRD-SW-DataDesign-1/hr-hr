@@ -5,48 +5,13 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-		<style>
-		/* 아래 페이지에 할 수 있음  */
-		.post_form_container {
-			max-width: 550px;
-			margin: 0 auto;
-		}
 		
-		/* 네모난 칸 */
-		.post_form {
-			padding: 40px;
-			background-color: #fff;
-			border: 1px solid #e6e6e6;
-			margin: 0 0 10px;
-		}
-		
-		/* 무엇인지 모르겠음  */
-		.post_form .title {
-			margin: 0 10px 40px;
-			font-weight: 400;
-			font-size: 30px;
-			text-align: center;
-		}
-		
-		.post_form .preview {
-			margin-bottom: 30px;
-		}
-		
-		.post_form .preview .upload {
-			max-width: 300px;
-			height: 300px;
-			border: 1px solid #e6e6e6;
-			margin: 0 auto;
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			position: relative;
-		}
-		</style>
+<link rel="stylesheet" href="css/reset.css">
 <link rel="stylesheet" href="css/common.css">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/Top10Ranking.css">
 </head>
 <body>
-	<h1>top10ranking 페이지입니다.</h1>
 
 	<header id="header">
 		<section class="h_inner">
@@ -67,43 +32,113 @@
 					<span class=sprite_small_search_icon></span> <span>검색</span>
 				</div>
 			</div>
+            <div class="right_icons">
+                <a href="NewPost.jsp"><img src="imgs/플러스.PNG"  class="sprite_camera_icon"></a>
+                <a href="Login.jsp"><img src="imgs/로그인.PNG" class="sprite_compass_icon"></a>
+                 <a href="Follow.jsp"><img src="imgs/팔로워.PNG" class="sprite_heart_icon_outline"></a>
+                <a href="Profile.jsp"><img src="imgs/프로필.PNG" class="sprite_user_icon_outline"></a>
+                <a href="Top10Ranking.jsp"><img src="imgs/랭킹버튼.PNG" class="sprite_user_icon_outline"></a>
+                <a href="DM.jsp"> <img src="imgs/채팅.PNG" class="sprite_user_icon_outline"></a>
+                <a href="ProfileEdit.jsp"><img src="imgs/프로필수정.PNG" class="sprite_user_icon_outline"></a>
+                
+            </div>
 
-
-			<div class="right_icons">
-				<a href="new_post.html">
-					<div class="sprite_camera_icon"></div>
-				</a> <a href="login.html">
-					<div class="sprite_compass_icon"></div>
-				</a> <a href="follow.html">
-					<div class="sprite_heart_icon_outline"></div>
-				</a> <a href="profile.html">
-					<div class="sprite_user_icon_outline"></div>
-				</a>
-			</div>
 		</section>
 
 	</header>
 
 	<section id="main_container">
-		<div class="post_form_container">
-			<div class="post_form">
-				<h1>top 10</h1>
-				<div class="title">
-					<h2>안녕</h2>
+		<div class="ranking_box">
+            <div class="user_profile">
+                <div class="profile_thumb">
+                    <img src="imgs/랭킹.PNG" class="rankingimg" alt="프로필사진">
+                </div>
+                <div class="detail">
+                    <div class="id r_text">Ranking</div>
+                   
+                </div>
+            </div>
 
-				</div>
-			</div>
-			<div class="preview">
-				<h2>preview</h2>
+            <article class="month_ranking">
+                <header class="story_header">
+                    <div>월간랭킹</div>
+                    <div class="more"></div>
+                </header>
 
-			</div>
-			<div class="upload">
+                <div class="scroll_inner">
+                    <div class="thumb_user">
+                        <div class="profile_thumb">
+                            <img src="imgs/1등.PNG" alt="프로필사진">
+                        </div>
+                        <div class="detail">
+                            <div class="id">user1</div>
+                            
+                        </div>
+                        
+                    </div>
+                    <div class="thumb_user">
+                        <div class="profile_thumb">
+                            <img src="imgs/2등.PNG" alt="프로필사진">
+                        </div>
+                        <div class="detail">
+                            <div class="id">user2</div>
+                            
+                        </div>
+                    </div>
+                    <div class="thumb_user">
+                        <div class="profile_thumb">
+                            <img src="imgs/3등.PNG" alt="프로필사진">
+                        </div>
+                        <div class="detail">
+                            <div class="id">user3</div>
+                            
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+            </article>
 
-				<h5>upload</h5>
-			</div>
+            <article class="daily_ranking">
+                <header class="story_header">
+                    <div>일간랭킹</div>
+                    <div class="more"></div>
+                </header>
 
-
-		</div>
+                <div class="scroll_inner">
+                    <div class="thumb_user">
+                        <div class="profile_thumb">
+                            <img src="imgs/1등.PNG" alt="프로필사진">
+                        </div>
+                        <div class="detail">
+                            <div class="id">user1</div>
+                            
+                        </div>
+                        
+                    </div>
+                    <div class="thumb_user">
+                        <div class="profile_thumb">
+                            <img src="imgs/2등.PNG" alt="프로필사진">
+                        </div>
+                        <div class="detail">
+                            <div class="id">user2</div>
+                            
+                        </div>
+                    </div>
+                    <div class="thumb_user">
+                        <div class="profile_thumb">
+                            <img src="imgs/3등.PNG" alt="프로필사진">
+                        </div>
+                        <div class="detail">
+                            <div class="id">user3</div>
+                            
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+            </article>
+        </div>
 	</section>
 
 </body>

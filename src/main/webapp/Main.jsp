@@ -8,24 +8,27 @@
 	content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 <title>Title</title>
 
+
 <link rel="stylesheet" href="css/reset.css">
 <link rel="stylesheet" href="css/common.css">
 <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/Top10Ranking.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 <body>
 
 	<section id="container">
 
-
+        
 		<header id="header">
 			<section class="inner">
-
+                
 				<h1 class="logo">
 					<a href="Main.jsp">
 						<div class="sprite_insta_icon"></div>
 						<div class="sprite_write_logo"></div>
 					</a>
 				</h1>
-
+                
 				<div class="search_box">
 					<input type="text" placeholder="검색" id="search-field">
 
@@ -33,15 +36,15 @@
 						<span class="sprite_small_search_icon"></span> <span>검색</span>
 					</div>
 				</div>
-
+              
 				<div class="right_icons">
-					<a href="NewPost.jsp"><div class="sprite_camera_icon"></div></a>
-					<a href="Login.jsp"><div class="sprite_compass_icon"></div></a>
-					 <a href="Follow.jsp"><div class="sprite_heart_icon_outline"></div></a>
-					<a href="Profile.jsp"><div class="sprite_user_icon_outline"></div></a>
-					<a href="Top10Ranking.jsp"><div class="sprite_user_icon_outline"></div></a>
-					<a href="DM.jsp"><div class="sprite_user_icon_outline"></div></a>
-					<a href="ProfileEdit.jsp"><div class="sprite_user_icon_outline"></div></a>
+					<a href="NewPost.jsp"><img src="imgs/플러스.PNG"  class="sprite_camera_icon"></a>
+					<a href="Login.jsp"><img src="imgs/로그인.PNG" class="sprite_compass_icon"></a>
+					 <a href="Follow.jsp"><img src="imgs/팔로워.PNG" class="sprite_heart_icon_outline"></a>
+					<a href="Profile.jsp"><img src="imgs/프로필.PNG" class="sprite_user_icon_outline"></a>
+					<a href="Top10Ranking.jsp"><img src="imgs/랭킹버튼.PNG" class="sprite_user_icon_outline"></a>
+					<a href="DM.jsp"> <img src="imgs/채팅.PNG" class="sprite_user_icon_outline"></a>
+					<a href="ProfileEdit.jsp"><img src="imgs/프로필수정.PNG" class="sprite_user_icon_outline"></a>
 					
 				</div>
 				
@@ -76,12 +79,123 @@
 			</div>
 		</div>
 
+        
 
 		<section id="main_container">
+            
+            <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#staticBackdrop" aria-controls="staticBackdrop">
+               랭킹보드
+              </button>
+              
+              <div class="offcanvas offcanvas-start" data-bs-backdrop="static" tabindex="-1" id="staticBackdrop" aria-labelledby="staticBackdropLabel">
+                <div class="offcanvas-header">
+                  <h5 class="offcanvas-title" id="staticBackdropLabel">
+                  </h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                  <div>
+                    <div class="ranking_box">
+                        <div class="user_profile">
+                            <div class="profile_thumb">
+                                <img src="imgs/랭킹.PNG" alt="프로필사진">
+                            </div>
+                            <div class="detail">
+                                <div class="id r_text">Ranking</div>
+                               
+                            </div>
+                        </div>
+    
+                        <article class="story">
+                            <header class="story_header">
+                                <div>월간랭킹</div>
+                                <div class="more">모두 보기</div>
+                            </header>
+    
+                            <div class="scroll_inner">
+                                <div class="thumb_user">
+                                    <div class="profile_thumb">
+                                        <img src="imgs/1등.PNG" alt="프로필사진">
+                                    </div>
+                                    <div class="detail">
+                                        <div class="id">user1</div>
+                                        
+                                    </div>
+									
+                                </div>
+								<div class="thumb_user">
+                                    <div class="profile_thumb">
+                                        <img src="imgs/2등.PNG" alt="프로필사진">
+                                    </div>
+                                    <div class="detail">
+                                        <div class="id">user2</div>
+                                        
+                                    </div>
+								</div>
+								<div class="thumb_user">
+                                    <div class="profile_thumb">
+                                        <img src="imgs/3등.PNG" alt="프로필사진">
+                                    </div>
+                                    <div class="detail">
+                                        <div class="id">user3</div>
+                                        
+                                    </div>
+									
+                                </div>
+								
+                            </div>
+                        </article>
+    
+						<article class="story">
+                            <header class="story_header">
+                                <div>일간랭킹</div>
+                                <div class="more">모두 보기</div>
+                            </header>
+    
+                            <div class="scroll_inner">
+                                <div class="thumb_user">
+                                    <div class="profile_thumb">
+                                        <img src="imgs/1등.PNG" alt="프로필사진">
+                                    </div>
+                                    <div class="detail">
+                                        <div class="id">user1</div>
+                                        
+                                    </div>
+									
+                                </div>
+								<div class="thumb_user">
+                                    <div class="profile_thumb">
+                                        <img src="imgs/2등.PNG" alt="프로필사진">
+                                    </div>
+                                    <div class="detail">
+                                        <div class="id">user2</div>
+                                        
+                                    </div>
+								</div>
+								<div class="thumb_user">
+                                    <div class="profile_thumb">
+                                        <img src="imgs/3등.PNG" alt="프로필사진">
+                                    </div>
+                                    <div class="detail">
+                                        <div class="id">user3</div>
+                                        
+                                    </div>
+									
+                                </div>
+								
+                            </div>
+                        </article>
+                    </div>
+                  </div>
+                </div>
+              </div>
+			  
+			</div>	
 			<div class="inner">
-
 				<div class="contents_box">
+                    
 					<article class="contents">
+                       
 						<header class="top">
 							<div class="user_container">
 								<div class="profile_img">
@@ -210,7 +324,9 @@
 
 	</section>
 
+	
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 	<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-	<script src="js/main.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 </body>
 </html>
