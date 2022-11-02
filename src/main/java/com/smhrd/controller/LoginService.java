@@ -18,6 +18,7 @@ public class LoginService extends HttpServlet {
 		
 		System.out.println("[LoginService]");
 		
+		
 		request.setCharacterEncoding("UTF-8");
 		
 		String m_Id = request.getParameter("m_Id");
@@ -32,14 +33,14 @@ public class LoginService extends HttpServlet {
 		
 		
 		if (info != null) {
-			System.out.println("로그인 성공");
+			System.out.println("로그인 객체 받아옴");
 			
 				HttpSession session = request.getSession();
 				
 				session.setAttribute("info", info);
 			
 		}else {
-			System.out.println("로그인 실패");
+			System.out.println("로그인 객체 못받아옴");
 		}
 		
 		//일단은 메인으로 가게끔 하고 나중에 수정..!

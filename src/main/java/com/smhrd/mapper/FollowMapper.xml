@@ -4,5 +4,12 @@
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.smhrd.mapper.FollowMapper">
+<insert id="follow" parameterType="FollowDTO">
+		insert into t_follow values
+		(${m_id},${follow_id})
+	</insert>
+	<delete id="unFollow" parameterType="FollowDTO">
+		delete from t_follow where m_id = ${m_id} and follow_id = ${follow_id}
+	</delete>
 
 </mapper>

@@ -7,6 +7,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.smhrd.model.MemberDAO;
 import com.smhrd.model.MemberDTO;
@@ -37,10 +38,12 @@ public class JoinService extends HttpServlet {
 		int row = new MemberDAO().join(dto);
 		System.out.println(row);
 		
-		// 결과값 확인 -> 페이지이동 // 회원가입 성공했을 시 어디로 이동할지??
+		// 결과값 확인 -> 페이지이동 // ,db에 들어갔을 때 회원가입 성공했을 시 어디로 이동할지??
 		String moveURL = null;
 		if(row > 0) {
 			System.out.println("회원가입 성공");
+			HttpSession session = request.getSession();
+			
 			moveURL = "./testResult.jsp";
 			request.setAttribute("m_Id", m_Id);
 			

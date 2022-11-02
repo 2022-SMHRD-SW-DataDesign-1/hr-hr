@@ -8,6 +8,8 @@
 
 	<typeAliases>
 		<typeAlias type="com.smhrd.model.MemberDTO" alias="MemberDTO" />
+		<typeAlias type="com.smhrd.model.BlockDTO" alias="BlockDTO" />
+		<typeAlias type="com.smhrd.model.FollowDTO" alias="FollowDTO" />
 	</typeAliases>
 
 	<environments default="development">
@@ -24,5 +26,7 @@
 	<mappers>
 		<mapper resource="com/smhrd/mapper/testMapper.xml" />
 		<mapper resource="com/smhrd/mapper/MemberMapper.xml"/>
+		<mapper resource="com/smhrd/mapper/BlockMapper.xml"/>
+		<mapper resource="com/smhrd/mapper/FollowMapper.xml"/>
 	</mappers>
 </configuration>
