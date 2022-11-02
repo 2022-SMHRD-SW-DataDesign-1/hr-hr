@@ -8,7 +8,11 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+	<%
+		MemberDTO info = (MemberDTO)session.getAttribute("info");// 인로파는 애를 갖고 올거야
+	%>
+	
+	<%= info.getM_Id() %>
 
 </body>
 </html>
