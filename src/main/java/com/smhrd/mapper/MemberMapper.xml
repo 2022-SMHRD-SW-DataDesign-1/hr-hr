@@ -11,7 +11,7 @@
 	</insert>
 	
 	<select id="login" parameterType="MemberDTO" resultType="MemberDTO">
-		select * from t_member where m_id = #{m_Id} and pw = #{m_Pw}
+		select * from t_member where m_id = #{m_Id} and m_Pw = #{m_Pw}
 	</select>
 
 
