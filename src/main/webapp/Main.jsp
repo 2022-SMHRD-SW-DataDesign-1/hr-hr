@@ -13,7 +13,8 @@
 <link rel="stylesheet" href="css/common.css">
 <link rel="stylesheet" href="css/style.css">
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://getbootstrap.com/docs/5.2/assets/css/docs.css" rel="stylesheet">
 <body>
 
 	<section id="container">
@@ -38,13 +39,12 @@
 				</div>
               
 				<div class="right_icons">
-					<a href="NewPost.jsp"><img src="imgs/플러스.PNG"  class="sprite_camera_icon"></a>
+					
 					<a href="Login.jsp"><img src="imgs/로그인.PNG" class="sprite_compass_icon"></a>
-					 <a href="Follow.jsp"><img src="imgs/팔로워.PNG" class="sprite_heart_icon_outline"></a>
 					<a href="Profile.jsp"><img src="imgs/프로필.PNG" class="sprite_user_icon_outline"></a>
 					<a href="Top10Ranking.jsp"><img src="imgs/랭킹버튼.PNG" class="sprite_user_icon_outline"></a>
 					<a href="DM.jsp"> <img src="imgs/채팅.PNG" class="sprite_user_icon_outline"></a>
-					<a href="ProfileEdit.jsp"><img src="imgs/프로필수정.PNG" class="sprite_user_icon_outline"></a>
+					
 					
 				</div>
 				
@@ -95,10 +95,10 @@
                             </div>
                         </div>
     
-                        <article class="month_ranking">
+                        <article class="story">
                             <header class="ranking_header">
                                 <div>월간랭킹</div>
-                                <div class="more"><a href="Top10Ranking.html" class="ranking_a">모두 보기</a></div>
+                                <div class="more"><a href="Top10Ranking.jsp" class="ranking_a">모두 보기</a></div>
                             </header>
     
                             <div class="scroll_inner">
@@ -135,10 +135,10 @@
                             </div>
                         </article>
 					
-						<article class="daily_ranking">
+						<article class="story">
                             <header class="story_header">
                                 <div>일간랭킹</div>
-                                <div class="more"><a href="Top10Ranking.html" class="ranking_a">모두 보기</a></div>
+                                <div class="more"><a href="Top10Ranking.jsp" class="ranking_a">모두 보기</a></div>
                             </header>
     
                             <div class="scroll_inner">
@@ -178,6 +178,7 @@
                     </div>
                   
 			<div class="inner">
+				
 				<div class="contents_box">
                     
 					<article class="contents">
@@ -207,11 +208,41 @@
 						<div class="img_section">
 							<div class="trans_inner">
 								<div>
-									<img src="imgs/img_section/img01.jpg" alt="visual01">
+									<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
+										<div class="carousel-indicators">
+										  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-label="Slide 1" aria-current="true"></button>
+										  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2" class=""></button>
+										  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3" class=""></button>
+										</div>
+										<div class="carousel-inner">
+										  <div class="carousel-item active">
+											<!-- 여기에 사진넣기 --> 	
+											<img src="imgs/img_section/img01.jpg" alt="visual01">
+									  
+										  </div>
+										  <div class="carousel-item">
+											<!-- 여기에 사진넣기 --> 				
+											<img src="imgs/3등.PNG" alt="visual01"> 								  
+										  </div>	
+											<div class="carousel-item">
+											<!-- 여기에 사진넣기 --> 	
+											<img src="imgs/img_section/img01.jpg" alt="visual01"> 
+									  
+										  </div>
+										</div>
+										<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+										  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+										  <span class="visually-hidden">Previous</span>
+										</button>
+										<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+										  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+										  <span class="visually-hidden">Next</span>
+										</button>
+									  </div>
 								</div>
 							</div>
 						</div>
-
+						
 						<div class="bottom_icons">
 							<div class="left_icons">
 								<div class="heart_btn">
@@ -313,6 +344,7 @@
 	<script src="js/chat.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 	<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+	
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 </body>
-</html></html>
+</html>

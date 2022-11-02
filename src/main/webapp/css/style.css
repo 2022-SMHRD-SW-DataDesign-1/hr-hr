@@ -1,5 +1,21 @@
 @media screen and (max-width:575.98px) {
     /* 스마트폰 세로 */
+    
+    }
+    
+    @media screen and (max-width:650px){
+    
+        #header .search_box{
+            display:none;
+        }
+    
+        .hidden_menu{
+            width: 95%;
+        }
+        .ranking_box{
+            display: none;
+        }
+    
     }
     
     @media screen and (max-width:767.98px) {
@@ -12,10 +28,47 @@
     @media screen and (max-width:991.98px) {
     /* 타블렛 */
     }
+    @media screen and (max-width:1000px){
+
+        #header .inner{
+            width: 97.5%;
+        }
+    
+        #main_container{
+            padding-top: 220px;
+        }
+        #main_container .inner{
+            width: 93.5%;
+    
+        }
+    
+        .contents_box{
+            display:flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    
+    
+        .hidden_menu{
+            display:block;
+    
+        }
+        
+    }
     
     @media screen and (max-width:1199.98px) {
     /* 데스크탑 */
+    .ranking_box{
+        width: 20%;
     }
+    .side_box{
+        display: none;
+    }
+
+    }
+   
+    
+    
 
 .m_text{
     font-size: 14px;
@@ -149,7 +202,7 @@ body{
     width: 132px;
     display: flex;
     justify-content: space-between;
-    margin-right: 95px;
+    margin-right: 40px;
 }
 #header .right_icons > div{
 
@@ -498,58 +551,14 @@ body{
     height: 100%;
 }
 
-@media screen and (max-width:1000px){
 
-    #header .inner{
-        width: 97.5%;
-    }
-
-    #main_container{
-        padding-top: 220px;
-    }
-    #main_container .inner{
-        width: 93.5%;
-
-    }
-
-    .contents_box{
-        display:flex;
-        flex-direction: column;
-        align-items: center;
-    }
-    .side_box{
-        display: none;
-    }
-
-
-    .hidden_menu{
-        display:block;
-
-    }
-    
-}
-
-@media screen and (max-width:650px){
-
-    #header .search_box{
-        display:none;
-    }
-
-    .hidden_menu{
-        width: 95%;
-    }
-    .ranking_box{
-        display: none;
-    }
-
-}
 
 .ranking_box{
     width: 293px;
     /*height: 300px;*/
     /*background: rgba(255, 0, 0, 0.16);*/
     position:absolute;
-    left: 15%;
+    left: 25%;
     top: 0;
 }
 
@@ -651,4 +660,4 @@ body{
 } 
 
 
-  
+    
