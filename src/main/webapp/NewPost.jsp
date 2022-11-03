@@ -114,9 +114,9 @@
 	<script src="js/insta.js"></script>
 
 	<script>
-		var fileInput = document.querySelector("#id_photo"), button = document
-				.querySelector(".input-file-trigger"), the_return = document
-				.querySelector(".file-return");
+		var fileInput = document.querySelector("#id_photo"),
+			button = document.querySelector(".input-file-trigger"),
+			the_return = document.querySelector(".file-return");
 
 		// Show image
 		fileInput.addEventListener('change', handleImage, false);
