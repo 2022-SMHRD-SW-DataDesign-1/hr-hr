@@ -18,5 +18,15 @@ public class CommentDAO {
 
 		return cmtList;
 	}
+	
+	public int writeComment(CommentDTO dto) {
+		SqlSession session = sqlSessionFactory.openSession(true);
+
+		int row = session.insert("writeComment", dto);
+		session.close();
+		
+		
+		return row;
+	}
 
 }
