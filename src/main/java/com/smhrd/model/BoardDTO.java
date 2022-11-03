@@ -6,10 +6,12 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
+import lombok.ToString;
 
 @Getter
 @AllArgsConstructor
 @RequiredArgsConstructor
+@ToString
 public class BoardDTO {
 	
 	// 게시글 번호

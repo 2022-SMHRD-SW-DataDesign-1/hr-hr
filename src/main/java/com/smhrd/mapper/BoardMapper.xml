@@ -4,13 +4,19 @@
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.smhrd.mapper.BoardMapper">
-	<insert id="upload" parameterType="BoardDTO" >
-		INSERT INTO t_board ( m_id, b_content, b_filename, b_date, b_likes, b_cnt, b_point) 
-		VALUES (  #{b_writer}, #{b_content}, #{b_filename}, sysdate, 0, 0, 0)
+	<insert id="upload" parameterType="BoardDTO">
+		INSERT INTO t_board
+		( m_id, b_content, b_filename, b_date, b_likes, b_cnt, b_point)
+		VALUES ( #{b_writer}, #{b_content}, #{b_filename}, sysdate, 0, 0, 0)
 	</insert>
-	
+
 	<select id="countBoard" parameterType="String" resultType="int">
 		SELECT count(*) from t_board
-		WHERE m_id = #{m_id} 
+		WHERE m_id = #{m_id}
+	</select>
+
+	<select id="showBoard" parameterType="String" resultType="BoardDTO">
+		select * from t_board
+		WHERE m_id in (select follow_id from t_follow where m_id = #{m_id})
 	</select>
 </mapper>

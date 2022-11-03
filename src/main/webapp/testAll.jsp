@@ -1,3 +1,5 @@
+<%@page import="com.smhrd.model.BoardDTO"%>
+<%@page import="java.util.ArrayList"%>
 <%@page import="com.smhrd.model.FollowDAO"%>
 <%@page import="com.smhrd.model.BoardDAO"%>
 <%@page import="com.smhrd.model.MemberDTO"%>
@@ -71,7 +73,7 @@
 		<input type="submit" value="test 로그인">
 	</form>
 	<%if(info != null){ %>
-	 멤버정보 :<%= info.toString() %>~~~~
+	 멤버정보 :<%= info.toString() %>
 	 <%} %>
 	<hr>
 	
@@ -82,16 +84,24 @@
 	<%} %>
 	<!-- 게시글 작성 -->
 	<hr>
-		
 		<form action="BoardService"  enctype="multipart/form-data"  method="post">
 		사진등록 :<input  type="file" style="float: right;" name="filename">
 		게시글 입력 : <textarea  rows="10" style="resize: none;" name="content"></textarea><br> 
 		<input type="submit" value="게시글 등록">
 	</form>
-
-	<!-- 게시글 목록 출력 + 댓글 작성 -->
 	<hr>
-	
+	<!-- 게시글 목록 출력 + 댓글 작성 + 출력 -->
+	<%if(info != null){ %>
+	게시글 내용(사진포함)
+	<%
+	BoardDAO dao = new BoardDAO();  
+			ArrayList<BoardDTO> bList =dao.showBoard(info.getM_Id());
+			for(BoardDTO dto : bList){%>
+					<%= dto.toString() %>				
+			<% }%>
+			
+	<hr>
+	<%} %>
 
 	<!-- 정책 게시글 출력 + 리뷰 작성 -->
 	<hr>
