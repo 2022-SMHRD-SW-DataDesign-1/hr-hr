@@ -88,7 +88,7 @@
 	
 	
 	<hr>
-	<!-- 게시글 작성 -->
+	<!-- 게시글 작성 o -->
 		<form action="BoardService"  enctype="multipart/form-data"  method="post">
 		사진등록 :<input  type="file" style="float: right;" name="filename">
 		게시글 입력 : <textarea  rows="10" style="resize: none;" name="content"></textarea><br> 
@@ -96,7 +96,7 @@
 	</form>
 	
 	<hr>
-	<!-- 게시글 목록 출력 + 댓글 작성 + 출력 -->
+	<!-- 게시글 목록 출력 o + 댓글 작성 + 출력 -->
 	<%if(info != null){ %>
 	게시글 내용(사진포함)
 	<%
@@ -120,7 +120,7 @@
 	
 
 	<hr>
-	<!-- 프로필 출력 + 업데이트 -->
+	<!-- 프로필 출력 o + 업데이트 -->
 	<% if(info != null) {%>
 	아이디 : <%=info.getM_Id() %><br>
 	닉네임 : <%=info.getM_Nickname() %><br>
