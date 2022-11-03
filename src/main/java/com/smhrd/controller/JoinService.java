@@ -22,20 +22,20 @@ public class JoinService extends HttpServlet {
 		
 		String m_Id = request.getParameter("m_Id");
 		String m_Pw = request.getParameter("m_Pw");
-		String m_Name = request.getParameter("m_Name");
+		String m_Email = request.getParameter("m_Email");
 		String m_Nickname = request.getParameter("m_Nickname");
 		String m_Phone = request.getParameter("m_Phone");
 		
 		
 		System.out.println(m_Id);
 		System.out.println(m_Pw);
-		System.out.println(m_Name);
+		System.out.println(m_Email);
 		System.out.println(m_Nickname);
 		System.out.println(m_Phone);
 		
-		MemberDTO dto = new MemberDTO(m_Id, m_Pw, m_Name, m_Nickname, m_Phone);
+		MemberDTO dto = new MemberDTO(m_Id, m_Pw, m_Email, m_Nickname, m_Phone);
 		
-		int row = new MemberDAO().join(dto);
+		int row = new MemberDAO().join(dto);// 실행한 결과 row로 받음
 		System.out.println(row);
 		
 		// 결과값 확인 -> 페이지이동 // ,db에 들어갔을 때 회원가입 성공했을 시 어디로 이동할지??

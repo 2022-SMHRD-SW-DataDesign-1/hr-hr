@@ -33,6 +33,4 @@ public class BoardDTO {
 	private int b_cnt;
 	// 게시글 점수
 	private int b_point;
-	
-	
 }

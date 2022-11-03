@@ -5,8 +5,8 @@
 
 <mapper namespace="com.smhrd.mapper.MemberMapper">
 	<insert id="join" parameterType="MemberDTO">
-		insert into t_member(M_ID, M_PW, M_NAME, M_NICKNAME, M_PHONE, M_JOINDATE, M_PROFILE, M_POINT, M_TYPE)
-		values(#{m_Id}, #{m_Pw}, #{m_Name}, #{m_Nickname}, #{m_Phone},
+		insert into t_member(M_ID, M_PW, M_EMAIL, M_NICKNAME, M_PHONE, M_JOINDATE, M_PROFILE, M_POINT, M_TYPE)
+		values(#{m_Id}, #{m_Pw}, #{m_Email}, #{m_Nickname}, #{m_Phone},
 		sysdate,'자기소개를 입력하세요','0','u')
 	</insert>
 	

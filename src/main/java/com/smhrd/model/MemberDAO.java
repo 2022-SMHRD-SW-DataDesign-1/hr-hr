@@ -12,7 +12,7 @@ public class MemberDAO {
 
 		SqlSession session = sqlSessionFactory.openSession(true);
 		System.out.println(dto.getM_Id());
-		int row = session.insert("join", dto);
+		int row = session.insert("join", dto); // 세션에 받아온 객체를 Mapper에서 insert를 실행해서 1로 표현함 
 		session.close();
 
 		return row;
@@ -23,7 +23,7 @@ public class MemberDAO {
 		System.out.println("로그인메소드");
 		SqlSession session = sqlSessionFactory.openSession(true);
 
-		MemberDTO info = session.selectOne("login", dto); // 받아온 객체가 MemberDTO 타입으로 sql 문장에서 id가 "login" 문장을 실행한다.
+		MemberDTO info = session.selectOne("login", dto); // 받아온 객체를 MemberDTO 타입으로 Mapper에서 id가 "login" 문장을 실행한다.
 		session.close();
 
 		return info;

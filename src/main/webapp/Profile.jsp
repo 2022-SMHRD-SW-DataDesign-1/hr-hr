@@ -98,8 +98,8 @@
 							<li><span>팔로우</span> 3</li>
 						</ul>
 						<p class="about">
-							<span class="nick_name">kindtigerrr</span> <span
-								class="book_mark">bookmark</span>
+							<span class="nick_name">게시글</span> <span
+								class="book_mark">유용해요</span>
 						</p>
 
 					</div>
