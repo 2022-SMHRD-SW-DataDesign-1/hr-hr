@@ -1,3 +1,5 @@
+<%@page import="com.smhrd.model.CommentDTO"%>
+<%@page import="com.smhrd.model.CommentDAO"%>
 <%@page import="com.smhrd.model.BoardDTO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.smhrd.model.FollowDAO"%>
@@ -46,12 +48,11 @@
 				// 요청할 때 같이 보내줄 데이터
 				data : {"inputID" : inputID},
 				// 요청 타입
-				type : 'get',
-				dataType: 'json', 
+				type : 'get', 
 				// 통신 성공 function(넘겨준데이터)
 				success : function(data) {
-					console.log(data);
-					if (data == true) {
+					console.log(typeof data);
+					if (data == 'true') {
 						$("#resultCheckID").text("중복");
 					} else {
 						$("#resultCheckID").text("가능");
@@ -100,11 +101,11 @@
 	<%if(info != null){ %>
 	게시글 내용(사진포함)
 	<%
+		CommentDAO cmtDAO = new CommentDAO();
 		BoardDAO dao = new BoardDAO();  
 		ArrayList<BoardDTO> bList =dao.showBoard(info.getM_Id());
 		for(BoardDTO b_dto : bList){%>
-	<%= b_dto.toString() %>
-	<br>				
+	<%= b_dto.toString() %><br>			
 	<% }%>		
 	<%} %>
 
@@ -117,7 +118,7 @@
 
 	<hr>
 	<!-- 팔로우, 차단 데이터베이스 값 전달 -->
-	
+	<input type = "button" name="follow" value="팔로우">
 
 	<hr>
 	<!-- 프로필 출력 o + 업데이트 -->
