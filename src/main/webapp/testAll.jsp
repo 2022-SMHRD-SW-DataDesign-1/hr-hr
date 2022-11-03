@@ -32,7 +32,7 @@
 		Email: <input type="text" name="m_Email"><br>
 		Nickname: <input type="text" name="m_Nickname"><br>
 		Phone: <input type="text" name="m_Phone"> <br> <input
-			type="submit" value="test 전송">
+			type="submit" value="test 전송" id = "joinBtn" disabled="disabled">
 	</form>
 
 
@@ -55,8 +55,10 @@
 					console.log(typeof data);
 					if (data == 'true') {
 						$("#resultCheckID").text("중복");
+						$("#joinBtn").attr("disabled",true);
 					} else {
 						$("#resultCheckID").text("가능");
+						$("#joinBtn").attr("disabled",false);
 					}
 				},
 				// 통신 실패
