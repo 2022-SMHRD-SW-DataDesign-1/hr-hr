@@ -80,18 +80,25 @@
 	<a href="LogoutService">로그아웃</a> 
 	<%} %>
 	<!-- 게시글 작성 -->
-	
 	<hr>
+		
+		사진등록
+		<form action="BoardService"  enctype="multipart/form-data"  method="post">
+		<input  type="file" style="float: right;" name="filename">
+		게시글 입력<textarea  rows="10" style="resize: none;" name="content"></textarea><br> 
+		<input type="submit" value="게시글 등록">
+	</form>
 
 	<!-- 게시글 목록 출력 + 댓글 작성 -->
 	<hr>
+	
 
 	<!-- 정책 게시글 출력 + 리뷰 작성 -->
 	<hr>
 
 	<!-- 팔로우, 차단 데이터베이스 값 전달 -->
 	<hr>
-
+	
 	<!-- 프로필 출력 + 업데이트 -->
 	<hr>
 
