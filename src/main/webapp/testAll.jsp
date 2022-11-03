@@ -1,3 +1,5 @@
+<%@page import="com.smhrd.model.FollowDAO"%>
+<%@page import="com.smhrd.model.BoardDAO"%>
 <%@page import="com.smhrd.model.MemberDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -19,9 +21,8 @@
 	<!-- 회원가입 o -->
 	<form action="JoinService" method="post">
 		Id:<input type="text" name="m_Id" id="inputID">
-		 <input type="button" value="ID중복체크" onclick="checkID()"><br>
+		<input type="button" value="ID중복체크" onclick="checkID()"><br>
 		<span id="resultCheckID"></span> <br> 
-		
 		Pw: <input type="password" name="m_Pw"> <br> 
 		Email: <input type="text" name="m_Email"><br>
 		Nickname: <input type="text" name="m_Nickname"><br>
@@ -65,7 +66,7 @@
 
 	<!-- 로그인 o -->
 	<form action="LoginService" method="post">
-		Id:<input type="text" name="m_Id"><br>
+		Id:<input type="text" name="m_Id"> <br>
 		Pw: <input type="password" name="m_Pw"> <br> 
 		<input type="submit" value="test 로그인">
 	</form>
@@ -82,10 +83,9 @@
 	<!-- 게시글 작성 -->
 	<hr>
 		
-		사진등록
 		<form action="BoardService"  enctype="multipart/form-data"  method="post">
-		<input  type="file" style="float: right;" name="filename">
-		게시글 입력<textarea  rows="10" style="resize: none;" name="content"></textarea><br> 
+		사진등록 :<input  type="file" style="float: right;" name="filename">
+		게시글 입력 : <textarea  rows="10" style="resize: none;" name="content"></textarea><br> 
 		<input type="submit" value="게시글 등록">
 	</form>
 
@@ -101,6 +101,17 @@
 	
 	<!-- 프로필 출력 + 업데이트 -->
 	<hr>
+	<% if(info != null) {%>
+	아이디 : <%=info.getM_Id() %><br>
+	닉네임 : <%=info.getM_Nickname() %><br>
+	<%int count = new BoardDAO().countBoard(info.getM_Id());  %>
+	게시물 <%=count %> <br> 
+	<%int count2 = new FollowDAO().countFollow(info.getM_Id()); %>
+	<%int count3 = new FollowDAO().countFollower(info.getM_Id()); %>
+	팔로우 수 <%=count2 %>
+	팔로워 수 <%=count3 %>
+	<%} %>
+	
 
 
 

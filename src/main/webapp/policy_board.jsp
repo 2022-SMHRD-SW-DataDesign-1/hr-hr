@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-	<!DOCTYPE html>
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
 	<html>
 
 	<head>
@@ -11,19 +11,7 @@
 
 		<meta name="mobile-web-app-capable" content="yes">
 		<meta name="apple-mobile-web-app-status-bar-style" content="default">
-		<!-- Facebook Meta Tags / 페이스북 오픈 그래프 -->
-		<meta property="og:url" content="http://kindtiger.dothome.co.kr/insta">
-		<meta property="og:type" content="website">
-		<meta property="og:title" content="instagram">
-		<meta property="og:description" content="instagram clone">
-		<meta property="og:image" content="http://kindtiger.dothome.co.kr/insta/imgs/instagram.jpeg">
-		.
-		<!-- Twitter Meta Tags / 트위터 -->
-		<meta name="twitter:card" content="instagram clone">
-		<meta name="twitter:title" content="instagram">
-		<meta name="twitter:description" content="instagram clone">
-		<meta name="twitter:image" content="http://kindtiger.dothome.co.kr/insta/imgs/instagram.jpeg">
-
+		
 		<!-- Google / Search Engine Tags / 구글 검색 엔진 -->
 		<meta itemprop="name" content="instagram">
 		<meta itemprop="description" content="instagram clone">
@@ -36,6 +24,9 @@
 		<link rel="stylesheet" href="css/style.css">
 		<link rel="stylesheet" href="css/detail-page.css">
 		<link rel="shortcut icon" href="imgs/instagram.png">
+        
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://getbootstrap.com/docs/5.2/assets/css/docs.css" rel="stylesheet">
 
 
 		<style>
@@ -53,35 +44,41 @@
 
 
 			<header id="header">
-                <section class="h_inner">
+				<section class="h_inner">
 
-                    <h1 class="logo">
-                        <a href="Main.jsp">
-                            <div class="sprite_insta_icon"></div>
-                            <div>
-                                <div class="sprite_write_logo"></div>
-                            </div>
-                        </a>
-                    </h1>
+					<h1 class="logo">
+						<a href="Main.jsp">
+							<div class="sprite_insta_icon"></div>
+							<div>
+								<div class="sprite_write_logo"></div>
+							</div>
+						</a>
+					</h1>
 
-                    <div class="search_field">
-                        <input type="text" placeholder="검색" tabindex="search_field">
+					<div class="search_field">
+						<input type="text" placeholder="검색" tabindex="0">
 
-                        <div class="fake_field">
-                            <span class=sprite_small_search_icon></span>
-                            <span>검색</span>
-                        </div>
-                    </div>
+						<div class="fake_field">
+							<span class=sprite_small_search_icon></span> <span>검색</span>
+						</div>
+					</div>
 
 
-                    <div class="right_icons">
-                        <a href="Login.jsp"><img src="imgs/로그인.PNG" class="sprite_compass_icon"></a>
-                        <a href="Profile.jsp"><img src="imgs/프로필.PNG" class="sprite_user_icon_outline"></a>
-                        <a href="Top10Ranking.jsp"><img src="imgs/랭킹버튼.PNG" class="sprite_user_icon_outline"></a>
-                        <a href="DM.jsp"> <img src="imgs/채팅.PNG" class="sprite_user_icon_outline"></a>
-                    </div>
-                </section>
-            </header>
+					<div class="right_icons">
+						<a href="NewPost.jsp">
+							<div class="sprite_camera_icon"></div>
+						</a>
+						<a href="Login.jsp">
+							<div class="sprite_compass_icon"></div>
+						</a> <a href="Follow.jsp">
+							<div class="sprite_heart_icon_outline"></div>
+						</a>
+						<a href="Profile.jsp">
+							<div class="sprite_user_icon_outline"></div>
+						</a>
+					</div>
+				</section>
+			</header>
 
 
 			<div id="main_container">
@@ -97,15 +94,50 @@
 									<img src="imgs/thumb.jpeg" alt="">
 								</div>
 								<div class="user_name">
-									<div class="nick_name">KindTiger</div>
+									<div class="nick_name">Admin</div>
 									<div class="country">Seoul, South Korea</div>
+
+                                    
 								</div>
+                                <div class="right_button">
+                                    <button type="button" class="btn btn-outline-dark">리뷰</button>
+                                </div>
 							</div>
 
 							<div class="img_section">
 								<div class="trans_inner">
 									<div>
-										<img src="imgs/img_section/img03.jpg" alt="">
+										<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
+                                            <div class="carousel-indicators">
+                                              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-label="Slide 1" aria-current="true"></button>
+                                              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2" class=""></button>
+                                              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3" class=""></button>
+                                            </div>
+                                            <div class="carousel-inner">
+                                              <div class="carousel-item active">
+                                                <!-- 여기에 사진넣기 --> 	
+                                                <img src="imgs/정부정책.png" alt="visual01">
+                                          
+                                              </div>
+                                              <div class="carousel-item">
+                                                <!-- 여기에 사진넣기 --> 				
+                                                <img src="imgs/정부정책.png" alt="visual01"> 								  
+                                              </div>	
+                                                <div class="carousel-item">
+                                                <!-- 여기에 사진넣기 --> 	
+                                                <img src="imgs/정부정책.png" alt="visual01"> 
+                                          
+                                              </div>
+                                            </div>
+                                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                                              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                              <span class="visually-hidden">Previous</span>
+                                            </button>
+                                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                                              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                              <span class="visually-hidden">Next</span>
+                                            </button>
+                                          </div>
 									</div>
 								</div>
 							</div>
@@ -292,9 +324,11 @@
 		</section>
 
 		<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+	
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 		<!--<script src="js/detail.js"></script>-->
 
 
 	</body>
 
-	</html>

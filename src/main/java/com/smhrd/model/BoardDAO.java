@@ -16,5 +16,12 @@ public class BoardDAO {
 
 		return row;
 	}
+	
+	public int countBoard(String m_id) {
+		SqlSession session = sqlSessionFactory.openSession(true);
+		
+		int count = session.selectOne("countBoard", m_id);
+		return count;
+	}
 
 }

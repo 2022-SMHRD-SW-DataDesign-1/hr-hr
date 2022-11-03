@@ -2,6 +2,7 @@ package com.smhrd.controller;
 
 import java.io.IOException;
 import java.net.URLEncoder;
+import java.sql.SQLException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -59,7 +60,7 @@ public class BoardService extends HttpServlet {
 		
 		BoardDTO bdto = new BoardDTO( writer,  content , filename);
 		BoardDAO dao = new BoardDAO();
-		int row = dao.upload(bdto);
+			int row = dao.upload(bdto);
 		
 		if(row > 0) {
 			System.out.println("DB에 파일 두르감");

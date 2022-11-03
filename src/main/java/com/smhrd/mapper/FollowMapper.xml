@@ -11,5 +11,16 @@
 	<delete id="unFollow" parameterType="FollowDTO">
 		delete from t_follow where m_id = ${m_id} and follow_id = ${follow_id}
 	</delete>
+	
+	<select id="countFollow" parameterType="String" resultType="int">
+		SELECT count(*) FROM t_follow
+		WHERE m_id = #{m_id} 
+	</select> 
+	
+	<select id="countFollower" parameterType="String" resultType="int">
+		SELECT count(*) FROM t_follow
+		WHERE follow_id = #{m_id} 
+	</select> 
+	
 
 </mapper>

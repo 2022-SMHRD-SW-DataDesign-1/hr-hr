@@ -54,7 +54,7 @@
 				</h1>
 
 				<div class="search_field">
-					<input type="text" placeholder="검색" tabindex="0">
+					<input type="text" placeholder="검색" tabindex="search_field">
 
 					<div class="fake_field">
 						<span class=sprite_small_search_icon></span> <span>검색</span>
@@ -63,10 +63,12 @@
 
 
 				<div class="right_icons">
-					<a href="NewPost.jsp"><div class="sprite_camera_icon"></div></a>
-					<a href="Login.jsp"><div class="sprite_compass_icon"></div></a> <a
-						href="Follow.jsp"><div class="sprite_heart_icon_outline"></div></a>
-					<a href="Profile.jsp"><div class="sprite_user_icon_outline"></div></a>
+					<a href="Login.jsp"><img src="imgs/로그인.PNG"
+						class="sprite_compass_icon"></a> <a href="Profile.jsp"><img
+						src="imgs/프로필.PNG" class="sprite_user_icon_outline"></a> <a
+						href="Top10Ranking.jsp"><img src="imgs/랭킹버튼.PNG"
+						class="sprite_user_icon_outline"></a> <a href="DM.jsp"> <img
+						src="imgs/채팅.PNG" class="sprite_user_icon_outline"></a>
 				</div>
 			</section>
 		</header>
@@ -96,8 +98,8 @@
 							<li><span>팔로우</span> 3</li>
 						</ul>
 						<p class="about">
-							<span class="nick_name">kindtigerrr</span> <span
-								class="book_mark">bookmark</span>
+							<span class="nick_name">게시글</span> <span
+								class="book_mark">유용해요</span>
 						</p>
 
 					</div>
