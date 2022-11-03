@@ -12,6 +12,7 @@
 <link rel="stylesheet" href="css/reset.css">
 <link rel="stylesheet" href="css/common.css">
 <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/new_post.css">
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
 <link href="https://getbootstrap.com/docs/5.2/assets/css/docs.css" rel="stylesheet">
@@ -95,10 +96,10 @@
                             </div>
                         </div>
     
-                        <article class="story">
+                        <article class="month_ranking">
                             <header class="ranking_header">
                                 <div>월간랭킹</div>
-                                <div class="more"><a href="Top10Ranking.jsp" class="ranking_a">모두 보기</a></div>
+                                <div class="more"><a href="Top10Ranking.html" class="ranking_a">모두 보기</a></div>
                             </header>
     
                             <div class="scroll_inner">
@@ -135,10 +136,10 @@
                             </div>
                         </article>
 					
-						<article class="story">
+						<article class="daily_ranking">
                             <header class="story_header">
                                 <div>일간랭킹</div>
-                                <div class="more"><a href="Top10Ranking.jsp" class="ranking_a">모두 보기</a></div>
+                                <div class="more"><a href="Top10Ranking.html" class="ranking_a">모두 보기</a></div>
                             </header>
     
                             <div class="scroll_inner">
@@ -196,12 +197,16 @@
 							</div>
 
 							<div class="sprite_more_icon" data-name="more">
-								<ul class="toggle_box">
-									<li><input type="submit" class="follow" value="팔로우"
-										data-name="follow"></li>
-									<li>수정</li>
-									<li>삭제</li>
-								</ul>
+								<div class="dropdown">
+									<button class="btn btn-secondary dropdown-toggle btn btn-light" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+									 ...
+									</button>
+									<ul class="dropdown-menu">
+									  <li><a class="dropdown-item" href="#">수정</a></li>
+									  <li><a class="dropdown-item" href="#">삭제</a></li>
+									  
+									</ul>
+								  </div>
 							</div>
 						</header>
 
@@ -286,15 +291,57 @@
 				<input type="hidden" id="page" value="1">
 
 				<div class="side_box">
-					<div class="user_profile">
-						<div class="profile_thumb">
-							<img src="imgs/thumb.jpeg" alt="프로필사진">
+					<button type="button" class="btn btn-primary btn btn-info" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+						+ 게시물 등록
+					  </button>
+					  
+					  <!-- Modal -->
+					  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+						<div class="modal-dialog modal-lg">
+						  <div class="modal-content">
+							<div class="modal-header">
+							  <h1 class="modal-title fs-5" id="staticBackdropLabel">게시물 등록</h1>
+							  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+							</div>
+							<div class="modal-body">
+								<div class="post_form_container">
+									<form action="#" class="post_form">
+										<div class="title">
+											NEW POST
+										</div>
+										<div class="preview">
+											<div class="upload">
+												<div class="post_btn">
+													<div class="plus_icon">
+														<span></span>
+														<span></span>
+													</div>
+													<p>포스트 이미지 추가</p>
+													<canvas id="imageCanvas"></canvas>
+													<!--<p><img id="img_id" src="#" style="width: 300px; height: 300px; object-fit: cover" alt="thumbnail"></p>-->
+												</div>
+											</div>
+										</div>
+										<p>
+											<input type="file" name="photo" id="id_photo" required="required">
+										</p>
+										<p>
+											<textarea name="content" id="text_field" cols="50" rows="5" placeholder="140자 까지 등록 가능합니다. #태그명 을 통해서 검색 태그를 등록할 수 있습니다.
+						예시 : I # love # insta!"></textarea>
+						
+										</p>
+										<input class="submit_btn" type="submit" value="저장">
+									</form>
+						
+								</div>
+							</div>
+							<div class="modal-footer">
+							  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+							  <button type="button" class="btn btn-primary">완료</button>
+							</div>
+						  </div>
 						</div>
-						<div class="detail">
-							<div class="id m_text">ㅋㅋ~닉네임인데~ㅋㅋ</div>
-							<div class="ko_name">김하랑</div>
-						</div>
-					</div>
+					  </div>
 
 					<article class="story">
 						<header class="story_header">

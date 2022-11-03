@@ -1,5 +1,20 @@
+@media screen and (max-width:575.98px) {
+    /* 스마트폰 세로 */
+    }
+    
+    @media screen and (max-width:767.98px) {
+    /* 스마트폰 가로 */
+    }
+    @media screen and (max-width:991.98px) {
+    /* 타블렛 */
+    }
+    
+    @media screen and (max-width:1199.98px) {
+    /* 데스크탑 */
+    }
+
 body {
-    background: #f8f8f8;
+    background: #fff;
 }
 
 .sprite_insta_icon {
@@ -18,23 +33,31 @@ body {
 
 .sprite_compass_icon {
     display: inline-block;
-    background: url('../imgs/background01.png') no-repeat -130px -286px;
-    width: 23px;
-    height: 23px;
+    width: 33px;
+    height: 33px;
 }
 
 .sprite_user_icon_outline {
     display: inline-block;
-    background: url('../imgs/background01.png') no-repeat -272px -182px;
-    width: 22px;
-    height: 24px;
+    width: 33px;
+    height: 33px;
 }
 
 .sprite_heart_icon_outline {
     display: inline-block;
-    background: url('../imgs/background01.png') no-repeat -52px -261px;
-    width: 24px;
-    height: 22px;
+    width: 33px;
+    height: 33px;
+}
+.sprite_small_heart_icon_outline {
+    display: inline-block;
+    width: 33px;
+    height: 33px;
+}
+
+.sprite_camera_icon {
+    display: inline-block;
+    width: 33px;
+    height: 33px;
 }
 
 .sprite_small_search_icon {
@@ -47,8 +70,8 @@ body {
 .sprite_more_icon {
     display: inline-block;
     background: url('../imgs/background01.png') no-repeat -301px -218px;
-    width: 15px;
     height: 3px;
+    bottom: 12px;
 }
 
 .sprite_bubble_icon {
@@ -77,19 +100,6 @@ body {
     height: 24px;
 }
 
-.sprite_small_heart_icon_outline {
-    display: inline-block;
-    background: url('../imgs/background01.png') no-repeat -323px -274px;
-    width: 12px;
-    height: 11px;
-}
-
-.sprite_camera_icon {
-    display: inline-block;
-    background: url('../imgs/background01.png') no-repeat -271px -104px;
-    width: 24px;
-    height: 22px;
-}
 
 .sprite_insta_big_logo {
     display: inline-block;
@@ -243,8 +253,8 @@ body {
 
 #main_container {
     /*height: 100vh;*/
-  	padding-top: 135px;
-  	display: flex;
+    padding-top: 135px;
+    display: flex;
     justify-content: center;
     order: 1;
 }
