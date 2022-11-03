@@ -1,3 +1,5 @@
+<%@page import="com.smhrd.model.FollowDAO"%>
+<%@page import="com.smhrd.model.BoardDAO"%>
 <%@page import="com.smhrd.model.MemberDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -101,6 +103,17 @@
 	
 	<!-- 프로필 출력 + 업데이트 -->
 	<hr>
+	<% if(info != null) {%>
+	아이디 : <%=info.getM_Id() %><br>
+	닉네임 : <%=info.getM_Nickname() %><br>
+	<%int count = new BoardDAO().countBoard(info.getM_Id());  %>
+	게시물 <%=count %> <br> 
+	<%int count2 = new FollowDAO().countFollow(info.getM_Id()); %>
+	<%int count3 = new FollowDAO().countFollower(info.getM_Id()); %>
+	팔로워 수 <%=count3 %>
+	팔로우 수 <%=count2 %>
+	<%} %>
+	
 
 
 

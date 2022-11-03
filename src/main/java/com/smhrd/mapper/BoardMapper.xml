@@ -8,4 +8,9 @@
 		INSERT INTO t_board ( m_id, b_content, b_filename, b_date, b_likes, b_cnt, b_point) 
 		VALUES (  #{b_writer}, #{b_content}, #{b_filename}, sysdate, 0, 0, 0)
 	</insert>
+	
+	<select id="countBoard" parameterType="String" resultType="int">
+		SELECT count(*) from t_board
+		WHERE m_id = #{m_id} 
+	</select>
 </mapper>
