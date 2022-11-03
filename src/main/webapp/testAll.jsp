@@ -23,7 +23,7 @@
 		<span id="resultCheckID"></span> <br> 
 		
 		Pw: <input type="password" name="m_Pw"> <br> 
-		Name: <input type="text" name="m_Name"><br>
+		Email: <input type="text" name="m_Email"><br>
 		Nickname: <input type="text" name="m_Nickname"><br>
 		Phone: <input type="text" name="m_Phone"> <br> <input
 			type="submit" value="test 전송">

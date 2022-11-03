@@ -14,9 +14,8 @@ import lombok.ToString;
 @RequiredArgsConstructor
 @ToString
 public class MemberDTO {
-	// 회원가입 DTO
 
-	// 회원 아이디 
+	// 회원 아이디
 	@NonNull
 	private String m_Id;
 
@@ -24,8 +23,8 @@ public class MemberDTO {
 	@NonNull
 	private String m_Pw;
 
-	// 회원 이름
-	private String m_Name;
+	// 회원 이메일
+	private String m_Email;
 
 	// 회원 닉네임
 	private String m_Nickname;
@@ -45,13 +44,18 @@ public class MemberDTO {
 	// 회원 유형
 	private String m_Type;
 
-	public MemberDTO(String m_Id, String m_Pw, String m_Name, String m_Nickname, String m_Phone) {
+	// 회원가입 DTO
+	public MemberDTO(String m_Id, String m_Pw, String m_Email, String m_Nickname, String m_Phone) {
 		this.m_Id = m_Id;
 		this.m_Pw = m_Pw;
-		this.m_Name = m_Name;
+		this.m_Email = m_Email;
 		this.m_Nickname = m_Nickname;
 		this.m_Phone = m_Phone;
-
 	}
+	// 프로필 수정 DTO
+	
 
 }
+
+	
+
