@@ -1,3 +1,4 @@
+<%@page import="java.math.BigDecimal"%>
 <%@page import="com.smhrd.model.CommentDTO"%>
 <%@page import="com.smhrd.model.CommentDAO"%>
 <%@page import="com.smhrd.model.BoardDTO"%>
@@ -103,10 +104,22 @@
 	<%
 		CommentDAO cmtDAO = new CommentDAO();
 		BoardDAO dao = new BoardDAO();  
+		
 		ArrayList<BoardDTO> bList =dao.showBoard(info.getM_Id());
 		for(BoardDTO b_dto : bList){%>
-	<%= b_dto.toString() %><br>			
-	<% }%>		
+			게시글 : <%= b_dto.toString() %><br>
+				
+		<%BigDecimal b_num = b_dto.getB_num();
+		ArrayList<CommentDTO> cmtList = cmtDAO.showComment(b_num);
+		if(cmtList != null){
+		for(CommentDTO cmt : cmtList){%>
+		댓글 : <%=cmt.toString() %>
+		<br>
+		
+		<%} %>
+		<%} %>
+			
+		<% }%>		
 	<%} %>
 
 
