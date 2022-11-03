@@ -29,6 +29,7 @@ public class BoardDAO {
 	public ArrayList<BoardDTO> showBoard(String m_id){
 		SqlSession session = sqlSessionFactory.openSession(true);
 		ArrayList<BoardDTO> bdto = (ArrayList)session.selectList("showBoard", m_id);
+		session.close();
 		return bdto; 
 	}
 

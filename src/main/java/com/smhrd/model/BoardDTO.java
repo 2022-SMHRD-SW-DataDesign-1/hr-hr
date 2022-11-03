@@ -1,6 +1,7 @@
 package com.smhrd.model;
 
-import java.sql.Date;
+import java.math.BigDecimal;
+import java.sql.Timestamp;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -15,7 +16,7 @@ import lombok.ToString;
 public class BoardDTO {
 	
 	// 게시글 번호
-	private int b_num;
+	private BigDecimal b_num;
 	// 게시글 작성자
 	@NonNull
 	private String b_writer;
@@ -26,11 +27,11 @@ public class BoardDTO {
 	@NonNull
 	private String b_filename;
 	// 게시글 작성일
-	private Date b_date;
+	private Timestamp b_date;
 	// 게시글 좋아요 수
-	private int b_likes;
+	private BigDecimal b_likes;
 	// 게시글 조회 수 
-	private int b_cnt;
+	private BigDecimal b_cnt;
 	// 게시글 점수
-	private int b_point;
+	private BigDecimal b_point;
 }

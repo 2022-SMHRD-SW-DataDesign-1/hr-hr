@@ -32,6 +32,7 @@
 			type="submit" value="test 전송">
 	</form>
 
+
 	<!-- 아이디 중복 체크 o -->
 	
 	<script>
@@ -65,7 +66,6 @@
 	</script>
 
 	<hr>
-
 	<!-- 로그인 o -->
 	<form action="LoginService" method="post">
 		Id:<input type="text" name="m_Id"> <br>
@@ -75,42 +75,52 @@
 	<%if(info != null){ %>
 	 멤버정보 :<%= info.toString() %>
 	 <%} %>
+	 
+	 
+	 
 	<hr>
-	
 	<!-- 로그아웃 o -->
 	<br>
 	<%if(info != null){ %>
 	<a href="LogoutService">로그아웃</a> 
 	<%} %>
-	<!-- 게시글 작성 -->
+	
+	
+	
 	<hr>
+	<!-- 게시글 작성 -->
 		<form action="BoardService"  enctype="multipart/form-data"  method="post">
 		사진등록 :<input  type="file" style="float: right;" name="filename">
 		게시글 입력 : <textarea  rows="10" style="resize: none;" name="content"></textarea><br> 
 		<input type="submit" value="게시글 등록">
 	</form>
+	
 	<hr>
 	<!-- 게시글 목록 출력 + 댓글 작성 + 출력 -->
 	<%if(info != null){ %>
 	게시글 내용(사진포함)
 	<%
-	BoardDAO dao = new BoardDAO();  
-			ArrayList<BoardDTO> bList =dao.showBoard(info.getM_Id());
-			for(BoardDTO dto : bList){%>
-					<%= dto.toString() %>				
-			<% }%>
-			
-	<hr>
+		BoardDAO dao = new BoardDAO();  
+		ArrayList<BoardDTO> bList =dao.showBoard(info.getM_Id());
+		for(BoardDTO b_dto : bList){%>
+	<%= b_dto.toString() %>
+	<br>				
+	<% }%>		
 	<%} %>
 
-	<!-- 정책 게시글 출력 + 리뷰 작성 -->
-	<hr>
 
+
+	<hr>
+	<!-- 정책 게시글 출력 + 리뷰 작성 -->
+
+
+
+	<hr>
 	<!-- 팔로우, 차단 데이터베이스 값 전달 -->
-	<hr>
 	
-	<!-- 프로필 출력 + 업데이트 -->
+
 	<hr>
+	<!-- 프로필 출력 + 업데이트 -->
 	<% if(info != null) {%>
 	아이디 : <%=info.getM_Id() %><br>
 	닉네임 : <%=info.getM_Nickname() %><br>
@@ -121,11 +131,6 @@
 	팔로우 수 <%=count2 %>
 	팔로워 수 <%=count3 %>
 	<%} %>
-	
-
-
-
-
 
 </body>
 </html>
