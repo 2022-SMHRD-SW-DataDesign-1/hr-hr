@@ -21,11 +21,10 @@
 	<!-- 회원가입 o -->
 	<form action="JoinService" method="post">
 		Id:<input type="text" name="m_Id" id="inputID">
-		 <input type="button" value="ID중복체크" onclick="checkID()"><br>
+		<input type="button" value="ID중복체크" onclick="checkID()"><br>
 		<span id="resultCheckID"></span> <br> 
-		
 		Pw: <input type="password" name="m_Pw"> <br> 
-		Name: <input type="text" name="m_Name"><br>
+		email: <input type="text" name="m_Name"><br>
 		Nickname: <input type="text" name="m_Nickname"><br>
 		Phone: <input type="text" name="m_Phone"> <br> <input
 			type="submit" value="test 전송">
@@ -67,7 +66,7 @@
 
 	<!-- 로그인 o -->
 	<form action="LoginService" method="post">
-		Id:<input type="text" name="m_Id"><br>
+		Id:<input type="text" name="m_Id"> <br>
 		Pw: <input type="password" name="m_Pw"> <br> 
 		<input type="submit" value="test 로그인">
 	</form>
@@ -84,10 +83,9 @@
 	<!-- 게시글 작성 -->
 	<hr>
 		
-		사진등록
 		<form action="BoardService"  enctype="multipart/form-data"  method="post">
-		<input  type="file" style="float: right;" name="filename">
-		게시글 입력<textarea  rows="10" style="resize: none;" name="content"></textarea><br> 
+		사진등록 :<input  type="file" style="float: right;" name="filename">
+		게시글 입력 : <textarea  rows="10" style="resize: none;" name="content"></textarea><br> 
 		<input type="submit" value="게시글 등록">
 	</form>
 
@@ -110,8 +108,8 @@
 	게시물 <%=count %> <br> 
 	<%int count2 = new FollowDAO().countFollow(info.getM_Id()); %>
 	<%int count3 = new FollowDAO().countFollower(info.getM_Id()); %>
-	팔로워 수 <%=count3 %>
 	팔로우 수 <%=count2 %>
+	팔로워 수 <%=count3 %>
 	<%} %>
 	
 
