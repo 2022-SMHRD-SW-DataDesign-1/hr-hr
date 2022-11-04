@@ -1,3 +1,4 @@
+<%@page import="java.math.BigDecimal"%>
 <%@page import="com.smhrd.model.CommentDTO"%>
 <%@page import="com.smhrd.model.CommentDAO"%>
 <%@page import="com.smhrd.model.BoardDTO"%>
@@ -31,7 +32,7 @@
 		Email: <input type="text" name="m_Email"><br>
 		Nickname: <input type="text" name="m_Nickname"><br>
 		Phone: <input type="text" name="m_Phone"> <br> <input
-			type="submit" value="test 전송">
+			type="submit" value="test 전송" id = "joinBtn" disabled="disabled">
 	</form>
 
 
@@ -54,8 +55,10 @@
 					console.log(typeof data);
 					if (data == 'true') {
 						$("#resultCheckID").text("중복");
+						$("#joinBtn").attr("disabled",true);
 					} else {
 						$("#resultCheckID").text("가능");
+						$("#joinBtn").attr("disabled",false);
 					}
 				},
 				// 통신 실패
@@ -97,18 +100,34 @@
 	</form>
 	
 	<hr>
-	<!-- 게시글 목록 출력 o + 댓글 작성 + 출력 -->
+	<!-- 게시글 목록 출력 o + 댓글 작성 o + 출력 o -->
 	<%if(info != null){ %>
 	게시글 내용(사진포함)
 	<%
 		CommentDAO cmtDAO = new CommentDAO();
 		BoardDAO dao = new BoardDAO();  
+		
 		ArrayList<BoardDTO> bList =dao.showBoard(info.getM_Id());
 		for(BoardDTO b_dto : bList){%>
-	<%= b_dto.toString() %><br>			
-	<% }%>		
+			게시글 : <%= b_dto.toString() %><br>
+				
+		<%BigDecimal b_num = b_dto.getB_num();
+		ArrayList<CommentDTO> cmtList = cmtDAO.showComment(b_num);
+		if(cmtList != null){
+		for(CommentDTO cmt : cmtList){%>
+		댓글 : <%=cmt.toString() %>
+		<br>
+		
+		<%} %>
+		<%} %>
+			
+		<% }%>		
 	<%} %>
-
+	<form action="CommentService">
+		게시글 번호 입력 : <input type="text" name ="b_num">
+		댓글입력 : <textarea  rows="10" style="resize: none;" name="c_content"></textarea><br> 
+		<input type ="submit" value="댓글 등록">
+</form>
 
 
 	<hr>

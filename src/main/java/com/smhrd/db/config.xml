@@ -11,6 +11,7 @@
 		<typeAlias type="com.smhrd.model.BlockDTO" alias="BlockDTO" />
 		<typeAlias type="com.smhrd.model.FollowDTO" alias="FollowDTO" />
 		<typeAlias type="com.smhrd.model.BoardDTO" alias="BoardDTO" />
+		<typeAlias type="com.smhrd.model.CommentDTO" alias="CommentDTO" />
 	</typeAliases>
 
 	<environments default="development">
@@ -29,5 +30,6 @@
 		<mapper resource="com/smhrd/mapper/BlockMapper.xml"/>
 		<mapper resource="com/smhrd/mapper/FollowMapper.xml"/>
 		<mapper resource="com/smhrd/mapper/BoardMapper.xml"/>
+		<mapper resource="com/smhrd/mapper/CommentMapper.xml"/>
 	</mappers>
 </configuration>
