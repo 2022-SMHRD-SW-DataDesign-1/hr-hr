@@ -1,0 +1,81 @@
+@charset "UTF-8";
+
+ @media screen and (max-width:650.98px) {
+    /* 스마트폰 가로 */
+    
+    .r_title>a{
+        
+    }
+}
+   
+td{
+    
+}
+tr td{
+    padding: 8px 0 0 0;
+    border-bottom: 1px solid #d4d0d0;
+    text-align: center;
+
+}
+tr th{
+    border-bottom: 1px solid #d4d0d0;
+    text-align: center;
+    right: 50px;
+}
+
+.review{
+    position: relative;
+    top:130px;
+    left: 15%;
+}
+.r_board{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    margin-top: 30px;
+    width: 65%;
+    height: 400px;
+    border: 1px solid black;
+    text-align: center;
+
+}
+thead{
+    margin-bottom: 20px;
+}
+.tr_height{
+    height: 30px;
+}
+
+th>.r_writer{
+    font-size: 50px;
+}
+.r_writer{
+    width: 100px;
+    text-align: center
+    
+    
+}
+.r_title{
+    width: 20vmax;
+    height: 30px;
+    margin-left: 17%;
+    text-align: center
+    
+}
+.r_date{
+    width: 100px;
+    text-align: center
+}
+.r_like{
+    width: 100px;
+    text-align: center
+}
+
+.title_area{
+    width: 20vmax;
+}
+.r_title>a{
+    text-decoration: none;
+    color: black;
+   
+}
