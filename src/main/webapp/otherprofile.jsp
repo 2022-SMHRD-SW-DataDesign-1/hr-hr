@@ -33,7 +33,7 @@
         <section class="h_inner">
 
             <h1 class="logo">
-                <a href="index.html">
+                <a href="Main.jsp">
                     <div class="sprite_insta_icon"></div>
                     <div>
                         <div class="sprite_write_logo"></div>
@@ -76,7 +76,7 @@
                 <div class="detail">
                     <div class="top">
                         <div class="user_name">KindTiger</div>
-                        <a href="profile_edit.html" class="profile_edit">팔로우</a>
+                        <a href="profile_edit.jsp" class="profile_edit">팔로우</a>
                         <a href="#" class="block">DM</a>
                         <br>
                         <div class="toptop">

@@ -20,4 +20,9 @@
 		case when count(*) > 0 then 1 else 0 end result from t_member where
 		m_id = #{inputID}
 	</select>
+	
+	<select id="showAll" parameterType="String" resultType="MemberDTO">
+		SELECT * FROM t_member  WHERE m_id not in #{m_id} 
+	</select>
+	
 </mapper>

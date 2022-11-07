@@ -112,21 +112,40 @@
                                               <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-label="Slide 1" aria-current="true"></button>
                                               <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2" class=""></button>
                                               <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3" class=""></button>
+											  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4" class=""></button>
+											  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4" aria-label="Slide 5" class=""></button>
+											  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="5" aria-label="Slide 6" class=""></button>
+											  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="6" aria-label="Slide 7" class=""></button>
                                             </div>
                                             <div class="carousel-inner">
                                               <div class="carousel-item active">
                                                 <!-- 여기에 사진넣기 --> 	
-                                                <img src="imgs/정부정책.png" alt="visual01">
+                                                <img src="imgs/국민취업지원제도1.png" alt="visual01">
                                           
                                               </div>
                                               <div class="carousel-item">
                                                 <!-- 여기에 사진넣기 --> 				
-                                                <img src="imgs/정부정책.png" alt="visual01"> 								  
+                                                <img src="imgs/국민취업지원제도2.png" alt="visual02"> 								  
                                               </div>	
                                                 <div class="carousel-item">
                                                 <!-- 여기에 사진넣기 --> 	
-                                                <img src="imgs/정부정책.png" alt="visual01"> 
-                                          
+                                                <img src="imgs/국민취업지원제도 3.png" alt="visual03"> 
+                                          	</div>
+											  <div class="carousel-item">
+                                                <!-- 여기에 사진넣기 --> 				
+                                                <img src="imgs/국민취업지원제도 4.png" alt="visual04"> 								  
+                                              </div>
+											  <div class="carousel-item">
+                                                <!-- 여기에 사진넣기 --> 				
+                                                <img src="imgs/국민취업지원제도 5.png" alt="visual05"> 								  
+                                              </div>
+											  <div class="carousel-item">
+                                                <!-- 여기에 사진넣기 --> 				
+                                                <img src="imgs/국민취업지원제도 6.png" alt="visual06"> 								  
+                                              </div>
+											  <div class="carousel-item">
+                                                <!-- 여기에 사진넣기 --> 				
+                                                <img src="imgs/국민취업지원제도7.png" alt="visual07"> 								  
                                               </div>
                                             </div>
                                             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
@@ -206,65 +225,6 @@
 										</div>
 									</div>
 
-									<div class="user_container-detail">
-										<div class="user">
-											<img src="imgs/thumb02.jpg" alt="user">
-										</div>
-										<div class="comment">
-											<span class="user_id">in0.lee</span>너무귀엽네요 ㅎㅎㅎ맞팔해요~!
-											<div class="time">
-												2시간 <span class="try_comment">답글 달기</span>
-											</div>
-											<div class="icon_wrap">
-												<div class="more_trigger">
-													<div class="sprite_more_icon"></div>
-												</div>
-												<div>
-													<div class="sprite_small_heart_icon_outline"></div>
-												</div>
-											</div>
-										</div>
-									</div>
-
-									<div class="user_container-detail">
-										<div class="user">
-											<img src="imgs/thumb03.jpg" alt="user">
-										</div>
-										<div class="comment">
-											<span class="user_id">in0.lee</span>너무귀엽네요
-											<div class="time">
-												2시간 <span class="try_comment">답글 달기</span>
-											</div>
-											<div class="icon_wrap">
-												<div class="more_trigger">
-													<div class="sprite_more_icon"></div>
-												</div>
-												<div>
-													<div class="sprite_small_heart_icon_outline"></div>
-												</div>
-											</div>
-										</div>
-									</div>
-
-									<div class="user_container-detail">
-										<div class="user">
-											<img src="imgs/thumb02.jpg" alt="user">
-										</div>
-										<div class="comment">
-											<span class="user_id">in0.lee</span>너무귀엽네요 ㅎㅎㅎ맞팔해요~!
-											<div class="time">
-												2시간 <span class="try_comment">답글 달기</span>
-											</div>
-											<div class="icon_wrap">
-												<div class="more_trigger">
-													<div class="sprite_more_icon"></div>
-												</div>
-												<div>
-													<div class="sprite_small_heart_icon_outline"></div>
-												</div>
-											</div>
-										</div>
-									</div>
 
 								</section>
 
