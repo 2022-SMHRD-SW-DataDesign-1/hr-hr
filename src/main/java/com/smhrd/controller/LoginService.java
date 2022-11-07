@@ -44,7 +44,7 @@ public class LoginService extends HttpServlet {
 		}
 		
 		//일단은 메인으로 가게끔 하고 나중에 수정..!
-		RequestDispatcher rd = request.getRequestDispatcher("./testAll2.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("./testAll.jsp");
 		rd.forward(request, response);
 		
 		
