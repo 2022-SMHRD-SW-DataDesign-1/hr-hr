@@ -54,33 +54,6 @@
 
 		</header>
 
-		<div class="hidden_menu">
-		
-			<div class="scroll_inner">
-				<div class="user">
-					<div class="thumb_img">
-						<img src="imgs/thumb.jpeg" alt="프로필사진">
-					</div>
-					<div class="id">여ㅁㄴ라ㅢㅁ느리ㅏㄵ드리ㅏㅈㅂ므ㅜㅏㅣㄹㅇ다</div>
-				</div>
-
-				<div class="user">
-					<div class="thumb_img">
-						<img src="imgs/thumb.jpeg" alt="프로필사진">
-					</div>
-					<div class="id">kinㅁㄴㄻ누라ㅓㅂㄷㅁ주라ㅓㄷ무리ㅏㅓrr</div>
-				</div>
-				<div class="user">
-					<div class="thumb_img">
-						<img src="imgs/thumb.jpeg" alt="프로필사진">
-					</div>
-					<div class="id">ㄴㅁㄹㄴㅁㄹㄴㄷㅁㅈㄻㅈㄻㄴㅇ</div>
-				</div>
-
-			</div>
-		</div>
-
-        
 
 		<section id="main_container">
             
