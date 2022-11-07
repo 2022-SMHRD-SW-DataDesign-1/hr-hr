@@ -1,5 +1,6 @@
 package com.smhrd.model;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 
 import org.apache.ibatis.session.SqlSession;
@@ -32,5 +33,12 @@ public class BoardDAO {
 		session.close();
 		return bdto; 
 	}
-
+	// 유용해요 버튼 누르면 1 추가
+	public int LikesPlus(int b_num) {
+		SqlSession session = sqlSessionFactory.openSession(true);
+		int count = session.selectOne("LikesPlus",b_num );
+		return count;
+	}
+	
+	//
 }
