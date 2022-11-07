@@ -189,8 +189,8 @@
 									<img src="imgs/thumb.jpeg" alt="프로필이미지">
 								</div>
 								<div class="user_name">
-									<div class="nick_name m_text">admin</div>
-									<div class="country s_text">Seoul, South Korea</div>
+									<div class="nick_name  user_text">admin</div>
+									<div class="country country_text">Seoul, South Korea</div>
 								</div>
                                 <div class="right_button">
                                     <button type="button" class="btn btn-outline-dark"><a href="reviewboard.jsp">리뷰</a></button>

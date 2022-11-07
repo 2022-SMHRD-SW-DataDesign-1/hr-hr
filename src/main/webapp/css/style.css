@@ -95,7 +95,7 @@ li{
     margin-bottom: 16px;
     
 }
-.m_text{
+.user_text{
     font-size: 14px;
     font-weight: bold;
     list-style:none;
@@ -103,7 +103,7 @@ li{
     width: 150px;
 }
 
-.s_text{
+.country_text{
     font-size: 12px;
 }
 
