@@ -1,34 +1,33 @@
 @charset "UTF-8";
 
- @media screen and (max-width:650.98px) {
+@media screen and (max-width:650.98px) {
     /* 스마트폰 가로 */
-    
-    .r_title>a{
-        
-    }
+
+    .r_title>a {}
 }
-   
-td{
-    
-}
-tr td{
+
+td {}
+
+tr td {
     padding: 8px 0 0 0;
     border-bottom: 1px solid #d4d0d0;
     text-align: center;
 
 }
-tr th{
+
+tr th {
     border-bottom: 1px solid #d4d0d0;
     text-align: center;
     right: 50px;
 }
 
-.review{
+.review {
     position: relative;
-    top:130px;
+    top: 130px;
     left: 15%;
 }
-.r_board{
+
+.r_board {
     display: flex;
     flex-direction: column;
     position: absolute;
@@ -39,43 +38,55 @@ tr th{
     text-align: center;
 
 }
-thead{
+
+thead {
     margin-bottom: 20px;
 }
-.tr_height{
+
+.tr_height {
     height: 30px;
 }
 
-th>.r_writer{
+th>.r_writer {
     font-size: 50px;
 }
-.r_writer{
+
+.r_writer {
     width: 100px;
     text-align: center
-    
-    
 }
-.r_title{
+
+.r_title {
     width: 20vmax;
     height: 30px;
     margin-left: 17%;
     text-align: center
-    
 }
-.r_date{
-    width: 100px;
-    text-align: center
-}
-.r_like{
+
+.r_date {
     width: 100px;
     text-align: center
 }
 
-.title_area{
+.r_like {
+    width: 100px;
+    text-align: center
+}
+
+.title_area {
     width: 20vmax;
 }
-.r_title>a{
+
+.r_title>a {
     text-decoration: none;
     color: black;
-   
+
+}
+
+.r_board_title {
+    display: flex;
+}
+.btn.btn-primary.btn.btn-info{
+    width:fit-content;
+    margin:auto;
 }
