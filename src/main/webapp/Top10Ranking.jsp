@@ -49,7 +49,6 @@
 		<div class="ranking_box">
 			<div class="user_profile">
 				<div class="profile_thumb">
-					<img src="imgs/랭킹.PNG" class="rankingimg" alt="프로필사진">
 				</div>
 				<div class="detail">
 					<div class="id r_text">Ranking</div>
