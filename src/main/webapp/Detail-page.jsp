@@ -38,12 +38,7 @@
 		<link rel="shortcut icon" href="imgs/instagram.png">
 
 
-		<style>
-			#main_container {
-				/*height: 6000px;*/
-
-			}
-		</style>
+		
 	</head>
 
 	<body>
@@ -51,7 +46,7 @@
 
 		<section id="container">
 
-
+			<!-- 머리글 -->
 			<header id="header">
                 <section class="h_inner">
 
@@ -85,23 +80,25 @@
 
 
 			<div id="main_container">
-
+				<!-- 게시물 영역  -->
 				<section class="b_inner">
 
 					<div class="contents_box">
 
 						<article class="contents cont01">
-
+							<!-- 게시물 상단 영역 -->
 							<div class="user_container">
+							<!-- 게시물 유저 이미지 -->
 								<div class="profile_img">
 									<img src="imgs/thumb.jpeg" alt="">
 								</div>
+								<!-- 유저 이름 및 정보 -->
 								<div class="user_name">
 									<div class="nick_name">KindTiger</div>
 									<div class="country">Seoul, South Korea</div>
 								</div>
 							</div>
-
+							<!-- 게시물 이미지 영역 -->
 							<div class="img_section">
 								<div class="trans_inner">
 									<div>
@@ -110,7 +107,7 @@
 								</div>
 							</div>
 
-
+							<!-- 게시물 하단 상세영역  -->
 							<div class="detail--right_box">
 
 
@@ -118,39 +115,30 @@
 
 									<div class="admin_container">
 										<div class="comment">
+										<!-- 게시한 유저 이름 -->
 											<span class="user_id">Kindtiger</span>강아지가 많이 힘든가보다ㅜㅜㅜㅜㅜ조금만힘내
+											<!-- 게시 시간 -->
 											<div class="time">2시간</div>
 										</div>
 									</div>
-									<div class="sprite_more_icon" data-name="more">
-										<ul class="more_detail">
-											<li>팔로우</li>
-											<li>수정</li>
-											<li>삭제</li>
-										</ul>
-									</div>
+									
 								</header>
 
-
+								<!-- 댓글 스크롤  -->
 								<section class="scroll_section">
-
+									<!-- 댓글 영역 -->
 									<div class="user_container-detail">
 										<div class="user">
+										<!-- 댓글게시 유저 이미지 -->
 											<img src="imgs/thumb02.jpg" alt="user">
 										</div>
+										<!-- 댓글 내용 -->
 										<div class="comment">
 											<span class="user_id">in0.lee</span>너무귀엽네요 ㅎㅎㅎ맞팔해요~!
 											<div class="time">
 												2시간 <span class="try_comment">답글 달기</span>
 											</div>
-											<div class="icon_wrap">
-												<div class="more_trigger">
-													<div class="sprite_more_icon"></div>
-												</div>
-												<div>
-													<div class="sprite_small_heart_icon_outline"></div>
-												</div>
-											</div>
+											
 										</div>
 									</div>
 
@@ -163,14 +151,7 @@
 											<div class="time">
 												2시간 <span class="try_comment">답글 달기</span>
 											</div>
-											<div class="icon_wrap">
-												<div class="more_trigger">
-													<div class="sprite_more_icon"></div>
-												</div>
-												<div>
-													<div class="sprite_small_heart_icon_outline"></div>
-												</div>
-											</div>
+											
 										</div>
 									</div>
 
@@ -183,14 +164,7 @@
 											<div class="time">
 												2시간 <span class="try_comment">답글 달기</span>
 											</div>
-											<div class="icon_wrap">
-												<div class="more_trigger">
-													<div class="sprite_more_icon"></div>
-												</div>
-												<div>
-													<div class="sprite_small_heart_icon_outline"></div>
-												</div>
-											</div>
+											
 										</div>
 									</div>
 
@@ -203,14 +177,7 @@
 											<div class="time">
 												2시간 <span class="try_comment">답글 달기</span>
 											</div>
-											<div class="icon_wrap">
-												<div class="more_trigger">
-													<div class="sprite_more_icon"></div>
-												</div>
-												<div>
-													<div class="sprite_small_heart_icon_outline"></div>
-												</div>
-											</div>
+											
 										</div>
 									</div>
 
@@ -223,43 +190,36 @@
 											<div class="time">
 												2시간 <span class="try_comment">답글 달기</span>
 											</div>
-											<div class="icon_wrap">
-												<div class="more_trigger">
-													<div class="sprite_more_icon"></div>
-												</div>
-												<div>
-													<div class="sprite_small_heart_icon_outline"></div>
-												</div>
-											</div>
+											
 										</div>
 									</div>
 
 								</section>
 
-
+								<!-- 게시글 하단 버튼  -->
 								<div class="bottom_icons">
+									<!-- 하단 왼쪽버튼 -->
 									<div class="left_icons">
+									<!-- 게시글 좋아요버튼 -->
 										<div class="heart_btn">
-											<div class="sprite_heart_icon_outline" data-name="heartbeat"></div>
+											<div class="sprite_heart_icon_outline" data-name="heartbeat">
+												<button class="heart_button"><img src="imgs/3.PNG"></button>
+											</div>
 										</div>
-										<div>
-											<div class="sprite_bubble_icon"></div>
-										</div>
-										<div>
-											<div class="sprite_share_icon" data-name="share"></div>
-										</div>
+								<!-- 댓글 버튼 -->
+								<div class="sprite_bubble_icon"></div>
 									</div>
-
+									<!-- 게시글 스크랩 버튼 -->
 									<div class="right_icon">
 										<div class="sprite_bookmark_outline" data-name="book-mark"></div>
 									</div>
 								</div>
-
+								<!-- 게시글 좋아요수 표시 -->
 								<div class="count_likes">
 									좋아요 <span class="count">2,351</span> 개
 								</div>
 								<div class="timer">2시간</div>
-
+								<!-- 댓글 입력란 -->
 								<div class="commit_field">
 									<input type="text" placeholder="댓글달기..">
 
@@ -279,14 +239,6 @@
 
 				</section>
 
-			</div>
-
-
-			<div class="del_pop">
-				<div class="btn_box">
-					<div class="del">삭제</div>
-					<div class="cancel">취소</div>
-				</div>
 			</div>
 
 		</section>

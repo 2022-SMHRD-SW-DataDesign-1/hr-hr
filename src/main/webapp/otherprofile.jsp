@@ -63,40 +63,51 @@
 
 
     <div id="main_container">
-
+		<!-- 프로필 영역 -->
         <section class="b_inner">
-
+			<!-- 프로필 위에 영역 -->
             <div class="hori_cont">
                 <div class="profile_wrap">
+                <!-- 프로필 사진영역 -->
                     <div class="profile_img">
                         <img src="imgs/thumb.jpeg" alt="착한호랑이">
                     </div>
                 </div>
-
+					<!-- 프로필 상세영역  -->
                 <div class="detail">
                     <div class="top">
+                    <!-- detail top user_name으로 클래스 접근 닉네임영역 -->
                         <div class="user_name">KindTiger</div>
+                        <!-- detail top a으로 클래스 접근 팔로우 dm영역 -->
                         <a href="profile_edit.jsp" class="profile_edit">팔로우</a>
-                        <a href="#" class="block">DM</a>
+                        <a href="#">DM</a>
                         <br>
                         <div class="toptop">
+                        <!-- 차단버튼 -->                  <!--여기가 버튼스타일 클래스영역  -->
                             <button type="button" class="btn-primary btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                 차단
                               </button>
                               
                               <!-- Modal -->
+                              <!-- 버튼활성화시 보이는 부분 -->
                               <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                               <!-- 팝업창 크기클래스 -->
                                 <div class="modal-dialog">
                                   <div class="modal-content">
+                                  <!-- 팝업창 머리글 -->
                                     <div class="modal-header">
                                       <h1 class="modal-title fs-5" id="exampleModalLabel">차단여부 설정</h1>
                                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
+                                    <!-- 팝업창 본문영역 -->
                                     <div class="modal-body">
                                      해당 사용자를 차단합니다
                                     </div>
+                                    <!-- 팝업창 하단 버튼영역 -->
                                     <div class="modal-footer">
+                                    <!-- 팝업창 닫기 버튼 -->
                                       <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
+                                      <!-- 팝업창 (차단)실행버튼 -->
                                       <button type="button" class="btn btn-primary">차단</button>
                                     </div>
                                   </div>
@@ -106,7 +117,7 @@
                         </div>
                     </div>
                     
-
+					<!-- 머리글 중간부분 -->
                     <ul class="middle">
                         <li>
                             <span>게시물</span>
@@ -128,7 +139,7 @@
 
                 </div>
             </div>
-
+			<!-- 게시글 영역 -->
             <div class="mylist_contents contents_container active">
                 <div class="pic">
                     <a href="#"><img src="imgs/img_section/img01.jpg" alt=""></a>

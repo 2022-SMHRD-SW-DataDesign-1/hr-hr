@@ -358,8 +358,14 @@ body{
 }
 
 .sprite_heart_icon_outline.on {
-    background: url('../imgs/background01.png') no-repeat -26px -261px;
+    background: url('../imgs/3.png');
 }
+.heart_button{
+	outline: 0;
+	border: 0;
+	bottom: 10px;
+}
+
 
 
 .contents .likes{

@@ -18,7 +18,7 @@
 <body>
 	<section id="container">
 
-
+		<!-- 머리글 -->
 		<header id="header">
 			<section class="h_inner">
 
@@ -52,26 +52,33 @@
 		</header>
 
 	</section>
+	<!-- 채팅영역  -->
 	<div id="chat-room">
 		<div class="message-box">
+		<!-- 날짜 표시영역 -->
 			<div class="message-group" data-date-str="2014년 12월 10일 일요일">
+			<!-- 타유저 채팅영역 -->
 				<div class="chat-message other">
+				<!-- 타유저 닉넴 -->
 					<section>
 						<i class="fa fa-user"></i>
 					</section>
+					<!-- 타유저 채팅전송 -->
 					<span>아들</span>
 					<div>굿모닝!!!!</div>
 				</div>
-
+				<!-- 본인 채팅 -->
 				<div class="chat-message mine">
+				<!-- 본인 -->
 					<section>
 						<i class="fa fa-user"></i>
 					</section>
+					<!-- 본인 이름 -->
 					<span>홍길동</span>
 					<div>새벽공기가 쌀쌀하구나</div>
 				</div>
 			</div>
-
+			<!--  -->
 			<div class="message-group" data-date-str="2014년 12월 11일 월요일">
 				<div class="chat-message other">
 					<section>
@@ -91,14 +98,14 @@
 
 			</div>
 		</div>
+		<!-- 채팅입력란 -->
 		<div class="input-box">
 			<input type="text" id="text-input">
+			<!-- 첨부파일 -->
 			<div class="btn-plus">
 				<i class="fa fa-plus" aria-hidden="true"></i>
 			</div>
-			<div class="btn-emo">
-				<i class="fa fa-smile-o" aria-hidden="true"></i>
-			</div>
+			<!-- 채팅전송 버튼  -->
 			<div class="btn-submit">
 				<span>전송</span>
 			</div>
@@ -110,7 +117,7 @@
 
 
 	</div>
-
+	<!-- 채팅 자바스크립트 아직 다시 안봐봄..공부하자  -->
 	<script>
     var k = function() {
         // val()은 엘리먼트가 가지고 있는 value 속성의 값을 가져온다.

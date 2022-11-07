@@ -75,17 +75,19 @@
 
 
 			<div id="main_container">
-
+				<!-- 게시글 영역 -->
 				<section class="b_inner">
 
 					<div class="contents_box">
 
 						<article class="contents cont01">
-
+							<!-- 게시글 상단 -->
 							<div class="user_container">
+							<!-- 유저 이미지 -->
 								<div class="profile_img">
 									<img src="imgs/thumb.jpeg" alt="">
 								</div>
+								<!-- 유저 정보 -->
 								<div class="user_name">
 									<div class="nick_name">Admin</div>
 									<div class="country">Seoul, South Korea</div>
@@ -94,16 +96,19 @@
 								</div>
                               
 							</div>
-
+							<!-- 게시글 이미지영역 -->
 							<div class="img_section">
 								<div class="trans_inner">
 									<div>
+									<!-- 이미지 넘기기 -->
 										<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
+                                           <!-- 이미지 수정하기 -->
                                             <div class="carousel-indicators">
                                               <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-label="Slide 1" aria-current="true"></button>
                                               <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2" class=""></button>
                                               <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3" class=""></button>
                                             </div>
+                                            <!-- 이미지 넣는 영역 -->
                                             <div class="carousel-inner">
                                               <div class="carousel-item active">
                                                 <!-- 여기에 사진넣기 --> 	
@@ -133,47 +138,37 @@
 								</div>
 							</div>
 
-
+								<!-- 게시글 하단 상세 -->
 							<div class="detail--right_box">
 
 
 								<header class="top">
-
+									<!-- 유저 정보 -->
 									<div class="admin_container">
 										<div class="comment">
+										<!-- 유저 이름  -->
 											<span class="user_id">Kindtiger</span>강아지가 많이 힘든가보다ㅜㅜㅜㅜㅜ조금만힘내
 											<div class="time">2시간</div>
 										</div>
 									</div>
-									<div class="sprite_more_icon" data-name="more">
-										<ul class="more_detail">
-											<li>팔로우</li>
-											<li>수정</li>
-											<li>삭제</li>
-										</ul>
-									</div>
+									
 								</header>
 
-
+							<!-- 댓글 스크롤 -->
 								<section class="scroll_section">
-
+								<!-- 댓글 영역 -->
 									<div class="user_container-detail">
+									<!-- 댓글 유저 이미지 -->
 										<div class="user">
 											<img src="imgs/thumb02.jpg" alt="user">
 										</div>
+										<!-- 댓글 내용 -->
 										<div class="comment">
 											<span class="user_id">in0.lee</span>너무귀엽네요 ㅎㅎㅎ맞팔해요~!
 											<div class="time">
 												2시간 <span class="try_comment">답글 달기</span>
 											</div>
-											<div class="icon_wrap">
-												<div class="more_trigger">
-													<div class="sprite_more_icon"></div>
-												</div>
-												<div>
-													<div class="sprite_small_heart_icon_outline"></div>
-												</div>
-											</div>
+											
 										</div>
 									</div>
 
@@ -186,14 +181,7 @@
 											<div class="time">
 												2시간 <span class="try_comment">답글 달기</span>
 											</div>
-											<div class="icon_wrap">
-												<div class="more_trigger">
-													<div class="sprite_more_icon"></div>
-												</div>
-												<div>
-													<div class="sprite_small_heart_icon_outline"></div>
-												</div>
-											</div>
+											
 										</div>
 									</div>
 
@@ -206,14 +194,7 @@
 											<div class="time">
 												2시간 <span class="try_comment">답글 달기</span>
 											</div>
-											<div class="icon_wrap">
-												<div class="more_trigger">
-													<div class="sprite_more_icon"></div>
-												</div>
-												<div>
-													<div class="sprite_small_heart_icon_outline"></div>
-												</div>
-											</div>
+											
 										</div>
 									</div>
 
@@ -226,14 +207,7 @@
 											<div class="time">
 												2시간 <span class="try_comment">답글 달기</span>
 											</div>
-											<div class="icon_wrap">
-												<div class="more_trigger">
-													<div class="sprite_more_icon"></div>
-												</div>
-												<div>
-													<div class="sprite_small_heart_icon_outline"></div>
-												</div>
-											</div>
+											
 										</div>
 									</div>
 
@@ -246,43 +220,36 @@
 											<div class="time">
 												2시간 <span class="try_comment">답글 달기</span>
 											</div>
-											<div class="icon_wrap">
-												<div class="more_trigger">
-													<div class="sprite_more_icon"></div>
-												</div>
-												<div>
-													<div class="sprite_small_heart_icon_outline"></div>
-												</div>
-											</div>
+											
 										</div>
 									</div>
 
 								</section>
 
-
+								<!-- 게시글 하단 버튼  -->
 								<div class="bottom_icons">
+								<!-- 하단 왼쪽 -->
 									<div class="left_icons">
+									<!-- 좋아요 버튼 -->
 										<div class="heart_btn">
-											<div class="sprite_heart_icon_outline" data-name="heartbeat"></div>
-										</div>
-										<div>
-											<div class="sprite_bubble_icon"></div>
-										</div>
-										<div>
-											<div class="sprite_share_icon" data-name="share"></div>
-										</div>
+									<div class="sprite_heart_icon_outline" data-name="heartbeat">
+										<button class="heart_button"><img src="imgs/3.PNG"></button>
 									</div>
-
+								</div>
+								<!-- 댓글 버튼 -->
+								<div class="sprite_bubble_icon"></div>
+									</div>
+								<!-- 게시글 스크랩 -->
 									<div class="right_icon">
 										<div class="sprite_bookmark_outline" data-name="book-mark"></div>
 									</div>
 								</div>
-
+								<!-- 좋아요수 표시 -->
 								<div class="count_likes">
 									좋아요 <span class="count">2,351</span> 개
 								</div>
 								<div class="timer">2시간</div>
-
+								<!-- 댓글 입력란  -->
 								<div class="commit_field">
 									<input type="text" placeholder="댓글달기..">
 
@@ -302,14 +269,6 @@
 
 				</section>
 
-			</div>
-
-
-			<div class="del_pop">
-				<div class="btn_box">
-					<div class="del">삭제</div>
-					<div class="cancel">취소</div>
-				</div>
 			</div>
 
 		</section>

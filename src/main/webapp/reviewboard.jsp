@@ -54,27 +54,34 @@
                 </section>
 
             </header>
+            <!-- 리뷰 게시글 영역 -->
             <article class="review">
                 <div class="r_board_title">
                     <h2>리뷰 게시판 </h2>
                   
-                    
+                    <!-- 리뷰 등록 버튼 -->			<!-- 여기가 버튼스타일 클래스  -->
                     <button type="button" class="btn btn-primary btn btn-info" data-bs-toggle="modal"
                         data-bs-target="#staticBackdrop">
-                        게시글 등록
+                        리뷰 등록
                     </button>
-                    <!-- Modal -->
+                    <!-- 팝업창영역 -->
+                    <!-- Modal -->			
                     <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
                         tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                        	<!-- 팝업창 크기 클래스 -->
                         <div class="modal-dialog modal-lg">
                             <div class="modal-content">
+                            <!-- 팝업창 머리글 -->
                                 <div class="modal-header">
                                     <h1 class="modal-title fs-5" id="staticBackdropLabel">게시물 등록</h1>
+                                    <!-- 팝업창 닫기 -->
                                     <button type="button" class="btn-close" data-bs-dismiss="modal"
                                         aria-label="Close"></button>
                                 </div>
+                                <!-- 팝업창 본문 -->
                                 <div class="modal-body">
                                     <div class="post_form_container">
+                                    <!-- 리뷰게시글 정보 보내기 -->
                                         <form action="#" class="post_form">
                                             <div class="title">
                                                 리뷰게시글 작성
@@ -94,19 +101,23 @@
                                                 </div>
                                             </div>
                                             <p>
+                                            <!-- 리뷰 게시글사진 첨부 -->
                                                 <input type="file" name="photo" id="id_photo" required="required">
                                             </p>
                                             <p>
+                                            <!-- 리뷰 글추가 -->
                                                 <textarea name="content" id="text_field" cols="50" rows="5" placeholder="140자 까지 등록 가능합니다. #태그명 을 통해서 검색 태그를 등록할 수 있습니다.
 						예시 : I # love # insta!"></textarea>
 
                                             </p>
+                                            <!-- 리뷰등록 -->
                                             <input class="submit_btn" type="submit" value="저장">
                                         </form>
 
                                     </div>
                                 </div>
                                 <div class="modal-footer">
+                                <!-- 팝업창 닫기 -->
                                     <button type="button" class="btn btn-secondary"
                                         data-bs-dismiss="modal">Close</button>
                                 </div>
@@ -114,8 +125,10 @@
                         </div>
                     </div>
                 </div>  
+                <!-- 리뷰게시판 영역 -->
                 <div class="r_board">
                     <table class="tmp_table">
+                    <!-- 게시판 머리글 -->
                         <thead>
                             <tr>
                                 <th class="r_writer">작성자</th>
@@ -124,6 +137,7 @@
                                 <th class="r_like">좋아요</th>
                             </tr>
                         </thead>
+                        <!-- 게시판 본문 -->
                         <tbody>
                             <tr class="tr_height">
                                 <td>

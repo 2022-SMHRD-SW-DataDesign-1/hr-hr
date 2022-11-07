@@ -79,6 +79,7 @@ body {
     background: url('../imgs/background01.png') no-repeat -239px -202px;
     width: 24px;
     height: 24px;
+    margin-top: 5px;
 }
 
 .sprite_share_icon {
