@@ -116,8 +116,7 @@
 		ArrayList<BoardDTO> bList = dao.showBoard(info.getM_Id());
 		
 		for(BoardDTO b_dto : bList){%>
-			게시글 : <%= b_dto.toString() %><br>
-				
+			게시글 : <%= b_dto.toString() %><br>	
 		<%BigDecimal b_num = b_dto.getB_num();
 		ArrayList<CommentDTO> cmtList = cmtDAO.showComment(b_num);
 		if(cmtList != null){

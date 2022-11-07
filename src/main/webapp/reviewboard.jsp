@@ -88,7 +88,7 @@
                                                             <span></span>
                                                         </div>
                                                         <p>포스트 이미지 추가</p>
-                                                        <canvas id="imageCanvas"></canvas>
+                                                       <canvas id="imageCanvas"></canvas>
                                                         <!--<p><img id="img_id" src="#" style="width: 300px; height: 300px; object-fit: cover" alt="thumbnail"></p>-->
                                                     </div>
                                                 </div>
@@ -130,7 +130,7 @@
                                     김하랑
                                 </td>
                                 <td class="r_title">
-                                    <a href="#">뭐이리 작성했어?!</a>
+                                    <a href="review.jsp">뭐이리 작성했어?!</a>
                                 </td>
                                 <td class="r_date">
                                     15:28
@@ -144,7 +144,7 @@
                                     <span class="r_writer">김영우</span>
                                 </td>
                                 <td class="r_title">
-                                    <a href="#">뭐이리 작성했어?!</a>
+                                    <a href="review.jsp">뭐이리 작성했어?!</a>
                                 </td>
                                 <td class="r_date">
                                     15:28
@@ -158,7 +158,7 @@
                                     <span class="r_writer">박상현</span>
                                 </td>
                                 <td class="r_title">
-                                    <a href="#">뭐이리 작성했어?!</a>
+                                    <a href="review.jsp">뭐이리 작성했어?!</a>
                                 </td>
                                 <td class="r_date">
                                     15:28
@@ -172,7 +172,7 @@
                                     <span class="r_writer">허유리</span>
                                 </td>
                                 <td class="r_title">
-                                    <a href="#">뭐이리 작성했어?!</a>
+                                    <a href="review.jsp">뭐이리 작성했어?!</a>
                                 </td>
                                 <td class="r_date">
                                     15:28
@@ -186,7 +186,7 @@
                                     <span>변우경</span>
                                 </td>
                                 <td class="r_title">
-                                    <a href="#">뭐이리 작성했어?!</a>
+                                    <a href="review.jsp">뭐이리 작성했어?!</a>
                                 </td>
                                 <td class="r_date">
 

@@ -28,13 +28,6 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
         <link href="https://getbootstrap.com/docs/5.2/assets/css/docs.css" rel="stylesheet">
 
-
-		<style>
-			#main_container {
-				/*height: 6000px;*/
-
-			}
-		</style>
 	</head>
 
 	<body>
@@ -99,9 +92,7 @@
 
                                     
 								</div>
-                                <div class="right_button">
-                                    <button type="button" class="btn btn-outline-dark"><a href="reviewboard.jsp">리뷰</a></button>
-                                </div>
+                              
 							</div>
 
 							<div class="img_section">
@@ -116,16 +107,16 @@
                                             <div class="carousel-inner">
                                               <div class="carousel-item active">
                                                 <!-- 여기에 사진넣기 --> 	
-                                                <img src="imgs/정부정책.png" alt="visual01">
+                                                <img src="imgs/thumb03.jpg" alt="visual01">
                                           
                                               </div>
                                               <div class="carousel-item">
                                                 <!-- 여기에 사진넣기 --> 				
-                                                <img src="imgs/정부정책.png" alt="visual01"> 								  
+                                                <img src="imgs/thumb03.jpg" alt="visual01"> 								  
                                               </div>	
                                                 <div class="carousel-item">
                                                 <!-- 여기에 사진넣기 --> 	
-                                                <img src="imgs/정부정책.png" alt="visual01"> 
+                                                <img src="imgs/thumb03.jpg" alt="visual01"> 
                                           
                                               </div>
                                             </div>
@@ -331,4 +322,6 @@
 
 
 	</body>
-</html>
+
+
+    </html>

@@ -378,7 +378,7 @@
 								<div class="time">1시간 전</div>
 							</div>
 						</div>
-					</article>
+				</article>
 				</div>
 
 
