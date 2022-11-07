@@ -17,6 +17,13 @@
 <title>Insert title here</title>
 </head>
 <script src="http://code.jquery.com/jquery-latest.js"></script>
+<style>
+  /* 여러 채팅창 간의 간격과 배열 위치*/
+  .float-left{
+    float:left;
+    margin: 5px;
+  }
+</style>
 <body>
 
 	<%
@@ -119,6 +126,12 @@
 			게시글 : <%= b_dto.toString() %><br>	
 		<%BigDecimal b_num = b_dto.getB_num();
 		ArrayList<CommentDTO> cmtList = cmtDAO.showComment(b_num);
+		/* 좋아용 버튼 + 좋아요 누를 때 좋아요 카운트 올라가게 ==> mapper 구성 필요하고, dao 필요하고 <== 모르면 물어보면서 */
+				/*  
+				
+				
+				
+				*/
 		if(cmtList != null){
 		for(CommentDTO cmt : cmtList){%>
 		댓글 : <%=cmt.toString() %>
@@ -172,8 +185,19 @@
 	
 
 	<hr>
+	<!-- 채팅창 팝업 or open용 -->
+	 
+	  	
+	
+	<hr>
 	<!-- 팔로우, 차단 데이터베이스 값 전달 -->
-	<input type = "button" name="follow" value="팔로우">
+	
+	
+	
+	
+	
+	
+	
 
 	<hr>
 	<!-- 프로필 출력 o + 업데이트 -->
