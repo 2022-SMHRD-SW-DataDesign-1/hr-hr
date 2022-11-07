@@ -99,7 +99,7 @@
                         <article class="month_ranking">
                             <header class="ranking_header">
                                 <div>월간랭킹</div>
-                                <div class="more"><a href="Top10Ranking.html" class="ranking_a">모두 보기</a></div>
+                                <div class="more"><a href="Top10Ranking.jsp" class="ranking_a">모두 보기</a></div>
                             </header>
     
                             <div class="scroll_inner">
@@ -139,7 +139,7 @@
 						<article class="daily_ranking">
                             <header class="story_header">
                                 <div>일간랭킹</div>
-                                <div class="more"><a href="Top10Ranking.html" class="ranking_a">모두 보기</a></div>
+                                <div class="more"><a href="Top10Ranking.jsp" class="ranking_a">모두 보기</a></div>
                             </header>
     
                             <div class="scroll_inner">
