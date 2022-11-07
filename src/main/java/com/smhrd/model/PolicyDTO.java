@@ -5,6 +5,7 @@ import java.sql.Timestamp;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import lombok.ToString;
@@ -12,6 +13,7 @@ import lombok.ToString;
 @AllArgsConstructor
 @Getter
 @ToString
+@NoArgsConstructor
 public class PolicyDTO {
 	// 정책 게시글 번호
 	private BigDecimal p_num;
