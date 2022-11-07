@@ -13,7 +13,7 @@ public class PolicyDAO {
 	// 업로드
 	public int upload(PolicyDTO dto) {
 		SqlSession session = sqlSessionFactory.openSession(true);
-		int row = session.insert("upload", dto);
+		int row = session.insert("p_upload", dto);
 		session.close();
 		
 		return row;

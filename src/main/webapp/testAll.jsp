@@ -1,3 +1,5 @@
+<%@page import="com.smhrd.model.PolicyDAO"%>
+<%@page import="com.smhrd.model.PolicyDTO"%>
 <%@page import="java.math.BigDecimal"%>
 <%@page import="com.smhrd.model.CommentDTO"%>
 <%@page import="com.smhrd.model.CommentDAO"%>
@@ -19,6 +21,7 @@
 
 	<%
 	MemberDTO info = (MemberDTO) session.getAttribute("info");
+	
 	%>
 	<!-- 기능 테스트 페이지 -->
 
@@ -104,10 +107,14 @@
 	<%if(info != null){ %>
 	게시글 내용(사진포함)
 	<%
+		//댓글 dao
 		CommentDAO cmtDAO = new CommentDAO();
+		//게시판 dao
 		BoardDAO dao = new BoardDAO();  
 		
-		ArrayList<BoardDTO> bList =dao.showBoard(info.getM_Id());
+		// 게시판 글 모음 dao에서 로그인한 아이디와 같은 글을 arraylist에 담음 
+		ArrayList<BoardDTO> bList = dao.showBoard(info.getM_Id());
+		
 		for(BoardDTO b_dto : bList){%>
 			게시글 : <%= b_dto.toString() %><br>
 				
@@ -131,9 +138,39 @@
 
 
 	<hr>
-	<!-- 정책 게시글 출력 + 리뷰 작성 -->
-
-
+	<!-- 정책 작성 o-->
+	<!-- 정책 작성 id가 admin일 때 보이게 만들기 등록 버튼 구현... 하기 -->
+	
+	<%-- <%if(info != null && info.getM_Id().equals("admin")){   %> --%>
+	
+	<form action="PolicyService"  enctype="multipart/form-data"  method="post" >
+		정책 제목 : <input type = "text" name = "p_title">
+		정책사진 등록 :<input  type="file" style="float: right;" name="p_filename">
+		정책 게시글 입력 : <textarea  rows="10" style="resize: none;" name="p_content"></textarea><br> 
+		<input type="submit" value="정책게시글 등록">
+	</form>
+	
+	
+	
+	<!-- 정책 목록 출력 + 리뷰 작성 + 출력-->
+	<%if(info != null ){%>
+	정책 게시글 포함 
+	
+	<% PolicyDAO dao = new PolicyDAO();
+	ArrayList<PolicyDTO> p_list = dao.showPolicy();
+	
+	for(PolicyDTO pdto : p_list){%>
+		정책 :<%=pdto.toString() %>
+	<% }%>
+		 
+	
+	<%}%> 
+	
+	<!-- /* 목록은 리스트라고! */ -->
+	
+	
+	
+	
 
 	<hr>
 	<!-- 팔로우, 차단 데이터베이스 값 전달 -->

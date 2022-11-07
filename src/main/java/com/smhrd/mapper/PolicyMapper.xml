@@ -5,7 +5,7 @@
 
 <mapper namespace="com.smhrd.mapper.PolicyMapper">
 	<!-- 정책 게시글 업로드 -->
-	<insert id="upload" parameterType="PolicyDTO">
+	<insert id="p_upload" parameterType="PolicyDTO">
 		INSERT INTO t_Policy
 		( p_title, admin_id, p_content, p_filename, p_date, p_likes, p_cnt)
 		VALUES (#{p_title}, #{admin_id}, #{p_content}, #{p_filename}, sysdate, 0, 0)
