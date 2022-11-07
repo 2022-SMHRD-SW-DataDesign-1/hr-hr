@@ -9,7 +9,9 @@ desc T_POLICY;
 
 ALTER TABLE t_policy ADD p_title VARCHAR(400);
 
+select * from t_comment;
 
+select * from t_board;
 
 
 

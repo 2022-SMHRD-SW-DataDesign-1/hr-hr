@@ -124,16 +124,67 @@
 		
 		for(BoardDTO b_dto : bList){%>
 			게시글 : <%= b_dto.toString() %><br>	
+		<!-- 게시글 번호 -->
 		<%BigDecimal b_num = b_dto.getB_num();
-		ArrayList<CommentDTO> cmtList = cmtDAO.showComment(b_num);
-		/* 좋아용 버튼 + 좋아요 누를 때 좋아요 카운트 올라가게 ==> mapper 구성 필요하고, dao 필요하고 <== 모르면 물어보면서 */
-				/*  
+		ArrayList<CommentDTO> cmtList = cmtDAO.showComment(b_num);%>
+		<button onclick="likesPlus()">유용해요</button>
+		<!-- // 유용해요버튼을 누루는 순간 board테이블에 있는 게시글의 좋아요가 1개 올라간다.  -->
+		
+		<!-- Scripts -->
+	<!-- 	<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/jquery.scrolly.min.js"></script>
+		<script src="assets/js/jquery.scrollex.min.js"></script>
+		<script src="assets/js/skel.min.js"></script>
+		<script src="assets/js/util.js"></script>
+		[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]
+		<script src="assets/js/main.js"></script>
+		<script>
+		
+		/* $sql="update t_board set b_likes = b_likes+1 where b_num = #{b_num}" */
+		
+			function likesPlus(){
+				let b_num = $("#b_num").val();
+				console.log(b_num);
 				
+				$.ajax({
+					url:'LikesPlusService', //요청서버 url
+					data:{'b_num':b_num}, // 요청할 떄 같이 보내줄 데이터
+					type:'get', // 요청 타입
+					success:function(data){// 통신성공(function(넘겨준데이터))
+						console.log(typeof data);
+						//resultLikesPlus
+						if(data == 'true'{
+							$("#resultLikesPlus").text('더하기 1 성공');
+						}else{
+							$("#resultLikesPlus").text('더하기 1 실패');
+						}
+						
 				
+				},
+				error:function(){
+					console.log("통신실패");
+				}
 				
-				*/
-		if(cmtList != null){
-		for(CommentDTO cmt : cmtList){%>
+				})//속성
+			}
+		
+		 -->
+		<!-- // 1. ajax를 통해서 서블릿으로 이동한다. 
+		// 2. 게시물 번호를 들고간다
+		// 3. DB에 접속해서 sql 문장을 실행한다.(dao)메소드  int 성공 실패
+		
+		
+		
+		</script> -->
+		
+	<!-- 	/* 좋아용 버튼 + 좋아요 누를 때 좋아요 카운트 올라가게 ==> mapper 구성 필요하고, dao 필요하고 <== 모르면 물어보면서 */ -->
+		
+		
+		
+		
+		
+		<% if(cmtList != null){%>
+		<% for(CommentDTO cmt : cmtList){%>
 		댓글 : <%=cmt.toString() %>
 		<br>
 		
@@ -151,7 +202,7 @@
 
 	<hr>
 	<!-- 정책 작성 o-->
-	<!-- 정책 작성 id가 admin일 때 보이게 만들기 등록 버튼 구현... 하기 -->
+	
 	
 	<%-- <%if(info != null && info.getM_Id().equals("admin")){   %> --%>
 	
@@ -164,7 +215,7 @@
 	
 	
 	
-	<!-- 정책 목록 출력 + 리뷰 작성 + 출력-->
+	<%-- <!-- 정책 목록 출력 + 리뷰 작성 + 출력-->
 	<%if(info != null){%>
 	정책 게시글 포함 
 	
@@ -176,7 +227,7 @@
 	<% }%>
 		 
 	
-	<%}%> 
+	<%}%>  --%>
 	
 	<!-- /* 목록은 리스트라고! */ -->
 	

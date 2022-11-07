@@ -19,4 +19,8 @@
 		select * from t_board
 		WHERE m_id in (select follow_id from t_follow where m_id = #{m_id}) or m_id = #{m_id}
 	</select>
+	
+	<update id="LikesPlus" parameterType = "int" resultType = "int">
+		update t_board set b_likes = b_likes+1 where b_num = #{b_num}
+	</update>
 </mapper>
