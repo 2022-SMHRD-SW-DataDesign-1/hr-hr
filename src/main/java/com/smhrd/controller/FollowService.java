@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServletResponse;
 public class FollowService extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
+		int follow_cnt = request.getParameter("follow_cnt");
 	}
 
 }

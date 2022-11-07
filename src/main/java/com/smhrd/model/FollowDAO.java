@@ -45,4 +45,18 @@ public class FollowDAO {
 
 			return count;
 		}
+		
+		public int followCheck(FollowDTO dto) {
+			System.out.println("팔로우 체크 method in");
+			System.out.println(dto.getM_id());
+			System.out.println(dto.getFollow_id());
+			SqlSession session = sqlSessionFactory.openSession(true);
+			int row = session.selectOne("followCheck", dto);
+			System.out.println("쿼리 리턴 받았나?");
+			session.close();
+
+			return row;
+
+			
+		}
 }

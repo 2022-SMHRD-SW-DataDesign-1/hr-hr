@@ -1,16 +1,24 @@
 package com.smhrd.model;
 
-import java.util.Date;
+import java.math.BigDecimal;
+import java.sql.Timestamp;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
 
 @AllArgsConstructor
 @Getter
+@RequiredArgsConstructor
+@NoArgsConstructor
 public class FollowDTO {
-	private int f_num;
+	private BigDecimal f_num;
+	@NonNull
 	private String m_id;
+	@NonNull
 	private String follow_id;
-	private Date f_date;
-	
+	private Timestamp f_date;
+
 }

@@ -6,10 +6,10 @@
 <mapper namespace="com.smhrd.mapper.FollowMapper">
 <insert id="follow" parameterType="FollowDTO">
 		insert into t_follow (m_id, follow_id, f_date) values 
-		(${m_id}, ${follow_id}, sysdate)
+		(#{m_id}, #{follow_id}, sysdate)
 	</insert>
 	<delete id="unFollow" parameterType="FollowDTO">
-		delete from t_follow where m_id = ${m_id} and follow_id = ${follow_id}
+		delete from t_follow where m_id = #{m_id} and follow_id = #{follow_id}
 	</delete>
 	
 	<select id="countFollow" parameterType="String" resultType="int">
@@ -22,5 +22,8 @@
 		WHERE follow_id = #{m_id} 
 	</select> 
 	
+	<select id="followCheck" parameterType="FollowDTO" resultType="int">
+		SELECT count(*) from t_follow where m_id = #{m_id} and follow_id = #{follow_id}
+	</select>	
 
 </mapper>
