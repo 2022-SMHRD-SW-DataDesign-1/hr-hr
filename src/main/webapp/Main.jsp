@@ -54,6 +54,33 @@
 
 		</header>
 
+		<div class="hidden_menu">
+		
+			<div class="scroll_inner">
+				<div class="user">
+					<div class="thumb_img">
+						<img src="imgs/thumb.jpeg" alt="프로필사진">
+					</div>
+					<div class="id">여ㅁㄴ라ㅢㅁ느리ㅏㄵ드리ㅏㅈㅂ므ㅜㅏㅣㄹㅇ다</div>
+				</div>
+
+				<div class="user">
+					<div class="thumb_img">
+						<img src="imgs/thumb.jpeg" alt="프로필사진">
+					</div>
+					<div class="id">kinㅁㄴㄻ누라ㅓㅂㄷㅁ주라ㅓㄷ무리ㅏㅓrr</div>
+				</div>
+				<div class="user">
+					<div class="thumb_img">
+						<img src="imgs/thumb.jpeg" alt="프로필사진">
+					</div>
+					<div class="id">ㄴㅁㄹㄴㅁㄹㄴㄷㅁㅈㄻㅈㄻㄴㅇ</div>
+				</div>
+
+			</div>
+		</div>
+
+        
 
 		<section id="main_container">
             
@@ -72,7 +99,7 @@
                         <article class="month_ranking">
                             <header class="ranking_header">
                                 <div>월간랭킹</div>
-                                <div class="more"><a href="Top10Ranking.jsp" class="ranking_a">모두 보기</a></div>
+                                <div class="more"><a href="Top10Ranking.html" class="ranking_a">모두 보기</a></div>
                             </header>
     
                             <div class="scroll_inner">
@@ -112,7 +139,7 @@
 						<article class="daily_ranking">
                             <header class="story_header">
                                 <div>일간랭킹</div>
-                                <div class="more"><a href="Top10Ranking.jsp" class="ranking_a">모두 보기</a></div>
+                                <div class="more"><a href="Top10Ranking.html" class="ranking_a">모두 보기</a></div>
                             </header>
     
                             <div class="scroll_inner">
@@ -154,6 +181,183 @@
 			<div class="inner">
 				
 				<div class="contents_box">
+					
+					<article class="contents">
+						<header class="top">
+							<div class="user_container">
+								<div class="profile_img">
+									<img src="imgs/thumb.jpeg" alt="프로필이미지">
+								</div>
+								<div class="user_name">
+									<div class="nick_name m_text">admin</div>
+									<div class="country s_text">Seoul, South Korea</div>
+								</div>
+                                <div class="right_button">
+                                    <button type="button" class="btn btn-outline-dark"><a href="reviewboard.jsp">리뷰</a></button>
+                                </div>
+							</div>
+						</header>
+
+							<div class="img_section">
+								<div class="trans_inner">
+									<div>
+										<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
+                                            <div class="carousel-indicators">
+                                              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-label="Slide 1" aria-current="true"></button>
+                                              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2" class=""></button>
+                                              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3" class=""></button>
+											  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4" class=""></button>
+											  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4" aria-label="Slide 5" class=""></button>
+											  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="5" aria-label="Slide 6" class=""></button>
+											  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="6" aria-label="Slide 7" class=""></button>
+                                            </div>
+                                            <div class="carousel-inner">
+                                              <div class="carousel-item active">
+                                                <!-- 여기에 사진넣기 --> 	
+                                                <img src="imgs/국민취업지원제도1.png" alt="visual01">
+                                          
+                                              </div>
+                                              <div class="carousel-item">
+                                                <!-- 여기에 사진넣기 --> 				
+                                                <img src="imgs/국민취업지원제도2.png" alt="visual02"> 								  
+                                              </div>	
+                                                <div class="carousel-item">
+                                                <!-- 여기에 사진넣기 --> 	
+                                                <img src="imgs/국민취업지원제도 3.png" alt="visual03"> 
+                                          	</div>
+											  <div class="carousel-item">
+                                                <!-- 여기에 사진넣기 --> 				
+                                                <img src="imgs/국민취업지원제도 4.png" alt="visual04"> 								  
+                                              </div>
+											  <div class="carousel-item">
+                                                <!-- 여기에 사진넣기 --> 				
+                                                <img src="imgs/국민취업지원제도 5.png" alt="visual05"> 								  
+                                              </div>
+											  <div class="carousel-item">
+                                                <!-- 여기에 사진넣기 --> 				
+                                                <img src="imgs/국민취업지원제도 6.png" alt="visual06"> 								  
+                                              </div>
+											  <div class="carousel-item">
+                                                <!-- 여기에 사진넣기 --> 				
+                                                <img src="imgs/국민취업지원제도7.png" alt="visual07"> 								  
+                                              </div>
+                                            </div>
+                                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                                              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                              <span class="visually-hidden">Previous</span>
+                                            </button>
+                                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                                              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                              <span class="visually-hidden">Next</span>
+                                            </button>
+                                          </div>
+									</div>
+								</div>
+							</div>
+
+
+							<div class="detail--right_box">
+
+
+								<header class="top">
+
+									<div class="admin_container">
+										<div class="comment">
+											<span class="user_id">Kindtiger</span>강아지가 많이 힘든가보다ㅜㅜㅜㅜㅜ조금만힘내
+											<div class="time">2시간</div>
+										</div>
+									</div>
+									<div class="sprite_more_icon" data-name="more">
+										<ul class="more_detail">
+											<li>팔로우</li>
+											<li>수정</li>
+											<li>삭제</li>
+										</ul>
+									</div>
+								</header>
+
+
+								<section class="scroll_section">
+
+									<div class="user_container-detail">
+										<div class="user">
+											<img src="imgs/thumb02.jpg" alt="user">
+										</div>
+										<div class="comment">
+											<span class="user_id">in0.lee</span>너무귀엽네요 ㅎㅎㅎ맞팔해요~!
+											<div class="time">
+												2시간 <span class="try_comment">답글 달기</span>
+											</div>
+											<div class="icon_wrap">
+												<div class="more_trigger">
+													<div class="sprite_more_icon"></div>
+												</div>
+												<div>
+													<div class="sprite_small_heart_icon_outline"></div>
+												</div>
+											</div>
+										</div>
+									</div>
+
+									<div class="user_container-detail">
+										<div class="user">
+											<img src="imgs/thumb03.jpg" alt="user">
+										</div>
+										<div class="comment">
+											<span class="user_id">ye_solkim</span>강아지 이름이 뭐에요???
+											<div class="time">
+												2시간 <span class="try_comment">답글 달기</span>
+											</div>
+											<div class="icon_wrap">
+												<div class="more_trigger">
+													<div class="sprite_more_icon"></div>
+												</div>
+												<div>
+													<div class="sprite_small_heart_icon_outline"></div>
+												</div>
+											</div>
+										</div>
+									</div>
+
+
+								</section>
+
+
+								<div class="bottom_icons">
+									<div class="left_icons">
+										<div class="heart_btn">
+											<div class="sprite_heart_icon_outline" data-name="heartbeat"></div>
+										</div>
+										<div>
+											<div class="sprite_bubble_icon"></div>
+										</div>
+										<div>
+											<div class="sprite_share_icon" data-name="share"></div>
+										</div>
+									</div>
+
+									<div class="right_icon">
+										<div class="sprite_bookmark_outline" data-name="book-mark"></div>
+									</div>
+								</div>
+
+								<div class="count_likes">
+									좋아요 <span class="count">2,351</span> 개
+								</div>
+								<div class="timer">2시간</div>
+
+								<div class="commit_field">
+									<input type="text" placeholder="댓글달기..">
+
+									<div class="upload_btn">게시</div>
+								</div>
+
+
+
+							</div>
+
+
+						</article>
                     
 					<article class="contents">
                        
