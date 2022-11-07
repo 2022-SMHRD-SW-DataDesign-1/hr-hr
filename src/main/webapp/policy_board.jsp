@@ -225,65 +225,6 @@
 										</div>
 									</div>
 
-									<div class="user_container-detail">
-										<div class="user">
-											<img src="imgs/thumb02.jpg" alt="user">
-										</div>
-										<div class="comment">
-											<span class="user_id">in0.lee</span>너무귀엽네요 ㅎㅎㅎ맞팔해요~!
-											<div class="time">
-												2시간 <span class="try_comment">답글 달기</span>
-											</div>
-											<div class="icon_wrap">
-												<div class="more_trigger">
-													<div class="sprite_more_icon"></div>
-												</div>
-												<div>
-													<div class="sprite_small_heart_icon_outline"></div>
-												</div>
-											</div>
-										</div>
-									</div>
-
-									<div class="user_container-detail">
-										<div class="user">
-											<img src="imgs/thumb03.jpg" alt="user">
-										</div>
-										<div class="comment">
-											<span class="user_id">in0.lee</span>너무귀엽네요
-											<div class="time">
-												2시간 <span class="try_comment">답글 달기</span>
-											</div>
-											<div class="icon_wrap">
-												<div class="more_trigger">
-													<div class="sprite_more_icon"></div>
-												</div>
-												<div>
-													<div class="sprite_small_heart_icon_outline"></div>
-												</div>
-											</div>
-										</div>
-									</div>
-
-									<div class="user_container-detail">
-										<div class="user">
-											<img src="imgs/thumb02.jpg" alt="user">
-										</div>
-										<div class="comment">
-											<span class="user_id">in0.lee</span>너무귀엽네요 ㅎㅎㅎ맞팔해요~!
-											<div class="time">
-												2시간 <span class="try_comment">답글 달기</span>
-											</div>
-											<div class="icon_wrap">
-												<div class="more_trigger">
-													<div class="sprite_more_icon"></div>
-												</div>
-												<div>
-													<div class="sprite_small_heart_icon_outline"></div>
-												</div>
-											</div>
-										</div>
-									</div>
 
 								</section>
 

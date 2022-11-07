@@ -44,6 +44,16 @@
         align-items: center;
     
     }
+     .contents.cont02 {
+        /* position: absolute;*/
+        margin-left: 200px;
+        width: max-content;
+        flex: 0%;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-items: center;
+    
+    }
     
     .contents .img_section .trans_inner {
         /* width: 2448px; */
