@@ -347,9 +347,11 @@
 								<div class="timer">2시간</div>
 
 								<div class="commit_field">
-									<input type="text" placeholder="댓글달기..">
-
-									<div class="upload_btn">게시</div>
+									<form action="#" id="commentform">
+										<input type="text" name="username" placeholder="username" />
+										<input type="text" name="comment_text" placeholder="댓글달기...">
+										<button type="submit"class="upload_btn user_text" data-name="comment">게시</button>
+									</form>
 								</div>
 
 
@@ -439,7 +441,7 @@
 							</div>
 						</div>
 
-						<div class="likes m_text">
+						<div class="likes user_text">
 							좋아요 <span id="like-count-39">2,346</span> <span
 								id="bookmark-count-39"></span> 개
 						</div>
@@ -447,7 +449,7 @@
 						<div class="comment_container">
 							<div class="comment" id="comments">
 								<ul class="comment-detail" >
-									<li class="nick_name m_text" name="username">수리남 박상현</li>
+									<li class="nick_name user_text" name="username">수리남 박상현</li>
 									<li name="comment_data">강아지가 눈을 왜 그렇게 뜨죠?</li>
 								</ul>
 								
@@ -461,7 +463,7 @@
 							<form action="#" id="commentform">
 								<input type="text" name="username" placeholder="username" />
 								<input type="text" name="comment_text" placeholder="댓글달기...">
-								<button type="submit"class="upload_btn m_text" data-name="comment">게시</button>
+								<button type="submit"class="upload_btn user_text" data-name="comment">게시</button>
 							</form>
 						</div>
 					</article>
