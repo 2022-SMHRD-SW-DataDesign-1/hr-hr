@@ -2,7 +2,6 @@ package com.smhrd.model;
 
 import java.math.BigDecimal;
 import java.sql.Timestamp;
-import java.util.Date;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
