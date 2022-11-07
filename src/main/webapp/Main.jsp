@@ -99,7 +99,7 @@
                         <article class="month_ranking">
                             <header class="ranking_header">
                                 <div>월간랭킹</div>
-                                <div class="more"><a href="Top10Ranking.jsp" class="ranking_a">모두 보기</a></div>
+                                <div class="more"><a href="Top10Ranking.html" class="ranking_a">모두 보기</a></div>
                             </header>
     
                             <div class="scroll_inner">
@@ -139,7 +139,7 @@
 						<article class="daily_ranking">
                             <header class="story_header">
                                 <div>일간랭킹</div>
-                                <div class="more"><a href="Top10Ranking.jsp" class="ranking_a">모두 보기</a></div>
+                                <div class="more"><a href="Top10Ranking.html" class="ranking_a">모두 보기</a></div>
                             </header>
     
                             <div class="scroll_inner">
@@ -268,22 +268,24 @@
 						</div>
 
 						<div class="comment_container">
-							<div class="comment" id="comment-list-ajax-post37">
-								<div class="comment-detail">
-									<div class="nick_name m_text">수리남 박상현</div>
-									<div>강아지가 눈을 왜 그렇게 뜨죠?</div>
-								</div>
+							<div class="comment" id="comments">
+								<ul class="comment-detail" >
+									<li class="nick_name m_text" name="username">수리남 박상현</li>
+									<li name="comment_data">강아지가 눈을 왜 그렇게 뜨죠?</li>
+								</ul>
+								
 							</div>
 							<div class="small_heart">
 								<div class="sprite_small_heart_icon_outline"></div>
 							</div>
 						</div>
 
-						<div class="timer">1시간 전</div>
-
 						<div class="comment_field" id="add-comment-post37">
-							<input type="text" placeholder="댓글달기...">
-							<div class="upload_btn m_text" data-name="comment">게시</div>
+							<form action="#" id="commentform">
+								<input type="text" name="username" placeholder="username" />
+								<input type="text" name="comment_text" placeholder="댓글달기...">
+								<button type="submit"class="upload_btn m_text" data-name="comment">게시</button>
+							</form>
 						</div>
 					</article>
 
@@ -387,10 +389,10 @@
 
 	</section>
 
-	<script src="js/chat.js"></script>
+	<script src="./js/chat.js"></script>
+	<script src="js/comment.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 	<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-	
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 </body>
 </html>

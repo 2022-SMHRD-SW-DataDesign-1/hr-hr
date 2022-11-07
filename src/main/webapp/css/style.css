@@ -78,7 +78,17 @@
 
     }
    
+   
+b{
+    padding-left: 2rem;
+   
+} 
+li{
+    list-style:none;
+    margin-right: 10px;
+    margin-bottom: 16px;
     
+}
     
 
 .m_text{
