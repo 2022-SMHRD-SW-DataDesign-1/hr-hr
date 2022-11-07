@@ -102,7 +102,7 @@
                                   </div>
                                 </div>
                               </div>
-                            <a href="#" class="logout">로그아웃</a>
+                            
                         </div>
                     </div>
                     
