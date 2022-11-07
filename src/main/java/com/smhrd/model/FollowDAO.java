@@ -10,7 +10,7 @@ public class FollowDAO {
 	// 팔로우
 		public int follow(FollowDTO dto) {
 			SqlSession session = sqlSessionFactory.openSession(true);
-			int row = session.insert("block", dto);
+			int row = session.insert("follow", dto);
 			session.close();
 
 			return row;
@@ -19,7 +19,7 @@ public class FollowDAO {
 		// 팔로우 해제
 		public int unFollow(FollowDTO dto) {
 			SqlSession session = sqlSessionFactory.openSession(true);
-			int row = session.delete("unBlcok", dto);
+			int row = session.delete("unFollow", dto);
 			session.close();
 
 			return row;

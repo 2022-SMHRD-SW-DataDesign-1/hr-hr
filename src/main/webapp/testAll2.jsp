@@ -196,48 +196,21 @@
 		<% FollowDAO fdao = new FollowDAO(); %>
 		<%ArrayList<MemberDTO> mList =  new MemberDAO().showAll(info.getM_Id());%>
 		<%for(MemberDTO temp : mList){%>
-		<%=temp.toString() %><br>
+		아이디 : <%=temp.getM_Id() %>
 		
 		<%String m_id = info.getM_Id();
 		String Follow_id = temp.getM_Id();
 		FollowDTO fc_dto = new FollowDTO(m_id,Follow_id); %>
-		 <%if(fdao.followCheck(fc_dto)>0){ %>
-		 <button id="follow_cnt" onclick="unfollow()">언팔</button><br>
-		<script>
-		function unfollow() {
-		let follow_cnt = fdao.followCheck(fc_dto);
-			console.log(follow_cnt);
-
-			$.ajax({
-				// 요청서버 url
-				url : "FollowService",
-				// 요청할 때 같이 보내줄 데이터
-				data : {"follow_cnt" : follow_cnt},
-				// 요청 타입
-				type : 'get', 
-				// 통신 성공 function(넘겨준데이터)
-				success : function(data) {
-					console.log(typeof data);
-					if (data == 'true') {
-					}
-					} else {
-					}
-				},
-				// 통신 실패
-				error : function() {
-					console.log("조샀다 !");
-				}
-			})
-		}
-	</script>
-		<%}else{ %>
-		<button>팔로우</button><br>
-		<%} %>
+		
+		
+		<%if(fdao.followCheck(fc_dto)>0){ %>
+		 <a href="FollowService?follow_cnt=<%=fdao.followCheck(fc_dto)%>&m_id=<%=info.getM_Id()%>&follow_id=<%=temp.getM_Id()%>"> <button>언팔로우</button></a>
+		<%}else{%>
+		<a href="FollowService?follow_cnt=<%=fdao.followCheck(fc_dto)%>&m_id=<%=info.getM_Id()%>&follow_id=<%=temp.getM_Id()%>" ><button>팔로우</button></a>
+		<%} %> <br>
 	 <%} %>
+	 
 	<%}%>
-	
-	
-	
 	
 	
 	
