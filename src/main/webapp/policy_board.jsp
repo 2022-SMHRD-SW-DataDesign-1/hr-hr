@@ -100,7 +100,7 @@
                                     
 								</div>
                                 <div class="right_button">
-                                    <button type="button" class="btn btn-outline-dark"><a href="reviewboard.html">리뷰</a></button>
+                                    <button type="button" class="btn btn-outline-dark"><a href="reviewboard.jsp">리뷰</a></button>
                                 </div>
 							</div>
 
