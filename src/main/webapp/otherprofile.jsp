@@ -20,11 +20,9 @@
     <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/otherprofile.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="shortcut icon" href="imgs/instagram.png">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
-<link href="https://getbootstrap.com/docs/5.2/assets/css/docs.css" rel="stylesheet">
-
-
+   
 </head>
 <body>
 
@@ -79,11 +77,31 @@
                     <div class="top">
                         <div class="user_name">KindTiger</div>
                         <a href="profile_edit.html" class="profile_edit">팔로우</a>
-                        <a href="profile_edit.html" class="profile_edit">언팔로우</a>
                         <a href="#" class="block">DM</a>
                         <br>
                         <div class="toptop">
-                            <a href="#" class="block">차단</a>
+                            <button type="button" class="btn-primary btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                차단
+                              </button>
+                              
+                              <!-- Modal -->
+                              <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <h1 class="modal-title fs-5" id="exampleModalLabel">차단여부 설정</h1>
+                                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                     해당 사용자를 차단합니다
+                                    </div>
+                                    <div class="modal-footer">
+                                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
+                                      <button type="button" class="btn btn-primary">차단</button>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
                             <a href="#" class="logout">로그아웃</a>
                         </div>
                     </div>
