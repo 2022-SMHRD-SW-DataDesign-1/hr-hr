@@ -367,8 +367,8 @@
 									<img src="imgs/thumb.jpeg" alt="프로필이미지">
 								</div>
 								<div class="user_name">
-									<div class="nick_name m_text">ㅋㅋ~닉네임인데~ㅋㅋ</div>
-									<div class="country s_text">Seoul, South Korea</div>
+									<div class="nick_name user_text">ㅋㅋ~닉네임인데~ㅋㅋ</div>
+									<div class="country country_text">Seoul, South Korea</div>
 								</div>
 
 							</div>
