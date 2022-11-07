@@ -153,7 +153,7 @@
 	
 	
 	<!-- 정책 목록 출력 + 리뷰 작성 + 출력-->
-	<%if(info != null && ){%>
+	<%if(info != null){%>
 	정책 게시글 포함 
 	
 	<% PolicyDAO dao = new PolicyDAO();
