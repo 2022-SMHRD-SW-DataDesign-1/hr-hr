@@ -123,8 +123,7 @@
 		ArrayList<BoardDTO> bList = dao.showBoard(info.getM_Id());
 		
 		for(BoardDTO b_dto : bList){%>
-			게시글 : <%= b_dto.toString() %><br>
-				
+			게시글 : <%= b_dto.toString() %><br>	
 		<%BigDecimal b_num = b_dto.getB_num();
 		ArrayList<CommentDTO> cmtList = cmtDAO.showComment(b_num);
 		/* 좋아용 버튼 + 좋아요 누를 때 좋아요 카운트 올라가게 ==> mapper 구성 필요하고, dao 필요하고 <== 모르면 물어보면서 */
