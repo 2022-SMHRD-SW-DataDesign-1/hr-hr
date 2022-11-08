@@ -213,13 +213,35 @@
 	 
 	<%}%>
 		
-	<%if(info != null){%>
+	
+
+	<hr>
+	<!-- 프로필 출력 o + 업데이트 -->
+	<% if(info != null) {%>
+	아이디 : <%=info.getM_Id() %><br>
+	닉네임 : <%=info.getM_Nickname() %><br>
+	<%int count = new BoardDAO().countBoard(info.getM_Id());  %>
+	게시물 <%=count %> <br> 
+	<%int count2 = new FollowDAO().countFollow(info.getM_Id()); %>
+	<%int count3 = new FollowDAO().countFollower(info.getM_Id()); %>
+	팔로우 수 : <span id="isFollow">  <%=count2 %></span>
+	팔로워 수 : <span id="isFollowed"><%=count3 %></span>
+	<%} %>
+	<!-- 프로필 수정  -->
+
+<%if(info != null){%>
 	<script>
+		let followCnt = <%=new FollowDAO().countFollow(info.getM_Id())%>;
+	
 		function follows(follow_id,clicked_id){
 			let Follow_cnt;
 			let m_id = '<%=info.getM_Id()%>';
-			console.log(typeof follow_id);
+			
+			console.log("팔로우 아이디 : "+follow_id);
 			console.log(clicked_id);
+			
+			
+			
 			
 			let followsBtn = document.getElementById(clicked_id);
 			
@@ -241,6 +263,13 @@
 					type:'get',
 					success:function(data){
 						console.log(data);
+						if(data =="true"){
+							followCnt += 1;
+						}else{
+							followCnt -= 1;
+						}						
+						$('#isFollow').text(followCnt);
+						
 					},
 				error:function(){
 					console.log("errrrr");
@@ -253,19 +282,14 @@
 <%}%>
 	
 
-	<hr>
-	<!-- 프로필 출력 o + 업데이트 -->
-	<% if(info != null) {%>
-	아이디 : <%=info.getM_Id() %><br>
-	닉네임 : <%=info.getM_Nickname() %><br>
-	<%int count = new BoardDAO().countBoard(info.getM_Id());  %>
-	게시물 <%=count %> <br> 
-	<%int count2 = new FollowDAO().countFollow(info.getM_Id()); %>
-	<%int count3 = new FollowDAO().countFollower(info.getM_Id()); %>
-	팔로우 수 <%=count2 %>
-	팔로워 수 <%=count3 %>
-	<%} %>
-	<!-- 프로필 수정  -->
+
+
+
+
+
+
+
+
 
 </body>
 </html>
