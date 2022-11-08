@@ -133,17 +133,16 @@
 		
 	
 		<script>
-		'm_id':<%=info.getM_Id()%>
 		/* $sql="update t_board set b_likes = b_likes+1 where b_num = #{b_num}" */
 		
 			function likesPlus(){
-			 let b_num = $("#b_num").val();
-				console.log(b_num);
+
 				$.ajax({
 					url:'LikesPlusService', //요청서버 url
 					data:{
-						'b_num':b_num,
-
+						'b_num':<%=b_dto.getB_num()%>,
+						'm_id':<%=info.getM_Id()%>
+						
 							}, // 요청할 떄 같이 보내줄 데이터
 					type:'get', // 요청 타입
 					success:function(data){// 통신성공(function(넘겨준데이터))
