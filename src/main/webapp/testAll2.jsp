@@ -194,25 +194,62 @@
 	<!-- 회원 전체 목록 +  팔로우, 차단 데이터베이스 값 전달 -->
 	<%if(info != null){%>
 		<% FollowDAO fdao = new FollowDAO(); %>
-		<%ArrayList<MemberDTO> mList =  new MemberDAO().showAll(info.getM_Id());%>
+		<%ArrayList<MemberDTO> mList =  new MemberDAO().showAll(info.getM_Id());
+		int count = 0;
+		%>
 		<%for(MemberDTO temp : mList){%>
 		아이디 : <%=temp.getM_Id() %>
 		
-		<%String m_id = info.getM_Id();
-		String Follow_id = temp.getM_Id();
-		FollowDTO fc_dto = new FollowDTO(m_id,Follow_id); %>
+		<%FollowDTO fc_dto = new FollowDTO(info.getM_Id(),temp.getM_Id()); %>
 		
 		
 		<%if(fdao.followCheck(fc_dto)>0){ %>
-		 <a href="FollowService?follow_cnt=<%=fdao.followCheck(fc_dto)%>&m_id=<%=info.getM_Id()%>&follow_id=<%=temp.getM_Id()%>"> <button>언팔로우</button></a>
+		<button id="follows<%=count%>" onclick="follows(<%=temp.getM_Id()%>,this.id)">언팔로우</button>
 		<%}else{%>
-		<a href="FollowService?follow_cnt=<%=fdao.followCheck(fc_dto)%>&m_id=<%=info.getM_Id()%>&follow_id=<%=temp.getM_Id()%>" ><button>팔로우</button></a>
-		<%} %> <br>
+		<button id="follows<%=count%>" onclick="follows(<%=temp.getM_Id()%>,this.id)">팔로우</button>
+		<%}
+		count++;%> <br>
 	 <%} %>
 	 
 	<%}%>
 	
-	
+	<%if(info != null){%>
+	<script>
+		function follows(follow_id,clicked_id){
+			let Follow_cnt;
+			console.log(follow_id);
+			console.log(clicked_id);
+			
+			let followsBtn = document.getElementById(clicked_id);
+			
+			if(followsBtn.innerText == '팔로우'){
+				followsBtn.innerText == '언팔로우'
+				Follow_cnt = 0;
+			}else{
+				followsBtn.innerText == '팔로우'
+				Follow_cnt = 1;
+			}
+			
+			$.ajax({
+					url: 'FollowService',
+					data :{
+						'm_id' :<%=info.getM_Id()%>,
+						'follow_id' : follow_id,
+						'Follow_cnt' : Follow_cnt
+					},
+					type:'get',
+					success:function(data){
+						console.log(data);
+					},
+				error:function(){
+					console.log("errrrr");
+				}
+		
+			})
+		
+		}
+	</script>
+<%}%>
 	
 
 	<hr>
