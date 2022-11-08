@@ -232,7 +232,7 @@ body {
 }
 
 #header .right_icons {
-    width: 132px;
+    width: 75px;
     display: flex;
     justify-content: space-between;
 }
