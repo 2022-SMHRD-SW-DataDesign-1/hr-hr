@@ -20,9 +20,17 @@ public class BlockDAO {
 	// 차단 해제
 	public int unBlock(BlockDTO dto) {
 		SqlSession session = sqlSessionFactory.openSession(true);
-		int row = session.delete("unBlcok", dto);
+		int row = session.delete("unBlock", dto);
 		session.close();
 
+		return row;
+	}
+	
+	public int blockCheck (BlockDTO dto) {
+		SqlSession session = sqlSessionFactory.openSession(true);
+		int row = session.selectOne("blockCheck", dto);
+		session.close();
+		
 		return row;
 	}
 

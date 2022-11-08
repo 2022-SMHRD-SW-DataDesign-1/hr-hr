@@ -46,5 +46,7 @@ public class MemberDAO {
 		session.close();
 		return mList;
 	}
-
+	
+	
+	
 }

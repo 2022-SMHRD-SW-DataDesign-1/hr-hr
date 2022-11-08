@@ -199,7 +199,8 @@
 		%>
 		<%for(MemberDTO temp : mList){%>
 		아이디 : <%=temp.getM_Id() %>
-		
+		<!-- temp.getM_Id : 로그인한 사람과  mlist의 아이디들 -->
+		<!--  -->
 		<%FollowDTO fc_dto = new FollowDTO(info.getM_Id(),temp.getM_Id()); %>
 		
 		
