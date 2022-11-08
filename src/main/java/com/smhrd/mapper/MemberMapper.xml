@@ -25,4 +25,5 @@
 		SELECT * FROM t_member  WHERE m_id not in #{m_id} 
 	</select>
 	
+	
 </mapper>
