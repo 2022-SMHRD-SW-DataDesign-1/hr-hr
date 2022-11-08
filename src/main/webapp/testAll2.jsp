@@ -106,7 +106,7 @@
 	<hr>
 	<!-- 게시글 작성 o -->
 		<form action="BoardService"  enctype="multipart/form-data"  method="post">
-		사진등록 :<input  type="file" style="float: right;" name="filename">
+		사진등록 :<input  type="file" style="float: right;" name="filename" multiple="multiple">
 		게시글 입력 : <textarea  rows="10" style="resize: none;" name="content"></textarea><br> 
 		<input type="submit" value="게시글 등록">
 	</form>

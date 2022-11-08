@@ -2,9 +2,7 @@ package com.smhrd.controller;
 
 import java.io.IOException;
 import java.net.URLEncoder;
-import java.sql.SQLException;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -21,7 +19,7 @@ public class BoardService extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-
+		System.out.println("여기도착");
 		request.setCharacterEncoding("UTF-8");
 		
 		// MulipartRquest 파라미터 정리 likse 객체 필드
