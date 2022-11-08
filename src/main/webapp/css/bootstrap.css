@@ -11314,4 +11314,7 @@ textarea.form-control-lg {
   height: 33px;
   border: 0; 
 }
-
+.carousel-item>img{
+  width: 30vmax;
+  height: 30vmax;
+}
