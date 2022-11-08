@@ -128,8 +128,8 @@ body{
 }
 
 .logo a>img{
-    width: 140px;
-    height: 76px;
+    width: 85px;
+    height: 75px;
 }
 
 
@@ -369,6 +369,7 @@ body{
 	outline: 0;
 	border: 0;
 	bottom: 10px;
+	padding:0
 }
 
 

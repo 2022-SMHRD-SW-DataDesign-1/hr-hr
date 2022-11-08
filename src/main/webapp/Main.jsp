@@ -43,7 +43,28 @@
 					
 					<a href="Login.jsp"><img src="imgs/로그인.PNG" class="sprite_compass_icon"></a>
 					<a href="Profile.jsp"><img src="imgs/프로필.PNG" class="sprite_user_icon_outline"></a>
-					
+					<!-- 알람버튼 -->
+					<button type="button" class="btn btn-primary position-relative" id="liveToastBtn">
+						<span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+							1
+						</span>
+						<img src="imgs/알람.PNG">
+					</button>
+					<div class="toast-container position-static">
+						<div class="toast-container position-fixed bottom-0 end-0 p-3">
+						<div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+							<div class="toast-header">
+							<img src="imgs/알람.PNG" class="rounded me-2" alt="...">
+							<strong class="me-auto">알람내역</strong>
+							<small>11분전</small>
+							<button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+							</div>
+							<div class="toast-body">
+							메세지 한건이 도착했습니다.
+							</div>
+						</div>
+						</div>
+					</div>
 					
 					
 				</div>
@@ -53,31 +74,6 @@
 
 		</header>
 
-		<div class="hidden_menu">
-		
-			<div class="scroll_inner">
-				<div class="user">
-					<div class="thumb_img">
-						<img src="imgs/thumb.jpeg" alt="프로필사진">
-					</div>
-					<div class="id">여ㅁㄴ라ㅢㅁ느리ㅏㄵ드리ㅏㅈㅂ므ㅜㅏㅣㄹㅇ다</div>
-				</div>
-
-				<div class="user">
-					<div class="thumb_img">
-						<img src="imgs/thumb.jpeg" alt="프로필사진">
-					</div>
-					<div class="id">kinㅁㄴㄻ누라ㅓㅂㄷㅁ주라ㅓㄷ무리ㅏㅓrr</div>
-				</div>
-				<div class="user">
-					<div class="thumb_img">
-						<img src="imgs/thumb.jpeg" alt="프로필사진">
-					</div>
-					<div class="id">ㄴㅁㄹㄴㅁㄹㄴㄷㅁㅈㄻㅈㄻㄴㅇ</div>
-				</div>
-
-			</div>
-		</div>
 
         
 
@@ -603,6 +599,7 @@
 
 	<script src="./js/chat.js"></script>
 	<script src="js/comment.js"></script>
+	<script src="js/alert_btn.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 	<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
