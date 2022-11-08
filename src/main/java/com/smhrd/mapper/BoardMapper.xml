@@ -20,7 +20,23 @@
 		WHERE m_id in (select follow_id from t_follow where m_id = #{m_id}) or m_id = #{m_id}
 	</select>
 	
-	<update id="LikesPlus" parameterType = "int" >
-		update t_board set b_likes = b_likes+1 where b_num = #{b_num}
+	<select id="isLiked" parameterType="LikesDTO" resultType="int">
+		SELECT count(*) from t_usefulBoard where m_id = #{m_id} and
+		b_num = #{b_num}
+	</select>
+	
+	<insert id="LikesPlus" parameterType="LikesDTO">
+		INSERT INTO t_usefulBoard (m_id, b_num) VALUES (#{m_id},#{b_num})
+	</insert>
+	
+	<delete id="LikesMinus" parameterType="LikesDTO">
+		delete from t_usefulBoard where m_id = #{m_id} and b_num = #{b_num}
+	</delete>
+	
+	<update id="setCount" parameterType="BigDecimal">
+		update t_board set b_likes= (SELECT count(*) FROM t_usefulBoard where b_num =#{b_num}) 
+		where b_num=#{b_num}  
 	</update>
+	
+		
 </mapper>

@@ -1,38 +1,48 @@
 package com.smhrd.model;
 
+
 import java.math.BigDecimal;
-import java.util.ArrayList;
 
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
 import com.smhrd.db.SqlSessionManager;
 
-public class BoardDAO {
+public class LikesDAO {
 	private SqlSessionFactory sqlSessionFactory = SqlSessionManager.getSqlSession();
-
-	// 업로드
-	public int upload(BoardDTO dto) {
+	
+	public int isLiked(LikesDTO dto) {
 		SqlSession session = sqlSessionFactory.openSession(true);
-		int row = session.insert("upload", dto);
+		int row = session.selectOne("isLiked", dto);
 		session.close();
-
+		
 		return row;
 	}
 	
-	public int countBoard(String m_id) {
+	public int LikesPlus(LikesDTO dto) {
 		SqlSession session = sqlSessionFactory.openSession(true);
+		int row = session.insert("LikesPlus",dto);
+		session.close();
 		
-		int count = session.selectOne("countBoard", m_id);
-		return count;
+		return row;
+	}
+	public int LikesMinus(LikesDTO dto) {
+		SqlSession session = sqlSessionFactory.openSession(true);
+		int row = session.delete("LikesMinus",dto);
+		session.close();
+		
+		return row;
 	}
 	
-	public ArrayList<BoardDTO> showBoard(String m_id){
+	public void setCount(BigDecimal b_num) {
 		SqlSession session = sqlSessionFactory.openSession(true);
-		ArrayList<BoardDTO> bdto = (ArrayList)session.selectList("showBoard", m_id);
+		session.update("setCount",b_num);
 		session.close();
-		return bdto; 
+		
 	}
-
-
+	
+	
+	
+	
 }
+

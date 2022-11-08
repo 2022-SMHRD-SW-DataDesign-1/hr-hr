@@ -1,3 +1,5 @@
+<%@page import="com.smhrd.model.LikesDTO"%>
+<%@page import="com.smhrd.model.LikesDAO"%>
 <%@page import="com.smhrd.model.PolicyDAO"%>
 <%@page import="com.smhrd.model.PolicyDTO"%>
 <%@page import="java.math.BigDecimal"%>
@@ -111,82 +113,50 @@
 	
 	<hr>
 	<!-- 게시글 목록 출력 o + 댓글 작성 o + 출력 o -->
-	<%if(info != null){ %>
+<%	if(info != null){ %>
 	게시글 내용(사진포함)
 	<%
 		//댓글 dao
 		CommentDAO cmtDAO = new CommentDAO();
 		//게시판 dao
 		BoardDAO dao = new BoardDAO();  
-		
+		LikesDAO ldao = new LikesDAO();
+		LikesDTO ldto;
 		// 게시판 글 모음 dao에서 로그인한 아이디와 같은 글을 arraylist에 담음 
 		ArrayList<BoardDTO> bList = dao.showBoard(info.getM_Id());
 		
+		int count = 0;
+		
 		for(BoardDTO b_dto : bList){%>
 			게시글 : <%= b_dto.toString() %><br>	
-		<!-- 게시글 번호 -->
-		<%BigDecimal b_num = b_dto.getB_num();
-		ArrayList<CommentDTO> cmtList = cmtDAO.showComment(b_num);%>
-		<button onclick="likesPlus()">유용해요</button>
+		<%	ldto = new LikesDTO(info.getM_Id(),b_dto.getB_num()); %>
+			<!-- 게시글 번호 -->
+		<%	BigDecimal b_num = b_dto.getB_num();
+			ArrayList<CommentDTO> cmtList = cmtDAO.showComment(b_num);%>
+		<%	if(ldao.isLiked(ldto)>0){ %>
+				<button id='like<%= count %>' onclick="likes(<%= b_dto.getB_num() %>,this.id)">좋아요해제</button>
+		<%	}else{%>
+				<button id='like<%= count %>' onclick="likes(<%= b_dto.getB_num() %>,this.id)">좋아요</button>
+		<%	}%> <br>
+		<%	count++; %>
 		<!-- // 유용해요버튼을 누루는 순간 board테이블에 있는 게시글의 좋아요가 1개 올라간다.  -->
 		
-		
 	
-		<script>
-		/* $sql="update t_board set b_likes = b_likes+1 where b_num = #{b_num}" */
-		
-			function likesPlus(){
-
-				$.ajax({
-					url:'LikesPlusService', //요청서버 url
-					data:{
-						'b_num':<%=b_dto.getB_num()%>,
-						'm_id':<%=info.getM_Id()%>
-						
-							}, // 요청할 떄 같이 보내줄 데이터
-					type:'get', // 요청 타입
-					success:function(data){// 통신성공(function(넘겨준데이터))
-						console.log(typeof data);
-						//resultLikesPlus
-						/* if(data == 'true'{
-							$("#resultLikesPlus").text('더하기 1 성공');
-						}else{
-							$("#resultLikesPlus").text('더하기 1 실패');
-						} */
-				
-				},
-				error:function(){
-					console.log("통신실패");
-				}
-				
-				})//속성
-			}
-		
-		
-		// 1. ajax를 통해서 서블릿으로 이동한다. 
-		// 2. 게시물 번호를 들고간다
-		// 3. DB에 접속해서 sql 문장을 실행한다.(dao)메소드  int 성공 실패
-		
-		
-		
-		</script> 
-		
 	<!-- 	/* 좋아용 버튼 + 좋아요 누를 때 좋아요 카운트 올라가게 ==> mapper 구성 필요하고, dao 필요하고 <== 모르면 물어보면서 */ -->
 		
 		
 		
 		
 		
-		<% if(cmtList != null){%>
-		<% for(CommentDTO cmt : cmtList){%>
-		댓글 : <%=cmt.toString() %>
-		<br>
-		
-		<%} %>
-		<%} %>
+		<% 	if(cmtList != null){%>
+			<%	for(CommentDTO cmt : cmtList){%>
+					댓글 : <%=cmt.toString() %>
+					<br>
+			<%	}%>
+		<%	}%>
 			
-		<% }%>		
-	<%} %>
+	<% 	}%>		
+<%	} %>
 	<form action="CommentService">
 		게시글 번호 입력 : <input type="text" name ="b_num">
 		댓글입력 : <textarea  rows="10" style="resize: none;" name="c_content"></textarea><br> 
@@ -223,7 +193,7 @@
 	
 	<%}%>  
 	<!-- /* 목록은 리스트라고! */ -->
-	a
+	
 	
 	
 	
@@ -255,6 +225,49 @@
 	팔로우 수 <%=count2 %>
 	팔로워 수 <%=count3 %>
 	<%} %>
+	
+	
+	
+	<%if(info != null){%>
+	<script>
+		function likes(b_num,clicked_id){
+			let is_like;
+			console.log(b_num);
+			console.log(clicked_id);
+			
+			let likeBtn = document.getElementById(clicked_id);
+			
+			if(likeBtn.innerText == '좋아요'){
+				likeBtn.innerText = '좋아요해제'
+				is_like = 0;
+			}else{
+				likeBtn.innerText = '좋아요'
+				is_like = 1;
+			}
+			
+			
+			$.ajax({
+				url : 'LikesPlusService',
+				data :{
+					'm_id' :<%=info.getM_Id()%>,
+					'b_num' : b_num,
+					'is_liked':is_like
+				},
+				type:'get', // 요청 타입
+				success:function(data){// 통신성공(function(넘겨준데이터))
+					console.log(data);
+				},
+			error:function(){
+				console.log("asfknaskm");
+			}
+			
+			})//속성
+			
+
+		}
+	</script> 
+	<%} %>
+		
 
 </body>
 </html>
