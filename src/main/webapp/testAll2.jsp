@@ -204,29 +204,30 @@
 		
 		
 		<%if(fdao.followCheck(fc_dto)>0){ %>
-		<button id="follows<%=count%>" onclick="follows(<%=temp.getM_Id()%>,this.id)">언팔로우</button>
+		<button id="follows<%=count%>" onclick="follows('<%=temp.getM_Id()%>',this.id)">언팔로우</button>
 		<%}else{%>
-		<button id="follows<%=count%>" onclick="follows(<%=temp.getM_Id()%>,this.id)">팔로우</button>
+		<button id="follows<%=count%>" onclick="follows('<%=temp.getM_Id()%>',this.id)">팔로우</button>
 		<%}
 		count++;%> <br>
 	 <%} %>
 	 
 	<%}%>
-	
+		
 	<%if(info != null){%>
 	<script>
 		function follows(follow_id,clicked_id){
 			let Follow_cnt;
-			console.log(follow_id);
+			
+			console.log(typeof follow_id);
 			console.log(clicked_id);
 			
 			let followsBtn = document.getElementById(clicked_id);
 			
 			if(followsBtn.innerText == '팔로우'){
-				followsBtn.innerText == '언팔로우'
+				followsBtn.innerText = '언팔로우'
 				Follow_cnt = 0;
 			}else{
-				followsBtn.innerText == '팔로우'
+				followsBtn.innerText = '팔로우'
 				Follow_cnt = 1;
 			}
 			
