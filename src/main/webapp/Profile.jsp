@@ -282,8 +282,7 @@
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary"
                                                     data-bs-dismiss="modal">닫기</button>
-                                                <!-- 정보수정 완료버튼 -->
-                                                <button type="button" class="btn btn-primary">정보 저장하기</button>
+
                                             </div>
                                         </div>
                                     </div>
