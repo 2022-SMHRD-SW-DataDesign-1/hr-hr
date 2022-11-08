@@ -42,11 +42,13 @@ public class LoginService extends HttpServlet {
 		}else {
 			System.out.println("로그인 객체 못받아옴");
 		}
+
+		response.sendRedirect("./testAll.jsp");
 		
-		//일단은 메인으로 가게끔 하고 나중에 수정..!
-		RequestDispatcher rd = request.getRequestDispatcher("./testAll.jsp");
-		rd.forward(request, response);
-		
+//		//일단은 메인으로 가게끔 하고 나중에 수정..!
+//		RequestDispatcher rd = request.getRequestDispatcher("./testAll.jsp");
+//		rd.forward(request, response);
+//		
 		
 	}
 

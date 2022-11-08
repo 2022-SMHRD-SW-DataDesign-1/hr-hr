@@ -16,7 +16,6 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
-<script src="http://code.jquery.com/jquery-latest.js"></script>
 <style>
   /* 여러 채팅창 간의 간격과 배열 위치*/
   .float-left{
@@ -25,6 +24,7 @@
   }
 </style>
 <body>
+<script src="http://code.jquery.com/jquery-latest.js"></script>
 
 	<%
 	MemberDTO info = (MemberDTO) session.getAttribute("info");
@@ -133,26 +133,27 @@
 		
 	
 		<script>
-		
+		'm_id':<%=info.getM_Id()%>
 		/* $sql="update t_board set b_likes = b_likes+1 where b_num = #{b_num}" */
 		
 			function likesPlus(){
 			 let b_num = $("#b_num").val();
 				console.log(b_num);
-				 
 				$.ajax({
 					url:'LikesPlusService', //요청서버 url
-					data:{'b_num':b_num}, // 요청할 떄 같이 보내줄 데이터
+					data:{
+						'b_num':b_num,
+
+							}, // 요청할 떄 같이 보내줄 데이터
 					type:'get', // 요청 타입
 					success:function(data){// 통신성공(function(넘겨준데이터))
 						console.log(typeof data);
 						//resultLikesPlus
-						if(data == 'true'{
+						/* if(data == 'true'{
 							$("#resultLikesPlus").text('더하기 1 성공');
 						}else{
 							$("#resultLikesPlus").text('더하기 1 실패');
-						}
-						
+						} */
 				
 				},
 				error:function(){
