@@ -45,11 +45,9 @@
 					<a href="Profile.jsp"><img src="imgs/프로필.PNG" class="sprite_user_icon_outline"></a>
 					<!-- 알람버튼 -->
 					<button type="button" class="btn btn-primary position-relative" id="liveToastBtn">
-						<!-- 알람 배지영역 -->
 						<span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
 							1
 						</span>
-						<!-- 알람아이콘 -->
 						<img src="imgs/알람.PNG">
 					</button>
 					<div class="toast-container position-static">
@@ -601,6 +599,7 @@
 
 	<script src="./js/chat.js"></script>
 	<script src="js/comment.js"></script>
+	<script src="js/alert_btn.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 	<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
