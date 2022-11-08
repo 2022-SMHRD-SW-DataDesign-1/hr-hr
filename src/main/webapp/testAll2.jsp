@@ -217,7 +217,7 @@
 	<script>
 		function follows(follow_id,clicked_id){
 			let Follow_cnt;
-			
+			let m_id = '<%=info.getM_Id()%>';
 			console.log(typeof follow_id);
 			console.log(clicked_id);
 			
@@ -234,7 +234,7 @@
 			$.ajax({
 					url: 'FollowService',
 					data :{
-						'm_id' :<%=info.getM_Id()%>,
+						'm_id' :m_id,
 						'follow_id' : follow_id,
 						'Follow_cnt' : Follow_cnt
 					},
