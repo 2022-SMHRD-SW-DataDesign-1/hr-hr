@@ -34,11 +34,13 @@ public class BoardDAO {
 		return bdto; 
 	}
 	// 유용해요 버튼 누르면 1 추가
-	public int LikesPlus(int b_num) {
+	public int LikesPlus(String b_num) {
 		SqlSession session = sqlSessionFactory.openSession(true);
-		int count = session.selectOne("LikesPlus",b_num );
-		return count;
+		int row = session.update("LikesPlus",b_num);
+		session.close();
+		return row;
 	}
+
 	
 	//
 }

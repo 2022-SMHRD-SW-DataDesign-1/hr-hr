@@ -15,12 +15,12 @@ public class LikesPlusService extends HttpServlet {
 	
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// b_num을 int로 타입 변경 
-		int b_num = Integer.parseInt(request.getParameter("b_num"));
+		String b_num = request.getParameter("b_num");
 		BoardDAO dao = new BoardDAO();
-		int b_nm = dao.LikesPlus(b_num);
+		int row = dao.LikesPlus(b_num);
 		
 		PrintWriter out = response.getWriter();
-		out.print(b_nm);
+		out.print(row);
 		
 	}
 
