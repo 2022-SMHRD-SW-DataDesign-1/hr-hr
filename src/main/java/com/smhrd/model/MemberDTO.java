@@ -9,10 +9,11 @@ import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import lombok.ToString;
 
-@Getter
+
 @AllArgsConstructor
 @RequiredArgsConstructor
 @ToString
+@Getter
 public class MemberDTO {
 
 	// 회원 아이디
@@ -51,6 +52,12 @@ public class MemberDTO {
 		this.m_Email = m_Email;
 		this.m_Nickname = m_Nickname;
 		this.m_Phone = m_Phone;
+	}
+
+	public MemberDTO(String m_Id, String m_Nickname, String m_Profile) {
+		this.m_Id = m_Id;
+		this.m_Nickname = m_Nickname;
+		this.m_Profile = m_Profile;
 	}
 	// 프로필 수정 DTO
 	

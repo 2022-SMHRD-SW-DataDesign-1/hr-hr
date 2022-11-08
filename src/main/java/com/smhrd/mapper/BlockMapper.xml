@@ -11,4 +11,8 @@
 	<delete id="unBlock" parameterType="BlockDTO">
 		delete from t_block where m_id = #{m_id} and block_id = #{block_id}
 	</delete>
+	
+	<select id="blockCheck" parameterType = "BlockDTO" resultType ="int">
+		SELECT COUNT(*) FROM T_BLOCK WHERE M_ID = #{m_id} AND BLOCK_ID = #{block_id}
+	</select>
 </mapper>
