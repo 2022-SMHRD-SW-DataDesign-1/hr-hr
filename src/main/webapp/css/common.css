@@ -215,7 +215,7 @@ body {
 }
 
 #header .search_field input:focus ~ .fake_field span:nth-child(1){
-    transform:translateX(-75px);
+    display: none;
 }
 #header .search_field input:focus ~ .fake_field span:nth-child(2){
     display: none;

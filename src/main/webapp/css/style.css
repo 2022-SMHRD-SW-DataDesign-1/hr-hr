@@ -191,13 +191,14 @@ body{
     background:#fafafa;
     border: 1px solid #dbdbdb;
     border-radius: 3px;
-    padding:3px 30px;
+    padding:3px 10px;
     color:#999;
     font-weight: 400;
     text-align: left;
     font-size: 14px;
     outline:none;
 }
+
 
 #search-field::placeholder{
     font-size: 0;
@@ -218,7 +219,7 @@ body{
 
 
 #search-field:focus ~ .fake_field > span:nth-child(1){
-    transform:translateX(-105px);
+    display: none;
 }
 
 

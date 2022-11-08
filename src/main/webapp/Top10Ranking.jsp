@@ -14,36 +14,37 @@
 <body>
 
 	<header id="header">
-		<section class="h_inner">
-
-			<h1 class="logo">
-				<a href="Main.jsp">
-					<div class="sprite_insta_icon"></div>
-					<div>
+			<section class="inner">
+                
+				<h1 class="logo">
+					<a href="Main.jsp">
+						<div class="sprite_insta_icon"></div>
 						<div class="sprite_write_logo"></div>
+					</a>
+				</h1>
+                <!-- 검색바 -->
+				<div class="search_box">
+					<input type="text" placeholder="검색" id="search-field">
+
+					<div class="fake_field">
+						<span class="sprite_small_search_icon"></span> <span>검색</span>
 					</div>
-				</a>
-			</h1>
-
-			<div class="search_field">
-				<input type="text" placeholder="검색" tabindex="search_field">
-
-				<div class="fake_field">
-					<span class=sprite_small_search_icon></span> <span>검색</span>
 				</div>
-			</div>
+              <!-- 오른쪽 메뉴아이콘 -->
+				<div class="right_icons">
+					
+					<a href="Login.jsp"><img src="imgs/로그인.PNG" class="sprite_compass_icon"></a>
+					<a href="Profile.jsp"><img src="imgs/프로필.PNG" class="sprite_user_icon_outline"></a>
+					<a href="Top10Ranking.jsp"><img src="imgs/랭킹버튼.PNG" class="sprite_user_icon_outline"></a>
+					<a href="DM.jsp"> <img src="imgs/채팅.PNG" class="sprite_user_icon_outline"></a>
+					
+					
+				</div>
+				
 
+			</section>
 
-			<div class="right_icons">
-				<a href="Login.jsp"><img src="imgs/로그인.PNG"
-					class="sprite_compass_icon"></a> <a href="Profile.jsp"><img
-					src="imgs/프로필.PNG" class="sprite_user_icon_outline"></a> <a
-					href="Top10Ranking.jsp"><img src="imgs/랭킹버튼.PNG"
-					class="sprite_user_icon_outline"></a> <a href="DM.jsp"> <img
-					src="imgs/채팅.PNG" class="sprite_user_icon_outline"></a>
-			</div>
-		</section>
-	</header>
+		</header>
 
 	<section id="main_container">
 		<div class="ranking_box">
