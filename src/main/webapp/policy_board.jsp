@@ -42,13 +42,11 @@
 				<section class="h_inner">
 
 					<h1 class="logo">
-						<a href="Main.jsp">
-							<div class="sprite_insta_icon"></div>
-							<div>
-								<div class="sprite_write_logo"></div>
-							</div>
-						</a>
-					</h1>
+					<a href="Main.jsp">
+						<img src="imgs/로고.png">
+						
+					</a>
+				</h1>
 
 					<div class="search_field">
 						<input type="text" placeholder="검색" tabindex="0">
@@ -60,16 +58,8 @@
 
 
 					<div class="right_icons">
-						<a href="NewPost.jsp">
-							<div class="sprite_camera_icon"></div>
-						</a>
-						<a href="Login.jsp">
-							<div class="sprite_compass_icon"></div>
-						</a> <a href="Follow.jsp">
-							<div class="sprite_heart_icon_outline"></div>
-						</a>
-						<a href="Profile.jsp">
-							<div class="sprite_user_icon_outline"></div>
+						<a href="Login.jsp"><img src="imgs/로그인.PNG" class="sprite_compass_icon"></a>
+					<a href="Profile.jsp"><img src="imgs/프로필.PNG" class="sprite_user_icon_outline"></a>
 						</a>
 					</div>
 				</section>

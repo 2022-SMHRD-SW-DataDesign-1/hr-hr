@@ -61,12 +61,12 @@
             <header id="header">
                 <section class="inner">
 
-                    <h1 class="logo">
-                        <a href="Main.jsp">
-                            <div class="sprite_insta_icon"></div>
-                            <div class="sprite_write_logo"></div>
-                        </a>
-                    </h1>
+                   <h1 class="logo">
+					<a href="Main.jsp">
+						<img src="imgs/로고.png">
+						
+					</a>
+				</h1>
 
                     <div class="search_box">
                         <input type="text" placeholder="검색" id="search-field">
@@ -79,9 +79,7 @@
                     <div class="right_icons">
 
                         <a href="Login.jsp"><img src="imgs/로그인.PNG" class="sprite_compass_icon"></a>
-                        <a href="Profile.jsp"><img src="imgs/프로필.PNG" class="sprite_user_icon_outline"></a>
-                        <a href="Top10Ranking.jsp"><img src="imgs/랭킹버튼.PNG" class="sprite_user_icon_outline"></a>
-                        <a href="DM.jsp"> <img src="imgs/채팅.PNG" class="sprite_user_icon_outline"></a>
+					<a href="Profile.jsp"><img src="imgs/프로필.PNG" class="sprite_user_icon_outline"></a>
 
 
                     </div>

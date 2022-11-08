@@ -127,6 +127,10 @@ body{
     position: fixed;
 }
 
+.logo a>img{
+    width: 140px;
+    height: 76px;
+}
 
 
 

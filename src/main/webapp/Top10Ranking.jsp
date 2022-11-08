@@ -18,8 +18,8 @@
                 
 				<h1 class="logo">
 					<a href="Main.jsp">
-						<div class="sprite_insta_icon"></div>
-						<div class="sprite_write_logo"></div>
+						<img src="imgs/로고.png">
+						
 					</a>
 				</h1>
                 <!-- 검색바 -->
@@ -35,10 +35,6 @@
 					
 					<a href="Login.jsp"><img src="imgs/로그인.PNG" class="sprite_compass_icon"></a>
 					<a href="Profile.jsp"><img src="imgs/프로필.PNG" class="sprite_user_icon_outline"></a>
-					<a href="Top10Ranking.jsp"><img src="imgs/랭킹버튼.PNG" class="sprite_user_icon_outline"></a>
-					<a href="DM.jsp"> <img src="imgs/채팅.PNG" class="sprite_user_icon_outline"></a>
-					
-					
 				</div>
 				
 
