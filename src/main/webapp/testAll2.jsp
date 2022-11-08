@@ -216,7 +216,7 @@
 	
 
 	<hr>
-	<!-- 프로필 출력 o + 업데이트 -->
+	<!-- 프로필 출력 o -->
 	<% if(info != null) {%>
 	아이디 : <%=info.getM_Id() %><br>
 	닉네임 : <%=info.getM_Nickname() %><br>
@@ -227,8 +227,17 @@
 	팔로우 수 : <span id="isFollow">  <%=count2 %></span>
 	팔로워 수 : <span id="isFollowed"><%=count3 %></span>
 	<%} %>
+	
+	<hr>
 	<!-- 프로필 수정  -->
-
+	<% if(info != null) {%>
+	<form action="ProfileUpdateService" method="post">
+	닉네임 : <input type="text" name="m_Nickname"><br>
+	소개 : <input type="text" name="m_Profile"><br>
+	<input type="submit">
+	</form>
+	<%} %>
+	
 <%if(info != null){%>
 	<script>
 		let followCnt = <%=new FollowDAO().countFollow(info.getM_Id())%>;

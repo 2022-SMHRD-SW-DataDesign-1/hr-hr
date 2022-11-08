@@ -5,24 +5,32 @@
 
 <mapper namespace="com.smhrd.mapper.MemberMapper">
 	<insert id="join" parameterType="MemberDTO">
-		insert into t_member(M_ID, M_PW, M_EMAIL, M_NICKNAME, M_PHONE, M_JOINDATE, M_PROFILE, M_POINT, M_TYPE)
+		insert into t_member(M_ID, M_PW,
+		M_EMAIL, M_NICKNAME, M_PHONE, M_JOINDATE, M_PROFILE, M_POINT, M_TYPE)
 		values(#{m_Id}, #{m_Pw}, #{m_Email}, #{m_Nickname}, #{m_Phone},
 		sysdate,'자기소개를 입력하세요','0','u')
 	</insert>
-	
-	<select id="login" parameterType="MemberDTO" resultType="MemberDTO">
-		select * from t_member where m_Id = #{m_Id} and m_Pw = #{m_Pw}
+
+	<select id="login" parameterType="MemberDTO"
+		resultType="MemberDTO">
+		select * from t_member where m_Id = #{m_Id} and m_Pw =
+		#{m_Pw}
 	</select>
 
 
 	<select id="IDCheck" parameterType="String" resultType="boolean">
-		select	
+		select
 		case when count(*) > 0 then 1 else 0 end result from t_member where
 		m_id = #{inputID}
 	</select>
-	
-	<select id="showAll" parameterType="String" resultType="MemberDTO">
-		SELECT * FROM t_member  WHERE m_id not in #{m_id} 
+
+	<select id="showAll" parameterType="String"
+		resultType="MemberDTO">
+		SELECT * FROM t_member WHERE m_id not in #{m_id}
 	</select>
-	
+
+	<update id="profileUpdate" parameterType="MemberDTO">
+		UPDATE t_member SET m_nickname = #{m_Nickname}, m_profile = #{m_Profile}
+		WHERE m_id = #{m_Id}
+	</update>
 </mapper>

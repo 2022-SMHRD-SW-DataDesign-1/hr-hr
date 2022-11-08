@@ -46,5 +46,13 @@ public class MemberDAO {
 		session.close();
 		return mList;
 	}
+	
+	public int profileUpdate(MemberDTO dto) {
+		SqlSession session = sqlSessionFactory.openSession(true);
+		int row = session.update("profileUpdate", dto);
+		session.close();
+		
+		return row;
+	}
 
 }
