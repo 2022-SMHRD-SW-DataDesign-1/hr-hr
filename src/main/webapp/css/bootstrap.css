@@ -3229,10 +3229,11 @@ textarea.form-control-lg {
   border-color: #dc3545;
 }
 
+/* 버튼 색깔 */
 .btn-light {
-  color: #000;
   background-color: #f8f9fa;
-  border-color: #f8f9fa;
+  border-color: #d0d2d4 !important; 
+
 }
 .btn-light:hover {
   color: #000;
