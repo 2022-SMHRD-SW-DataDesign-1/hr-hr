@@ -1,6 +1,8 @@
 package com.smhrd.controller;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -30,10 +32,9 @@ public class PrivacyUpdateService extends HttpServlet {
 		
 		int row = dao.privacyUpdate(privacy_dto);
 		System.out.println(row);
-		
+
+		session.setAttribute("info", privacy_dto);
 		response.sendRedirect("./testAll.jsp");
-		
-		
 	}
 
 }

@@ -33,6 +33,12 @@ public class BoardDAO {
 		session.close();
 		return bdto; 
 	}
-
+	
+	public ArrayList<BoardDTO> showUsefulBoard(String m_id){
+		SqlSession session = sqlSessionFactory.openSession(true);
+		ArrayList<BoardDTO> bdto = (ArrayList)session.selectList("showUsefulBoard", m_id);
+		session.close();
+		return bdto; 
+	}
 
 }
