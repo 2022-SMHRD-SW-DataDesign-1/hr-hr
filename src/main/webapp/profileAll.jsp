@@ -196,7 +196,7 @@
 																			<div class="form-group row">
 																				<div class="offset-4 col-8">
 																					<button name="submit" type="submit"
-																						class="btn2 btn-primary">Update My
+																						class="updatebtn">Update My
 																						Profile</button>
 																				</div>
 																			</div>
@@ -250,7 +250,7 @@
 																			<div class="form-group row">
 																				<div class="offset-4 col-8">
 																					<button name="submit" type="submit"
-																						class="btn2 btn-primary">Update My
+																						class="updatebtn">Update My
 																						Profile</button>
 																				</div>
 																			</div>
@@ -325,7 +325,7 @@
 												<button type="button" class="btn btn-secondary"
 													data-bs-dismiss="modal">취소</button>
 												<!-- 팝업창 (차단)실행버튼 -->
-												<button type="button" class="btn btn-primary">차단</button>
+												<button type="button" class="blockbtn">차단</button>
 											</div>
 										</div>
 									</div>
