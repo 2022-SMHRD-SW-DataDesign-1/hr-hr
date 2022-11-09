@@ -29,7 +29,7 @@ public class BoardService extends HttpServlet {
 		String savePath = request.getServletContext().getRealPath("file");
 		System.out.println(savePath);
 		
-		//사이즈
+		//사이즈 정해주기
 		int maxSize = 10*1024*1024;
 		
 		//인코딩 방식
@@ -40,28 +40,34 @@ public class BoardService extends HttpServlet {
 		
 		
 		//파일 같은 용량이 큰 객체 값은 이렇게 받음. 보낼때도 multipart로 인코딩해줫음
-		MultipartRequest multi = new MultipartRequest(request,savePath,maxSize,encoding,rename);
+		MultipartRequest multi = new MultipartRequest(request,savePath,maxSize,encoding,rename);//<<== 여기까지 코드가 실행이 되면
+		// 파일 폴더에는 파일 들이 들어감!
+		
+		
 		//request, 저장경로,사이즈,인코딩방식,중복제거
 		
-		//파일 여러개 받기 위한 코드
+		//여기부터는 파일명이 여러개인 경우에 이걸 다한개의 String으로 합쳐서 넣어주기 위한코드
 		String uploadFile = "";
-		Enumeration<String> fileNames = multi.getFileNames();
+		Enumeration<String> fileNames = multi.getFileNames();//Enumeration이라는 객체에 파일명을 다담아 Arraylist하고 비슷한거임
 		
-		while(fileNames.hasMoreElements()) {
-			String name = (String)fileNames.nextElement();
+		while(fileNames.hasMoreElements()) {//hasmoreelements는 다음 요소가 있냐? boolean
+			String name = (String)fileNames.nextElement();//filenames 객체 하나를 일단 담는 String 변수 name
+			
 			
 			System.out.println("실제 파일명 : "+multi.getOriginalFileName(name));//실제 파일명(유저가 업로드한)
 			System.out.println("실제 파일명 : "+multi.getFilesystemName(name));//서버 폴더에 저장되는 파일명(중복피하기위한 파일 명)
 			System.out.println("실제 파일명 : "+multi.getContentType(name));//(파일의 확장자)
 			if(fileNames.hasMoreElements()==false) {
-				uploadFile += multi.getFilesystemName(name); 
-				
+				uploadFile += multi.getFilesystemName(name); // 마지막인 경우에는 ,없이 더해
 				break;
 			}
-			uploadFile += multi.getFilesystemName(name)+","; 
+			uploadFile += multi.getFilesystemName(name)+","; // 실제 파일명으로(다시 불러와야 되니까) ,로 구분
 			
 		}
-		System.out.println(uploadFile);
+		
+		System.out.println(uploadFile);// uploadfile이 ,단위로 잘 구분되서 STring타입으로 합쳐졋나 확인하는 코드
+		
+		//얘에는 다시 불러올때 , 마단위로 쪼개야되니까 그 실험코드
 		String[] check = uploadFile.split(",");// 전부 더해서 저장한 file name ,단위로 다시 String 배열로 바꿔 올 코드
 		for(String temp : check) {
 			System.out.println(temp);

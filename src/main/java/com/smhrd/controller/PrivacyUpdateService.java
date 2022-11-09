@@ -32,7 +32,7 @@ public class PrivacyUpdateService extends HttpServlet {
 		System.out.println(row);
 		
 		response.sendRedirect("./testAll.jsp");
-		
+		 
 		
 	}
 
