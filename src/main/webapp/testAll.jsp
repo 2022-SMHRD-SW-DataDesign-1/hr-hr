@@ -148,6 +148,10 @@
 		
 		
 		
+			<form action="CommentService?b_num=<%=b_dto.getB_num() %>" method="post">
+				댓글입력 : <textarea  rows="10" style="resize: none;" name="c_content"></textarea><br> 
+			<input type ="submit" value="댓글 등록">
+		</form>
 		<% 	if(cmtList != null){%>
 			<%	for(CommentDTO cmt : cmtList){%>
 					댓글 : <%=cmt.toString() %>
@@ -157,11 +161,7 @@
 			
 	<% 	}%>		
 <%	} %>
-	<form action="CommentService">
-		게시글 번호 입력 : <input type="text" name ="b_num">
-		댓글입력 : <textarea  rows="10" style="resize: none;" name="c_content"></textarea><br> 
-		<input type ="submit" value="댓글 등록">
-</form>
+		<!-- 게시글 번호 입력 : <input type="text" name ="b_num"> -->
 
 
 	<hr>

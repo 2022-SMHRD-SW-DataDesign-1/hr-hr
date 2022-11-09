@@ -42,6 +42,9 @@
 		update t_board set b_likes= (SELECT count(*) FROM t_usefulBoard where b_num =#{b_num}) 
 		where b_num=#{b_num}  
 	</update>
-	
+	<select  id="showDetail" parameterType="int" resultType="BoardDTO">
+		select * from t_board
+		WHERE b_num = #{b_num}
+	</select>
 		
 </mapper>

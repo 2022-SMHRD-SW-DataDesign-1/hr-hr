@@ -14,6 +14,7 @@
 		<typeAlias type="com.smhrd.model.CommentDTO" alias="CommentDTO" />
 		<typeAlias type="com.smhrd.model.PolicyDTO" alias="PolicyDTO" />
 		<typeAlias type="com.smhrd.model.LikesDTO" alias="LikesDTO" />
+		<typeAlias type="com.smhrd.model.PolicyLikesDTO" alias="PolicyLikesDTO" />
 	</typeAliases>
 
 	<environments default="development">

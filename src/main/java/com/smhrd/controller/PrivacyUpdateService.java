@@ -16,7 +16,7 @@ public class PrivacyUpdateService extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		HttpSession session = request.getSession();
-		request.setCharacterEncoding("utf-8");
+		request.setCharacterEncoding("UTF-8");
 		MemberDTO dto = (MemberDTO)session.getAttribute("info");
 		String m_id = dto.getM_Id();
 		

@@ -8,7 +8,7 @@
 		insert into t_member(M_ID, M_PW,
 		M_EMAIL, M_NICKNAME, M_PHONE, M_JOINDATE, M_PROFILE, M_POINT, M_TYPE)
 		values(#{m_Id}, #{m_Pw}, #{m_Email}, #{m_Nickname}, #{m_Phone},
-		sysdate,'자기소개를 입력하세요','0','u')
+		sysdate,'자기소개를 입력하세요','0','u','프로필사진을등록하세요')
 	</insert>
 
 	<select id="login" parameterType="MemberDTO"

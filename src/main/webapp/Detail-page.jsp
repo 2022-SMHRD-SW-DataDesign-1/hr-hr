@@ -1,3 +1,10 @@
+<%@page import="java.math.BigDecimal"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.smhrd.model.CommentDAO"%>
+<%@page import="com.smhrd.model.CommentDTO"%>
+<%@page import="com.smhrd.model.BoardDAO"%>
+<%@page import="com.smhrd.model.BoardDTO"%>
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 	<!DOCTYPE html>
@@ -37,13 +44,22 @@
 		<link rel="stylesheet" href="css/detail-page.css">
 		<link rel="shortcut icon" href="imgs/instagram.png">
 
-
+  		<script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
 		
 	</head>
 
 	<body>
 
-
+		<%
+			//int num = Integer.parseInt(request.getParameter("b_num"));
+			BoardDTO board = new BoardDAO().showDetail(4);
+			
+			//int cmt = Integer.parseInt(request.getParameter("b_num"));
+			//BigDecimal b_num_cmt = new BigDecimal(cmt);
+			int num = 4;
+			BigDecimal bignum = new BigDecimal(num);
+			ArrayList<CommentDTO>  cmtList = new CommentDAO().showComment(bignum);
+		%>
 		<section id="container">
 
 			<!-- 머리글 -->
@@ -70,7 +86,6 @@
 
 
                     <div class="right_icons">
-                        <a href="Login.jsp"><img src="imgs/로그인.PNG" class="sprite_compass_icon"></a>
                         <a href="Profile.jsp"><img src="imgs/프로필.PNG" class="sprite_user_icon_outline"></a>
                         <a href="Top10Ranking.jsp"><img src="imgs/랭킹버튼.PNG" class="sprite_user_icon_outline"></a>
                         <a href="DM.jsp"> <img src="imgs/채팅.PNG" class="sprite_user_icon_outline"></a>
@@ -81,6 +96,10 @@
 
 			<div id="main_container">
 				<!-- 게시물 영역  -->
+				
+				
+				
+				게시글이 나와야함...
 				<section class="b_inner">
 
 					<div class="contents_box">
@@ -90,11 +109,12 @@
 							<div class="user_container">
 							<!-- 게시물 유저 이미지 -->
 								<div class="profile_img">
-									<img src="imgs/thumb.jpeg" alt="">
+									<img src="<%=board.getB_filename() %>" alt="">
+									
 								</div>
 								<!-- 유저 이름 및 정보 -->
 								<div class="user_name">
-									<div class="nick_name">KindTiger</div>
+									<div class="nick_name"><%=board.getB_writer() %></div>
 									<div class="country">Seoul, South Korea</div>
 								</div>
 							</div>
@@ -102,7 +122,7 @@
 							<div class="img_section">
 								<div class="trans_inner">
 									<div>
-										<img src="imgs/img_section/img03.jpg" alt="">
+										<img src="<%=board.getB_filename() %>" alt="">
 									</div>
 								</div>
 							</div>
@@ -116,9 +136,12 @@
 									<div class="admin_container">
 										<div class="comment">
 										<!-- 게시한 유저 이름 -->
-											<span class="user_id">Kindtiger</span>강아지가 많이 힘든가보다ㅜㅜㅜㅜㅜ조금만힘내
+											<span class="user_id"><%=board.getB_writer() %></span>
+											<div>
+											<%=board.getB_content() %>
+											</div>
 											<!-- 게시 시간 -->
-											<div class="time">2시간</div>
+											<div class="time"><%=board.getB_date() %></div>
 										</div>
 									</div>
 									
@@ -126,6 +149,11 @@
 
 								<!-- 댓글 스크롤  -->
 								<section class="scroll_section">
+									
+									
+									
+									<%if(cmtList != null){ %>
+									<%for(CommentDTO cmt_dto : cmtList){ %>
 									<!-- 댓글 영역 -->
 									<div class="user_container-detail">
 										<div class="user">
@@ -134,66 +162,14 @@
 										</div>
 										<!-- 댓글 내용 -->
 										<div class="comment">
-											<span class="user_id">in0.lee</span>너무귀엽네요 ㅎㅎㅎ맞팔해요~!
-											<div class="time">
-												2시간 <span class="try_comment">답글 달기</span>
-											</div>
-											
+											<span class="user_id"><%=cmt_dto.getCmt_id() %></span><%=cmt_dto.getCmt_content() %>
+											<button>좋아요</button>
 										</div>
 									</div>
-
-									<div class="user_container-detail">
-										<div class="user">
-											<img src="imgs/thumb03.jpg" alt="user">
-										</div>
-										<div class="comment">
-											<span class="user_id">ye_solkim</span>강아지 이름이 뭐에요???
-											<div class="time">
-												2시간 <span class="try_comment">답글 달기</span>
-											</div>
-											
-										</div>
-									</div>
-
-									<div class="user_container-detail">
-										<div class="user">
-											<img src="imgs/thumb02.jpg" alt="user">
-										</div>
-										<div class="comment">
-											<span class="user_id">in0.lee</span>너무귀엽네요 ㅎㅎㅎ맞팔해요~!
-											<div class="time">
-												2시간 <span class="try_comment">답글 달기</span>
-											</div>
-											
-										</div>
-									</div>
-
-									<div class="user_container-detail">
-										<div class="user">
-											<img src="imgs/thumb03.jpg" alt="user">
-										</div>
-										<div class="comment">
-											<span class="user_id">in0.lee</span>너무귀엽네요
-											<div class="time">
-												2시간 <span class="try_comment">답글 달기</span>
-											</div>
-											
-										</div>
-									</div>
-
-									<div class="user_container-detail">
-										<div class="user">
-											<img src="imgs/thumb02.jpg" alt="user">
-										</div>
-										<div class="comment">
-											<span class="user_id">in0.lee</span>너무귀엽네요 ㅎㅎㅎ맞팔해요~!
-											<div class="time">
-												2시간 <span class="try_comment">답글 달기</span>
-											</div>
-											
-										</div>
-									</div>
-
+									<%} %>
+									
+									<%} %>
+									
 								</section>
 
 								<!-- 게시글 하단 버튼  -->
@@ -207,6 +183,7 @@
 											</div>
 										</div>
 								<!-- 댓글 버튼 -->
+								<div class ="thumbs">따봉</div>
 								<div class="sprite_bubble_icon"></div>
 									</div>
 									<!-- 게시글 스크랩 버튼 -->
