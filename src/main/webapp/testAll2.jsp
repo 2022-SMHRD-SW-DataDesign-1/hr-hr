@@ -106,7 +106,7 @@
 	<hr>
 	<!-- 게시글 작성 o -->
 		<form action="BoardService"  enctype="multipart/form-data"  method="post">
-		사진등록 :<input  type="file" style="float: right;" name="filename" multiple="multiple">
+		사진등록 :<input  type="file" style="float: right;" name="filename" >
 		게시글 입력 : <textarea  rows="10" style="resize: none;" name="content"></textarea><br> 
 		<input type="submit" value="게시글 등록">
 	</form>
@@ -125,23 +125,18 @@
 		ArrayList<BoardDTO> bList = dao.showBoard(info.getM_Id());
 		
 		for(BoardDTO b_dto : bList){%>
-			게시글 : <%= b_dto.toString() %><br>	
-		<%BigDecimal b_num = b_dto.getB_num();
-		ArrayList<CommentDTO> cmtList = cmtDAO.showComment(b_num);
-		/* 좋아용 버튼 + 좋아요 누를 때 좋아요 카운트 올라가게 ==> mapper 구성 필요하고, dao 필요하고 <== 모르면 물어보면서 */
-				/*  
-				
-				
-				
-				*/
-		if(cmtList != null){
-		for(CommentDTO cmt : cmtList){%>
-		댓글 : <%=cmt.toString() %>
-		<br>
+			작성자 : <%= b_dto.getB_writer() %><br>
+			게시글 내용: <%= b_dto.getB_content() %><br>
+			등록 사진 : <%
+			String[] files = b_dto.getB_filename().split(",");%>
+			<%for(String temp : files){%>
+				<%-- <img alt="" src="./file/<%=temp%>"> 첫번째 이미지만 나오는거 확인--%>
+				<%=temp %><br>
+			<%}%><br>	
 		
-		<%} %>
-		<%} %>
-			
+	
+	
+	
 		<% }%>		
 	<%} %>
 	<form action="CommentService">
