@@ -106,6 +106,12 @@
   	<description></description>
   	<servlet-class>com.smhrd.controller.PrivacyUpdateService</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>PolicyLikesService</servlet-name>
+  	<display-name>PolicyLikesService</display-name>
+  	<description></description>
+  	<servlet-class>com.smhrd.controller.PolicyLikesService</servlet-class>
+  </servlet>
   
   <servlet-mapping>
   	<servlet-name>test</servlet-name>
@@ -174,6 +180,10 @@
   <servlet-mapping>
   	<servlet-name>PrivacyUpdateService</servlet-name>
   	<url-pattern>/PrivacyUpdateService</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>PolicyLikesService</servlet-name>
+  	<url-pattern>/PolicyLikesService</url-pattern>
   </servlet-mapping>
  
 </web-app>

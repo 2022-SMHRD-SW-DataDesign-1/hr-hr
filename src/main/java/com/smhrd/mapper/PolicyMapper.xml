@@ -14,5 +14,39 @@
 	<select id="showPolicy" resultType="PolicyDTO">
 		select * from t_Policy order by p_date desc
 	</select>
+	
+	
+	
+	
+	<select id="isPolicyLiked" parameterType="PolicyLikesDTO" resultType="int">
+		SELECT count(*) from t_usefulPolicy where m_id = #{m_id} and
+		p_num = #{p_num}
+	</select>
+	
+	<insert id="PolicyLikesPlus" parameterType="PolicyLikesDTO">
+		INSERT INTO t_usefulPolicy (m_id, p_num) VALUES (#{m_id},#{p_num})
+	</insert>
+	
+	<delete id="PolicyLikesMinus" parameterType="PolicyLikesDTO">
+		delete from t_usefulPolicy where m_id = #{m_id} and p_num = #{p_num}
+	</delete>
+	
+	<update id="PolicysetCount" parameterType="BigDecimal">
+		update t_policy set p_likes= (SELECT count(*) FROM t_usefulPolicy where p_num =#{p_num}) 
+		where p_num=#{p_num}  
+	</update>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 </mapper>
