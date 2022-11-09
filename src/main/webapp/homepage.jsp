@@ -49,12 +49,12 @@
 							</div>
 							<!-- 이미지 넣는 부분 -->
 							<div class="carousel-inner">
-								<div class="carousel-item active">
+								<div class="carousel-item2 active">
 									<!-- 여기에 사진넣기 -->
 									<img src="./imgs/로고.png" alt="visual01">
 
 								</div>
-								<div class="carousel-item">
+								<div class="carousel-item2">
 									<!-- 여기에 사진넣기 -->
 									<img src="./imgs/wow.png" alt="visual02">
 								</div>

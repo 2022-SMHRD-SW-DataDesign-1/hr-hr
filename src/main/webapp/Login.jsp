@@ -1,3 +1,5 @@
+<%@page import="com.smhrd.model.MemberDTO"%>
+<%@page import="com.smhrd.model.MemberDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -37,6 +39,11 @@
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+<%
+	MemberDTO info = (MemberDTO) session.getAttribute("info");
+	/* MemberDTO dto = new MemberDTO();*/
+	%>
+<script src="http://code.jquery.com/jquery-latest.js"></script>
 
 
 	<section id="container">
@@ -63,8 +70,7 @@
 
 
 				<div class="right_icons">
-					<a href="Login.jsp"><img src="imgs/로그인.PNG" class="sprite_compass_icon"></a>
-					<a href="Profile.jsp"><img src="imgs/프로필.PNG" class="sprite_user_icon_outline"></a>
+					
 				</div>
 			</section>
 		</header>
@@ -77,66 +83,92 @@
 				<!-- 회원가입 -->
 					<div class="sign-up-container">
 					<!-- 회원가입 정보 보내기 -->
-						<form action="Joinsuccess.jsp">
-							<h1>Create Account</h1>
+						<form action="JoinService" method="post">
+							<h1>회원가입</h1>
 							<!-- 소셜 로그인 영역 -->
 							<div class="social-links">
+								
 								<div>
-									<a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-								</div>
-								<div>
-									<a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-								</div>
-								<div>
-									<a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+									<a href="#"><i ></i></a>
 								</div>
 							</div>
 							<!-- 회원가입 정보 입력란 -->
-							<input type="text" placeholder="ID"> <input
-								type="password" placeholder="Password"> <input
-								type="text" placeholder="Name"> <input type="text"
-								placeholder="Nickname"> <input type="text"
-								placeholder="phone">
-							<button class="form_btn">Join Up</button>
+							<input type="text" name="m_Id" id="inputID" placeholder="ID"> 
+							<input type="button" value="ID중복체크" onclick="checkID()" class="form_btn">
+							<span id="resultCheckID"></span><br> 
+							<input type="password" name="m_Pw" placeholder="Password"> 
+							<input type="text" name="m_Email" placeholder="Email"> 
+							<input type="text" name="m_Nickname" placeholder="Nickname"> 
+							<input type="text" name="m_Phone" placeholder="phone">
+							<input type="submit" id="joinBtn" value="Join up" disabled="disabled" class="form_btn">
 						</form>
+						
+						<script>
+							function checkID() {
+								let inputID = $("#inputID").val();
+								console.log(inputID);
+	
+								$.ajax({
+									// 요청서버 url
+									url : "IDCheckService",
+									// 요청할 때 같이 보내줄 데이터
+									data : {"inputID" : inputID},
+									// 요청 타입
+									type : 'get', 
+									// 통신 성공 function(넘겨준데이터)
+									success : function(data) {
+										console.log(typeof data);
+										if (data == 'true') {
+											$("#resultCheckID").text("중복");
+											$("#joinBtn").attr("disabled",true);
+										} else {
+											$("#resultCheckID").text("가능");
+											$("#joinBtn").attr("disabled",false);
+										}
+									},
+									// 통신 실패
+									error : function() {
+										console.log("조샀다 !");
+									}
+								})
+							}
+						</script>
+						
 					</div>
 					<!-- 로그인 -->
 					<div class="sign-in-container">
 					<!-- 로그인 정보 보내기 -->
-						<form action="#">
+						<form action="LoginService" method="post">
 							<h1>Sign In</h1>
 							<!-- 소셜로그인 -->
 							<div class="social-links">
+								
 								<div>
-									<a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-								</div>
-								<div>
-									<a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-								</div>
-								<div>
-									<a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+									<a href="#"><i ></i></a>
 								</div>
 							</div>
 							<!-- 로그인 정보입력 -->
-							<span>or use your account</span> <input type="text"
-								placeholder="ID"> <input type="password"
-								placeholder="Password">
-							<button class="form_btn">Sign In</button>
-						</form>
+							<span>로그인</span> 
+								<input type="text" name="m_Id" placeholder="ID"> 
+								<input type="password" name="m_Pw" placeholder="Password">
+								<input type="submit" value="Sign In" class="form_btn">
+							</form>
+							<%if(info != null){ %>
+	 						멤버정보 :<%= info.toString() %>
+	 						<%} %>
 					</div>
 					<!-- 움직이는 영역 -->
 					<div class="overlay-container">
 					<!-- 로그인으로 넘어가기 -->
 						<div class="overlay-left">
-							<h1>Welcome Back</h1>
-							<p>To keep connected with us please login with your personal
-								info</p>
+							<h1>환영합니다</h1>
+							<p> 로그인을 하기위해서 당신의 회원정보를 입력하십시오.</p>
 							<button id="signIn" class="overlay_btn">Sign In</button>
 						</div>
 						<!-- 회원가입으로 넘어가기 -->
 						<div class="overlay-right">
-							<h1>Hello, Friend</h1>
-							<p>Enter your personal details and start journey with us</p>
+							<h1>안녕하세요</h1>
+							<p>회원가입시 입력한 정확한 ID와 PW를 입력하여 주십시오</p>
 							<button id="signUp" class="overlay_btn">Sign Up</button>
 						</div>
 					</div>
@@ -150,17 +182,18 @@
 
 	<!-- 로그인 자바스크립트 -->
 	<script>
-	const signUpBtn = document.getElementById("signUp");
-	const signInBtn = document.getElementById("signIn");
-	const container = document.querySelector(".container");
-	<!-- 회원가입넘기는 버튼누를시 왼쪽으로 넘어감 -->
-	signUpBtn.addEventListener("click", () => {
-	  container.classList.add("right-panel-active");
-	});
-	<!-- 로그인넘기는 버튼누를시 오른쪽으로 넘어감 -->
-	signInBtn.addEventListener("click", () => {
-	  container.classList.remove("right-panel-active");
-	});
-</script>
+		const signUpBtn = document.getElementById("signUp");
+		const signInBtn = document.getElementById("signIn");
+		const container = document.querySelector(".container");
+		
+		signUpBtn.addEventListener("click", () => {
+		  container.classList.add("right-panel-active");
+		});
+		
+		signInBtn.addEventListener("click", () => {
+		  container.classList.remove("right-panel-active");
+		});
+	</script>
+	
 </body>
 </html>
