@@ -161,7 +161,8 @@
 	
 	
 	
-	<!-- 정책 목록 출력 + 리뷰 작성 + 출력-->
+	
+	<!-- 정책 목록 출력o + 리뷰 작성 + 출력-->
 	<%if(info != null){%>
 	정책 게시글 포함 
 	
@@ -169,7 +170,7 @@
 	ArrayList<PolicyDTO> p_list = dao.showPolicy();
 	
 	for(PolicyDTO pdto : p_list){%>
-		정책 :<%=pdto.toString() %>
+		정책 :<%=pdto.toString() %><br>
 	<% }%>
 		 
 	
@@ -244,9 +245,35 @@
 	</form>
 	<%} %>
 	
+	<!-- 정책게시물 수정 -->
+	<% if(info != null) {%>
+	<%int count = 0; %>
+	<form action="PolicyUpdateService" enctype="multipart/form-data" method = "post" id = "p_filelist">
+		
+		정책 제목 : <input type = "text" name = "title">
+		내용 작성 : <textarea rows="10" style="resize:none;" name="content"></textarea><br>
+		
+		<input type = "file" style= "float : right;" name = "filename<%=count%>">
+		<input type = "submit" value = "수정완료"><br>
+			
+	</form>
+	<input type = "submit" value="+" onclick ="addbtn()"><br>
+	<%count++; %>
+	
+	<script type="text/javascript">
+		function addbtn(){
+		$("#p_filelist").append("<input type = 'file' style='float:right;' name='filename<%=count%>' multiple>")	
+		
+		}
+	</script>
 	
 	
 	
+	
+	
+	
+	
+	<%} %>
 	
 <%if(info != null){%>
 	<script>

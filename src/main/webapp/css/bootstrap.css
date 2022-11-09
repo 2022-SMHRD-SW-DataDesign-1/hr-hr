@@ -3474,9 +3474,9 @@ textarea.form-control-lg {
   background-color: #212529;
   border-color: #212529;
 }
-.btn-check:focus + .btn-outline-dark, .btn-outline-dark:focus {
+/* /* .btn-check:focus + .btn-outline-dark, .btn-outline-dark:focus {
   box-shadow: 0 0 0 0.25rem rgba(33, 37, 41, 0.5);
-}
+} */ */
 .btn-check:checked + .btn-outline-dark, .btn-check:active + .btn-outline-dark, .btn-outline-dark:active, .btn-outline-dark.active, .btn-outline-dark.dropdown-toggle.show {
   color: #fff;
   background-color: #212529;
@@ -5137,8 +5137,11 @@ textarea.form-control-lg {
 .list-group-item.active {
   z-index: 2;
   color: #fff;
-  background-color: #0d6efd;
-  border-color: #0d6efd;
+  background-color: #ffffff;
+  color: black;
+}
+.list-group-item.active:hover {
+  background-color: rgb(240, 240, 240);
 }
 .list-group-item + .list-group-item {
   border-top-width: 0;
@@ -11370,4 +11373,26 @@ textarea.form-control-lg {
 .carousel-item2>img{
   width: 30vmax;
   height: 30vmax;
+}
+
+/* 버튼 수정 */
+.updatebtn{
+  color: white;
+  background-color: #0a58ca;
+  border: none;
+  margin-top: 3%;
+  border-radius: 5px;
+  padding: 8px;
+  
+}
+/* 버튼 수정 11/9 */
+.blockbtn{
+  font-size: 13px;
+  color: white;
+  background-color: #0a58ca;
+  border: none;
+  border-radius: 3px;
+  box-shadow: 0 0 0 0.25rem #fefeff;
+  height: 25px;
+  width: 112px;
 }

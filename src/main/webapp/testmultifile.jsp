@@ -25,12 +25,12 @@
 <body>
 	<%int count = 0; %>
 	<form action="BoardService"  enctype="multipart/form-data"  method="post" id="filelist">
-		test 글 내용 작성 : <textarea  rows="10" style="resize: none;" name="content"></textarea><br> 
-		<input type="submit" value="test글 작성">
-		<input  type="file" style="float: right;" name="filename<%=count%>" >
+		test 글 내용 작성 : <textarea  rows="10" style="resize: none;" name="content"></textarea><br><!-- 글 작성 --> 
+		<input type="submit" value="test글 작성"><!-- 글 작성 -->
+		<input  type="file" style="float: right;" name="filename<%=count%>" ><!-- 파일 경로..?넣기  --> 
 	</form>
+		<input type="submit" value="+" onclick="addbtn()"><br><!-- 파일경로 추가해주는 버튼  -->
 	
-		<input type="submit" value="+" onclick="addbtn()"><br>
 		<%count++; %>
 	<script type="text/javascript">
 		function addbtn(){
@@ -59,6 +59,7 @@
 Kakao.init('10f8004f601643f56798d54c5fc82e6e'); //발급받은 키 중 javascript키를 사용해준다.
 console.log(Kakao.isInitialized()); // sdk초기화여부판단
 //카카오로그인
+let test ;
 function kakaoLogin() {
     Kakao.Auth.login({
       success: function (response) {
@@ -68,7 +69,7 @@ function kakaoLogin() {
         	  console.log(response)
           },
           fail: function (error) {
-            console.log(error)
+           test = console.log(error)
           },
         })
       },
@@ -77,6 +78,8 @@ function kakaoLogin() {
       },
     })
   }
+  
+  cosole.log()
 //카카오로그아웃  
 function kakaoLogout() {
     if (Kakao.Auth.getAccessToken()) {

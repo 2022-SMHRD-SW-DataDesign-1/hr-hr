@@ -28,5 +28,14 @@ public class PolicyDAO {
 		return list;
 	}
 	
-	//List("showPolicy", admin_id);
+	// 정책 수정
+	public int update(PolicyDTO dto) {
+		SqlSession session = sqlSessionFactory.openSession(true);
+		int row = session.update("p_update", dto);
+		session.close();
+		
+		return row;
+	}
+	
+	
 }
