@@ -1,4 +1,9 @@
+<%@page import="com.smhrd.model.CommentDAO"%>
+<%@page import="com.smhrd.model.FollowDAO"%>
+<%@page import="com.smhrd.model.BoardDAO"%>
 <%@page import="com.smhrd.model.MemberDTO"%>
+<%@page import="com.smhrd.model.BoardDTO"%>
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -16,15 +21,15 @@
 	content="http://kindtiger.dothome.co.kr/insta/imgs/instagram.jpeg">
 
 
-<title>instagram</title>
-<link rel="stylesheet" href="css/reset.css">
-<link rel="stylesheet" href="css/common.css">
-<link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="css/bootstrap.css">
-<link rel="stylesheet" href="css/profile.css">
+    <title>----------수정이필요한 부분--------------</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/profile.css">
+    <link rel="shortcut icon" href="imgs/instagram.png">
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
 
-<link rel="shortcut icon" href="imgs/instagram.png">
-<script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
 <!-- 부트스트랩 -->
 <script>
 	$(document).ready(function() {
@@ -98,7 +103,17 @@
 						<div class="top">
 
 							<!-- detail top user_name으로 접근 클래스 -->
-							<div class="user_name">ADMIN</div>
+                            <%if (info != null) {%>
+                                <!-- detail top user_name으로 접근 클래스 -->
+                                <div class="user_name"><%=info.getM_Nickname()%></div>
+                                <%} else {%>
+                                <div class="user_name">로그인이 필요합니다.</div>
+                                <%}%>
+
+
+
+                            <%if (info != null) {%>
+
 							<%if (info.getM_Id().equals(info.getM_Id())) { %>
 
 							<div class="admin_btn">
@@ -108,6 +123,9 @@
 									class="btn btn-primary btn btn-light btn btn-outline-dark"
 									data-bs-toggle="modal" data-bs-target="#profileEditModal">
 									정보수정</button>
+
+
+                                    
 								<!-- 팝업창 영역 -->
 								<!-- Modal -->
 								<div class="modal fade" id="profileEditModal" tabindex="-1"
@@ -265,7 +283,10 @@
 									</div>
 								</div>
 								<!-- 모달 끝! -->
+
 								<a href="#" class="logout">로그아웃</a>
+
+
 							</div>
 							
 							
@@ -312,84 +333,56 @@
 
 							</div>
 							<%} %>
+							<%} %>
 
 
 						</div>
 
 
 
-						<ul class="middle">
-							<li><span>게시물</span> 3</li>
-							<li><span>팔로워</span> 3</li>
-							<li><span>팔로우</span> 3</li>
-						</ul>
-						<p class="about">
-							<span class="nick_name">게시글</span> <span class="book_mark">유용해요</span>
-						</p>
-
-					</div>
-				</div>
-				<!-- 게시글 영역  -->
-				<div class="mylist_contents contents_container active">
-					<div class="pic">
-						<a href="#"><img src="imgs/img_section/img01.jpg" alt=""></a>
-					</div>
-					<div class="pic">
-						<a href="#"><img src="imgs/img_section/img02.jpg" alt=""></a>
-					</div>
-					<div class="pic">
-						<a href="#"> <img src="imgs/img_section/img03.jpg" alt=""></a>
-					</div>
-					<div class="pic">
-						<a href="#"> <img src="imgs/img_section/img02.jpg" alt=""></a>
-					</div>
-					<div class="pic">
-						<a href="#"> <img src="imgs/img_section/img03.jpg" alt=""></a>
-					</div>
-					<div class="pic">
-						<a href="#"> <img src="imgs/img_section/img01.jpg" alt=""></a>
-					</div>
-					<div class="pic">
-						<a href="#"> <img src="imgs/img_section/img02.jpg" alt=""></a>
-					</div>
-					<div class="pic">
-						<a href="#"> <img src="imgs/img_section/img03.jpg" alt=""></a>
-					</div>
-					<div class="pic">
-						<a href="#"> <img src="imgs/img_section/img01.jpg" alt=""></a>
-					</div>
-				</div>
+						<%if(info != null){ %>
+                            <ul class="middle">
+                                <li><span>게시물</span> <%=new BoardDAO().countBoard(info.getM_Id())%></li>
+                                <li><span>팔로우</span> <%= new FollowDAO().countFollow(info.getM_Id())%></li>
+                                <li><span>팔로워</span> <%= new FollowDAO().countFollower(info.getM_Id())%></li>
+                            </ul>				
+                            <%} %>
+						<%if(info != null){ %>
+                            <p class="about">
+                                <span class="nick_name">게시글</span> <span class="book_mark">유용해요</span>
+                            </p>
+                        </div>
+                        </div>
+                        <!-- 게시글 영역  -->
+                        <%
+                        BoardDAO b_dao = new BoardDAO();
+                        ArrayList<BoardDTO> b_List = b_dao.showBoard(info.getM_Id());
+                        ArrayList<BoardDTO> b_useful_List = b_dao.showUsefulBoard(info.getM_Id());
+                        %>
+                        
+                        <div class="mylist_contents contents_container active">
+                    
+                        <%for(BoardDTO b_dto : b_List){ %>
+                        <%String[] files = b_dto.getB_filename().split(","); %>
+                            <div class="pic">
+                                <a href="#"><img src="./file/<%=files[0]%>"></a>
+                            </div>
+                        <%} %>
+                        </div>
 
 				<!-- 타 게시글 스크랩 영역 -->
-				<div class="bookmark_contents contents_container">
-					<div class="pic">
-						<a href="#"><img src="imgs/img_section/img03.jpg" alt=""></a>
-					</div>
-					<div class="pic">
-						<a href="#"><img src="imgs/img_section/img01.jpg" alt=""></a>
-					</div>
-					<div class="pic">
-						<a href="#"> <img src="imgs/img_section/img02.jpg" alt=""></a>
-					</div>
-					<div class="pic">
-						<a href="#"> <img src="imgs/img_section/img01.jpg" alt=""></a>
-					</div>
-					<div class="pic">
-						<a href="#"> <img src="imgs/img_section/img02.jpg" alt=""></a>
-					</div>
-					<div class="pic">
-						<a href="#"> <img src="imgs/img_section/img03.jpg" alt=""></a>
-					</div>
-					<div class="pic">
-						<a href="#"> <img src="imgs/img_section/img01.jpg" alt=""></a>
-					</div>
-					<div class="pic">
-						<a href="#"> <img src="imgs/img_section/img02.jpg" alt=""></a>
-					</div>
-					<div class="pic">
-						<a href="#"> <img src="imgs/img_section/img02.jpg" alt=""></a>
-					</div>
-				</div>
+				
+                <div class="bookmark_contents contents_container">
+                    <%for(BoardDTO b_dto:b_useful_List){ %>
+                    <%String[] files = b_dto.getB_filename().split(","); %>
+                            <div class="pic">
+                                <a href="#"><img src="./file/<%=files[0]%>"></a>
+                            </div>
+                            
+                        </div>
+                    <%} %>
+    
+                    <%} %>
 
 
 
@@ -410,7 +403,41 @@
 		integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
 		crossorigin="anonymous"></script>
 
+<!-- 비밀번호 같은지 체크 -->
+	
+<script>
+    function checkPW() {
+        let inputPW = $("#pw").val();
+        let inputPWCheck = $("#pwcheck").val();
+        console.log(inputPW);
+        console.log(inputPWCheck);
 
+        $.ajax({
+            // 요청서버 url
+            url : "PwCheckService",
+            // 요청할 때 같이 보내줄 데이터
+            data : {"inputPW" : inputPW,
+                    "inputPWCheck" : inputPWCheck},
+            // 요청 타입
+            type : 'get', 
+            // 통신 성공 function(넘겨준데이터)
+            success : function(data) {
+                console.log(typeof data);
+                if (data == 'false') {
+            $("#pwCheckResult").text("같아요~");
+            $("#privacyUpdateSubmit").attr("disabled",false);
+                } else {
+            $("#pwCheckResult").text("달라요~");
+            $("#privacyUpdateSubmit").attr("disabled",true);
+                }
+            },
+            // 통신 실패
+            error : function() {
+                console.log("조샀다 !");
+            }
+        })
+    }
+</script>
 
 </body>
 
