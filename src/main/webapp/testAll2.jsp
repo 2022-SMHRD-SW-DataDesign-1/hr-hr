@@ -161,7 +161,8 @@
 	
 	
 	
-	<!-- 정책 목록 출력 + 리뷰 작성 + 출력-->
+	
+	<!-- 정책 목록 출력o + 리뷰 작성 + 출력-->
 	<%if(info != null){%>
 	정책 게시글 포함 
 	
@@ -244,9 +245,25 @@
 	</form>
 	<%} %>
 	
+	<!-- 정책게시물 수정 -->
+	<% if(info != null) {%>
+	<%int count = 0; %>
+	<form action="PolicyUpdateService" enctype="multipart/form-data" method = "post" id = "p_filelist">
 	
 	
 	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	</form>
+	
+	<%} %>
 	
 <%if(info != null){%>
 	<script>
