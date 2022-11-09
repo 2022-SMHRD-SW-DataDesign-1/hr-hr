@@ -20,7 +20,6 @@
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/otherprofile.css">
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="shortcut icon" href="imgs/instagram.png">
    
@@ -111,6 +110,7 @@
                               </div>
                             
                         </div>
+                        
                     </div>
                     
 					<!-- 머리글 중간부분 -->
