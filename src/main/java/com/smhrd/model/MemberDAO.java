@@ -55,6 +55,12 @@ public class MemberDAO {
 		return row;
 	}
 
-	
+	public int privacyUpdate(MemberDTO dto) {
+		SqlSession session = sqlSessionFactory.openSession(true);
+		int row = session.update("privacyUpdate", dto);
+		session.close();
+		
+		return row;
+	}
 	
 }
