@@ -200,12 +200,15 @@
 	<servlet-mapping>
 		<servlet-name>PolicyLikesService</servlet-name>
 		<url-pattern>/PolicyLikesService</url-pattern>
-		<url-pattern>/PolicyUpdateService</url-pattern>
 	</servlet-mapping>
 
 	<servlet-mapping>
 		<servlet-name>PwCheckService</servlet-name>
 		<url-pattern>/PwCheckService</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>PolicyUpdateService</servlet-name>
+		<url-pattern>/PolicyUpdateService</url-pattern>
 	</servlet-mapping>
 
 </web-app>

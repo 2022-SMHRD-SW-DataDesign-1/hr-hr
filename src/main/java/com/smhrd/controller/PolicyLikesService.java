@@ -18,7 +18,7 @@ public class PolicyLikesService extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		
+		request.setCharacterEncoding("UTF-8");
 		String m_id =  request.getParameter("m_id"); 
 		BigDecimal p_num = new BigDecimal(Integer.parseInt(request.getParameter("p_num"))); 
 		int is_like = Integer.parseInt(request.getParameter("is_like"));

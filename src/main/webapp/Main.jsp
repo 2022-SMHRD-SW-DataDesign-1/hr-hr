@@ -47,7 +47,7 @@
                 
 				<h1 class="logo">
 					<a href="Main.jsp">
-						<img src="imgs/로고.png">
+						<img src="imgs/<%=java.net.URLEncoder.encode("로고.png","euc-kr") %>"/>
 						
 					</a>
 				</h1>
@@ -319,7 +319,7 @@
 									<div class="left_icons">
 									<!-- 정책 좋아요 버튼 -->
 										<div class="heart_btn">
-											<div class="sprite_heart_icon_outline" data-name="heartbeat">
+											<div class="sprite_heart_icon_outline" >
 											<%pl_dto = new PolicyLikesDTO(info.getM_Id(),p_dto.getP_num()); %>
 											<%if(pl_dao.isPolicyLiked(pl_dto)>0){ %>
 												<button class="heart_button" id='policylikes<%= count %>'onclick="policylikes(<%= p_dto.getP_num()%>,this.id)">유용해요해제</button>
@@ -337,7 +337,7 @@
 									<!-- 정책 아래 오른쪽영역 -->
 									<div class="right_icon">
 									<!-- 정책 스크랩버튼 -->	
-										<div class="sprite_bookmark_outline" data-name="book-mark"></div>
+										<div class="sprite_bookmark_outline" ></div>
 									</div>
 								</div>
 								
@@ -405,9 +405,9 @@
 					<% // 게시판 글 모음 dao에서 로그인한 아이디와 같은 글을 arraylist에 담음 
 					ArrayList<BoardDTO> bList = b_dao.showBoard(info.getM_Id()); %>
                        <!-- 사용자 게시글  -->
+					<article class="contents">
                        <% for(BoardDTO b_dto : bList){%>
 							<%String[] b_files = b_dto.getB_filename().split(","); %>
-					<article class="contents">
 						<header class="top">
 							<div class="user_container">
 							<!-- 게시글 프로필 이미지 -->
@@ -422,7 +422,7 @@
 
 							</div>
 							<!-- 게시글 수정 삭제 영역  -->
-							<div class="sprite_more_icon" data-name="more">
+							<div class="sprite_more_icon" >
 								<div class="dropdown">
 									<button class="btn btn-secondary dropdown-toggle btn btn-light" type="button" data-bs-toggle="dropdown" aria-expanded="false">
 									 ...
@@ -498,7 +498,7 @@
 							<div class="left_icons">
 							<!-- 좋아요 버튼 -->
 								<div class="heart_btn">
-									<div class="sprite_heart_icon_outline" data-name="heartbeat">
+									<div class="sprite_heart_icon_outline" >
 										<%l_dto = new LikesDTO(info.getM_Id(),b_dto.getB_num()); %>
 										<%if(l_dao.isLiked(l_dto)>0){ %>
 											<button class="heart_button" id='likes<%= count %>'onclick="likes(<%= b_dto.getB_num()%>,this.id)">유용해요해제</button>
@@ -506,6 +506,7 @@
 											<button class="heart_button" id='likes<%= count %>' onclick="likes(<%= b_dto.getB_num() %>,this.id)">유용해요등록</button>
 										<%	}%>
 											</div>
+											<%count++; %>
 										</div>
 								<!-- 댓글 버튼 -->
 								<div class="sprite_bubble_icon"></div>
@@ -514,13 +515,16 @@
 							<!-- 오른쪽영역 -->
 							<div class="right_icon">
 							<!-- 스크랩버튼 -->
-								<div class="sprite_bookmark_outline" data-name="bookmark"></div>
+								<div class="sprite_bookmark_outline" ></div>
 							</div>
 						</div>
 						<!-- 좋아요수 표시 -->
+						<br>
+						<br>
 						<div class="count_likes">
-									좋아요 <span class="count" id='like<%= count %>'><%= count++ %></span> 개
+									좋아요 <span class="count" id='like<%= count %>'><%=b_dto.getB_likes() %></span> 개
 						</div>
+									<%= count++ %>
 						<!-- 댓글 표시 -->
 						<div class="comment_container">
 							<div class="comment" id="comments">
@@ -547,27 +551,27 @@
 						<div class="comment_field" id="add-comment-post37">
 							<form action="CommentService?b_num=<%=b_dto.getB_num() %>" method="post" id="commentform">
 								<input type="text" name="c_content" placeholder="댓글달기...">
-								<button type="submit" class="upload_btn user_text"  data-name="comment">게시</button>
+								<button type="submit" class="upload_btn user_text">댓글등록</button>
 							</form>
 						</div>
 							<%} %>
 
-					</article>
 						<%} %>
+					</article>
 					<%if(info != null){%>
 	<script>
 		function likes(b_num,clicked_id){
 			let is_like;
 			console.log(b_num);
 			console.log(clicked_id);
-			
+				
 			let likeBtn = document.getElementById(clicked_id);
 			
-			if(likeBtn.innerText == '좋아요'){
-				likeBtn.innerText = '좋아요해제'
+			if(likeBtn.innerText == '유용해요'){
+				likeBtn.innerText = '유용해요해제';
 				is_like = 0;
 			}else{
-				likeBtn.innerText = '좋아요'
+				likeBtn.innerText = '유용해요';
 				is_like = 1;
 			}
 			
@@ -644,7 +648,7 @@
 											<input type="file" name="filename" id="id_photo" style="float: right;" required="required" >
 											<script >
 												function addbtn(){
-													$("#filelist").append("<input  type='file' style='float: right;' required='required' name='filename<%=count%>' multiple>")
+													$("#filelist").append("<input  type='file' style='float: right;' required='required' name='filename<%=count%>' multiple>");
 												}
 											</script>
 										</p>
