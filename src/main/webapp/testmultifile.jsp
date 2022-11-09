@@ -29,6 +29,7 @@
 		<input type="submit" value="test글 작성">
 		<input  type="file" style="float: right;" name="filename<%=count%>" >
 	</form>
+	
 		<input type="submit" value="+" onclick="addbtn()"><br>
 		<%count++; %>
 	<script type="text/javascript">

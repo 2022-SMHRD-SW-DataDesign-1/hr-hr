@@ -1,3 +1,4 @@
+<%@page import="com.smhrd.model.MemberDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -25,8 +26,6 @@
    
 </head>
 <body>
-
-
 <section id="container">
 
     <header id="header">
@@ -79,6 +78,7 @@
                         <a href="#">DM</a>
                         <br>
                         <div class="toptop">
+                        
                         <!-- 차단버튼 -->                  <!--여기가 버튼스타일 클래스영역  -->
                             <button type="button" class="btn-primary btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                 차단

@@ -14,7 +14,7 @@
         <meta property="og:title" content="instagram">
         <meta property="og:description" content="instagram clone">
         <meta property="og:image" content="http://kindtiger.dothome.co.kr/insta/imgs/instagram.jpeg">
-        .
+        
         <!-- Twitter Meta Tags / 트위터 -->
         <meta name="twitter:card" content="instagram clone">
         <meta name="twitter:title" content="instagram">
@@ -47,8 +47,6 @@
                 $(".nameEdit1").css("display","none");
               });
             });
-
-
         </script>
 
     </head>
@@ -108,12 +106,14 @@
                                 <!-- detail top user_name으로 접근 클래스 -->
                                 <div class="user_name">ADMIN</div>
                                 <!-- 정보수정 팝업버튼  -->
+                                
                                 <!-- 여기가 버튼 스타일 수정클래스 -->
                                 <button type="button" class="btn btn-primary btn btn-light btn btn-outline-dark"
                                     data-bs-toggle="modal" data-bs-target="#exampleModal">
                                     정보수정
                                 </button>
                                 <!-- 팝업창 영역 -->
+                                
                                 <!-- Modal -->
                                 <div class="modal fade" id="exampleModal" tabindex="-1"
                                     aria-labelledby="exampleModalLabel" aria-hidden="true">

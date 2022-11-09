@@ -130,7 +130,7 @@
 			등록 사진 : <%
 			String[] files = b_dto.getB_filename().split(",");%>
 			<%for(String temp : files){%>
-				<%-- <img alt="" src="./file/<%=temp%>"> 첫번째 이미지만 나오는거 확인--%>
+				<a><img alt="" src="./file/<%=temp%>"></a>
 				<%=temp %><br>
 			<%}%><br>	
 		
@@ -298,6 +298,64 @@
 		
 		}
 	</script>
+	
+	<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+	<ul>
+	<li onclick="kakaoLogin();">
+      <a href="javascript:void(0)">
+          <span>카카오 로그인</span>
+      </a>
+	</li>
+	<li onclick="kakaoLogout();">
+      <a href="javascript:void(0)">
+          <span>카카오 로그아웃</span>
+      </a>
+	</li>
+</ul>
+<!-- 카카오 스크립트 -->
+<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+
+<div >카카오 로그인</div>
+<div >카카오 로그아웃</div>
+<script>
+Kakao.init('10f8004f601643f56798d54c5fc82e6e'); //발급받은 키 중 javascript키를 사용해준다.
+console.log(Kakao.isInitialized()); // sdk초기화여부판단
+//카카오로그인
+function kakaoLogin() {
+    Kakao.Auth.login({
+      success: function (response) {
+        Kakao.API.request({
+          url: '/v2/user/me',
+          success: function (response) {
+        	  console.log(response)
+          },
+          fail: function (error) {
+            console.log(error)
+          },
+        })
+      },
+      fail: function (error) {
+        console.log(error)
+      },
+    })
+  }
+//카카오로그아웃  
+function kakaoLogout() {
+    if (Kakao.Auth.getAccessToken()) {
+      Kakao.API.request({
+        url: '/v1/user/unlink',
+        success: function (response) {
+        	console.log(response)
+        },
+        fail: function (error) {
+          console.log(error)
+        },
+      })
+      Kakao.Auth.setAccessToken(undefined)
+    }
+  }  
+</script>
+	
 <%}%>
 	
 
