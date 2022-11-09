@@ -72,14 +72,14 @@
 				</div>
 
 				<div class="right_icons">
-
+                    <%if (info != null) {%>
 					<%if(info.getM_Id().equals(info.getM_Id())){ %>
-					
-					
 					<%}else{ %>
 					<a href="Profile.jsp"><img
 						src="imgs/프로필.PNG" class="sprite_user_icon_outline"></a>
 					<%} %>
+					<%} %>
+					
 				</div>
 
 
@@ -113,8 +113,8 @@
                                 <%}%>
 
 
+		                    <%if (info != null) {%>
 
-                            <%if (info != null) {%>
 
 							<%if (info.getM_Id().equals(info.getM_Id())) { %>
 
@@ -259,14 +259,6 @@
 																		</form>
 																	</div>
 																</div>
-
-
-
-
-
-
-
-
 
 															</div>
 														</div>
