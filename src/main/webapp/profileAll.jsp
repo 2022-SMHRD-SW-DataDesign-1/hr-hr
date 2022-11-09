@@ -440,6 +440,32 @@
         })
     }
 </script>
+<script>
+
+
+ document.getElementById("profile_edit").addEventListener("click", function () {
+     console.log("profile_edit클릭");
+     this.style.backgroundColor = "white";
+     document.getElementById("profile_edit").style.backgroundColor = "#0a58ca";
+     document.getElementById("profile_edit").style.color = "white";
+     document.getElementById("pw_edit").style.backgroundColor = "white";
+     document.getElementById("pw_edit").style.color = "black";
+
+ })
+ document.getElementById("pw_edit").addEventListener("click", function () {
+     console.log("edit클릭");
+     this.style.backgroundColor = "white";
+     document.getElementById("profile_edit").style.backgroundColor = "white";
+     document.getElementById("profile_edit").style.color = "black";
+     document.getElementById("pw_edit").style.backgroundColor = "#0a58ca";
+     document.getElementById("pw_edit").style.color = "white";
+
+ });
+
+
+ 
+
+</script>
 
 </body>
 
