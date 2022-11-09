@@ -18,7 +18,7 @@
 	<!-- 정책 수정 -->
 	<update id="p_update" parameterType = "PolicyDTO">
 		update t_Policy set p_content = #{p_content}, p_filename = #{p_filename}, p_title = #{p_title}
-		where admin_id = #{admin_id}
+		where admin_id = 'admin'
 	<!--	정책 수정은 admin만 가능한데 일단은 admin이 로그인해서 들어가면 되니까 정책 테이블에 들어가서 수정하면 된다
 			1. 아이디 들어가서 수정 
 			2. 어드민만 들어가게 수정
