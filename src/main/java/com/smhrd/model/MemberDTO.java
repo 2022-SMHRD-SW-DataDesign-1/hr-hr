@@ -59,6 +59,14 @@ public class MemberDTO {
 		this.m_Nickname = m_Nickname;
 		this.m_Profile = m_Profile;
 	}
+
+	public MemberDTO(@NonNull String m_Id, @NonNull String m_Pw, String m_Email, String m_Phone) {
+		this.m_Id = m_Id;
+		this.m_Pw = m_Pw;
+		this.m_Email = m_Email;
+		this.m_Phone = m_Phone;
+	}
+
 	// 프로필 수정 DTO
 	
 

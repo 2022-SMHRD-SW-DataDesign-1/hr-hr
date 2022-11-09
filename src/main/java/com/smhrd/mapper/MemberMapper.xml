@@ -34,4 +34,9 @@
 		UPDATE t_member SET m_nickname = #{m_Nickname}, m_profile = #{m_Profile}
 		WHERE m_id = #{m_Id}
 	</update>
+	
+	<update id="privacyUpdate" parameterType="MemberDTO">
+		UPDATE t_member SET m_pw = #{m_Pw}, m_phone = #{m_Phone}, m_email = #{m_Email}
+		WHERE m_id = #{m_Id}
+	</update>
 </mapper>

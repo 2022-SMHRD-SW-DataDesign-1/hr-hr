@@ -234,6 +234,20 @@
 	</form>
 	<%} %>
 	
+	<!-- 개인정보수정 -->
+	<% if(info != null) {%>
+	<form action="PrivacyUpdateService" method="post">
+	이메일 : <input type="text" name="m_Email"><br>
+	비밀번호 : <input type="password" name="m_Pw"><br>
+	전화번호 : <input type="text" name="m_Phone"><br>
+	<input type="submit">
+	</form>
+	<%} %>
+	
+	
+	
+	
+	
 <%if(info != null){%>
 	<script>
 		let followCnt = <%=new FollowDAO().countFollow(info.getM_Id())%>;
