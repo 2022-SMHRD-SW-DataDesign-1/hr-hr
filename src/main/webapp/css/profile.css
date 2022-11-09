@@ -157,7 +157,15 @@
     width: 100%;
     height: 100%;
 }
+.admin_btn {
+    display: flex;
+    flex-direction: row;
 
+}
+.other_btn{
+    display: flex;
+    flex-direction: row;
+}
 
 @media screen and (max-width:1000px) {
 
