@@ -1,6 +1,7 @@
 package com.smhrd.controller;
 
 import java.io.IOException;
+import java.net.URLEncoder;
 import java.util.Enumeration;
 
 import javax.servlet.ServletException;
@@ -9,9 +10,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.ibatis.reflection.SystemMetaObject;
+
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 import com.smhrd.model.MemberDTO;
+import com.smhrd.model.PolicyDAO;
+import com.smhrd.model.PolicyDTO;
 
 public class PolicyUpdateService extends HttpServlet {
 
@@ -22,16 +27,6 @@ public class PolicyUpdateService extends HttpServlet {
 		// 요청값을 .. 인코딩해줄거야..
 		request.setCharacterEncoding("UTF-8");
 
-		// 세션을 받는다 (아이디)
-				//이 아이디는 DTO에서 온 id인가? PolicyDTO에서 온 id인가? Session에서 받아온건데
-		HttpSession session = request.getSession();
-
-		// 폼에서 받아와야 할 것 같은데
-		//로그인한 정보에서 가지고 오니까 MemberDT에서 일단 가지고 올게
-		MemberDTO dto = (MemberDTO)session.getAttribute("info");
-		
-		//로그인한 아ㅣ디
-		String admin_id = dto.getM_Id(); 
 		
 		
 		String savePath = request.getServletContext().getRealPath("file");
@@ -78,26 +73,47 @@ public class PolicyUpdateService extends HttpServlet {
 		
 		System.out.println(uploadFile); //전부 더해서 저장한 file name , 단위로 다시 String 배열로 바꿔올 코드 
 	
-		// 다시 불러올 때 , 단위로 쪼개야 하니까 실험코드 
-		String[] check = uploadFile.split(",");
-		for(String temp: check) {
-			System.out.println(temp);
-		}
+	//	// 다시 불러올 때 , 단위로 쪼개야 하니까 실험코드 
+		//String[] check = uploadFile.split(",");
+		//for(String temp: check) {
+		//	System.out.println(temp);
+		//}
 		
 		// check 해볼 코드
+		// 세션을 받는다 (아이디)
+		
+		HttpSession session = request.getSession();
+
+		// 폼에서 받아와야 할 것 같은데
+		//로그인한 정보에서 가지고 오니까 MemberDT에서 일단 가지고 올게
+		MemberDTO dto = (MemberDTO)session.getAttribute("info");
+
+		//로그인한 아ㅣ디 // 작성자
+		String writer = dto.getM_Id(); 
+		
+		//파일 이름에 한글이 들어가면 얘를 다시 불러올 때 깨짐
+		URLEncoder.encode(uploadFile, "UTF-8");
+		String title = multi.getParameter("title");
+		String content = multi.getParameter("content");
+	
+		System.out.println(writer);
+		System.out.println(title);
+		System.out.println(content);
 		
 		
+		PolicyDTO pdto = new PolicyDTO(writer, content, uploadFile, title);
+		PolicyDAO dao = new PolicyDAO();
+		
+		int row = dao.update(pdto);
+		
+		if(row>0) {
+			System.out.println("DB에 파일 들어감");
+		}else {
+			System.out.println("DB에 파일 안드루감");
+		}
+		response.sendRedirect("testAll2.jsp");
 		
 		
-		
-		
-		
-		
-		
-						
-		
-		
-		// 
 	}
 
 }
