@@ -190,13 +190,13 @@
   	<url-pattern>/PrivacyUpdateService</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
-<<<<<<< HEAD
   	<servlet-name>PolicyUpdateService</servlet-name>
   	<url-pattern>/PolicyUpdateService</url-pattern>
-=======
+  </servlet-mapping>
+
+  <servlet-mapping>
   	<servlet-name>PwCheckService</servlet-name>
   	<url-pattern>/PwCheckService</url-pattern>
->>>>>>> branch 'master' of https://github.com/2022-SMHRD-SW-DataDesign-1/hr-hr.git
   </servlet-mapping>
  
 </web-app>
