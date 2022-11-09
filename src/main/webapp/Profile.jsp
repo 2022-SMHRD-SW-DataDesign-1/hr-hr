@@ -231,8 +231,9 @@
 													<!-- 패스워드 확인 입력 -->
 													<input id="pwcheck" name="m_pwcheck"
 														placeholder="PwCheck" class="form-control here"
-														type="text"><br> <span
-														id="pwCheckResult"></span>
+														type="text" onkeydown="checkPW()"><br>
+														
+														 <span id="pwCheckResult"></span>
 												</div>
 											</div>
 											<div class="form-group row">
@@ -248,7 +249,7 @@
 
 											<div class="form-group row">
 												<div class="offset-4 col-8">
-													<input type="submit" value="수정">
+													<input type="submit" value="수정" id="privacyUpdateSubmit" disabled="disabled">
 												</div>
 											</div>
 										</form>
@@ -341,6 +342,42 @@
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
 		crossorigin="anonymous"></script>
+
+	<!-- 비밀번호 같은지 체크 -->
+	
+	<script>
+		function checkPW() {
+			let inputPW = $("#pw").val();
+			let inputPWCheck = $("#pwcheck").val();
+			console.log(inputPW);
+			console.log(inputPWCheck);
+
+			$.ajax({
+				// 요청서버 url
+				url : "PwCheckService",
+				// 요청할 때 같이 보내줄 데이터
+				data : {"inputPW" : inputPW,
+						"inputPWCheck" : inputPWCheck},
+				// 요청 타입
+				type : 'get', 
+				// 통신 성공 function(넘겨준데이터)
+				success : function(data) {
+					console.log(typeof data);
+					if (data == 'false') {
+				$("#pwCheckResult").text("같아요~");
+				$("#privacyUpdateSubmit").attr("disabled",false);
+					} else {
+				$("#pwCheckResult").text("달라요~");
+				$("#privacyUpdateSubmit").attr("disabled",true);
+					}
+				},
+				// 통신 실패
+				error : function() {
+					console.log("조샀다 !");
+				}
+			})
+		}
+	</script>
 
 
 
