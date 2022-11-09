@@ -44,7 +44,7 @@
 		<link rel="stylesheet" href="css/detail-page.css">
 		<link rel="shortcut icon" href="imgs/instagram.png">
 
-
+  		<script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
 		
 	</head>
 
@@ -163,6 +163,7 @@
 										<!-- 댓글 내용 -->
 										<div class="comment">
 											<span class="user_id"><%=cmt_dto.getCmt_id() %></span><%=cmt_dto.getCmt_content() %>
+											<button>좋아요</button>
 										</div>
 									</div>
 									<%} %>
@@ -182,6 +183,7 @@
 											</div>
 										</div>
 								<!-- 댓글 버튼 -->
+								<div class ="thumbs">따봉</div>
 								<div class="sprite_bubble_icon"></div>
 									</div>
 									<!-- 게시글 스크랩 버튼 -->
