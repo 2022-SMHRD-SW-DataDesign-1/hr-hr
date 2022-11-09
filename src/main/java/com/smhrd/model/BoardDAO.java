@@ -40,5 +40,13 @@ public class BoardDAO {
 		session.close();
 		return bdto; 
 	}
+	public BoardDTO showDetail(int num) {
+		SqlSession session = sqlSessionFactory.openSession(true);
+		BoardDTO board = session.selectOne("showDetail", num);
+		session.close();
+		
+		return board;
+		
+	}
 
 }

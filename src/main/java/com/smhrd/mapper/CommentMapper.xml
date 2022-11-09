@@ -13,4 +13,6 @@
 	<insert id="writeComment" parameterType="CommentDTO">
 	INSERT INTO t_comment (b_num, cmt_content, cmt_date, m_id, cmt_likes) VALUES (#{b_num}, #{cmt_content}, sysdate, #{cmt_id}, 0)
 	</insert>
+	
+	
 </mapper>
