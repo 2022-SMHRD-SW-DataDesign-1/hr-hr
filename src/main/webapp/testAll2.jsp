@@ -130,7 +130,7 @@
 			등록 사진 : <%
 			String[] files = b_dto.getB_filename().split(",");%>
 			<%for(String temp : files){%>
-				<%-- <img alt="" src="./file/<%=temp%>"> 첫번째 이미지만 나오는거 확인--%>
+				<a><img alt="" src="./file/<%=temp%>"></a>
 				<%=temp %><br>
 			<%}%><br>	
 		
@@ -315,17 +315,10 @@
 		
 		}
 	</script>
+	
+	
 <%}%>
 	
-
-
-
-
-
-
-
-
-
 
 </body>
 </html>

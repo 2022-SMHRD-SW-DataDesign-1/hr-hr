@@ -3062,7 +3062,7 @@ textarea.form-control-lg {
 }
 
 .btn-secondary {
-  color: #fff;
+  
   background-color: #6c757d;
   border-color: #6c757d;
 }
@@ -3229,10 +3229,11 @@ textarea.form-control-lg {
   border-color: #dc3545;
 }
 
+/* 버튼 색깔 */
 .btn-light {
-  color: #000;
   background-color: #f8f9fa;
-  border-color: #f8f9fa;
+  border-color: #d0d2d4 !important; 
+
 }
 .btn-light:hover {
   color: #000;
@@ -6041,6 +6042,9 @@ textarea.form-control-lg {
   .carousel-item {
     transition: none;
   }
+  .carousel-item2{
+  	transition: none;
+  	} 
 }
 
 .carousel-item.active,
@@ -6078,9 +6082,58 @@ textarea.form-control-lg {
   opacity: 0;
   transition: opacity 0s 0.6s;
 }
+.carousel-item2 {
+  position: relative;
+  display: none;
+  float: left;
+  width: 100%;
+  margin-right: -100%;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  transition: transform 0.6s ease-in-out;
+}
+.carousel-item2.active,
+.carousel-item2-next,
+.carousel-item2-prev {
+  display: block;
+}
+
+/* rtl:begin:ignore */
+.carousel-item2-next:not(.carousel-item2-start),
+.active.carousel-item2-end {
+  transform: translateX(100%);
+}
+
+.carousel-item2-prev:not(.carousel-item2-end),
+.active.carousel-item2-start {
+  transform: translateX(-100%);
+}
+
+/* rtl:end:ignore */
+.carousel-fade .carousel-item2 {
+  opacity: 0;
+  transition-property: opacity;
+  transform: none;
+}
+.carousel-fade .carousel-item2.active,
+.carousel-fade .carousel-item2-next.carousel-item2-start,
+.carousel-fade .carousel-item2-prev.carousel-item2-end {
+  z-index: 1;
+  opacity: 1;
+}
+.carousel-fade .active.carousel-item2-start,
+.carousel-fade .active.carousel-item2-end {
+  z-index: 0;
+  opacity: 0;
+  transition: opacity 0s 0.6s;
+}
 @media (prefers-reduced-motion: reduce) {
   .carousel-fade .active.carousel-item-start,
 .carousel-fade .active.carousel-item-end {
+    transition: none;
+  }
+  .carousel-fade .active.carousel-item2-start,
+.carousel-fade .active.carousel-item2-end {
     transition: none;
   }
 }
@@ -11314,7 +11367,7 @@ textarea.form-control-lg {
   height: 33px;
   border: 0; 
 }
-.carousel-item>img{
+.carousel-item2>img{
   width: 30vmax;
   height: 30vmax;
 }

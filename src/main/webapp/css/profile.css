@@ -58,7 +58,40 @@
     box-sizing: border-box;
     font-size: 13px;
 }
-
+/* 버튼 수정 */
+.detail .top .admin_btn>a {
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 120px;
+    border: 1px solid #dbdbdb;
+    border-radius: 3px;
+    color: #262626;
+    padding: 3px 20px;
+    font-weight: 600;
+    vertical-align: text-bottom;
+    text-decoration: none;
+    box-sizing: border-box;
+    font-size: 13px;
+}
+/* other profile 버튼 수정 */
+.detail .top .other_btn>a {
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 120px;
+    border: 1px solid #dbdbdb;
+    border-radius: 3px;
+    color: #262626;
+    padding: 3px 20px;
+    font-weight: 600;
+    vertical-align: text-bottom;
+    text-decoration: none;
+    box-sizing: border-box;
+    font-size: 13px;
+}
 
 .detail .middle {
     display: flex;
@@ -102,7 +135,7 @@
 .contents_container {
     /*display: flex;*/
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: flex-start;
     display: none;
 }
 
@@ -112,11 +145,11 @@
 }
 
 .contents_container .pic {
-    max-width: 300px;
-    max-height: 300px;
+     max-width: 300px;
+    max-height: 300px; 
     overflow: hidden;
-    margin-bottom: 18px;
-
+    margin : 5px;
+	
 
 }
 

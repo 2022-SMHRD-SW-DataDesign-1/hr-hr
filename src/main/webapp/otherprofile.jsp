@@ -1,3 +1,4 @@
+<%@page import="com.smhrd.model.MemberDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -19,14 +20,11 @@
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/otherprofile.css">
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="shortcut icon" href="imgs/instagram.png">
    
 </head>
 <body>
-
-
 <section id="container">
 
     <header id="header">
@@ -79,6 +77,7 @@
                         <a href="#">DM</a>
                         <br>
                         <div class="toptop">
+                        
                         <!-- 차단버튼 -->                  <!--여기가 버튼스타일 클래스영역  -->
                             <button type="button" class="btn-primary btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                 차단
@@ -111,6 +110,7 @@
                               </div>
                             
                         </div>
+                        
                     </div>
                     
 					<!-- 머리글 중간부분 -->

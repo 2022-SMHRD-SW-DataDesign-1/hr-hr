@@ -219,32 +219,32 @@
                                             <div class="carousel-inner">
                                               <div class="carousel-item active">
                                                 <!-- 여기에 사진넣기 --> 	
-                                                <img src="imgs/국민취업지원제도1.png" alt="visual01">
+                                                <a href="policy_board.jsp"><img src="imgs/국민취업지원제도1.png" alt="visual01"></a>
                                           
                                               </div>
                                               <div class="carousel-item">
                                                 <!-- 여기에 사진넣기 --> 				
-                                                <img src="imgs/국민취업지원제도2.png" alt="visual02"> 								  
+                                               <a href="policy_board.jsp"> <img src="imgs/국민취업지원제도2.png" alt="visual02"></a> 								  
                                               </div>	
                                                 <div class="carousel-item">
                                                 <!-- 여기에 사진넣기 --> 	
-                                                <img src="imgs/국민취업지원제도 3.png" alt="visual03"> 
+                                                <a href="policy_board.jsp"><img src="imgs/국민취업지원제도 3.png" alt="visual03"> </a>
                                           	</div>
 											  <div class="carousel-item">
                                                 <!-- 여기에 사진넣기 --> 				
-                                                <img src="imgs/국민취업지원제도 4.png" alt="visual04"> 								  
+                                                <a href="policy_board.jsp"><img src="imgs/국민취업지원제도 4.png" alt="visual04"></a> 								  
                                               </div>
 											  <div class="carousel-item">
                                                 <!-- 여기에 사진넣기 --> 				
-                                                <img src="imgs/국민취업지원제도 5.png" alt="visual05"> 								  
+                                                <a href="policy_board.jsp"><img src="imgs/국민취업지원제도 5.png" alt="visual05"> </a>							  
                                               </div>
 											  <div class="carousel-item">
                                                 <!-- 여기에 사진넣기 --> 				
-                                                <img src="imgs/국민취업지원제도 6.png" alt="visual06"> 								  
+                                                <a href="policy_board.jsp"><img src="imgs/국민취업지원제도 6.png" alt="visual06"> </a>							  
                                               </div>
 											  <div class="carousel-item">
                                                 <!-- 여기에 사진넣기 --> 				
-                                                <img src="imgs/국민취업지원제도7.png" alt="visual07"> 								  
+                                               <a href="policy_board.jsp"> <img src="imgs/국민취업지원제도7.png" alt="visual07"> 	</a>						  
                                               </div>
                                             </div>
                                             <!-- 이미지 왼쪽으로 넘기기-->
@@ -411,16 +411,16 @@
 										<div class="carousel-inner">
 										  <div class="carousel-item active">
 											<!-- 여기에 사진넣기 --> 	
-											<img src="imgs/img_section/img01.jpg" alt="visual01">
+											<a href="Detail-page.jsp"><img src="imgs/img_section/img01.jpg" alt="visual01"></a>
 									  
 										  </div>
 										  <div class="carousel-item">
 											<!-- 여기에 사진넣기 --> 				
-											<img src="imgs/3등.PNG" alt="visual01"> 								  
+											<a href="Detail-page.jsp"><img src="imgs/3등.PNG" alt="visual02"> </a>								  
 										  </div>	
 											<div class="carousel-item">
 											<!-- 여기에 사진넣기 --> 	
-											<img src="imgs/img_section/img01.jpg" alt="visual01"> 
+											<a href="Detail-page.jsp"><img src="imgs/img_section/img01.jpg" alt="visual03"></a>
 									  
 										  </div>
 										</div>
@@ -510,7 +510,8 @@
 							<div class="modal-body">
 								<div class="post_form_container">
 								<!-- 게시물 등록 영역 -->
-									<form action="#" class="post_form">
+								<%int count = 0; %>
+									<form action="BoardService" class="post_form"  enctype="multipart/form-data"  method="post">
 										<div class="title">
 											NEW POST
 										</div>
@@ -528,20 +529,27 @@
 												</div>
 											</div>
 										</div>
-										<p>
+										<p id="filelist">
 										<!-- 파일 추가 버튼 -->
-											<input type="file" name="photo" id="id_photo" required="required">
+										
+											<input type="file" name="filename" id="id_photo" style="float: right;" required="required" >
+											<script >
+												function addbtn(){
+													$("#filelist").append("<input  type='file' style='float: right;' required='required' name='filename<%=count%>' multiple>")
+												}
+											</script>
 										</p>
+											<input type="button" value="+" onclick="addbtn()"> <%count++; %>
 										<p>
 										<!-- 게시글 폰트 작성  -->
-											<textarea name="content" id="text_field" cols="50" rows="5" placeholder="140자 까지 등록 가능합니다. #태그명 을 통해서 검색 태그를 등록할 수 있습니다.
+											<textarea name="content" id="text_field" style="resize: none;" cols="50" rows="10" placeholder="140자 까지 등록 가능합니다. #태그명 을 통해서 검색 태그를 등록할 수 있습니다.
 						예시 : I # love # insta!"></textarea>
 						
 										</p>
 										<!-- 게시글 등록 버튼 -->
-										<input class="submit_btn" type="submit" value="저장">
+										<input class="submit_btn" type="submit" value="게시글 등록">
 									</form>
-						
+			
 								</div>
 							</div>
 							<!-- 팝업창 닫기 버튼 -->

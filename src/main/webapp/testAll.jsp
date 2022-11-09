@@ -1,6 +1,3 @@
-<%@page import="com.smhrd.model.BlockDTO"%>
-<%@page import="com.smhrd.model.BlockDAO"%>
-<%@page import="com.smhrd.model.MemberDAO"%>
 <%@page import="com.smhrd.model.LikesDTO"%>
 <%@page import="com.smhrd.model.LikesDAO"%>
 <%@page import="com.smhrd.model.PolicyDAO"%>
@@ -33,7 +30,7 @@
 
 	<%
 	MemberDTO info = (MemberDTO) session.getAttribute("info");
-	/* MemberDTO dto = new MemberDTO();*/
+	
 	%>
 	<!-- 기능 테스트 페이지 -->
 
@@ -209,78 +206,11 @@
 	
 	<hr>
 	<!-- 팔로우, 차단 데이터베이스 값 전달 -->
-	<!-- 차단 -->
-	<%if(info != null) {
-		BlockDAO bdao = new BlockDAO();%>
-		<% ArrayList<MemberDTO> m_list = new MemberDAO().showAll(info.getM_Id());
-		int count = 0;
-		%>
-		<%for(MemberDTO mdto : m_list){%>
-		 사용자 : <%=mdto.getM_Id() %>
-		 
-		 	<%BlockDTO bdto  = new BlockDTO(info.getM_Id(), mdto.getM_Id());%>
-		 	
-		 
-		 	<% if(bdao.blockCheck(bdto)>0){ %>
-		 		<button id ="blocks<%=count%>" onclick="blocks('<%=mdto.getM_Id()%>',this.id)">차단해제</button>
-		 	<%}else{%>	
-		 		<button id ="blocks<%=count%>" onclick="blocks('<%=mdto.getM_Id()%>',this.id)">차단</button>
-		 
-			<%}
-			count++; 
-			%><br>
-		 
-		 <%} %>
-		<%} %>
-		
-		
-		
-		<%if(info != null){ %>
-		<script>
-			function blocks(block_id,clicked_id){
-				let Block_cnt;
-				
-				console.log("블록아이디"+block_id);
-				console.log(clicked_id);
-				
-				let blockBtn = document.getElementById(clicked_id);
-				
-				if(blockBtn.innerText == '차단'){
-					blockBtn.innerText ='차단해제'	
-					Block_cnt = 0;
-				}else{
-					blockBtn.innerText = '차단'
-					Block_cnt = 1;
-				}
-				
-				$.ajax({
-						url: 'BlockService',
-						data :{
-							'm_id' : <%=info.getM_Id()%>,
-							'block_id' : block_id,
-							'Block_cnt' : Block_cnt
-						},
-						type:'get',
-						success:function(data){
-							console.log(data);
-						},
-					error:function(){
-						console.log("errrrrrr");
-					}
-					
-			})
-			
-		}
-		
-		</script>
-		<%} %>
-		
-		
-		
-		
-	<!-- 1. 나를 제외한 전체를 출력한다.
-		전체에게 차단과 차단해제 버튼을 만들어준다. 
-	-->
+	
+	
+	
+	
+	
 	
 	
 
