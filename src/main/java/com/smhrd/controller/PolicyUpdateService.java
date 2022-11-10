@@ -45,7 +45,7 @@ public class PolicyUpdateService extends HttpServlet {
 		
 		// 파일 같은 용량이 큰 객체값은 이렇세 받음 . 보낼때도 multipart로 인코딩 해줬음
 		
-		MultipartRequest multi = new MultipartRequest(request, savePath, maxSize, encoding, rename);
+		MultipartRequest multi = new MultipartRequest(request, savePath, maxSize, encoding, rename); // 파일 경로
 		// request, 저장경로, 사이즈, 인코딩방식, 중복제거
 		
 		// 파일 여러개 받기위한 코드
@@ -73,28 +73,29 @@ public class PolicyUpdateService extends HttpServlet {
 		
 		System.out.println(uploadFile); //전부 더해서 저장한 file name , 단위로 다시 String 배열로 바꿔올 코드 
 	
-	//	// 다시 불러올 때 , 단위로 쪼개야 하니까 실험코드 
-		//String[] check = uploadFile.split(",");
-		//for(String temp: check) {
-		//	System.out.println(temp);
-		//}
 		
-		// check 해볼 코드
-		// 세션을 받는다 (아이디)
-		
+		 // // 다시 불러올 때 , 단위로 쪼개야 하니까 실험코드 
+		String[] check = uploadFile.split(",");
+		for(String temp: check) {  System.out.println(temp); }
+		  
+		  // check 해볼 코드 // 세션을 받는다 (아이디)
+				
 		HttpSession session = request.getSession();
 
 		// 폼에서 받아와야 할 것 같은데
+		String p_num = request.getParameter("p_num");
+		System.out.println(p_num);
+		
 		//로그인한 정보에서 가지고 오니까 MemberDT에서 일단 가지고 올게
 		MemberDTO dto = (MemberDTO)session.getAttribute("info");
-
+		
 		//로그인한 아ㅣ디 // 작성자
 		String writer = dto.getM_Id(); 
 		
 		//파일 이름에 한글이 들어가면 얘를 다시 불러올 때 깨짐
 		URLEncoder.encode(uploadFile, "UTF-8");
-		String title = multi.getParameter("title");
-		String content = multi.getParameter("content");
+		String title = multi.getParameter("p_title");
+		String content = multi.getParameter("p_content");
 	
 		System.out.println(writer);
 		System.out.println(title);

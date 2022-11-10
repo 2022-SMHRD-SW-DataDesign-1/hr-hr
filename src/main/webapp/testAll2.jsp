@@ -245,27 +245,42 @@
 	</form>
 	<%} %>
 	
-	<!-- 정책게시물 수정 -->
+	
+<!-- 	<hr>
+	정책 작성 o
+	정책 번호: <input type = "text" name = "p_num">
+	정책 제목: <input type = "text" name = "p_title"> 
+	정책 사진 등록 :<input  type="file" style="float: right;" name="p_filename">
+	정책 게시글 입력 : <textarea  rows="10" style="resize: none;" name="p_content"></textarea><br> 
+	<input type="submit" value="정책게시글 등록">
+	<hr>
+	
+	 -->
+	
+	
+	
 	<% if(info != null) {%>
-	<%int count = 0; %>
-	<form action="PolicyUpdateService" enctype="multipart/form-data" method = "post" id = "p_filelist">
+		<%int count = 0; %> 
+	
+	
+		<form action="PolicyUpdateService" enctype="multipart/form-data" method = "post" id = "p_filelist">
 		
-		정책 제목 : <input type = "text" name = "title">
-		내용 작성 : <textarea rows="10" style="resize:none;" name="content"></textarea><br>
+		번호 : <input type = "text" name = "p_num">
+		제목 : <input type = "text" name = "p_title">
+		내용 : <textarea rows="10" style="resize:none;" name="p_content"></textarea><br>
 		
-		<input type = "file" style= "float : right;" name = "filename<%=count%>">
-		<input type = "submit" value = "수정완료"><br>
-			
-	</form>
-	<input type = "submit" value="+" onclick ="addbtn()"><br>
-	<%count++; %>
+		<input type = "file" style= "float : right;" name = "p_filename<%=count%>">
+		<input type = "submit" value = "수정완료">
+		</form>
+			<input type = "submit" value="+" style='float:right;' onclick ="addbtn()"><br>
+				<%count++; %>
 	
-	<script type="text/javascript">
-		function addbtn(){
-		$("#p_filelist").append("<input type = 'file' style='float:right;' name='filename<%=count%>' multiple>")	
+			<script type="text/javascript">
+				function addbtn(){
+					$("#p_filelist").append("<input type = 'file' style='float:right;' name='filename<%=count%>' multiple>")	
 		
-		}
-	</script>
+				}
+			</script> 
 	
 	
 	
@@ -273,7 +288,7 @@
 	
 	
 	
-	<%} %>
+	<% } %>
 	
 <%if(info != null){%>
 	<script>
