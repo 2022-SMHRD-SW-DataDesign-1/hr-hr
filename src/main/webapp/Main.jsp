@@ -62,7 +62,7 @@
 				<div class="right_icons">
 					
 					<a href="Login.jsp"><img src="imgs/로그인.PNG" class="sprite_compass_icon"></a>
-					<a href="ProfileAll.jsp"><img src="imgs/프로필.PNG" class="sprite_user_icon_outline"></a>
+					<a href="profileAll.jsp"><img src="imgs/프로필.PNG" class="sprite_user_icon_outline"></a>
 					<!-- 알람버튼 -->
 					<button type="button" class="btn btn-primary position-relative" id="liveToastBtn">
 						<span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
