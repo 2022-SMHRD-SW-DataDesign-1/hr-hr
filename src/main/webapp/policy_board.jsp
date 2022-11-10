@@ -1,3 +1,4 @@
+<%@page import="java.math.BigDecimal"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.smhrd.model.PolicyDAO"%>
 <%@page import="com.smhrd.model.PolicyDTO"%>
@@ -38,22 +39,15 @@
 
 	<body>
 		
-		
 		<%
-		
-		
-		//int num = Integer.parseInt(request.getParameter("p_num"));
-		ArrayList<PolicyDTO> policy = new PolicyDAO().showPolicy();
-		
-				
+		int p_num = Integer.parseInt(request.getParameter("p_num"));
+		BigDecimal num = new BigDecimal(p_num); // 이걸 왜씀?
+		PolicyDTO pdto = new PolicyDAO().showPolicy();
 		%>
-		<% for(String title : policy){
-			
-			
-		}%>
+		
 
 
-<%=policy.get(0) %>
+
 
 		<section id="container">
 
@@ -125,7 +119,7 @@
 								</div>
 								<!-- 게시물 유저 정보  -->
 								<div class="user_name">
-									<div class="nick_name">Admin</div>
+									<div class="nick_name"><%= %></div>
 									<div class="country">Seoul, South Korea</div>
 
                                     
@@ -164,30 +158,7 @@
                                                 <img src="imgs/국민취업지원제도1.png" alt="visual01">
                                           
                                               </div>
-                                              <div class="carousel-item">
-                                                <!-- 여기에 사진넣기 --> 				
-                                                <img src="imgs/국민취업지원제도2.png" alt="visual02"> 								  
-                                              </div>	
-                                                <div class="carousel-item">
-                                                <!-- 여기에 사진넣기 --> 	
-                                                <img src="imgs/국민취업지원제도 3.png" alt="visual03"> 
-                                          	</div>
-											  <div class="carousel-item">
-                                                <!-- 여기에 사진넣기 --> 				
-                                                <img src="imgs/국민취업지원제도 4.png" alt="visual04"> 								  
-                                              </div>
-											  <div class="carousel-item">
-                                                <!-- 여기에 사진넣기 --> 				
-                                                <img src="imgs/국민취업지원제도 5.png" alt="visual05"> 								  
-                                              </div>
-											  <div class="carousel-item">
-                                                <!-- 여기에 사진넣기 --> 				
-                                                <img src="imgs/국민취업지원제도 6.png" alt="visual06"> 								  
-                                              </div>
-											  <div class="carousel-item">
-                                                <!-- 여기에 사진넣기 --> 				
-                                                <img src="imgs/국민취업지원제도7.png" alt="visual07"> 								  
-                                              </div>
+                                             
                                             </div>
                                             <!-- 이미지 오른쪽으로 넘기기 -->
                                             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">

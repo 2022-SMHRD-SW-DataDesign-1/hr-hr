@@ -1,5 +1,6 @@
 package com.smhrd.model;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 
 import org.apache.ibatis.session.SqlSession;
@@ -36,6 +37,13 @@ public class PolicyDAO {
 		
 		return row;
 	}
+	
+	// 정책 세부내용 조회
+	public PolicyDTO showDetail(BigDecimal num) {
+		SqlSession session = sqlSessionFactory.openSession(true);
+		int row = session.update
+	}
+	
 	
 	
 }
