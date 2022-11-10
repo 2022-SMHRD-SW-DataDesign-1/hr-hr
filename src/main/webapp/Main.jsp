@@ -320,9 +320,9 @@
 											<div class="sprite_heart_icon_outline" >
 											<%pl_dto = new PolicyLikesDTO(info.getM_Id(),p_dto.getP_num()); %>
 											<%if(pl_dao.isPolicyLiked(pl_dto)>0){ %>
-												<button class="heart_button" id='policylikes<%= count %>'onclick="policylikes(<%= p_dto.getP_num()%>,this.id)"><img class="heart" alt="유용해요해제" src="imgs/몰라.JPG"></button>
+												<button class="heart_button" id='policylikes<%= count %>'onclick="policylikes(<%= p_dto.getP_num()%>,this.id,<%=count%>)"><img class="heart" alt="유용해요해제" src="imgs/몰라.JPG"></button>
 											<%}else{%>
-												<button class="heart_button" id='policylikes<%= count %>' onclick="policylikes(<%= p_dto.getP_num() %>,this.id)"><img class='heart' alt='유용해요등록' src='imgs/좋아.JPG'></button>
+												<button class="heart_button" id='policylikes<%= count %>' onclick="policylikes(<%= p_dto.getP_num() %>,this.id,<%=count%>)"><img class='heart' alt='유용해요등록' src='imgs/좋아.JPG'></button>
 											<%	}%>
 											</div>
 										</div>
@@ -340,12 +340,11 @@
 								</div>
 								
 								<!-- 정책 좋아요 수 표시 -->
-								<br>
-								<br>
+								
 								<div class="count_likes">
-									좋아요 <span class="count" id='like<%= count %>'><%=p_dto.getP_likes() %></span> 개
+									좋아요 <span class="count" id='policylike<%= count %>'><%=p_dto.getP_likes() %></span> 개
 								</div>
-								<% count++; %>
+								
 									<div class="timer_container">
 										<div class="comment">
 											<span class="user_id"><%=p_dto.getAdmin_id() %></span><%=p_dto.getP_content() %>
@@ -354,6 +353,7 @@
 									</div>
 								
 							</div>
+							<% count++; %>
 							<% break; 
 							} 
 						} %>
@@ -361,13 +361,15 @@
   						
                     	<%if(info != null){%>
 						<script text="javascript/text">
-							function policylikes(p_num,clicked_id){
+							let test;
+							function policylikes(p_num,clicked_id,cnt){
 								let is_like;
 								console.log(p_num);
 								console.log(clicked_id);
 								let m_id = '<%=info.getM_Id()%>';
 								let policylikeBtn = document.getElementById(clicked_id);
 								console.log(policylikeBtn.innerHTML);
+								
 								if(policylikeBtn.innerHTML == '<img class="heart" alt="유용해요등록" src="imgs/좋아.JPG">'){
 									policylikeBtn.innerHTML = '<img class="heart" alt="유용해요해제" src="imgs/몰라.JPG">'
 									is_like = 0;
@@ -386,7 +388,18 @@
 									},
 									type:'get', // 요청 타입
 									success:function(data){// 통신성공(function(넘겨준데이터))
-										console.log(data);
+										if(data =="true"){
+											let test = 'policylike'+cnt;
+											console.log(test);
+											num1 = Number(document.getElementById(test).innerText);
+											document.getElementById(test).innerText = num1-1;
+											
+										}else {
+											let test = 'policylike'+cnt;
+											console.log(test);
+											num1 = Number(document.getElementById(test).innerText);
+											document.getElementById(test).innerText = num1+1;
+										}
 									},
 								error:function(){
 									console.log("asfknaskm");
@@ -504,12 +517,12 @@
 									<div class="sprite_heart_icon_outline" >
 										<%l_dto = new LikesDTO(info.getM_Id(),b_dto.getB_num()); %>
 										<%if(l_dao.isLiked(l_dto)>0){ %>
-											<button class="heart_button" id='likes<%= count %>'onclick="likes(<%= b_dto.getB_num()%>,this.id)"><img class="heart" alt="유용해요해제" src="imgs/몰라.JPG"></button>
+											<button class="heart_button" id='likes<%= count %>'onclick="likes(<%= b_dto.getB_num()%>,this.id,<%=count%>)"><img class="heart" alt="유용해요해제" src="imgs/좋아.JPG"></button>
 										<%}else{%>
-											<button class="heart_button" id='likes<%= count %>' onclick="likes(<%= b_dto.getB_num() %>,this.id)"><img class="heart" alt="유용해요등록" src="imgs/좋아.JPG"></button>
+											<button class="heart_button" id='likes<%= count %>' onclick="likes(<%= b_dto.getB_num() %>,this.id,<%=count%>)"><img class="heart" alt="유용해요등록" src="imgs/몰라.JPG"></button>
 										<%	}%>
 											</div>
-											<%count++; %>
+											
 										</div>
 								<!-- 댓글 버튼 -->
 								<div class="sprite_bubble_icon"></div>
@@ -522,12 +535,10 @@
 							</div>
 						</div>
 						<!-- 좋아요수 표시 -->
-						<br>
-						<br>
-						<div class="count_likes">
-									좋아요 <span class="count" id='like<%= count++ %>'><%=b_dto.getB_likes() %></span> 개
+						
+						<div class="count_likes" id="board_cnt">
+									유용해요 <span class="count" id='like<%=count++%>'><%=b_dto.getB_likes() %></span> 개
 						</div>
-									<%= count++ %>
 									<div class="timer_container">
 										<div class="comment">
 											<span class="user_id"><%=b_dto.getB_writer() %></span><%= b_dto.getB_content() %>
@@ -567,23 +578,24 @@
 							</form>
 						</div>
 					</article>
-							<%} %>
+					<%count++; %>
 
-						<%} %>
+	<%} %>
+						
 					<%if(info != null){%>
 	<script text="javascript/text">
-		function likes(b_num,clicked_id){
+		function likes(b_num,clicked_id,cnt){
 			let is_like;
-			console.log(b_num);
-			console.log(clicked_id);
+			let num1
 			let m_id = '<%=info.getM_Id()%>';
 			let likeBtn = document.getElementById(clicked_id);
 			
-			if(likeBtn.innerHTML == '<img class="heart" alt="유용해요등록" src="imgs/좋아.JPG">'){
-				likeBtn.innerHTML = '<img class="heart" alt="유용해요해제" src="imgs/몰라.JPG">';
+			if(likeBtn.innerHTML == '<img class="heart" alt="유용해요등록" src="imgs/몰라.JPG">'){
+				likeBtn.innerHTML = '<img class="heart" alt="유용해요해제" src="imgs/좋아.JPG">';
 				is_like = 0;
+				
 			}else{
-				likeBtn.innerHTML = '<img class="heart" alt="유용해요등록" src="imgs/좋아.JPG">';
+				likeBtn.innerHTML = '<img class="heart" alt="유용해요등록" src="imgs/몰라.JPG">';
 				is_like = 1;
 			}
 			
@@ -597,18 +609,29 @@
 				},
 				type:'get', // 요청 타입
 				success:function(data){// 통신성공(function(넘겨준데이터))
-					console.log(data);
+					if(data =="true"){
+						let test = 'like'+cnt;
+						num1 = Number(document.getElementById(test).innerText);
+						document.getElementById(test).innerText = num1+1;
+						
+					}else {
+						let test = 'like'+cnt;
+						num1 = Number(document.getElementById(test).innerText);
+						document.getElementById(test).innerText = num1-1;
+					}
 				},
 			error:function(){
 				console.log("asfknaskm");
 			}
+							<%} %>
+
 			
 			})//속성
 			
 
 		}
 	</script> 
-	<%} %>
+						<%} %>
 		
 
 				</div>
