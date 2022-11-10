@@ -425,7 +425,7 @@
             // 통신 성공 function(넘겨준데이터)
             success : function(data) {
                 console.log(typeof data);
-                if (data == 'false') {
+                if (data == 'true') {
             $("#pwCheckResult").text("같아요~");
             $("#privacyUpdateSubmit").attr("disabled",false);
                 } else {
