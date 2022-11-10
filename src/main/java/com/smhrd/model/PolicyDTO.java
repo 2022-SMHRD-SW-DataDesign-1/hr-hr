@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import lombok.ToString;
-@RequiredArgsConstructor
+
 @AllArgsConstructor
 @Getter
 @ToString
@@ -36,8 +36,28 @@ public class PolicyDTO {
 	private BigDecimal p_likes;
 	// 정책 조회수
 	private BigDecimal p_cnt;
+	public PolicyDTO(@NonNull BigDecimal p_num, @NonNull String p_title, @NonNull String admin_id,
+			@NonNull String p_content, @NonNull String p_filename) {
+		super();
+		this.p_num = p_num;
+		this.p_title = p_title;
+		this.admin_id = admin_id;
+		this.p_content = p_content;
+		this.p_filename = p_filename;
+	}
+	public PolicyDTO(@NonNull String p_title, @NonNull String admin_id, @NonNull String p_content,
+			@NonNull String p_filename) {
+		super();
+		this.p_title = p_title;
+		this.admin_id = admin_id;
+		this.p_content = p_content;
+		this.p_filename = p_filename;
+	}
+	
+	
 	
 	// 정책 업로드 DTO @NonNull
+	
 	
 	
 	

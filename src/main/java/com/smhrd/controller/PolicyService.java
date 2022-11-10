@@ -40,14 +40,17 @@ public class PolicyService extends HttpServlet {
 	MemberDTO dto = (MemberDTO)session.getAttribute("info");
 	
 	String writer = dto.getM_Id();
-	// 정책 제목
-	String title = multi.getParameter("p_title");
-	// 정책 파일 불러오기
-	String filename = multi.getFilesystemName("p_filename");
-	URLEncoder.encode(filename,"UTF-8");
+	
 	// 정책 내용 작성
 	String content = multi.getParameter("p_content");
 	
+	// 정책 파일 불러오기
+	String filename = multi.getFilesystemName("p_filename");
+	URLEncoder.encode(filename,"UTF-8");
+	
+	// 정책 제목
+	String title = multi.getParameter("p_title");
+		
 	System.out.println(title);
 	System.out.println(writer);
 	System.out.println(filename);
