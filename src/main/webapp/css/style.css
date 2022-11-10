@@ -424,8 +424,24 @@ body{
     letter-spacing: 0.2px;
     color:#999;
     border-bottom: 1px solid rgba(0,0,0,0.09);
-    padding: 10px 20px;
+    
 }
+.t_timer{
+	font-size: 10px;
+    letter-spacing: 0.2px;
+    color:#999;
+    position:relative;
+    right: 20px;
+}
+
+.heart{
+	position:relative;
+	width: 31px;
+	height: 31px;
+	
+	
+}
+
 
 
 .contents .comment_field{
@@ -956,8 +972,9 @@ body{
     font-size: 10px;
     letter-spacing: .2px;
     color: #999;
+    padding-bottom: 10px;
     /* border-bottom: 1px solid rgba(0,0,0,.0975); */
-    padding: 10px 20px;
+    
 }
 
 
@@ -1095,11 +1112,15 @@ body{
 .right_button{
     margin-left: 260px;
 }
-.admin_container{
+.timer_container{
     border-bottom:1px solid rgba(0,0,0,0.1);
 	margin-left: 20px;
 	margin-right: 20px;
 	
+}
+.top_time{
+	margin-left: 20px;
+	margin-right: 20px;
 }
 
 
