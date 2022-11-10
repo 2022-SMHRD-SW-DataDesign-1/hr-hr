@@ -281,9 +281,13 @@
 									</div>
 								</div>
 								<!-- 모달 끝! -->
-
-								<a href="#" class="logout">로그아웃</a>
-
+							<%if(info != null){ %>
+							<form action="LogoutService">
+								<button type="submit" class="btn btn-primary btn btn-light btn btn-outline-dark">
+									로그아웃
+								</button>
+							</form>
+							<%} %>
 
 							</div>
 							
