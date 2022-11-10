@@ -73,15 +73,13 @@ public class PolicyUpdateService extends HttpServlet {
 		
 		System.out.println(uploadFile); //전부 더해서 저장한 file name , 단위로 다시 String 배열로 바꿔올 코드 
 	
-	//	// 다시 불러올 때 , 단위로 쪼개야 하니까 실험코드 
-		//String[] check = uploadFile.split(",");
-		//for(String temp: check) {
-		//	System.out.println(temp);
-		//}
 		
-		// check 해볼 코드
-		// 세션을 받는다 (아이디)
-		
+		 // // 다시 불러올 때 , 단위로 쪼개야 하니까 실험코드 
+		String[] check = uploadFile.split(",");
+		for(String temp: check) {  System.out.println(temp); }
+		  
+		  // check 해볼 코드 // 세션을 받는다 (아이디)
+				
 		HttpSession session = request.getSession();
 
 		// 폼에서 받아와야 할 것 같은데
