@@ -16,7 +16,7 @@
 	
 	<select id="showReviewComment" parameterType="BigDecimal"
 		resultType="ReviewCommentDTO">
-	select * from T_REVIEW_COMMENT where r_num = #{r_num}
+	select * from T_REVIEW_COMMENT where r_num = #{r_num} order by r_c_date desc
 	</select>
 	
 	<insert id="writeReviewComment" parameterType="ReviewCommentDTO">
