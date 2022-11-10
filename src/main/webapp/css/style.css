@@ -262,11 +262,12 @@ body{
 
 
 .contents{
-    max-width: 614px;
+    width: 614px;
     border: 1px solid rgba(0,0,0,0.09);
     border-radius: 3px;
-    margin-bottom: 60px;
+    margin-bottom: 15px;
     background: white;
+   
 }
 
 .cont02 {
@@ -386,11 +387,24 @@ body{
     justify-content: space-between;
     align-items: center;
     padding: 5px 20px;
+    border-bottom: 1px solid rgba(0,0,0,0.09);
+    
+    
 }
 .contents .comment_container .comment{
     display:flex;
     flex-direction: column;
     font-size: 14px;
+    overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: normal;
+        line-height: 1.2;
+/*        height: 4.8em;*/
+        text-align: left;
+        word-wrap: break-word;
+        display: -webkit-box;
+        -webkit-line-clamp: 4 ;
+        -webkit-box-orient: vertical;
 }
 
 .contents .comment_container .comment-detail{
@@ -419,6 +433,8 @@ body{
     min-height:56px;
     padding: 0 20px;
     position: relative;
+    border-bottom: 1px solid rgba(0,0,0,0.09);
+    
 }
 
 
@@ -1080,6 +1096,13 @@ body{
 .right_button{
     margin-left: 260px;
 }
+.admin_container{
+    border-bottom:1px solid rgba(0,0,0,0.1);
+	margin-left: 20px;
+	margin-right: 20px;
+	
+}
+
 
 
 

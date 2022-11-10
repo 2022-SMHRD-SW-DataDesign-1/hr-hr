@@ -304,12 +304,6 @@
 
 								<header class="top">
 									<!-- 정책 내용영역-->
-									<div class="admin_container">
-										<div class="comment">
-											<span class="user_id">Kindtiger</span>강아지가 많이 힘든가보다ㅜㅜㅜㅜㅜ조금만힘내
-											<div class="time">2시간</div>
-										</div>
-									</div>
 									
 								</header>
 
@@ -348,7 +342,13 @@
 									좋아요 <span class="count" id='like<%= count %>'><%=p_dto.getP_likes() %></span> 개
 								</div>
 								<% count++; %>
-								<div class="timer"><%=p_dto.getP_date() %></div>
+									<div class="admin_container">
+										<div class="comment">
+											<span class="user_id"><%=p_dto.getAdmin_id() %></span><%=p_dto.getP_content() %>
+											<div class="timer"><%=p_dto.getP_date() %></div>
+										</div>
+									</div>
+								
 							</div>
 							<% break; 
 							} 
@@ -406,9 +406,9 @@
 					<% // 게시판 글 모음 dao에서 로그인한 아이디와 같은 글을 arraylist에 담음 
 					ArrayList<BoardDTO> bList = b_dao.showBoard(info.getM_Id()); %>
                        <!-- 사용자 게시글  -->
-					<article class="contents">
                        <% for(BoardDTO b_dto : bList){%>
 							<%String[] b_files = b_dto.getB_filename().split(","); %>
+					<article class="contents">
 						<header class="top">
 							<div class="user_container">
 							<!-- 게시글 프로필 이미지 -->
@@ -484,12 +484,6 @@
 						</div>
 						<header class="top">
 									<!-- 게시글 내용영역-->
-									<div class="admin_container">
-										<div class="comment">
-											<span class="user_id"><%=b_dto.getB_writer() %></span><%= b_dto.getB_content() %>
-											<div class="time"><%=b_dto.getB_date() %></div>
-										</div>
-									</div>
 									
 								</header>
 						
@@ -523,9 +517,19 @@
 						<br>
 						<br>
 						<div class="count_likes">
-									좋아요 <span class="count" id='like<%= count %>'><%=b_dto.getB_likes() %></span> 개
+									좋아요 <span class="count" id='like<%= count++ %>'><%=b_dto.getB_likes() %></span> 개
 						</div>
 									<%= count++ %>
+									<div class="admin_container">
+										<div class="comment">
+											<span class="user_id"><%=b_dto.getB_writer() %></span><%= b_dto.getB_content() %>
+											<div class="timer"><%=b_dto.getB_date() %></div>
+											
+										</div>
+									</div>
+									<div class="comment_more">
+										<a href="Detail-page.jsp">댓글 더보기</a>
+									</div>
 						<!-- 댓글 표시 -->
 						<div class="comment_container">
 							<div class="comment" id="comments">
@@ -537,16 +541,15 @@
 											<%	for(CommentDTO cmt : cmtList){%>
 											<span class="user_id"><%=cmt.getCmt_id() %></span>
 													<%=cmt.getCmt_content() %>
-											<div class="time">
+													
+											<div class="timer">
 												<%=cmt.getCmt_date() %> 
 											</div>
 												<%} %>
 												<%} %>
-								
+									
 							</div>
-							<div class="small_heart">
-								<div class="sprite_small_heart_icon_outline"></div>
-							</div>
+							
 						</div>
 						<!-- 댓글 입력란 -->
 						<div class="comment_field" id="add-comment-post37">
@@ -555,10 +558,10 @@
 								<button type="submit" class="upload_btn user_text">댓글등록</button>
 							</form>
 						</div>
+					</article>
 							<%} %>
 
 						<%} %>
-					</article>
 					<%if(info != null){%>
 	<script text="javascript/text">
 		function likes(b_num,clicked_id){
@@ -687,7 +690,7 @@
 								</div>
 								<div class="detail">
 									<div class="id">그르르르</div>
-									<div class="time">1시간 전</div>
+									<div class="timer">1시간 전</div>
 								</div>
 							</div>
 						</div>
@@ -725,5 +728,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 	<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+	
+	
 </body>
 </html>

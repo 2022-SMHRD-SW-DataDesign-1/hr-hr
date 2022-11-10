@@ -1,7 +1,9 @@
 package com.smhrd.controller;
 
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.net.URLEncoder;
+import java.util.Enumeration;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -20,7 +22,7 @@ import com.smhrd.model.PolicyDTO;
 public class PolicyService extends HttpServlet {
 	
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
+	System.out.println("정책서비스 도착");
 	request.setCharacterEncoding("UTF-8");
 	
 	String savePath = request.getServletContext().getRealPath("file");
@@ -34,41 +36,64 @@ public class PolicyService extends HttpServlet {
 	
 	MultipartRequest multi = new MultipartRequest(request, savePath, maxSize, encoding, rename);
 	
-	// 로그인정보 가져오기
-	HttpSession session = request.getSession();
+	String uploadFile = "";
 	
+	Enumeration<String> fileNames = multi.getFileNames();
+	
+	while(fileNames.hasMoreElements()) {
+		String name = (String)fileNames.nextElement();
+		
+		System.out.println("실제파일명 : "+multi.getOriginalFileName(name));
+		System.out.println("서버파일명 :"+multi.getFilesystemName(name));
+		System.out.println("확장자 : "+multi.getContentType(name));
+		
+		if(fileNames.hasMoreElements() == false) {
+			uploadFile += multi.getFilesystemName(name);
+			break;
+		}
+		uploadFile += multi.getFilesystemName(name)+",";
+		
+	}
+	
+	System.out.println(uploadFile); //전부 더해서 저장한 file name , 단위로 다시 String 배열로 바꿔올 코드 
+	
+	
+	 // // 다시 불러올 때 , 단위로 쪼개야 하니까 실험코드 
+	String[] check = uploadFile.split(",");
+	for(String temp: check) {  System.out.println(temp); }
+	  
+	  // check 해볼 코드 // 세션을 받는다 (아이디)
+			
+	HttpSession session = request.getSession();
+
+	
+	//로그인한 정보에서 가지고 오니까 MemberDT에서 일단 가지고 올게
 	MemberDTO dto = (MemberDTO)session.getAttribute("info");
 	
-	String writer = dto.getM_Id();
+	//로그인한 아ㅣ디 // 작성자
+	String writer = dto.getM_Id(); 
 	
-	// 정책 내용 작성
-	String content = multi.getParameter("p_content");
-	
-	// 정책 파일 불러오기
-	String filename = multi.getFilesystemName("p_filename");
-	URLEncoder.encode(filename,"UTF-8");
-	
-	// 정책 제목
+	//파일 이름에 한글이 들어가면 얘를 다시 불러올 때 깨짐
+	URLEncoder.encode(uploadFile, "UTF-8");
 	String title = multi.getParameter("p_title");
-		
-	System.out.println(title);
+	String content = multi.getParameter("p_content");
+			
 	System.out.println(writer);
-	System.out.println(filename);
+	System.out.println(title);
 	System.out.println(content);
-	
-	
-	// 정책업로드용 dto
-	PolicyDTO pdto = new PolicyDTO(title, writer, content, filename);
+				
+	PolicyDTO pdto = new PolicyDTO(title, writer, content, uploadFile);
 	
 	PolicyDAO dao = new PolicyDAO();
+	
 	int row = dao.upload(pdto);
 	
-	if(row>0) {
-		System.out.println("db에 파일 들어감");
+	if(row > 0) {
+		System.out.println("DB에 파일들어감");
 	}else {
-		System.out.println("db에 파일안들어감");
+		System.out.println("DB에 파일 안들어감");
 	}
-	response.sendRedirect("testAll.jsp");
+	response.sendRedirect("testAll2.jsp");
 	
 	}
 

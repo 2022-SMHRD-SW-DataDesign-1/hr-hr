@@ -151,13 +151,56 @@
 	<!-- 정책 작성 id가 admin일 때 보이게 만들기 등록 버튼 구현... 하기 -->
 	
 	<%-- <%if(info != null && info.getM_Id().equals("admin")){   %> --%>
-	
-	<form action="PolicyService"  enctype="multipart/form-data"  method="post" >
-		정책 제목 : <input type = "text" name = "p_title">
-		정책사진 등록 :<input  type="file" style="float: right;" name="p_filename">
-		정책 게시글 입력 : <textarea  rows="10" style="resize: none;" name="p_content"></textarea><br> 
+	<%if(info != null && info.getM_Id().equals("admin")){%>
+	<%int count = 0; %>
+	<form action="PolicyService"  enctype="multipart/form-data"  method="post" id = "p_filelist1">
+		제목 : <input type = "text" name = "p_title">
+		내용 : <textarea rows="10" style="resize:none;" name="p_content"></textarea><br>
+		
+		<input type="file" style="float: right;" name="p_filename<%=count%>" multiple="multiple">
 		<input type="submit" value="정책게시글 등록">
 	</form>
+		<input type = "submit" value="+" style='float:right;' onclick ="addbtn()"><br>
+		<%count++; %>
+	
+			<script type="text/javascript">
+				function addbtn(){
+					$("#p_filelist1").append("<input type = 'file' style='float:right;' name='filename<%=count%>' multiple>")
+		
+				}
+			</script> 
+	
+	
+	
+	<%}%> 
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	
@@ -246,16 +289,11 @@
 	<%} %>
 	
 	
-<!-- 	<hr>
-	정책 작성 o
-	정책 번호: <input type = "text" name = "p_num">
-	정책 제목: <input type = "text" name = "p_title"> 
-	정책 사진 등록 :<input  type="file" style="float: right;" name="p_filename">
-	정책 게시글 입력 : <textarea  rows="10" style="resize: none;" name="p_content"></textarea><br> 
-	<input type="submit" value="정책게시글 등록">
-	<hr>
+<!-- 정책 게시물 등록 -->
+	<!-- // 로그인이 되어잇을 떄 -->
+	<!-- // 제목, 내용, 파일 넣기 -->
 	
-	 -->
+	
 	
 	
 	
@@ -269,22 +307,16 @@
 		제목 : <input type = "text" name = "p_title">
 		내용 : <textarea rows="10" style="resize:none;" name="p_content"></textarea><br>
 		
-		<input type = "file" style= "float : right;" name = "p_filename<%=count%>">
+		<input type = "file" style= "float : right;" name = "p_filename<%=count%>" multiple="multiple">
 		<input type = "submit" value = "수정완료">
 		</form>
-			<input type = "submit" value="+" style='float:right;' onclick ="addbtn()"><br>
+			<input type = "submit" value="+" style='float:right;' onclick ="addbtn1()"><br>
 				<%count++; %>
 			<script type="text/javascript">
-				function addbtn(){
+				function addbtn1(){
 					$("#p_filelist").append("<input type = 'file' style='float:right;' name='filename<%=count%>' multiple>")
-					
-		
 				}
 			</script> 
-	
-	
-	
-	
 	
 	
 	

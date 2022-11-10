@@ -198,6 +198,7 @@
 								<div class="timer">2시간</div>
 								</div>
 								<!-- 댓글 스크롤  -->
+								<div>view all comment</div>
 								<section class="scroll_section">
 
 

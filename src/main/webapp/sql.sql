@@ -15,7 +15,7 @@ select * from t_board;
 
 SELECT * FROM T_BLOCK;
 
-
+DELETE FROM t_policy WHERE p_num = 30;
 
 
 
