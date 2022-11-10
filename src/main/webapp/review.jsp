@@ -171,17 +171,13 @@
 								</header>
 
 							<!-- 댓글 스크롤 -->
-								<section class="scroll_section">
+								<section class="scroll_section" id="reviewComments">
 								
+								<%if(r_c_List != null){ %>
+								<%for(ReviewCommentDTO r_c_dto : r_c_List){ %>
 								
-								
-								<!-- 댓글 영역 -->
-									<div class="user_container-detail">
-									
-									
-									
-										<%if(r_c_List != null){ %>
-										<%for(ReviewCommentDTO r_c_dto : r_c_List){ %>
+											<!-- 댓글 영역 -->
+									<div class="user_container-detail" >
 									<!-- 댓글 유저 이미지 -->
 										<div class="user">
 											img
@@ -190,15 +186,14 @@
 										<!-- 댓글 내용 -->
 										<div class="comment">
 											<span class="user_id"><%=r_c_dto.getM_id() %></span><%=r_c_dto.getR_c_content() %>
-											<div class="time">
-												<%=r_c_dto.getR_c_date() %>
-											</div>
 										</div>
 										
-										<%} %>
-										<%} %>
 									</div>
 									
+							
+								<%} %>
+								<%} %>
+							
 
 								</section>
 
@@ -236,12 +231,12 @@
 								
 								<!-- 댓글 입력란  -->
 								<div class="commit_field">
-								<form action="">
-									<input type="text" placeholder="댓글달기..">
-
-									<div class="upload_btn">게시</div>
+									<input type="text" placeholder="comment~" id= "reviewComment">
+									<!-- 
+									<div class="upload_btn" onclick="writeReviewComment()">등록</div>
+ 									-->	
 								</div>
-								</form>
+								<input type="button" onclick="writeReviewComment()" value="작성">
 
 						</article>
 
@@ -255,9 +250,58 @@
 
 		</section>
 
-		<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-        <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+	<script type="text/javascript">
+	// 댓글 작성 ajax
+			function writeReviewComment() {
+				let r_c_content = $("#reviewComment").val();
+				let m_id = '<%=info.getM_Id()%>';
+				let r_num = <%=request.getParameter("r_num")%>;
+				
+				console.log(r_c_content);
+				console.log(m_id);
+				console.log(r_num);
+				
+				let body = `
+					<div class="user_container-detail">
+						<div class="user">
+							img
+						</div>
+						<div class="comment">
+							<span class="user_id"><%=info.getM_Id() %></span>r_c_content
+						</div>
+					</div>
+					 `;
+		
+				$.ajax({
+					url : "ReviewCommentService",
+					data : {"m_id" : m_id,
+							"r_c_content" : r_c_content,
+							"r_num" : r_num
+							},
+					type : 'get', 
+					success : function(data) {
+						//1. 쿼리 셀렉터로 가져와서 innerHTML로 댓글을 그냥 추가해줘
+						$("#reviewComments").innerHTML += body;
+						$("#reviewComment").empty();	
+						
+						//2. 댓글 작성창 쿼리셀렉터로 다시가져와서.value=""
+						
+						
+						
+						
+						
+						
+					},
+					error : function() {
+						console.log("조샀다 !");
+					}
+				})
+			}	
+			
+	</script>
 	
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 		<!--<script src="js/detail.js"></script>-->
 
