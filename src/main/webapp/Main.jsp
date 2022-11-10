@@ -34,7 +34,6 @@
 
 	<%
 	MemberDTO info = (MemberDTO) session.getAttribute("info");
-	
 	%>
 
 
@@ -202,24 +201,31 @@
 				<div class="contents_box">
 					<!-- 정책 영역 -->
 					<article class="contents">
+			
 					<%	if(info != null){ %>
 							<%
 							
 							//댓글 dao
 							
 							//게시판 dao
-							
-							
 							int count = 0;
-							
+
 							PolicyDAO p_dao = new PolicyDAO();
 							ArrayList<PolicyDTO> p_list = p_dao.showPolicy();
+							double min = 0;
+							double max = p_list.size();
+							int ranp = (int) ((Math.random() * (max - min)) + min);
+							PolicyDTO ranPdto= p_list.get(ranp);
+							
+							
 							PolicyLikesDAO pl_dao = new PolicyLikesDAO();
 							PolicyLikesDTO pl_dto;
 							
 							%>
+							
+							
 							<%for(PolicyDTO p_dto : p_list){%>
-							<%String[] p_files = p_dto.getP_filename().split(","); %>
+							<%String[] p_files = ranPdto.getP_filename().split(","); %>
 						<header class="top">
 							<div class="user_container">
 							<!-- content top img로 접근 게시물 상단 유저이미지 -->
@@ -228,11 +234,11 @@
 								</div>
 								<!-- content top user_name으로 접근 게시물 상단 유저닉네임 -->
 								<div class="user_name">
-									<div class="nick_name  user_text"><%= p_dto.getAdmin_id()%></div>
+									<div class="nick_name  user_text"><%= ranPdto.getAdmin_id()%></div>
 									<!-- 유저 위치 정보-->
 									<div class="top_time">
 										<div class="comment">
-											<div class="t_timer"><%=p_dto.getP_date() %></div>
+											<div class="t_timer"><%=ranPdto.getP_date() %></div>
 										</div>
 									</div>
 								</div>
@@ -318,11 +324,11 @@
 									<!-- 정책 좋아요 버튼 -->
 										<div class="heart_btn">
 											<div class="sprite_heart_icon_outline" >
-											<%pl_dto = new PolicyLikesDTO(info.getM_Id(),p_dto.getP_num()); %>
+											<%pl_dto = new PolicyLikesDTO(info.getM_Id(),ranPdto.getP_num()); %>
 											<%if(pl_dao.isPolicyLiked(pl_dto)>0){ %>
-												<button class="heart_button" id='policylikes<%= count %>'onclick="policylikes(<%= p_dto.getP_num()%>,this.id,<%=count%>)"><img class="heart" alt="유용해요해제" src="imgs/몰라.JPG"></button>
+												<button class="heart_button" id='policylikes<%= count %>'onclick="policylikes(<%= ranPdto.getP_num()%>,this.id,<%=count%>)"><img class="heart" alt="유용해요해제" src="imgs/몰라.JPG"></button>
 											<%}else{%>
-												<button class="heart_button" id='policylikes<%= count %>' onclick="policylikes(<%= p_dto.getP_num() %>,this.id,<%=count%>)"><img class='heart' alt='유용해요등록' src='imgs/좋아.JPG'></button>
+												<button class="heart_button" id='policylikes<%= count %>' onclick="policylikes(<%= ranPdto.getP_num() %>,this.id,<%=count%>)"><img class='heart' alt='유용해요등록' src='imgs/좋아.JPG'></button>
 											<%	}%>
 											</div>
 										</div>
@@ -342,12 +348,12 @@
 								<!-- 정책 좋아요 수 표시 -->
 								
 								<div class="count_likes">
-									좋아요 <span class="count" id='policylike<%= count %>'><%=p_dto.getP_likes() %></span> 개
+									좋아요 <span class="count" id='policylike<%= count %>'><%=ranPdto.getP_likes() %></span> 개
 								</div>
 								
 									<div class="timer_container">
 										<div class="comment">
-											<span class="user_id"><%=p_dto.getAdmin_id() %></span><%=p_dto.getP_content() %>
+											<span class="user_id"><%=ranPdto.getAdmin_id() %></span><%=ranPdto.getP_content() %>
 											<div class="timer"></div>
 										</div>
 									</div>
