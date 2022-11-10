@@ -231,7 +231,7 @@
 													<!-- 패스워드 확인 입력 -->
 													<input id="pwcheck" name="m_pwcheck"
 														placeholder="PwCheck" class="form-control here"
-														type="text" onkeydown="checkPW()"><br>
+														type="text" onkeyup="checkPW()"><br>
 														
 														 <span id="pwCheckResult"></span>
 												</div>
@@ -362,8 +362,9 @@
 				type : 'get', 
 				// 통신 성공 function(넘겨준데이터)
 				success : function(data) {
+					console.log(data);
 					console.log(typeof data);
-					if (data == 'false') {
+				if (data == 'true') {
 				$("#pwCheckResult").text("같아요~");
 				$("#privacyUpdateSubmit").attr("disabled",false);
 					} else {
