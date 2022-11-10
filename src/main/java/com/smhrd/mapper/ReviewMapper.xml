@@ -32,5 +32,21 @@
 		r_num = #{r_num}
 	</update>
 
-
+	<select id="reviewIsLike" parameterType="ReviewLikeDTO" resultType="int">
+		SELECT count(*) from t_usefulreview where m_id = #{m_id} and
+		r_num = #{r_num}
+	</select>
+	
+	<insert id="reviewLikePlus" parameterType="ReviewLikeDTO">
+		INSERT INTO t_usefulreview (m_id, r_num) VALUES (#{m_id},#{r_num})
+	</insert>
+	
+	<delete id="reviewLikeMinus" parameterType="ReviewLikeDTO">
+		delete from t_usefulreview where m_id = #{m_id} and r_num = #{r_num}
+	</delete>
+	
+	<update id="setReviewLikeCount" parameterType="BigDecimal">
+		update t_review set r_like= (SELECT count(*) FROM t_usefulreview where r_num =#{r_num}) 
+		where r_num=#{r_num}  
+	</update>
 </mapper>

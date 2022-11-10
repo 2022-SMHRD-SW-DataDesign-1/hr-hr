@@ -145,6 +145,12 @@
 		<description></description>
 		<servlet-class>com.smhrd.controller.ReviewCommentService</servlet-class>
 	</servlet>
+	<servlet>
+		<servlet-name>ReviewLikeService</servlet-name>
+		<display-name>ReviewLikeService</display-name>
+		<description></description>
+		<servlet-class>com.smhrd.controller.ReviewLikeService</servlet-class>
+	</servlet>
 
 	<servlet-mapping>
 		<servlet-name>test</servlet-name>
@@ -239,6 +245,10 @@
 	<servlet-mapping>
 		<servlet-name>ReviewCommentService</servlet-name>
 		<url-pattern>/ReviewCommentService</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ReviewLikeService</servlet-name>
+		<url-pattern>/ReviewLikeService</url-pattern>
 	</servlet-mapping>
 	
 
