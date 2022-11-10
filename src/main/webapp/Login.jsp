@@ -59,7 +59,7 @@
 			<section class="h_inner">
 
 				<h1 class="logo">
-					<a href="Main.jsp"> <img src="imgs/로고.png">
+					<a href="Main.jsp"> <img src="imgs/로고.JPG">
 
 					</a>
 				</h1>
@@ -165,14 +165,16 @@
 					<div class="overlay-container">
 						<!-- 로그인으로 넘어가기 -->
 						<div class="overlay-left">
-							<h1>환영합니다</h1>
+							<h1>안녕하세요</h1>
+							<p>회원가입시 입력한 정확한 ID와 PW를 입력하여 주십시오</p>
+							
 							<p>로그인을 하기위해서 당신의 회원정보를 입력하십시오.</p>
 							<button id="signIn" class="overlay_btn">Sign In</button>
 						</div>
 						<!-- 회원가입으로 넘어가기 -->
 						<div class="overlay-right">
-							<h1>안녕하세요</h1>
-							<p>회원가입시 입력한 정확한 ID와 PW를 입력하여 주십시오</p>
+							<h1>환영합니다</h1>
+							<p>로그인을 하기위해서 당신의 회원정보를 입력하십시오.</p>
 							<button id="signUp" class="overlay_btn">Sign Up</button>
 						</div>
 					</div>

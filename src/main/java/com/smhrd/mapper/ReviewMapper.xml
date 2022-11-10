@@ -4,5 +4,33 @@
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.smhrd.mapper.ReviewMapper">
+	<select id="reviewShow" parameterType="BigDecimal"
+		resultType="ReviewDTO">
+		select * from t_review where p_num = #{p_num}
+	</select>
+	
+	<select id="reviewDetailShow" parameterType="BigDecimal"
+		resultType="ReviewDTO">
+		select * from t_review where r_num = #{r_num}
+	</select>
+
+	<insert id="reviewWrite" parameterType="ReviewDTO">
+		INSERT INTO t_review
+		(r_title, r_content, r_file,r_date, m_id, p_num, r_like)
+		 VALUES
+		(#{r_title}, #{r_content}, #{r_file}, sysdate , #{m_id}, #{p_num}, 0);
+	</insert>
+
+	<delete id="reviewDelete" parameterType="ReviewDTO">
+		delete * from t_review
+		where m_id = #{m_id} and r_num = #{r_num}
+	</delete>
+
+	<update id="reviewUpdate" parameterType="ReviewDTO">
+		update t_review set
+		r_title=#{r_title}, r_content=#{r_content}, r_file=#{r_file} where
+		r_num = #{r_num}
+	</update>
+
 
 </mapper>

@@ -71,10 +71,8 @@
 					<!-- 로고 -->
                     <h1 class="logo">
                         <a href="Main.jsp">
-                            <div class="sprite_insta_icon"></div>
-                            <div>
-                                <div class="sprite_write_logo"></div>
-                            </div>
+       						<img src="imgs/로고.JPG">
+                       
                         </a>
                     </h1>
 					<!-- 검색바 -->
@@ -89,7 +87,7 @@
 
 					<!-- 오른쪽 메뉴 아이콘 -->
                     <div class="right_icons">
-                        <a href="Profile.jsp"><img src="imgs/프로필.PNG" class="sprite_user_icon_outline"></a>
+                        <a href="ProfileAll.jsp"><img src="imgs/프로필.PNG" class="sprite_user_icon_outline"></a>
                         <a href="Top10Ranking.jsp"><img src="imgs/랭킹버튼.PNG" class="sprite_user_icon_outline"></a>
                         <a href="DM.jsp"> <img src="imgs/채팅.PNG" class="sprite_user_icon_outline"></a>
                         <!-- 알람버튼 -->

@@ -1,3 +1,6 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.smhrd.model.PolicyDAO"%>
+<%@page import="com.smhrd.model.PolicyDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -24,16 +27,20 @@
 		<link rel="stylesheet" href="css/style.css">
 		<link rel="stylesheet" href="css/detail-page.css">
 		<link rel="shortcut icon" href="imgs/instagram.png">
+		<link rel="stylesheet" href="css/bootstrap.css">
+		<link rel="shortcut icon" href="#"><!-- 우리 로고 넣어야함 -->
+		
         
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
-        <link href="https://getbootstrap.com/docs/5.2/assets/css/docs.css" rel="stylesheet">
-
+        
 
 		
 	</head>
 
 	<body>
-
+		<%
+		//int num = Integer.parseInt(request.getParameter("p_num"));
+		ArrayList<PolicyDTO> policy = new PolicyDAO().showPolicy();
+		%>
 
 		<section id="container">
 
@@ -43,7 +50,7 @@
 
 					<h1 class="logo">
 					<a href="Main.jsp">
-						<img src="imgs/로고.png">
+						<img src="imgs/로고.JPG">
 						
 					</a>
 				</h1>
@@ -58,9 +65,33 @@
 
 
 					<div class="right_icons">
-						<a href="Login.jsp"><img src="imgs/로그인.PNG" class="sprite_compass_icon"></a>
-					<a href="Profile.jsp"><img src="imgs/프로필.PNG" class="sprite_user_icon_outline"></a>
-						</a>
+ 						<a href="ProfileAll.jsp"><img src="imgs/프로필.PNG" class="sprite_user_icon_outline"></a>
+                        <a href="Top10Ranking.jsp"><img src="imgs/랭킹버튼.PNG" class="sprite_user_icon_outline"></a>
+                        <a href="DM.jsp"> <img src="imgs/채팅.PNG" class="sprite_user_icon_outline"></a>
+                        <!-- 알람버튼 -->
+                        
+                        <button type="button" class="btn btn-primary position-relative" id="liveToastBtn">
+						<span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+							1
+						</span>		
+						<img src="imgs/알람.PNG">
+					</button>				
+					<div class="toast-container position-static">
+						<div class="toast-container position-fixed bottom-0 end-0 p-3">
+						<div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+							<div class="toast-header">
+							<img src="imgs/알람.PNG" class="rounded me-2" alt="...">
+							<strong class="me-auto">알람내역</strong>
+							<small>11분전</small>
+							<button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+							</div>
+							<div class="toast-body">
+							메세지 한건이 도착했습니다.
+							</div>
+						</div>
+						</div>
+					</div>
+					<!-- 알람 끝 -->
 					</div>
 				</section>
 			</header>
@@ -92,7 +123,7 @@
                                     <button type="button" class="btn btn-outline-dark"><a href="reviewboard.jsp">리뷰</a></button>
                                 </div>
 							</div>
-							<!-- 게시물 이미지 영역 -->
+							<!-- 게시물 이미지 영역 --> //사진 넣어줘야한단 말이야
 							<div class="img_section">
 								<div class="trans_inner">
 									<div>
@@ -115,30 +146,8 @@
                                                 <img src="imgs/국민취업지원제도1.png" alt="visual01">
                                           
                                               </div>
-                                              <div class="carousel-item">
-                                                <!-- 여기에 사진넣기 --> 				
-                                                <img src="imgs/국민취업지원제도2.png" alt="visual02"> 								  
-                                              </div>	
-                                                <div class="carousel-item">
-                                                <!-- 여기에 사진넣기 --> 	
-                                                <img src="imgs/국민취업지원제도 3.png" alt="visual03"> 
-                                          	</div>
-											  <div class="carousel-item">
-                                                <!-- 여기에 사진넣기 --> 				
-                                                <img src="imgs/국민취업지원제도 4.png" alt="visual04"> 								  
-                                              </div>
-											  <div class="carousel-item">
-                                                <!-- 여기에 사진넣기 --> 				
-                                                <img src="imgs/국민취업지원제도 5.png" alt="visual05"> 								  
-                                              </div>
-											  <div class="carousel-item">
-                                                <!-- 여기에 사진넣기 --> 				
-                                                <img src="imgs/국민취업지원제도 6.png" alt="visual06"> 								  
-                                              </div>
-											  <div class="carousel-item">
-                                                <!-- 여기에 사진넣기 --> 				
-                                                <img src="imgs/국민취업지원제도7.png" alt="visual07"> 								  
-                                              </div>
+                                              
+                                                
                                             </div>
                                             <!-- 이미지 오른쪽으로 넘기기 -->
                                             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
@@ -170,7 +179,33 @@
 									
 								</header>
 
-							<!-- 댓글 스크롤 -->
+							
+
+								<!-- 게시글 하단 버튼 영역 -->
+								<div class="bottom_icons">
+								<!-- 왼쪽하단 영역 -->
+									<div class="left_icons">
+									<!-- 좋아요 버튼 -->
+										<div class="heart_btn">
+									<div class="sprite_heart_icon_outline" data-name="heartbeat">
+										<button class="heart_button"><img src="imgs/3.PNG"></button>
+									</div>
+								</div>
+								<!-- 댓글 버튼 -->
+								<div class="sprite_bubble_icon"></div>
+									</div>
+									<!-- 게시글 스크랩버튼 -->
+									<div class="right_icon">
+										<div class="sprite_bookmark_outline" data-name="book-mark"></div>
+									</div>
+								</div>
+									<!-- 게시글 좋아요수 표시 -->
+								<div class="count_likes">
+									좋아요 <span class="count">2,351</span> 개
+								</div>
+								<div class="timer">2시간</div>
+								
+								<!-- 댓글 스크롤 -->
 								<section class="scroll_section">
 									<!-- 게시물 댓글 영역  -->
 									<div class="user_container-detail">
@@ -198,33 +233,11 @@
 											
 										</div>
 									</div>
+									
+									
 
 
 								</section>
-
-								<!-- 게시글 하단 버튼 영역 -->
-								<div class="bottom_icons">
-								<!-- 왼쪽하단 영역 -->
-									<div class="left_icons">
-									<!-- 좋아요 버튼 -->
-										<div class="heart_btn">
-									<div class="sprite_heart_icon_outline" data-name="heartbeat">
-										<button class="heart_button"><img src="imgs/3.PNG"></button>
-									</div>
-								</div>
-								<!-- 댓글 버튼 -->
-								<div class="sprite_bubble_icon"></div>
-									</div>
-									<!-- 게시글 스크랩버튼 -->
-									<div class="right_icon">
-										<div class="sprite_bookmark_outline" data-name="book-mark"></div>
-									</div>
-								</div>
-									<!-- 게시글 좋아요수 표시 -->
-								<div class="count_likes">
-									좋아요 <span class="count">2,351</span> 개
-								</div>
-								<div class="timer">2시간</div>
 								<!-- 댓글 입력란 -->
 								<div class="commit_field">
 									<input type="text" placeholder="댓글달기..">

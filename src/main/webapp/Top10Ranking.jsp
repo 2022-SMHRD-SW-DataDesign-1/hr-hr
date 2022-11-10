@@ -18,7 +18,7 @@
                 
 				<h1 class="logo">
 					<a href="Main.jsp">
-						<img src="imgs/로고.png">
+						<img src="imgs/로고.JPG">
 						
 					</a>
 				</h1>
@@ -34,7 +34,7 @@
 				<div class="right_icons">
 					
 					<a href="Login.jsp"><img src="imgs/로그인.PNG" class="sprite_compass_icon"></a>
-					<a href="Profile.jsp"><img src="imgs/프로필.PNG" class="sprite_user_icon_outline"></a>
+					<a href="ProfileAll.jsp"><img src="imgs/프로필.PNG" class="sprite_user_icon_outline"></a>
 				</div>
 				
 

@@ -15,6 +15,8 @@
 		<typeAlias type="com.smhrd.model.PolicyDTO" alias="PolicyDTO" />
 		<typeAlias type="com.smhrd.model.LikesDTO" alias="LikesDTO" />
 		<typeAlias type="com.smhrd.model.PolicyLikesDTO" alias="PolicyLikesDTO" />
+		<typeAlias type="com.smhrd.model.ReviewDTO" alias="ReviewDTO" />
+		<typeAlias type="com.smhrd.model.ReviewCommentDTO" alias="ReviewCommentDTO" />
 	</typeAliases>
 
 	<environments default="development">
@@ -35,5 +37,6 @@
 		<mapper resource="com/smhrd/mapper/BoardMapper.xml"/>
 		<mapper resource="com/smhrd/mapper/CommentMapper.xml"/>
 		<mapper resource="com/smhrd/mapper/PolicyMapper.xml"/>
+		<mapper resource="com/smhrd/mapper/ReviewMapper.xml"/>
 	</mappers>
 </configuration>

@@ -34,7 +34,6 @@
 
 	<%
 	MemberDTO info = (MemberDTO) session.getAttribute("info");
-	
 	%>
 
 
@@ -202,24 +201,31 @@
 				<div class="contents_box">
 					<!-- 정책 영역 -->
 					<article class="contents">
+			
 					<%	if(info != null){ %>
 							<%
 							
 							//댓글 dao
 							
 							//게시판 dao
-							
-							
 							int count = 0;
-							
+
 							PolicyDAO p_dao = new PolicyDAO();
 							ArrayList<PolicyDTO> p_list = p_dao.showPolicy();
+							double min = 0;
+							double max = p_list.size();
+							int ranp = (int) ((Math.random() * (max - min)) + min);
+							PolicyDTO ranPdto= p_list.get(ranp);
+							
+							
 							PolicyLikesDAO pl_dao = new PolicyLikesDAO();
 							PolicyLikesDTO pl_dto;
 							
 							%>
+							
+							
 							<%for(PolicyDTO p_dto : p_list){%>
-							<%String[] p_files = p_dto.getP_filename().split(","); %>
+							<%String[] p_files = ranPdto.getP_filename().split(","); %>
 						<header class="top">
 							<div class="user_container">
 							<!-- content top img로 접근 게시물 상단 유저이미지 -->
@@ -228,9 +234,13 @@
 								</div>
 								<!-- content top user_name으로 접근 게시물 상단 유저닉네임 -->
 								<div class="user_name">
-									<div class="nick_name  user_text"><%= p_dto.getAdmin_id()%></div>
+									<div class="nick_name  user_text"><%= ranPdto.getAdmin_id()%></div>
 									<!-- 유저 위치 정보-->
-									<div class="country country_text"></div>
+									<div class="top_time">
+										<div class="comment">
+											<div class="t_timer"><%=ranPdto.getP_date() %></div>
+										</div>
+									</div>
 								</div>
 								<!-- 리뷰 버튼영역-->
                                 <div class="right_button">
@@ -314,11 +324,11 @@
 									<!-- 정책 좋아요 버튼 -->
 										<div class="heart_btn">
 											<div class="sprite_heart_icon_outline" >
-											<%pl_dto = new PolicyLikesDTO(info.getM_Id(),p_dto.getP_num()); %>
+											<%pl_dto = new PolicyLikesDTO(info.getM_Id(),ranPdto.getP_num()); %>
 											<%if(pl_dao.isPolicyLiked(pl_dto)>0){ %>
-												<button class="heart_button" id='policylikes<%= count %>'onclick="policylikes(<%= p_dto.getP_num()%>,this.id)">유용해요해제</button>
+												<button class="heart_button" id='policylikes<%= count %>'onclick="policylikes(<%= ranPdto.getP_num()%>,this.id,<%=count%>)"><img class="heart" alt="유용해요해제" src="imgs/몰라.JPG"></button>
 											<%}else{%>
-												<button class="heart_button" id='policylikes<%= count %>' onclick="policylikes(<%= p_dto.getP_num() %>,this.id)">유용해요등록</button>
+												<button class="heart_button" id='policylikes<%= count %>' onclick="policylikes(<%= ranPdto.getP_num() %>,this.id,<%=count%>)"><img class='heart' alt='유용해요등록' src='imgs/좋아.JPG'></button>
 											<%	}%>
 											</div>
 										</div>
@@ -336,20 +346,20 @@
 								</div>
 								
 								<!-- 정책 좋아요 수 표시 -->
-								<br>
-								<br>
+								
 								<div class="count_likes">
-									좋아요 <span class="count" id='like<%= count %>'><%=p_dto.getP_likes() %></span> 개
+									좋아요 <span class="count" id='policylike<%= count %>'><%=ranPdto.getP_likes() %></span> 개
 								</div>
-								<% count++; %>
-									<div class="admin_container">
+								
+									<div class="timer_container">
 										<div class="comment">
-											<span class="user_id"><%=p_dto.getAdmin_id() %></span><%=p_dto.getP_content() %>
-											<div class="timer"><%=p_dto.getP_date() %></div>
+											<span class="user_id"><%=ranPdto.getAdmin_id() %></span><%=ranPdto.getP_content() %>
+											<div class="timer"></div>
 										</div>
 									</div>
 								
 							</div>
+							<% count++; %>
 							<% break; 
 							} 
 						} %>
@@ -357,18 +367,20 @@
   						
                     	<%if(info != null){%>
 						<script text="javascript/text">
-							function policylikes(p_num,clicked_id){
+							let test;
+							function policylikes(p_num,clicked_id,cnt){
 								let is_like;
 								console.log(p_num);
 								console.log(clicked_id);
 								let m_id = '<%=info.getM_Id()%>';
 								let policylikeBtn = document.getElementById(clicked_id);
+								console.log(policylikeBtn.innerHTML);
 								
-								if(policylikeBtn.innerText == '유용해요등록'){
-									policylikeBtn.innerText = '유용해요해제'
+								if(policylikeBtn.innerHTML == '<img class="heart" alt="유용해요등록" src="imgs/좋아.JPG">'){
+									policylikeBtn.innerHTML = '<img class="heart" alt="유용해요해제" src="imgs/몰라.JPG">'
 									is_like = 0;
 								}else{
-									policylikeBtn.innerText = '유용해요등록'
+									policylikeBtn.innerHTML = '<img class="heart" alt="유용해요등록" src="imgs/좋아.JPG">'
 									is_like = 1;
 								}
 								
@@ -382,7 +394,18 @@
 									},
 									type:'get', // 요청 타입
 									success:function(data){// 통신성공(function(넘겨준데이터))
-										console.log(data);
+										if(data =="true"){
+											let test = 'policylike'+cnt;
+											console.log(test);
+											num1 = Number(document.getElementById(test).innerText);
+											document.getElementById(test).innerText = num1-1;
+											
+										}else {
+											let test = 'policylike'+cnt;
+											console.log(test);
+											num1 = Number(document.getElementById(test).innerText);
+											document.getElementById(test).innerText = num1+1;
+										}
 									},
 								error:function(){
 									console.log("asfknaskm");
@@ -418,7 +441,11 @@
 								<!-- 게시글 유저 닉네임 -->
 								<div class="user_name">
 									<div class="nick_name user_text"><%=b_dto.getB_writer() %></div>
-									<div class="country country_text"></div>
+									<div class="top_time">
+										<div class="comment">
+											<div class="t_timer"><%=b_dto.getB_date() %></div>
+										</div>
+									</div>
 								</div>
 
 							</div>
@@ -496,12 +523,12 @@
 									<div class="sprite_heart_icon_outline" >
 										<%l_dto = new LikesDTO(info.getM_Id(),b_dto.getB_num()); %>
 										<%if(l_dao.isLiked(l_dto)>0){ %>
-											<button class="heart_button" id='likes<%= count %>'onclick="likes(<%= b_dto.getB_num()%>,this.id)">유용해요해제</button>
+											<button class="heart_button" id='likes<%= count %>'onclick="likes(<%= b_dto.getB_num()%>,this.id,<%=count%>)"><img class="heart" alt="유용해요해제" src="imgs/좋아.JPG"></button>
 										<%}else{%>
-											<button class="heart_button" id='likes<%= count %>' onclick="likes(<%= b_dto.getB_num() %>,this.id)">유용해요등록</button>
+											<button class="heart_button" id='likes<%= count %>' onclick="likes(<%= b_dto.getB_num() %>,this.id,<%=count%>)"><img class="heart" alt="유용해요등록" src="imgs/몰라.JPG"></button>
 										<%	}%>
 											</div>
-											<%count++; %>
+											
 										</div>
 								<!-- 댓글 버튼 -->
 								<div class="sprite_bubble_icon"></div>
@@ -514,16 +541,14 @@
 							</div>
 						</div>
 						<!-- 좋아요수 표시 -->
-						<br>
-						<br>
-						<div class="count_likes">
-									좋아요 <span class="count" id='like<%= count++ %>'><%=b_dto.getB_likes() %></span> 개
+						
+						<div class="count_likes" id="board_cnt">
+									유용해요 <span class="count" id='like<%=count++%>'><%=b_dto.getB_likes() %></span> 개
 						</div>
-									<%= count++ %>
-									<div class="admin_container">
+									<div class="timer_container">
 										<div class="comment">
 											<span class="user_id"><%=b_dto.getB_writer() %></span><%= b_dto.getB_content() %>
-											<div class="timer"><%=b_dto.getB_date() %></div>
+											<div class="timer"></div>
 											
 										</div>
 									</div>
@@ -559,23 +584,24 @@
 							</form>
 						</div>
 					</article>
-							<%} %>
+					<%count++; %>
 
-						<%} %>
+	<%} %>
+						
 					<%if(info != null){%>
 	<script text="javascript/text">
-		function likes(b_num,clicked_id){
+		function likes(b_num,clicked_id,cnt){
 			let is_like;
-			console.log(b_num);
-			console.log(clicked_id);
+			let num1
 			let m_id = '<%=info.getM_Id()%>';
 			let likeBtn = document.getElementById(clicked_id);
 			
-			if(likeBtn.innerText == '유용해요'){
-				likeBtn.innerText = '유용해요해제';
+			if(likeBtn.innerHTML == '<img class="heart" alt="유용해요등록" src="imgs/몰라.JPG">'){
+				likeBtn.innerHTML = '<img class="heart" alt="유용해요해제" src="imgs/좋아.JPG">';
 				is_like = 0;
+				
 			}else{
-				likeBtn.innerText = '유용해요';
+				likeBtn.innerHTML = '<img class="heart" alt="유용해요등록" src="imgs/몰라.JPG">';
 				is_like = 1;
 			}
 			
@@ -589,18 +615,29 @@
 				},
 				type:'get', // 요청 타입
 				success:function(data){// 통신성공(function(넘겨준데이터))
-					console.log(data);
+					if(data =="true"){
+						let test = 'like'+cnt;
+						num1 = Number(document.getElementById(test).innerText);
+						document.getElementById(test).innerText = num1+1;
+						
+					}else {
+						let test = 'like'+cnt;
+						num1 = Number(document.getElementById(test).innerText);
+						document.getElementById(test).innerText = num1-1;
+					}
 				},
 			error:function(){
 				console.log("asfknaskm");
 			}
+							<%} %>
+
 			
 			})//속성
 			
 
 		}
 	</script> 
-	<%} %>
+						<%} %>
 		
 
 				</div>
