@@ -261,17 +261,6 @@
 				console.log(m_id);
 				console.log(r_num);
 				
-				let body = `
-					<div class="user_container-detail">
-						<div class="user">
-							img
-						</div>
-						<div class="comment">
-							<span class="user_id"><%=info.getM_Id() %></span>r_c_content
-						</div>
-					</div>
-					 `;
-		
 				$.ajax({
 					url : "ReviewCommentService",
 					data : {"m_id" : m_id,
@@ -281,22 +270,29 @@
 					type : 'get', 
 					success : function(data) {
 						//1. 쿼리 셀렉터로 가져와서 innerHTML로 댓글을 그냥 추가해줘
-						$("#reviewComments").innerHTML += body;
-						$("#reviewComment").empty();	
-						
-						//2. 댓글 작성창 쿼리셀렉터로 다시가져와서.value=""
-						
-						
-						
-						
-						
-						
+						let reviewComments = document.getElementById('reviewComments');
+						let reviewComment = document.getElementById('reviewComment');
+						reviewComments.innerHTML += 
+							`<div class="user_container-detail" >
+							<div class="user">
+								img
+							</div>
+							<div class="comment">
+								<span class="user_id"><%=info.getM_Id() %>
+								</span>${reviewComment.value}
+							</div>
+							
+						</div>`;
+						reviewComment.value = null;
+						//2. 댓글 작성창 쿼"리셀렉터로 다시가져와서.value=""
 					},
 					error : function() {
 						console.log("조샀다 !");
 					}
 				})
 			}	
+	
+	
 			
 	</script>
 	
