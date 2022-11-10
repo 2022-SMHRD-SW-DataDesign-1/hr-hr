@@ -1,6 +1,7 @@
 package com.smhrd.controller;
 
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.net.URLEncoder;
 import java.util.Enumeration;
 
@@ -24,7 +25,7 @@ public class PolicyUpdateService extends HttpServlet {
 		System.out.println("정책수정서비스 도착");
 		
 		// 왜 인코딩을 먼저해줄까?
-		// 요청값을 .. 인코딩해줄거야..
+		// 요청값을 .. 인코딩해줄거야.. 파일이 깨지니까
 		request.setCharacterEncoding("UTF-8");
 
 		
@@ -32,7 +33,7 @@ public class PolicyUpdateService extends HttpServlet {
 		String savePath = request.getServletContext().getRealPath("file");
 		System.out.println(savePath); //경로를 보여줄거야..
 		
-		// 사이즈 왜 사이즈를 인코딩보다 먼저써주느늑거라? 그냥 먼저 써도 되잖아
+		
 		int maxSize = 10*1024*1024;
 		
 		// 인코딩방식
@@ -45,7 +46,7 @@ public class PolicyUpdateService extends HttpServlet {
 		
 		// 파일 같은 용량이 큰 객체값은 이렇세 받음 . 보낼때도 multipart로 인코딩 해줬음
 		
-		MultipartRequest multi = new MultipartRequest(request, savePath, maxSize, encoding, rename);
+		MultipartRequest multi = new MultipartRequest(request, savePath, maxSize, encoding, rename); // 파일 경로
 		// request, 저장경로, 사이즈, 인코딩방식, 중복제거
 		
 		// 파일 여러개 받기위한 코드
@@ -60,8 +61,8 @@ public class PolicyUpdateService extends HttpServlet {
 			String name = (String)fileNames.nextElement();// filenames 객체 하나를 일단 담는 String변수 name
 			
 			System.out.println("실제 파일명 : "+multi.getOriginalFileName(name));// 실제 파일명(유저가 업로드한)
-			System.out.println("실제 파일명 : "+multi.getFilesystemName(name));/// 서버 폴더에 저장되는 파일명(중복피하기 위한 파일명)
-			System.out.println("실제 파일명: "+multi.getContentType(name));// 파일의 확장자
+			System.out.println("서버 파일명 : "+multi.getFilesystemName(name));/// 서버 폴더에 저장되는 파일명(중복피하기 위한 파일명)
+			System.out.println("확장자 : "+multi.getContentType(name));// 파일의 확장자
 			
 	
 			if(fileNames.hasMoreElements()== false) {// 다음 파일이 있니? 없으면 밑의 문장을 실행해라
@@ -73,35 +74,37 @@ public class PolicyUpdateService extends HttpServlet {
 		
 		System.out.println(uploadFile); //전부 더해서 저장한 file name , 단위로 다시 String 배열로 바꿔올 코드 
 	
-	//	// 다시 불러올 때 , 단위로 쪼개야 하니까 실험코드 
-		//String[] check = uploadFile.split(",");
-		//for(String temp: check) {
-		//	System.out.println(temp);
-		//}
 		
-		// check 해볼 코드
-		// 세션을 받는다 (아이디)
-		
+		 // // 다시 불러올 때 , 단위로 쪼개야 하니까 실험코드 
+		String[] check = uploadFile.split(",");
+		for(String temp: check) {  System.out.println(temp); }
+		  
+		  // check 해볼 코드 // 세션을 받는다 (아이디)
+				
 		HttpSession session = request.getSession();
 
 		// 폼에서 받아와야 할 것 같은데
+		BigDecimal p_num = new BigDecimal(Integer.parseInt(multi.getParameter("p_num")));
+		
+		System.out.println(p_num);
+		
 		//로그인한 정보에서 가지고 오니까 MemberDT에서 일단 가지고 올게
 		MemberDTO dto = (MemberDTO)session.getAttribute("info");
-
+		
 		//로그인한 아ㅣ디 // 작성자
 		String writer = dto.getM_Id(); 
 		
 		//파일 이름에 한글이 들어가면 얘를 다시 불러올 때 깨짐
 		URLEncoder.encode(uploadFile, "UTF-8");
-		String title = multi.getParameter("title");
-		String content = multi.getParameter("content");
+		String title = multi.getParameter("p_title");
+		String content = multi.getParameter("p_content");
 	
 		System.out.println(writer);
 		System.out.println(title);
 		System.out.println(content);
 		
 		
-		PolicyDTO pdto = new PolicyDTO(writer, content, uploadFile, title);
+		PolicyDTO pdto = new PolicyDTO(p_num, writer, content, uploadFile, title);
 		PolicyDAO dao = new PolicyDAO();
 		
 		int row = dao.update(pdto);

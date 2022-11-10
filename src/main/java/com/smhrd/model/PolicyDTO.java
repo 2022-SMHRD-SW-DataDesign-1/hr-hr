@@ -16,6 +16,7 @@ import lombok.ToString;
 @NoArgsConstructor
 public class PolicyDTO {
 	// 정책 게시글 번호
+	@NonNull
 	private BigDecimal p_num;
 	// 정책 게시글 제목
 	@NonNull
