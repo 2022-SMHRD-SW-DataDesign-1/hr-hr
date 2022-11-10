@@ -33,8 +33,10 @@ public class PrivacyUpdateService extends HttpServlet {
 		MemberDAO dao = new MemberDAO();
 		
 		dao.privacyUpdate(privacy_dto);
-
-		session.setAttribute("info", privacy_dto);
+		
+		MemberDTO up_aft_dto = dao.information(m_id);
+		
+		session.setAttribute("info", up_aft_dto);
 		response.sendRedirect("./testAll.jsp");
 	}
 

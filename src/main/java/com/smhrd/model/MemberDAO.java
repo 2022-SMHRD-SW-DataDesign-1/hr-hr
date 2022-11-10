@@ -62,5 +62,13 @@ public class MemberDAO {
 		
 		return row;
 	}
+	public MemberDTO information(String m_id) {
+		SqlSession session = sqlSessionFactory.openSession(true);
+
+		MemberDTO info = session.selectOne("information", m_id);
+		session.close();
+
+		return info;
+	}
 	
 }
