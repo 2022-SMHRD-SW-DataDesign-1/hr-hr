@@ -11,7 +11,7 @@
 	</select>
 	
 	<insert id="writeComment" parameterType="CommentDTO">
-	INSERT INTO t_comment (b_num, cmt_content, cmt_date, m_id, cmt_likes) VALUES (#{b_num}, #{cmt_content}, sysdate, #{cmt_id}, 0)
+	INSERT INTO t_comment (b_num, cmt_content, cmt_date, m_id) VALUES (#{b_num}, #{cmt_content}, sysdate, #{cmt_id})
 	</insert>
 	
 	<select id="showReviewComment" parameterType="BigDecimal"
@@ -20,7 +20,7 @@
 	</select>
 	
 	<insert id="writeReviewComment" parameterType="ReviewCommentDTO">
-	INSERT INTO T_REVIEW_COMMENT (r_num, r_c_content, r_c_date, m_id, r_c_like) VALUES (#{r_num}, #{r_c_content}, sysdate, #{m_id}, 0)
+	INSERT INTO T_REVIEW_COMMENT (r_num, r_c_content, r_c_date, m_id) VALUES (#{r_num}, #{r_c_content}, sysdate, #{m_id})
 	</insert>
 	
 	
