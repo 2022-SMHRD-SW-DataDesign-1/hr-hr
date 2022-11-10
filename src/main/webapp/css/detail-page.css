@@ -508,3 +508,10 @@
         margin-left: 370px;
     }
     
+    .thumbs{
+    display: inline-block;
+    background: url('./imgs/좋아요.png');
+    width: 24px;
+    height: 24px;
+    margin-top: 5px;
+    }

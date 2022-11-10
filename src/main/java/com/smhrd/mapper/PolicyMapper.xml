@@ -14,11 +14,45 @@
 	<select id="showPolicy" resultType="PolicyDTO">
 		select * from t_Policy order by p_date desc
 	</select>
+	
+	
+	
+	
+	<select id="isPolicyLiked" parameterType="PolicyLikesDTO" resultType="int">
+		SELECT count(*) from t_usefulPolicy where m_id = #{m_id} and
+		p_num = #{p_num}
+	</select>
+	
+	<insert id="PolicyLikesPlus" parameterType="PolicyLikesDTO">
+		INSERT INTO t_usefulPolicy (m_id, p_num) VALUES (#{m_id},#{p_num})
+	</insert>
+	
+	<delete id="PolicyLikesMinus" parameterType="PolicyLikesDTO">
+		delete from t_usefulPolicy where m_id = #{m_id} and p_num = #{p_num}
+	</delete>
+	
+	<update id="PolicysetCount" parameterType="BigDecimal">
+		update t_policy set p_likes= (SELECT count(*) FROM t_usefulPolicy where p_num =#{p_num}) 
+		where p_num=#{p_num}  
+	</update>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 	<!-- 정책 수정 -->
 	<update id="p_update" parameterType = "PolicyDTO">
 		update t_Policy set p_content = #{p_content}, p_filename = #{p_filename}, p_title = #{p_title}
-		where admin_id = #{admin_id}
+		where admin_id = 'admin'
 	<!--	정책 수정은 admin만 가능한데 일단은 admin이 로그인해서 들어가면 되니까 정책 테이블에 들어가서 수정하면 된다
 			1. 아이디 들어가서 수정 
 			2. 어드민만 들어가게 수정

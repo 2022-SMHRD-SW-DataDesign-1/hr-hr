@@ -29,7 +29,7 @@ public class PolicyDAO {
 	}
 	
 	// 정책 수정
-	public int updatePolicy(PolicyDTO dto) {
+	public int update(PolicyDTO dto) {
 		SqlSession session = sqlSessionFactory.openSession(true);
 		int row = session.update("p_update", dto);
 		session.close();

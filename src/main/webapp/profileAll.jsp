@@ -72,12 +72,14 @@
 				</div>
 
 				<div class="right_icons">
-
-					<a href="Login.jsp"><img src="imgs/로그인.PNG"
-						class="sprite_compass_icon"></a> <a href="Profile.jsp"><img
+                    <%if (info != null) {%>
+					<%if(info.getM_Id().equals(info.getM_Id())){ %>
+					<%}else{ %>
+					<a href="Profile.jsp"><img
 						src="imgs/프로필.PNG" class="sprite_user_icon_outline"></a>
-
-
+					<%} %>
+					<%} %>
+					
 				</div>
 
 
@@ -111,8 +113,8 @@
                                 <%}%>
 
 
+		                    <%if (info != null) {%>
 
-                            <%if (info != null) {%>
 
 							<%if (info.getM_Id().equals(info.getM_Id())) { %>
 
@@ -257,14 +259,6 @@
 																		</form>
 																	</div>
 																</div>
-
-
-
-
-
-
-
-
 
 															</div>
 														</div>
@@ -437,6 +431,32 @@
             }
         })
     }
+</script>
+<script>
+
+
+ document.getElementById("profile_edit").addEventListener("click", function () {
+     console.log("profile_edit클릭");
+     this.style.backgroundColor = "white";
+     document.getElementById("profile_edit").style.backgroundColor = "#0a58ca";
+     document.getElementById("profile_edit").style.color = "white";
+     document.getElementById("pw_edit").style.backgroundColor = "white";
+     document.getElementById("pw_edit").style.color = "black";
+
+ })
+ document.getElementById("pw_edit").addEventListener("click", function () {
+     console.log("edit클릭");
+     this.style.backgroundColor = "white";
+     document.getElementById("profile_edit").style.backgroundColor = "white";
+     document.getElementById("profile_edit").style.color = "black";
+     document.getElementById("pw_edit").style.backgroundColor = "#0a58ca";
+     document.getElementById("pw_edit").style.color = "white";
+
+ });
+
+
+ 
+
 </script>
 
 </body>

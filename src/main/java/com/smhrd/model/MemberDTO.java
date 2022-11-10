@@ -45,6 +45,9 @@ public class MemberDTO {
 	// 회원 유형
 	private String m_Type;
 
+	//사용자 프로필 경로
+	private String t_pic;
+
 	// 회원가입 DTO
 	public MemberDTO(String m_Id, String m_Pw, String m_Email, String m_Nickname, String m_Phone) {
 		this.m_Id = m_Id;

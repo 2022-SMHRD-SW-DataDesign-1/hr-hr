@@ -144,7 +144,7 @@
 						<!-- 버튼 두개 -->
 						<div class="list-group">
 							<a href="#"
-								class="list-group-item list-group-item-action active"
+								class="list-group-item list-group-item-action"
 								id="profile_edit">프로필 수정</a> <a href="#"
 								class="list-group-item list-group-item-action"
 								id="pw_edit">개인정보 수정</a>

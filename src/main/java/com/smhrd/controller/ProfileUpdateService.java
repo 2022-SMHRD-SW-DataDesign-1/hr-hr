@@ -17,7 +17,7 @@ public class ProfileUpdateService extends HttpServlet {
 			throws ServletException, IOException {
 		
 		HttpSession session = request.getSession();
-		request.setCharacterEncoding("utf-8");
+		request.setCharacterEncoding("UTF-8");
 		MemberDTO dto = (MemberDTO)session.getAttribute("info");
 		String m_id = dto.getM_Id();
 		String m_Nickname = request.getParameter("m_Nickname");

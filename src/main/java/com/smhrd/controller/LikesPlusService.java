@@ -16,6 +16,7 @@ public class LikesPlusService extends HttpServlet {
 	
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// b_num을 int로 타입 변경 
+		request.setCharacterEncoding("UTF-8");
 		String m_id =  request.getParameter("m_id"); 
 		BigDecimal b_num = new BigDecimal(Integer.parseInt(request.getParameter("b_num"))); 
 		int is_liked = Integer.parseInt(request.getParameter("is_liked"));

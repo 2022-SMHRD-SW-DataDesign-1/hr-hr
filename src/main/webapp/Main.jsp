@@ -1,3 +1,17 @@
+<%@page import="com.smhrd.model.PolicyLikesDTO"%>
+<%@page import="com.smhrd.model.PolicyLikesDAO"%>
+<%@page import="com.smhrd.model.LikesDTO"%>
+<%@page import="com.smhrd.model.LikesDAO"%>
+<%@page import="com.smhrd.model.PolicyDAO"%>
+<%@page import="com.smhrd.model.PolicyDTO"%>
+<%@page import="java.math.BigDecimal"%>
+<%@page import="com.smhrd.model.CommentDTO"%>
+<%@page import="com.smhrd.model.CommentDAO"%>
+<%@page import="com.smhrd.model.BoardDTO"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.smhrd.model.FollowDAO"%>
+<%@page import="com.smhrd.model.BoardDAO"%>
+<%@page import="com.smhrd.model.MemberDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -18,6 +32,13 @@
 
 <body>
 
+	<%
+	MemberDTO info = (MemberDTO) session.getAttribute("info");
+	
+	%>
+
+
+
 	<section id="container">
 
         <!-- 상단바-->
@@ -26,7 +47,7 @@
                 
 				<h1 class="logo">
 					<a href="Main.jsp">
-						<img src="imgs/로고.png">
+						<img src="imgs/<%=java.net.URLEncoder.encode("로고.png","euc-kr") %>"/>
 						
 					</a>
 				</h1>
@@ -179,8 +200,26 @@
 			<div class="inner">
 				<!-- 가운대 영역-->
 				<div class="contents_box">
-					<!-- 게시글 영역 -->
+					<!-- 정책 영역 -->
 					<article class="contents">
+					<%	if(info != null){ %>
+							<%
+							
+							//댓글 dao
+							
+							//게시판 dao
+							
+							
+							int count = 0;
+							
+							PolicyDAO p_dao = new PolicyDAO();
+							ArrayList<PolicyDTO> p_list = p_dao.showPolicy();
+							PolicyLikesDAO pl_dao = new PolicyLikesDAO();
+							PolicyLikesDTO pl_dto;
+							
+							%>
+							<%for(PolicyDTO p_dto : p_list){%>
+							<%String[] p_files = p_dto.getP_filename().split(","); %>
 						<header class="top">
 							<div class="user_container">
 							<!-- content top img로 접근 게시물 상단 유저이미지 -->
@@ -189,9 +228,9 @@
 								</div>
 								<!-- content top user_name으로 접근 게시물 상단 유저닉네임 -->
 								<div class="user_name">
-									<div class="nick_name  user_text">admin</div>
+									<div class="nick_name  user_text"><%= p_dto.getAdmin_id()%></div>
 									<!-- 유저 위치 정보-->
-									<div class="country country_text">Seoul, South Korea</div>
+									<div class="country country_text"></div>
 								</div>
 								<!-- 리뷰 버튼영역-->
                                 <div class="right_button">
@@ -207,45 +246,43 @@
 										<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
 										<!-- 이미지 넣을 수 정하기-->
                                             <div class="carousel-indicators">
-                                              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-label="Slide 1" aria-current="true"></button>
-                                              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2" class=""></button>
-                                              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3" class=""></button>
-											  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4" class=""></button>
-											  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4" aria-label="Slide 5" class=""></button>
-											  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="5" aria-label="Slide 6" class=""></button>
-											  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="6" aria-label="Slide 7" class=""></button>
+                                            <%for(int i =0; i<p_files.length; i++){ %>
+                                              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="<%=i+1 %>" class="active" aria-label="Slide <%= i+1 %>" aria-current="true"></button>
+                                            <%} %>
                                             </div>
                                             <!-- 이미지 여기에 넣는영역 표시-->
                                             <div class="carousel-inner">
+                                            <%for(String temp : p_files){%>
                                               <div class="carousel-item active">
                                                 <!-- 여기에 사진넣기 --> 	
-                                                <a href="policy_board.jsp"><img src="imgs/국민취업지원제도1.png" alt="visual01"></a>
-                                          
+                                                <a href="policy_board.jsp"><img src="./imgs/<%=temp %>"></a>                                          
                                               </div>
-                                              <div class="carousel-item">
-                                                <!-- 여기에 사진넣기 --> 				
+                                             <%} %>
+                                            
+                                             <!--  <div class="carousel-item">
+                                                				
                                                <a href="policy_board.jsp"> <img src="imgs/국민취업지원제도2.png" alt="visual02"></a> 								  
                                               </div>	
                                                 <div class="carousel-item">
-                                                <!-- 여기에 사진넣기 --> 	
+                                                	
                                                 <a href="policy_board.jsp"><img src="imgs/국민취업지원제도 3.png" alt="visual03"> </a>
                                           	</div>
 											  <div class="carousel-item">
-                                                <!-- 여기에 사진넣기 --> 				
+                                               				
                                                 <a href="policy_board.jsp"><img src="imgs/국민취업지원제도 4.png" alt="visual04"></a> 								  
                                               </div>
 											  <div class="carousel-item">
-                                                <!-- 여기에 사진넣기 --> 				
+                                               				
                                                 <a href="policy_board.jsp"><img src="imgs/국민취업지원제도 5.png" alt="visual05"> </a>							  
                                               </div>
 											  <div class="carousel-item">
-                                                <!-- 여기에 사진넣기 --> 				
+                                               				
                                                 <a href="policy_board.jsp"><img src="imgs/국민취업지원제도 6.png" alt="visual06"> </a>							  
                                               </div>
 											  <div class="carousel-item">
-                                                <!-- 여기에 사진넣기 --> 				
+                                               				
                                                <a href="policy_board.jsp"> <img src="imgs/국민취업지원제도7.png" alt="visual07"> 	</a>						  
-                                              </div>
+                                              </div>-->
                                             </div>
                                             <!-- 이미지 왼쪽으로 넘기기-->
                                             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
@@ -261,13 +298,12 @@
 									</div>
 								</div>
 							</div>
-
 							
 							<div class="detail--right_box">
 
 
 								<header class="top">
-									<!-- 게시글 내용영역-->
+									<!-- 정책 내용영역-->
 									<div class="admin_container">
 										<div class="comment">
 											<span class="user_id">Kindtiger</span>강아지가 많이 힘든가보다ㅜㅜㅜㅜㅜ조금만힘내
@@ -277,97 +313,101 @@
 									
 								</header>
 
-							<!-- 댓글 스크롤 넘기기 -->
-								<section class="scroll_section">
-									<!-- 댓글 영역 1 -->
-									<div class="user_container-detail">
-									
-										<div class="user">
-											<img src="imgs/thumb02.jpg" alt="user">
-										</div>
-										<div class="comment">
-											<span class="user_id">in0.lee</span>너무귀엽네요 ㅎㅎㅎ맞팔해요~!
-											<div class="time">
-												2시간 <span class="try_comment">답글 달기</span>
-											</div>
-											<div class="icon_wrap">
-												<div class="more_trigger">
-													<div class="sprite_more_icon"></div>
-												</div>
-												<div>
-													<div class="sprite_small_heart_icon_outline"></div>
-												</div>
-											</div>
-										</div>
-									</div>
-									<!-- 댓글 2 -->
-									<div class="user_container-detail">
-										<div class="user">
-											<img src="imgs/thumb03.jpg" alt="user">
-										</div>
-										<div class="comment">
-											<span class="user_id">ye_solkim</span>강아지 이름이 뭐에요???
-											<div class="time">
-												2시간 <span class="try_comment">답글 달기</span>
-											</div>
-											<div class="icon_wrap">
-												<div class="more_trigger">
-													<div class="sprite_more_icon"></div>
-												</div>
-												<div>
-													<div class="sprite_small_heart_icon_outline"></div>
-												</div>
-											</div>
-										</div>
-									</div>
-
-
-								</section>
 
 								<div class="bottom_icons">
-								<!-- 게시글 왼쪽 버튼영역 -->
+								<!-- 정책 왼쪽 버튼영역 -->
 									<div class="left_icons">
-									<!-- 게시글 좋아요 버튼 -->
+									<!-- 정책 좋아요 버튼 -->
 										<div class="heart_btn">
-											<div class="sprite_heart_icon_outline" data-name="heartbeat">
-												<button class="heart_button"><img src="imgs/3.PNG"></button>
+											<div class="sprite_heart_icon_outline" >
+											<%pl_dto = new PolicyLikesDTO(info.getM_Id(),p_dto.getP_num()); %>
+											<%if(pl_dao.isPolicyLiked(pl_dto)>0){ %>
+												<button class="heart_button" id='policylikes<%= count %>'onclick="policylikes(<%= p_dto.getP_num()%>,this.id)">유용해요해제</button>
+											<%}else{%>
+												<button class="heart_button" id='policylikes<%= count %>' onclick="policylikes(<%= p_dto.getP_num() %>,this.id)">유용해요등록</button>
+											<%	}%>
 											</div>
 										</div>
 										<div>
-										<!-- 게시글 댓글 버튼영역-->
+										<!-- 정책 댓글 버튼영역-->
 											<div class="sprite_bubble_icon"></div>
 										</div>
 										
 									</div>
-									<!-- 게시글 아래 오른쪽영역 -->
+									<!-- 정책 아래 오른쪽영역 -->
 									<div class="right_icon">
-									<!-- 게시글 스크랩버튼 -->	
-										<div class="sprite_bookmark_outline" data-name="book-mark"></div>
+									<!-- 정책 스크랩버튼 -->	
+										<div class="sprite_bookmark_outline" ></div>
 									</div>
 								</div>
-								<!-- 게시글 좋아요 수 표시 -->
+								
+								<!-- 정책 좋아요 수 표시 -->
+								<br>
+								<br>
 								<div class="count_likes">
-									좋아요 <span class="count">2,351</span> 개
+									좋아요 <span class="count" id='like<%= count %>'><%=p_dto.getP_likes() %></span> 개
 								</div>
-								<div class="timer">2시간</div>
-								<!-- 댓글 표시 -->
-								<div class="commit_field">
-									<form action="#" id="commentform">
-										<input type="text" name="username" placeholder="username" />
-										<input type="text" name="comment_text" placeholder="댓글달기...">
-										<button type="submit"class="upload_btn user_text" data-name="comment">게시</button>
-									</form>
-								</div>
-
-
-
+								<% count++; %>
+								<div class="timer"><%=p_dto.getP_date() %></div>
 							</div>
-
-
+							<%} %>
+						<%} %>
 						</article>
+  						
+                    	<%if(info != null){%>
+						<script>
+							function policylikes(p_num,clicked_id){
+								let is_like;
+								console.log(p_num);
+								console.log(clicked_id);
+								
+								let policylikeBtn = document.getElementById(clicked_id);
+								
+								if(policylikeBtn.innerText == '유용해요등록'){
+									policylikeBtn.innerText = '유용해요해제'
+									is_like = 0;
+								}else{
+									policylikeBtn.innerText = '유용해요등록'
+									is_like = 1;
+								}
+								
+								console.log(is_like);
+								$.ajax({
+									url : 'PolicyLikesService',
+									data :{
+										'm_id' :<%=info.getM_Id()%>,
+										'p_num' : p_num,
+										'is_like':is_like
+									},
+									type:'get', // 요청 타입
+									success:function(data){// 통신성공(function(넘겨준데이터))
+										console.log(data);
+									},
+								error:function(){
+									console.log("asfknaskm");
+								}
+								
+								})//속성
+								
+					
+									}
+							</script> 
+							<%} %>
                     
+					
+					<%	if(info != null){ %>
+					<% BoardDAO b_dao = new BoardDAO();
+					 
+					   LikesDAO l_dao = new LikesDAO();
+				       LikesDTO l_dto = new LikesDTO();
+				      
+				       int count = 0;%>
+					<% // 게시판 글 모음 dao에서 로그인한 아이디와 같은 글을 arraylist에 담음 
+					ArrayList<BoardDTO> bList = b_dao.showBoard(info.getM_Id()); %>
+                       <!-- 사용자 게시글  -->
 					<article class="contents">
-                       <!-- 두번째 게시글  -->
+                       <% for(BoardDTO b_dto : bList){%>
+							<%String[] b_files = b_dto.getB_filename().split(","); %>
 						<header class="top">
 							<div class="user_container">
 							<!-- 게시글 프로필 이미지 -->
@@ -376,13 +416,13 @@
 								</div>
 								<!-- 게시글 유저 닉네임 -->
 								<div class="user_name">
-									<div class="nick_name user_text">ㅋㅋ~닉네임인데~ㅋㅋ</div>
-									<div class="country country_text">Seoul, South Korea</div>
+									<div class="nick_name user_text"><%=b_dto.getB_writer() %></div>
+									<div class="country country_text"></div>
 								</div>
 
 							</div>
 							<!-- 게시글 수정 삭제 영역  -->
-							<div class="sprite_more_icon" data-name="more">
+							<div class="sprite_more_icon" >
 								<div class="dropdown">
 									<button class="btn btn-secondary dropdown-toggle btn btn-light" type="button" data-bs-toggle="dropdown" aria-expanded="false">
 									 ...
@@ -403,27 +443,30 @@
 									<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
 									<!-- 사진 넣을수 정하기 -->
 										<div class="carousel-indicators">
-										  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-label="Slide 1" aria-current="true"></button>
-										  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2" class=""></button>
-										  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3" class=""></button>
+										 <%for(int i = 0; i<b_files.length; i++){%>
+										  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="<%=i %>" class="active" aria-label="Slide<%=i+1 %>" aria-current="true"></button>
+										  <%} %>
 										</div>
 										<!-- 사진 넣는 영역 -->
 										<div class="carousel-inner">
+										<%for(String temp : b_files){%>
 										  <div class="carousel-item active">
 											<!-- 여기에 사진넣기 --> 	
-											<a href="Detail-page.jsp"><img src="imgs/img_section/img01.jpg" alt="visual01"></a>
+											<a href="Detail-page.jsp"><img src="imgs/<%=temp%>"></a>
 									  
 										  </div>
-										  <div class="carousel-item">
-											<!-- 여기에 사진넣기 --> 				
+										  <%} %>
+										 <!-- <div class="carousel-item">
+															
 											<a href="Detail-page.jsp"><img src="imgs/3등.PNG" alt="visual02"> </a>								  
 										  </div>	
 											<div class="carousel-item">
-											<!-- 여기에 사진넣기 --> 	
+												
 											<a href="Detail-page.jsp"><img src="imgs/img_section/img01.jpg" alt="visual03"></a>
 									  
-										  </div>
+										  </div>-->
 										</div>
+										
 										<!-- 사진 왼쪽으로 넘기기 -->
 										<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
 										  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -438,16 +481,33 @@
 								</div>
 							</div>
 						</div>
+						<header class="top">
+									<!-- 게시글 내용영역-->
+									<div class="admin_container">
+										<div class="comment">
+											<span class="user_id"><%=b_dto.getB_writer() %></span><%= b_dto.getB_content() %>
+											<div class="time"><%=b_dto.getB_date() %></div>
+										</div>
+									</div>
+									
+								</header>
+						
 						<!-- 게시글 하단 버튼영역 -->
 						<div class="bottom_icons">
 						<!-- 왼쪽버튼 영역 -->
 							<div class="left_icons">
 							<!-- 좋아요 버튼 -->
 								<div class="heart_btn">
-									<div class="sprite_heart_icon_outline" data-name="heartbeat">
-										<button class="heart_button"><img src="imgs/3.PNG"></button>
-									</div>
-								</div>
+									<div class="sprite_heart_icon_outline" >
+										<%l_dto = new LikesDTO(info.getM_Id(),b_dto.getB_num()); %>
+										<%if(l_dao.isLiked(l_dto)>0){ %>
+											<button class="heart_button" id='likes<%= count %>'onclick="likes(<%= b_dto.getB_num()%>,this.id)">유용해요해제</button>
+										<%}else{%>
+											<button class="heart_button" id='likes<%= count %>' onclick="likes(<%= b_dto.getB_num() %>,this.id)">유용해요등록</button>
+										<%	}%>
+											</div>
+											<%count++; %>
+										</div>
 								<!-- 댓글 버튼 -->
 								<div class="sprite_bubble_icon"></div>
 								
@@ -455,21 +515,32 @@
 							<!-- 오른쪽영역 -->
 							<div class="right_icon">
 							<!-- 스크랩버튼 -->
-								<div class="sprite_bookmark_outline" data-name="bookmark"></div>
+								<div class="sprite_bookmark_outline" ></div>
 							</div>
 						</div>
 						<!-- 좋아요수 표시 -->
-						<div class="likes user_text">
-							좋아요 <span id="like-count-39">2,346</span> <span
-								id="bookmark-count-39"></span> 개
+						<br>
+						<br>
+						<div class="count_likes">
+									좋아요 <span class="count" id='like<%= count %>'><%=b_dto.getB_likes() %></span> 개
 						</div>
+									<%= count++ %>
 						<!-- 댓글 표시 -->
 						<div class="comment_container">
 							<div class="comment" id="comments">
-								<ul class="comment-detail" >
-									<li class="nick_name user_text" name="username">수리남 박상현</li>
-									<li name="comment_data">강아지가 눈을 왜 그렇게 뜨죠?</li>
-								</ul>
+								<% CommentDAO cmtDAO = new CommentDAO(); %>
+										<% BigDecimal b_num = b_dto.getB_num(); %>
+										<%ArrayList<CommentDTO> cmtList = cmtDAO.showComment(b_num); %>
+										
+										<% 	if(cmtList != null){%>
+											<%	for(CommentDTO cmt : cmtList){%>
+											<span class="user_id"><%=cmt.getCmt_id() %></span>
+													<%=cmt.getCmt_content() %>
+											<div class="time">
+												<%=cmt.getCmt_date() %> 
+											</div>
+												<%} %>
+												<%} %>
 								
 							</div>
 							<div class="small_heart">
@@ -478,13 +549,55 @@
 						</div>
 						<!-- 댓글 입력란 -->
 						<div class="comment_field" id="add-comment-post37">
-							<form action="#" id="commentform">
-								<input type="text" name="username" placeholder="username" />
-								<input type="text" name="comment_text" placeholder="댓글달기...">
-								<button type="submit"class="upload_btn user_text" data-name="comment">게시</button>
+							<form action="CommentService?b_num=<%=b_dto.getB_num() %>" method="post" id="commentform">
+								<input type="text" name="c_content" placeholder="댓글달기...">
+								<button type="submit" class="upload_btn user_text">댓글등록</button>
 							</form>
 						</div>
+							<%} %>
+
+						<%} %>
 					</article>
+					<%if(info != null){%>
+	<script>
+		function likes(b_num,clicked_id){
+			let is_like;
+			console.log(b_num);
+			console.log(clicked_id);
+				
+			let likeBtn = document.getElementById(clicked_id);
+			
+			if(likeBtn.innerText == '유용해요'){
+				likeBtn.innerText = '유용해요해제';
+				is_like = 0;
+			}else{
+				likeBtn.innerText = '유용해요';
+				is_like = 1;
+			}
+			
+			
+			$.ajax({
+				url : 'LikesPlusService',
+				data :{
+					'm_id' :<%=info.getM_Id()%>,
+					'b_num' : b_num,
+					'is_liked':is_like
+				},
+				type:'get', // 요청 타입
+				success:function(data){// 통신성공(function(넘겨준데이터))
+					console.log(data);
+				},
+			error:function(){
+				console.log("asfknaskm");
+			}
+			
+			})//속성
+			
+
+		}
+	</script> 
+	<%} %>
+		
 
 				</div>
 				
@@ -535,7 +648,7 @@
 											<input type="file" name="filename" id="id_photo" style="float: right;" required="required" >
 											<script >
 												function addbtn(){
-													$("#filelist").append("<input  type='file' style='float: right;' required='required' name='filename<%=count%>' multiple>")
+													$("#filelist").append("<input  type='file' style='float: right;' required='required' name='filename<%=count%>' multiple>");
 												}
 											</script>
 										</p>

@@ -3474,9 +3474,9 @@ textarea.form-control-lg {
   background-color: #212529;
   border-color: #212529;
 }
-.btn-check:focus + .btn-outline-dark, .btn-outline-dark:focus {
+/* /* .btn-check:focus + .btn-outline-dark, .btn-outline-dark:focus {
   box-shadow: 0 0 0 0.25rem rgba(33, 37, 41, 0.5);
-}
+} */ */
 .btn-check:checked + .btn-outline-dark, .btn-check:active + .btn-outline-dark, .btn-outline-dark:active, .btn-outline-dark.active, .btn-outline-dark.dropdown-toggle.show {
   color: #fff;
   background-color: #212529;
@@ -5137,8 +5137,11 @@ textarea.form-control-lg {
 .list-group-item.active {
   z-index: 2;
   color: #fff;
-  background-color: #0d6efd;
-  border-color: #0d6efd;
+  background-color: #ffffff;
+  color: black;
+}
+.list-group-item.active:hover {
+  background-color: rgb(240, 240, 240);
 }
 .list-group-item + .list-group-item {
   border-top-width: 0;
