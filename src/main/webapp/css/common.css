@@ -321,8 +321,12 @@ body {
     }
 
 }
-
-@media screen and (max-width: 480px) {
-
+.comment_more{
+	position: absolute;
+	right: 50px
+}
+.comment_more>a{
+	text-decoration: none;
+	font-size: 14px;
 }
 

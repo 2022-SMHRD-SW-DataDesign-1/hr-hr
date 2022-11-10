@@ -484,12 +484,6 @@
 						</div>
 						<header class="top">
 									<!-- 게시글 내용영역-->
-									<div class="admin_container">
-										<div class="comment">
-											<span class="user_id"><%=b_dto.getB_writer() %></span><%= b_dto.getB_content() %>
-											<div class="time"><%=b_dto.getB_date() %></div>
-										</div>
-									</div>
 									
 								</header>
 						
@@ -523,9 +517,19 @@
 						<br>
 						<br>
 						<div class="count_likes">
-									좋아요 <span class="count" id='like<%= count %>'><%=b_dto.getB_likes() %></span> 개
+									좋아요 <span class="count" id='like<%= count++ %>'><%=b_dto.getB_likes() %></span> 개
 						</div>
 									<%= count++ %>
+									<div class="admin_container">
+										<div class="comment">
+											<span class="user_id"><%=b_dto.getB_writer() %></span><%= b_dto.getB_content() %>
+											<div class="time"><%=b_dto.getB_date() %></div>
+											
+										</div>
+									</div>
+									<div class="comment_more">
+										<a href="Detail-page.jsp">댓글 더보기</a>
+									</div>
 						<!-- 댓글 표시 -->
 						<div class="comment_container">
 							<div class="comment" id="comments">
@@ -537,16 +541,15 @@
 											<%	for(CommentDTO cmt : cmtList){%>
 											<span class="user_id"><%=cmt.getCmt_id() %></span>
 													<%=cmt.getCmt_content() %>
+													
 											<div class="time">
 												<%=cmt.getCmt_date() %> 
 											</div>
 												<%} %>
 												<%} %>
-								
+									
 							</div>
-							<div class="small_heart">
-								<div class="sprite_small_heart_icon_outline"></div>
-							</div>
+							
 						</div>
 						<!-- 댓글 입력란 -->
 						<div class="comment_field" id="add-comment-post37">
