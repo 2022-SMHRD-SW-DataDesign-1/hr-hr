@@ -42,7 +42,9 @@
 		<link rel="stylesheet" href="css/common.css">
 		<link rel="stylesheet" href="css/style.css">
 		<link rel="stylesheet" href="css/detail-page.css">
-		<link rel="shortcut icon" href="imgs/instagram.png">
+		<link rel="stylesheet" href="css/bootstrap.css">
+		
+		<link rel="shortcut icon" href="#"><!-- 우리 로고 넣어야함 -->
 
   		<script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
 		
@@ -66,6 +68,7 @@
 			<header id="header">
                 <section class="h_inner">
 
+					<!-- 로고 -->
                     <h1 class="logo">
                         <a href="Main.jsp">
                             <div class="sprite_insta_icon"></div>
@@ -74,7 +77,7 @@
                             </div>
                         </a>
                     </h1>
-
+					<!-- 검색바 -->
                     <div class="search_field">
                         <input type="text" placeholder="검색" tabindex="search_field">
 
@@ -84,11 +87,36 @@
                         </div>
                     </div>
 
-
+					<!-- 오른쪽 메뉴 아이콘 -->
                     <div class="right_icons">
                         <a href="Profile.jsp"><img src="imgs/프로필.PNG" class="sprite_user_icon_outline"></a>
                         <a href="Top10Ranking.jsp"><img src="imgs/랭킹버튼.PNG" class="sprite_user_icon_outline"></a>
                         <a href="DM.jsp"> <img src="imgs/채팅.PNG" class="sprite_user_icon_outline"></a>
+                        <!-- 알람버튼 -->
+					<button type="button" class="btn btn-primary position-relative" id="liveToastBtn">
+						<span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+							1
+						</span>
+						<img src="imgs/알람.PNG">
+					</button>
+					<div class="toast-container position-static">
+						<div class="toast-container position-fixed bottom-0 end-0 p-3">
+						<div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+							<div class="toast-header">
+							<img src="imgs/알람.PNG" class="rounded me-2" alt="...">
+							<strong class="me-auto">알람내역</strong>
+							<small>11분전</small>
+							<button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+							</div>
+							<div class="toast-body">
+							메세지 한건이 도착했습니다.
+							</div>
+						</div>
+						</div>
+					</div>
+                        
+                        
+                        
                     </div>
                 </section>
             </header>
@@ -97,9 +125,6 @@
 			<div id="main_container">
 				<!-- 게시물 영역  -->
 				
-				
-				
-				게시글이 나와야함...
 				<section class="b_inner">
 
 					<div class="contents_box">
@@ -115,7 +140,6 @@
 								<!-- 유저 이름 및 정보 -->
 								<div class="user_name">
 									<div class="nick_name"><%=board.getB_writer() %></div>
-									<div class="country">Seoul, South Korea</div>
 								</div>
 							</div>
 							<!-- 게시물 이미지 영역 -->
@@ -147,30 +171,7 @@
 									
 								</header>
 
-								<!-- 댓글 스크롤  -->
-								<section class="scroll_section">
-									
-									
-									
-									<%if(cmtList != null){ %>
-									<%for(CommentDTO cmt_dto : cmtList){ %>
-									<!-- 댓글 영역 -->
-									<div class="user_container-detail">
-										<div class="user">
-										<!-- 댓글게시 유저 이미지 -->
-											<img src="imgs/thumb02.jpg" alt="user">
-										</div>
-										<!-- 댓글 내용 -->
-										<div class="comment">
-											<span class="user_id"><%=cmt_dto.getCmt_id() %></span><%=cmt_dto.getCmt_content() %>
-											<button>좋아요</button>
-										</div>
-									</div>
-									<%} %>
-									
-									<%} %>
-									
-								</section>
+								
 
 								<!-- 게시글 하단 버튼  -->
 								<div class="bottom_icons">
@@ -192,16 +193,72 @@
 									</div>
 								</div>
 								<!-- 게시글 좋아요수 표시 -->
-								<div class="count_likes">
-									좋아요 <span class="count">2,351</span> 개
-								</div>
+								<div class="count_likes">좋아요 
+								<span class="count">2,351</span> 개
 								<div class="timer">2시간</div>
-								<!-- 댓글 입력란 -->
-								<div class="commit_field">
-									<input type="text" placeholder="댓글달기..">
-
-									<div class="upload_btn">게시</div>
 								</div>
+								<!-- 댓글 스크롤  -->
+								<section class="scroll_section">
+
+
+
+
+								<!-- 댓글 두개만 보이고 나머지는 더보기로 넘겨야함 -->
+									
+									<%if(cmtList != null){ %>
+									<!-- for(i = 0; i<1; i++){ -->
+									<%for(CommentDTO cmt_dto : cmtList){ %>
+									<!-- 댓글 영역 -->
+									<div class="user_container-detail">
+										<div class="user">
+										<!-- 댓글게시 유저 이미지 -->
+										<!-- 프로필 사진도 필요 -->
+											<img src="imgs/thumb02.jpg" alt="user">
+										</div>
+										<!-- 댓글 내용 -->
+										<div class="comment">
+											<span class="user_id"><%=cmt_dto.getCmt_id() %></span>
+											<%=cmt_dto.getCmt_content() %>
+											
+											<button class="cmtlike">♡</button>
+										</div>
+									</div>
+									<%} %>
+									
+									<%} %>
+									
+									<%-- <%if(cmtList != null){ %>
+									<%for(CommentDTO cmt_dto : cmtList){ %>
+									<!-- 댓글 영역 -->
+									<div class="user_container-detail">
+										<div class="user">
+										<!-- 댓글게시 유저 이미지 -->
+											<img src="imgs/thumb02.jpg" alt="user">
+										</div>
+										<!-- 댓글 내용 -->
+										<div class="comment">
+											<span class="user_id"><%=cmt_dto.getCmt_id() %></span>
+											<%=cmt_dto.getCmt_content() %>
+											
+											<button class="cmtlike">♡</button>
+										</div>
+									</div>
+									<%} %>
+									
+									<%} %> --%>
+									
+								</section>
+								<!-- 댓글창 끝나는 곳 -->
+								
+								
+								
+								<!-- 댓글 입력란 -->
+								<div class="comment_field" id="add-comment-post37">
+								<form action="CommentService?b_num=<%=board.getB_num()%>" method="post" id="commentform">
+								<input type="text" name="c_content" placeholder="댓글달기...">
+								<button type="submit" class="upload_btn user_text">댓글등록</button>
+								</form>
+							</div>
 
 
 
