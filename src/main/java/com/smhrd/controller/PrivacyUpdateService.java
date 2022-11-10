@@ -33,7 +33,10 @@ public class PrivacyUpdateService extends HttpServlet {
 		int row = dao.privacyUpdate(privacy_dto);
 		System.out.println(row);
 
-		session.setAttribute("info", privacy_dto);
+
+		MemberDTO dto1 = (MemberDTO)session.getAttribute("info");
+		
+		session.setAttribute("info", dto1);
 		response.sendRedirect("./testAll.jsp");
 	}
 

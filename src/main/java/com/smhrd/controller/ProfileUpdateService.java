@@ -31,7 +31,9 @@ public class ProfileUpdateService extends HttpServlet {
 		int row = dao.profileUpdate(update_dto);
 		System.out.println(row);
 		
-		session.setAttribute("info", update_dto);
+		MemberDTO dto1 = (MemberDTO)session.getAttribute("info");
+		
+		session.setAttribute("info", dto1);
 		response.sendRedirect("./testAll.jsp");
 	}
 

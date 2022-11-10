@@ -120,6 +120,7 @@
 								class="btn btn-primary btn btn-light btn btn-outline-dark"
 								data-bs-toggle="modal" data-bs-target="#exampleModal">
 								정보수정</button>
+								
 							<%}%>
 							<!-- 팝업창 영역 -->
 							<!-- Modal -->
@@ -163,7 +164,8 @@
 									</div>
 								</div>
 								<div class="row">
-
+									
+								<%if (info != null) {%>
 									<!-- 어.... 개인정보  -->
 									<div class="nameEdit">
 										<form action="ProfileUpdateService" method="post">
@@ -174,7 +176,7 @@
 												<div class="col-8">
 													<!-- 닉네입 수정입력 -->
 													<input id="text" name="m_Nickname"
-														placeholder="Nickname" class="form-control here"
+														value="<%=info.getM_Nickname() %>" class="form-control here"
 														required="required" type="text">
 												</div>
 											</div>
@@ -184,7 +186,7 @@
 												<label for="publicinfo" class="col-4 col-form-label">소개</label>
 												<div class="col-8">
 													<textarea id="publicinfo" name="m_Profile" cols="40"
-														rows="4" class="form-control"></textarea>
+														rows="4" class="form-control" ><%=info.getM_Profile()%></textarea>
 												</div>
 											</div>
 
@@ -210,7 +212,7 @@
 												<div class="col-8">
 													<!-- 이름입력 -->
 													<input id="username" name="m_Email"
-														placeholder="UserEmail" class="form-control here"
+														value="<%=info.getM_Email() %>" class="form-control here"
 														required="required" type="text">
 												</div>
 											</div>
@@ -220,7 +222,7 @@
 												<div class="col-8">
 													<!-- 패스워드 입력 -->
 													<input id="pw" name="m_Pw" placeholder="Password"
-														class="form-control here" type="text">
+														class="form-control here" type="password">
 												</div>
 											</div>
 											<!-- 패스워드 확인 -->
@@ -231,7 +233,7 @@
 													<!-- 패스워드 확인 입력 -->
 													<input id="pwcheck" name="m_pwcheck"
 														placeholder="PwCheck" class="form-control here"
-														type="text" onkeyup="checkPW()"><br>
+														type="password" onkeyup="checkPW()"><br>
 														
 														 <span id="pwCheckResult"></span>
 												</div>
@@ -242,7 +244,7 @@
 												<div class="col-8">
 													<!-- 닉네입 수정입력 -->
 													<input id="text" name="m_Phone"
-														placeholder="PhoneNumber" class="form-control here"
+														value="<%=info.getM_Phone() %>" class="form-control here"
 														required="required" type="text">
 												</div>
 											</div>
@@ -262,6 +264,7 @@
 					<!-- 수정창 -->
 				</div>
 				<!-- 넣는 공간 끝 -->
+							<%}%>
 			</div>
 										<!-- 팝업창 닫기 -->
 										<div class="modal-footer">
