@@ -14,5 +14,14 @@
 	INSERT INTO t_comment (b_num, cmt_content, cmt_date, m_id, cmt_likes) VALUES (#{b_num}, #{cmt_content}, sysdate, #{cmt_id}, 0)
 	</insert>
 	
+	<select id="showReviewComment" parameterType="BigDecimal"
+		resultType="ReviewCommentDTO">
+	select * from t_comment where b_num = #{b_num}
+	</select>
+	
+	<insert id="writeComment" parameterType="ReviewCommentDTO">
+	INSERT INTO t_comment (r_num, r_c_content, r_c_date, m_id, r_c_like) VALUES (#{r_num}, #{r_c_content}, sysdate, #{m_id}, 0)
+	</insert>
+	
 	
 </mapper>
