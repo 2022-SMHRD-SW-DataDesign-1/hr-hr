@@ -1,3 +1,10 @@
+<%@page import="com.smhrd.model.ReviewCommentDTO"%>
+<%@page import="com.smhrd.model.ReviewCommentDAO"%>
+<%@page import="com.smhrd.model.ReviewDTO"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.smhrd.model.ReviewDAO"%>
+<%@page import="java.math.BigDecimal"%>
+<%@page import="com.smhrd.model.MemberDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -33,6 +40,26 @@
 	<body>
 
 
+		<%MemberDTO info = (MemberDTO) session.getAttribute("info");%>
+		
+		<%
+		ReviewDAO r_dao = new ReviewDAO();
+		
+		// 리뷰글 번호
+		BigDecimal r_num = new BigDecimal(Integer.parseInt(request.getParameter("r_num")));
+		// 리뷰글이 등록된 정책글 번호
+		BigDecimal p_num = new BigDecimal(Integer.parseInt(request.getParameter("p_num")));
+			
+		ReviewDTO r_detail = r_dao.reviewDetailShow(r_num);
+		
+		// 리뷰글의 댓글목록 가져오기
+		ReviewCommentDAO r_c_dao = new ReviewCommentDAO();
+		ArrayList<ReviewCommentDTO> r_c_List =r_c_dao.showReviewComment(r_num);
+		%>
+
+
+
+
 		<section id="container">
 
 
@@ -57,7 +84,7 @@
 
 					<div class="right_icons">
 						<a href="Login.jsp"><img src="imgs/로그인.PNG" class="sprite_compass_icon"></a>
-					<a href="Profile.jsp"><img src="imgs/프로필.PNG" class="sprite_user_icon_outline"></a>
+					<a href="ProfileAll.jsp"><img src="imgs/프로필.PNG" class="sprite_user_icon_outline"></a>
 					</div>
 				</section>
 			</header>
@@ -72,16 +99,16 @@
 						<article class="contents cont01">
 							<!-- 게시글 상단 -->
 							<div class="user_container">
+							
 							<!-- 유저 이미지 -->
 								<div class="profile_img">
 									<img src="imgs/thumb.jpeg" alt="">
 								</div>
+								
+								
 								<!-- 유저 정보 -->
 								<div class="user_name">
-									<div class="nick_name">Admin</div>
-									<div class="country">Seoul, South Korea</div>
-
-                                    
+									<div class="nick_name"><%=r_detail.getR_title() %></div>
 								</div>
                               
 							</div>
@@ -136,8 +163,8 @@
 									<div class="admin_container">
 										<div class="comment">
 										<!-- 유저 이름  -->
-											<span class="user_id">Kindtiger</span>강아지가 많이 힘든가보다ㅜㅜㅜㅜㅜ조금만힘내
-											<div class="time">2시간</div>
+											<span class="user_id"><%=r_detail.getM_id() %></span><%=r_detail.getR_content() %>
+											<div class="time"><%=r_detail.getR_date()%></div>
 										</div>
 									</div>
 									
@@ -145,78 +172,43 @@
 
 							<!-- 댓글 스크롤 -->
 								<section class="scroll_section">
+								
+								
+								
 								<!-- 댓글 영역 -->
 									<div class="user_container-detail">
+									
+									
+									
+										<%if(r_c_List != null){ %>
+										<%for(ReviewCommentDTO r_c_dto : r_c_List){ %>
 									<!-- 댓글 유저 이미지 -->
 										<div class="user">
-											<img src="imgs/thumb02.jpg" alt="user">
+											img
 										</div>
+										
 										<!-- 댓글 내용 -->
 										<div class="comment">
-											<span class="user_id">in0.lee</span>너무귀엽네요 ㅎㅎㅎ맞팔해요~!
+											<span class="user_id"><%=r_c_dto.getM_id() %></span><%=r_c_dto.getR_c_content() %>
 											<div class="time">
-												2시간 <span class="try_comment">답글 달기</span>
+												<%=r_c_dto.getR_c_date() %>
 											</div>
-											
 										</div>
+										
+										<%} %>
+										<%} %>
 									</div>
-
-									<div class="user_container-detail">
-										<div class="user">
-											<img src="imgs/thumb03.jpg" alt="user">
-										</div>
-										<div class="comment">
-											<span class="user_id">ye_solkim</span>강아지 이름이 뭐에요???
-											<div class="time">
-												2시간 <span class="try_comment">답글 달기</span>
-											</div>
-											
-										</div>
-									</div>
-
-									<div class="user_container-detail">
-										<div class="user">
-											<img src="imgs/thumb02.jpg" alt="user">
-										</div>
-										<div class="comment">
-											<span class="user_id">in0.lee</span>너무귀엽네요 ㅎㅎㅎ맞팔해요~!
-											<div class="time">
-												2시간 <span class="try_comment">답글 달기</span>
-											</div>
-											
-										</div>
-									</div>
-
-									<div class="user_container-detail">
-										<div class="user">
-											<img src="imgs/thumb03.jpg" alt="user">
-										</div>
-										<div class="comment">
-											<span class="user_id">in0.lee</span>너무귀엽네요
-											<div class="time">
-												2시간 <span class="try_comment">답글 달기</span>
-											</div>
-											
-										</div>
-									</div>
-
-									<div class="user_container-detail">
-										<div class="user">
-											<img src="imgs/thumb02.jpg" alt="user">
-										</div>
-										<div class="comment">
-											<span class="user_id">in0.lee</span>너무귀엽네요 ㅎㅎㅎ맞팔해요~!
-											<div class="time">
-												2시간 <span class="try_comment">답글 달기</span>
-											</div>
-											
-										</div>
-									</div>
+									
 
 								</section>
 
+
+
 								<!-- 게시글 하단 버튼  -->
 								<div class="bottom_icons">
+								
+								
+								
 								<!-- 하단 왼쪽 -->
 									<div class="left_icons">
 									<!-- 좋아요 버튼 -->
@@ -225,30 +217,31 @@
 										<button class="heart_button"><img src="imgs/3.PNG"></button>
 									</div>
 								</div>
+								
+								
+								
 								<!-- 댓글 버튼 -->
 								<div class="sprite_bubble_icon"></div>
 									</div>
-								<!-- 게시글 스크랩 -->
-									<div class="right_icon">
-										<div class="sprite_bookmark_outline" data-name="book-mark"></div>
-									</div>
-								</div>
+								
+								
+								
 								<!-- 좋아요수 표시 -->
 								<div class="count_likes">
-									좋아요 <span class="count">2,351</span> 개
+									좋아요 <span class="count"><%=r_detail.getR_like() %></span> 개
 								</div>
-								<div class="timer">2시간</div>
+								
+
+							</div>
+								
 								<!-- 댓글 입력란  -->
 								<div class="commit_field">
+								<form action="">
 									<input type="text" placeholder="댓글달기..">
 
 									<div class="upload_btn">게시</div>
 								</div>
-
-
-
-							</div>
-
+								</form>
 
 						</article>
 
