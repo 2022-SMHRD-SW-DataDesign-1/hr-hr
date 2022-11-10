@@ -131,6 +131,7 @@ console.log(Kakao.isInitialized()); // sdk초기화여부판단
 			        		        },
 			        		        success : function (data){
 			        		        	console.log(data);
+			        		        	location.replace("./testAll.jsp")
 			        		        },
 			        		})
 			        	  
