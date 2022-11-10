@@ -26,8 +26,10 @@
 	<%MemberDTO info = (MemberDTO) session.getAttribute("info");%>
 	<%
 	ReviewDAO r_dao = new ReviewDAO();
-	BigDecimal p_num = new BigDecimal(request.getParameter("p_num"main페이지에서 p_num  넘겨줘야함));
+	//BigDecimal p_num = new BigDecimal(request.getParameter("p_num"main페이지에서 p_num  넘겨줘야함));
 	
+	int i = 1;
+	BigDecimal p_num = new BigDecimal(i);
 	ArrayList<ReviewDTO> rList = r_dao.reviewShow(p_num);
 	%>
         <section id="container">
@@ -155,7 +157,7 @@
                                     <%=rdto.getM_id() %>
                                 </td>
                                 <td class="r_title">
-                                    <a href="review.jsp?p_num=<%=rdto.getP_num()%>&r_num=<%=rdto.getR_num() %>>"><%=rdto.getR_title() %></a>
+                                    <a href="review.jsp?p_num=<%=rdto.getP_num()%>&r_num=<%=rdto.getR_num() %>"><%=rdto.getR_title() %></a>
                                 </td>
                                 <td class="r_date">
                                    <%=rdto.getR_date()%>

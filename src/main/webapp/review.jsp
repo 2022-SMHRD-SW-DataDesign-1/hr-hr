@@ -164,7 +164,7 @@
 										<div class="comment">
 										<!-- 유저 이름  -->
 											<span class="user_id"><%=r_detail.getM_id() %></span><%=r_detail.getR_content() %>
-											<div class="time">2시간</div>
+											<div class="time"><%=r_detail.getR_date()%></div>
 										</div>
 									</div>
 									
@@ -181,24 +181,21 @@
 									
 									
 										<%if(r_c_List != null){ %>
-										
+										<%for(ReviewCommentDTO r_c_dto : r_c_List){ %>
 									<!-- 댓글 유저 이미지 -->
 										<div class="user">
-											<img src="imgs/thumb02.jpg" alt="user">
+											img
 										</div>
-										
-										
 										
 										<!-- 댓글 내용 -->
 										<div class="comment">
-											<span class="user_id">in0.lee</span>너무귀엽네요 ㅎㅎㅎ맞팔해요~!
+											<span class="user_id"><%=r_c_dto.getM_id() %></span><%=r_c_dto.getR_c_content() %>
 											<div class="time">
-												2시간
+												<%=r_c_dto.getR_c_date() %>
 											</div>
-											
 										</div>
 										
-										
+										<%} %>
 										<%} %>
 									</div>
 									
@@ -231,22 +228,20 @@
 								
 								<!-- 좋아요수 표시 -->
 								<div class="count_likes">
-									좋아요 <span class="count">2,351</span> 개
+									좋아요 <span class="count"><%=r_detail.getR_like() %></span> 개
 								</div>
-								<div class="timer">2시간</div>
 								
+
+							</div>
 								
 								<!-- 댓글 입력란  -->
 								<div class="commit_field">
+								<form action="">
 									<input type="text" placeholder="댓글달기..">
 
 									<div class="upload_btn">게시</div>
 								</div>
-
-
-
-							</div>
-
+								</form>
 
 						</article>
 
