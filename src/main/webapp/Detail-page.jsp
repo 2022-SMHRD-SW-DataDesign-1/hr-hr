@@ -71,10 +71,8 @@
 					<!-- 로고 -->
                     <h1 class="logo">
                         <a href="Main.jsp">
-                            <div class="sprite_insta_icon"></div>
-                            <div>
-                                <div class="sprite_write_logo"></div>
-                            </div>
+       						<img src="imgs/로고.png">
+                       
                         </a>
                     </h1>
 					<!-- 검색바 -->
