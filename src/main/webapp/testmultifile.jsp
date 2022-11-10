@@ -25,32 +25,22 @@
 </style>
 <body>
 	<%int count = 0; %>
-	<%=count %>
 	<form action="BoardService"  enctype="multipart/form-data"  method="post" id="filelist">
 		test 글 내용 작성 : <textarea  rows="10" style="resize: none;" name="content"></textarea><br><!-- 글 작성 --> 
 		<input type="submit" value="test글 작성"><!-- 글 작성 -->
-		<input  type="file" style="float: right;" name="filename<%=count%>" ><!-- 파일 경로..?넣기  --> 
+		<input type="file" style="float: right;" name="filename<%=count%>" ><!-- 파일 경로..?넣기  --> 
 	</form>
-		<input type="submit" value="+" onclick="addbtn()"><br><!-- 파일경로 추가해주는 버튼  -->
-		
-		<input type="submit" value="-" onclick="minusbtn()"><br><!-- 파일경로 추가해주는 버튼  -->
+	<%count++; %>
+		<input type="submit" value="+" onclick="addbtn()"><!-- 파일경로 추가해주는 버튼  -->
+		<input type="submit" value="-" onclick="minusbtn(<%=count%>)"><br><!-- 파일경로 추가해주는 버튼  -->
 	
 	<script type="text/javascript">
 		function addbtn(){
-			$("#filelist").append("<input  type='file' style='float: right;' name='filename<%=count%>' multiple>")
-			<%count++; %>
-			console.log(<%=count%>)
+			$("#filelist").append("<input type='file' style='float: right;' name='filename<%=count%>' multiple>")
 		}
 
-		function minusbtn(){
-			$("input").remove("#filename<%=count%>");
-			<%if(count ==0){
-				
-			}else{
-			count--; 
-				
-			}%>
-			console.log(<%=count%>)
+		function minusbtn(count){
+			$('#filelist').children().last().remove();
 		}
 	</script>
 	
