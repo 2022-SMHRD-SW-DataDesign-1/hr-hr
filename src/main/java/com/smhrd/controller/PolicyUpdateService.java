@@ -104,7 +104,8 @@ public class PolicyUpdateService extends HttpServlet {
 		System.out.println(content);
 		
 		
-		PolicyDTO pdto = new PolicyDTO(p_num, writer, content, uploadFile, title);
+		PolicyDTO pdto = new PolicyDTO(p_num, title, writer, content, uploadFile);
+		
 		PolicyDAO dao = new PolicyDAO();
 		
 		int row = dao.update(pdto);
