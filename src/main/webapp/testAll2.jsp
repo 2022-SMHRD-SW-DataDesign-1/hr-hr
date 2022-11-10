@@ -283,11 +283,9 @@
 		</form>
 			<input type = "submit" value="+" style='float:right;' onclick ="addbtn1()"><br>
 				<%count++; %>
-	
 			<script type="text/javascript">
 				function addbtn1(){
 					$("#p_filelist").append("<input type = 'file' style='float:right;' name='filename<%=count%>' multiple>")
-		
 				}
 			</script> 
 	

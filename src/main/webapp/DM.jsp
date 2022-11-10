@@ -16,9 +16,8 @@
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+		<!-- 헤더영역(상단 메뉴바) -->
 	<section id="container">
-
-		<!-- 머리글 -->
 		<header id="header">
 			<section class="h_inner">
 
@@ -30,24 +29,19 @@
 				</h1>
 
 				<div class="search_field">
-					<input type="text" placeholder="검색" tabindex="search_field">
-
 					<div class="fake_field">
-						<span class=sprite_small_search_icon></span> <span>검색</span>
+						<input  type="text" placeholder="검색" tabindex="search_field">
 					</div>
-				</div>
-
-
-				<div class="right_icons">
-					<a href="Login.jsp"><img src="imgs/로그인.PNG" class="sprite_compass_icon"></a>
-					<a href="Profile.jsp"><img src="imgs/프로필.PNG" class="sprite_user_icon_outline"></a>
+						<span class=sprite_small_search_icon></span> 
 				</div>
 			</section>
 		</header>
-
 	</section>
+		<!---------------------------- 메뉴바 종료  ---------------------------->
+		
+		
 	<!-- 채팅영역  -->
-	<div id="chat-room">
+	<div class="contents">
 		<div class="message-box">
 		<!-- 날짜 표시영역 -->
 			<div class="message-group" data-date-str="2014년 12월 10일 일요일">
@@ -106,46 +100,14 @@
 		</div>
 	</div>
 
+				<!-- 오른쪽영역  -->
+				<div class="side_box">
+				<!-- 게시물 등록 버튼 -->              
 
 
 
 
 	</div>
-	<!-- 채팅 자바스크립트 아직 다시 안봐봄..공부하자  -->
-	<script>
-    var k = function() {
-        // val()은 엘리먼트가 가지고 있는 value 속성의 값을 가져온다.
-        var 메세지 = $('#chat-room .input-box #text-input').val();
-        
-        // 메세지 변수에 들어있는 값이 ''와 같다면
-        if ( 메세지 == '' ) {
-            // 함수를 더 이상 진행시키지 않고 여기서 종료시킨다.
-            return false;
-        }
-        
-        var html = `
-        <div class="chat-message mine">
-            <section><i class="fa fa-user"></i></section>
-            <span>홍길동</span>
-            <div>${메세지}</div>
-        </div>
-        `;
-        
-        $('#chat-room .message-group:last-child').append(html);
-        
-        // val(문자열)은 엘리먼트가 가지고 있는 value 속성의 값을 입력받은 문자열로 교체하라는 뜻입니다.
-        $('#chat-room .input-box #text-input').val('');
-    };
-
-    $('#chat-room .input-box .btn-submit').click(k);
-
-    // input 창에서 키보드 눌림 이벤트 발생시 함수를 실행하도록 예약
-    $('#chat-room .input-box #text-input').keydown(function(e) {
-        // 만약 입력한 키코드가 13, 즉 엔터라면 함수를 실행한다.
-        if ( e.keyCode == 13 ) {
-            k();
-        }
-    });
-    </script>
+	
 </body>
 </html>
