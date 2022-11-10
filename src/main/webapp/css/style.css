@@ -265,8 +265,9 @@ body{
     width: 614px;
     border: 1px solid rgba(0,0,0,0.09);
     border-radius: 3px;
-    margin-bottom: 60px;
+    margin-bottom: 15px;
     background: white;
+   
 }
 .cont02 {
     /* position: absolute;*/
