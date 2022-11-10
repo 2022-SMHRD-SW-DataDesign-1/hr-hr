@@ -1,3 +1,5 @@
+<%@page import="com.smhrd.model.ReviewLikeDTO"%>
+<%@page import="com.smhrd.model.ReviewLikeDAO"%>
 <%@page import="com.smhrd.model.ReviewCommentDTO"%>
 <%@page import="com.smhrd.model.ReviewCommentDAO"%>
 <%@page import="com.smhrd.model.ReviewDTO"%>
@@ -56,7 +58,7 @@
 		ReviewCommentDAO r_c_dao = new ReviewCommentDAO();
 		ArrayList<ReviewCommentDTO> r_c_List =r_c_dao.showReviewComment(r_num);
 		%>
-
+		
 
 
 
@@ -206,14 +208,27 @@
 								
 								<!-- 하단 왼쪽 -->
 									<div class="left_icons">
-									<!-- 좋아요 버튼 -->
-										<div class="heart_btn">
-									<div class="sprite_heart_icon_outline" data-name="heartbeat">
-										<button class="heart_button"><img src="imgs/3.PNG"></button>
+									
+							<%
+						if(info != null){
+							// 리뷰 글 좋아요 여부 확인
+							ReviewLikeDAO r_l_dao = new ReviewLikeDAO();
+							ReviewLikeDTO r_l_dto = new ReviewLikeDTO(info.getM_Id(),r_num);
+							int isLikeResult = r_l_dao.reviewIsLike(r_l_dto);
+							if(isLikeResult>0){ %>
+									<div class="heart_btn">
+										<div class="sprite_heart_icon_outline" data-name="heartbeat">
+											<button id="reviewLike" class="heart_button" onclick="reviewLike()"><img src="imgs/3.PNG">유용해요해제</button>
+										</div>
 									</div>
-								</div>
-								
-								
+							<%}else{ %>	
+									<div class="heart_btn">
+										<div class="sprite_heart_icon_outline" data-name="heartbeat">
+											<button id="reviewLike" class="heart_button" onclick="reviewLike()"><img src="imgs/3.PNG">유용해요등록</button>
+										</div>
+									</div>										
+							<%} %>										
+						<%} %>										
 								
 								<!-- 댓글 버튼 -->
 								<div class="sprite_bubble_icon"></div>
@@ -292,9 +307,27 @@
 						console.log("조샀다 !");
 					}
 				})
+			}
+	
+	// 리뷰 좋아요 
+			function reviewLike() {
+				let is_Like;
+				let m_id = '<%=info.getM_Id()%>';
+				let r_num = <%=request.getParameter("r_num")%>;
+				$.ajax({
+					url : "ReviewCommentService",
+					data : {"m_id" : m_id,
+							"r_c_content" : r_c_content,
+							"r_num" : r_num
+							},
+					type : 'get', 
+					success : function(data) {
+					},
+					error : function() {
+						console.log("조샀다 !");
+					}
+				})
 			}	
-	
-	
 			
 	</script>
 	

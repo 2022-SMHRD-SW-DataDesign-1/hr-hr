@@ -13,6 +13,8 @@ import com.smhrd.model.ReviewCommentDAO;
 import com.smhrd.model.ReviewCommentDTO;
 
 public class ReviewCommentService extends HttpServlet {
+	
+	
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String m_id = request.getParameter("m_id");
@@ -30,4 +32,7 @@ public class ReviewCommentService extends HttpServlet {
 		
 	}
 
+	
+	
+	
 }
