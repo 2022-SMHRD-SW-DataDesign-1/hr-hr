@@ -75,7 +75,7 @@
                     <%if (info != null) {%>
 					<%if(info.getM_Id().equals(info.getM_Id())){ %>
 					<%}else{ %>
-					<a href="Profile.jsp"><img
+					<a href="ProfileAll.jsp"><img
 						src="imgs/프로필.PNG" class="sprite_user_icon_outline"></a>
 					<%} %>
 					<%} %>
