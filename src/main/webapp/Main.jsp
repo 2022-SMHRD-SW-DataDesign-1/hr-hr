@@ -230,7 +230,11 @@
 								<div class="user_name">
 									<div class="nick_name  user_text"><%= p_dto.getAdmin_id()%></div>
 									<!-- 유저 위치 정보-->
-									<div class="country country_text"></div>
+									<div class="top_time">
+										<div class="comment">
+											<div class="t_timer"><%=p_dto.getP_date() %></div>
+										</div>
+									</div>
 								</div>
 								<!-- 리뷰 버튼영역-->
                                 <div class="right_button">
@@ -316,9 +320,9 @@
 											<div class="sprite_heart_icon_outline" >
 											<%pl_dto = new PolicyLikesDTO(info.getM_Id(),p_dto.getP_num()); %>
 											<%if(pl_dao.isPolicyLiked(pl_dto)>0){ %>
-												<button class="heart_button" id='policylikes<%= count %>'onclick="policylikes(<%= p_dto.getP_num()%>,this.id)">유용해요해제</button>
+												<button class="heart_button" id='policylikes<%= count %>'onclick="policylikes(<%= p_dto.getP_num()%>,this.id)"><img class="heart" alt="유용해요해제" src="imgs/몰라.JPG"></button>
 											<%}else{%>
-												<button class="heart_button" id='policylikes<%= count %>' onclick="policylikes(<%= p_dto.getP_num() %>,this.id)">유용해요등록</button>
+												<button class="heart_button" id='policylikes<%= count %>' onclick="policylikes(<%= p_dto.getP_num() %>,this.id)"><img class='heart' alt='유용해요등록' src='imgs/좋아.JPG'></button>
 											<%	}%>
 											</div>
 										</div>
@@ -342,10 +346,10 @@
 									좋아요 <span class="count" id='like<%= count %>'><%=p_dto.getP_likes() %></span> 개
 								</div>
 								<% count++; %>
-									<div class="admin_container">
+									<div class="timer_container">
 										<div class="comment">
 											<span class="user_id"><%=p_dto.getAdmin_id() %></span><%=p_dto.getP_content() %>
-											<div class="timer"><%=p_dto.getP_date() %></div>
+											<div class="timer"></div>
 										</div>
 									</div>
 								
@@ -363,12 +367,12 @@
 								console.log(clicked_id);
 								let m_id = '<%=info.getM_Id()%>';
 								let policylikeBtn = document.getElementById(clicked_id);
-								
-								if(policylikeBtn.innerText == '유용해요등록'){
-									policylikeBtn.innerText = '유용해요해제'
+								console.log(policylikeBtn.innerHTML);
+								if(policylikeBtn.innerHTML == '<img class="heart" alt="유용해요등록" src="imgs/좋아.JPG">'){
+									policylikeBtn.innerHTML = '<img class="heart" alt="유용해요해제" src="imgs/몰라.JPG">'
 									is_like = 0;
 								}else{
-									policylikeBtn.innerText = '유용해요등록'
+									policylikeBtn.innerHTML = '<img class="heart" alt="유용해요등록" src="imgs/좋아.JPG">'
 									is_like = 1;
 								}
 								
@@ -418,7 +422,11 @@
 								<!-- 게시글 유저 닉네임 -->
 								<div class="user_name">
 									<div class="nick_name user_text"><%=b_dto.getB_writer() %></div>
-									<div class="country country_text"></div>
+									<div class="top_time">
+										<div class="comment">
+											<div class="t_timer"><%=b_dto.getB_date() %></div>
+										</div>
+									</div>
 								</div>
 
 							</div>
@@ -496,9 +504,9 @@
 									<div class="sprite_heart_icon_outline" >
 										<%l_dto = new LikesDTO(info.getM_Id(),b_dto.getB_num()); %>
 										<%if(l_dao.isLiked(l_dto)>0){ %>
-											<button class="heart_button" id='likes<%= count %>'onclick="likes(<%= b_dto.getB_num()%>,this.id)">유용해요해제</button>
+											<button class="heart_button" id='likes<%= count %>'onclick="likes(<%= b_dto.getB_num()%>,this.id)"><img class="heart" alt="유용해요해제" src="imgs/몰라.JPG"></button>
 										<%}else{%>
-											<button class="heart_button" id='likes<%= count %>' onclick="likes(<%= b_dto.getB_num() %>,this.id)">유용해요등록</button>
+											<button class="heart_button" id='likes<%= count %>' onclick="likes(<%= b_dto.getB_num() %>,this.id)"><img class="heart" alt="유용해요등록" src="imgs/좋아.JPG"></button>
 										<%	}%>
 											</div>
 											<%count++; %>
@@ -520,10 +528,10 @@
 									좋아요 <span class="count" id='like<%= count++ %>'><%=b_dto.getB_likes() %></span> 개
 						</div>
 									<%= count++ %>
-									<div class="admin_container">
+									<div class="timer_container">
 										<div class="comment">
 											<span class="user_id"><%=b_dto.getB_writer() %></span><%= b_dto.getB_content() %>
-											<div class="timer"><%=b_dto.getB_date() %></div>
+											<div class="timer"></div>
 											
 										</div>
 									</div>
@@ -571,11 +579,11 @@
 			let m_id = '<%=info.getM_Id()%>';
 			let likeBtn = document.getElementById(clicked_id);
 			
-			if(likeBtn.innerText == '유용해요'){
-				likeBtn.innerText = '유용해요해제';
+			if(likeBtn.innerHTML == '<img class="heart" alt="유용해요등록" src="imgs/좋아.JPG">'){
+				likeBtn.innerHTML = '<img class="heart" alt="유용해요해제" src="imgs/몰라.JPG">';
 				is_like = 0;
 			}else{
-				likeBtn.innerText = '유용해요';
+				likeBtn.innerHTML = '<img class="heart" alt="유용해요등록" src="imgs/좋아.JPG">';
 				is_like = 1;
 			}
 			

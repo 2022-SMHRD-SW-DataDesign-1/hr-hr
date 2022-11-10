@@ -175,7 +175,7 @@
 																	<%if (info != null) {%>					
 																	<!-- 어.... 개인정보  -->
 																	<div class="nameEdit">
-																		<form action="#">
+																		<form action="PrivacyUpdateService" method="post">
 																			<!-- 정보수정 입력 보내기 -->
 																			<div class="form-group row">
 																				<!-- 닉네입입력 -->
