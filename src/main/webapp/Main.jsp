@@ -62,7 +62,7 @@
 				<div class="right_icons">
 					
 					<a href="Login.jsp"><img src="imgs/로그인.PNG" class="sprite_compass_icon"></a>
-					<a href="Profile.jsp"><img src="imgs/프로필.PNG" class="sprite_user_icon_outline"></a>
+					<a href="ProfileAll.jsp"><img src="imgs/프로필.PNG" class="sprite_user_icon_outline"></a>
 					<!-- 알람버튼 -->
 					<button type="button" class="btn btn-primary position-relative" id="liveToastBtn">
 						<span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
@@ -265,7 +265,7 @@
                                             <%for(String temp : p_files){%>
                                               <div class="carousel-item active">
                                                 <!-- 여기에 사진넣기 --> 	
-                                                <a href="policy_board.jsp"><img src="./imgs/<%=temp%>"></a>                                          
+                                                <a href="policy_board.jsp?p_num=<%=p_dto.getP_num()%>"><img src="./imgs/<%=temp%>"></a>                                          
                                               </div>
                                              <%} %>
                                             
@@ -340,8 +340,7 @@
 									</div>
 									<!-- 정책 아래 오른쪽영역 -->
 									<div class="right_icon">
-									<!-- 정책 스크랩버튼 -->	
-										<div class="sprite_bookmark_outline" ></div>
+									
 									</div>
 								</div>
 								

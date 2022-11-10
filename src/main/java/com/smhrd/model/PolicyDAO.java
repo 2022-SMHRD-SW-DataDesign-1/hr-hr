@@ -39,9 +39,12 @@ public class PolicyDAO {
 	}
 	
 	// 정책 세부내용 조회
-	public PolicyDTO showDetail(BigDecimal num) {
+	public PolicyDTO showDetail(BigDecimal p_num) {
 		SqlSession session = sqlSessionFactory.openSession(true);
-		int row = session.update
+		PolicyDTO policy = session.selectOne("showDetail",p_num);
+		session.close();
+		
+		return policy;
 	}
 	
 	
