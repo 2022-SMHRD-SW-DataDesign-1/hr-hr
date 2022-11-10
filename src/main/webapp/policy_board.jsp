@@ -57,7 +57,7 @@
 
 					<h1 class="logo">
 					<a href="Main.jsp">
-						<img src="imgs/로고.png">
+						<img src="imgs/로고.JPG">
 						
 					</a>
 				</h1>
@@ -130,7 +130,7 @@
                                     <button type="button" class="btn btn-outline-dark"><a href="reviewboard.jsp">리뷰</a></button>
                                 </div>
 							</div>
-							<!-- 게시물 이미지 영역 -->
+							<!-- 게시물 이미지 영역 --> //사진 넣어줘야한단 말이야
 							<div class="img_section">
 								<div class="trans_inner">
 									<div>
@@ -158,7 +158,7 @@
                                                 <img src="imgs/국민취업지원제도1.png" alt="visual01">
                                           
                                               </div>
-                                             
+
                                             </div>
                                             <!-- 이미지 오른쪽으로 넘기기 -->
                                             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
