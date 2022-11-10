@@ -265,8 +265,9 @@ body{
     width: 614px;
     border: 1px solid rgba(0,0,0,0.09);
     border-radius: 3px;
-    margin-bottom: 60px;
+    margin-bottom: 15px;
     background: white;
+   
 }
 .cont02 {
     /* position: absolute;*/
@@ -385,6 +386,8 @@ body{
     justify-content: space-between;
     align-items: center;
     padding: 5px 20px;
+    border-bottom: 1px solid rgba(0,0,0,0.09);
+    
     
 }
 .contents .comment_container .comment{
@@ -429,6 +432,8 @@ body{
     min-height:56px;
     padding: 0 20px;
     position: relative;
+    border-bottom: 1px solid rgba(0,0,0,0.09);
+    
 }
 
 
@@ -1091,7 +1096,10 @@ body{
     margin-left: 260px;
 }
 .admin_container{
+    border-bottom:1px solid rgba(0,0,0,0.1);
 	margin-left: 20px;
+	margin-right: 20px;
+	
 }
 
 

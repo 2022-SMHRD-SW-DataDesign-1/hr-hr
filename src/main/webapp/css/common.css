@@ -322,8 +322,10 @@ body {
 
 }
 .comment_more{
-	position: absolute;
-	right: 50px
+	position: relative;
+	left:500px;
+	
+	
 }
 .comment_more>a{
 	text-decoration: none;
