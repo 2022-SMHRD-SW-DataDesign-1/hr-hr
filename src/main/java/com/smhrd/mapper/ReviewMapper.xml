@@ -46,7 +46,7 @@
 	</delete>
 	
 	<update id="setReviewLikeCount" parameterType="BigDecimal">
-		update t_review set b_likes= (SELECT count(*) FROM t_usefulreview where r_num =#{r_num}) 
+		update t_review set r_like= (SELECT count(*) FROM t_usefulreview where r_num =#{r_num}) 
 		where r_num=#{r_num}  
 	</update>
 </mapper>
