@@ -28,7 +28,5 @@ public class CommentDTO {
 	// 댓글 작성 아이디
 	@NonNull
 	private String cmt_id;
-	// 댓글 좋아요 수
-	private BigDecimal cmt_likes;
 
 }
