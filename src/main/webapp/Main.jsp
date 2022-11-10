@@ -361,7 +361,7 @@
 								let is_like;
 								console.log(p_num);
 								console.log(clicked_id);
-								
+								let m_id = '<%=info.getM_Id()%>';
 								let policylikeBtn = document.getElementById(clicked_id);
 								
 								if(policylikeBtn.innerText == '유용해요등록'){
@@ -376,7 +376,7 @@
 								$.ajax({
 									url : 'PolicyLikesService',
 									data :{
-										'm_id' :<%=info.getM_Id()%>,
+										'm_id' :m_id,
 										'p_num' : p_num,
 										'is_like':is_like
 									},
@@ -568,7 +568,7 @@
 			let is_like;
 			console.log(b_num);
 			console.log(clicked_id);
-				
+			let m_id = '<%=info.getM_Id()%>';
 			let likeBtn = document.getElementById(clicked_id);
 			
 			if(likeBtn.innerText == '유용해요'){
@@ -583,7 +583,7 @@
 			$.ajax({
 				url : 'LikesPlusService',
 				data :{
-					'm_id' :<%=info.getM_Id()%>,
+					'm_id' :m_id,
 					'b_num' : b_num,
 					'is_liked':is_like
 				},

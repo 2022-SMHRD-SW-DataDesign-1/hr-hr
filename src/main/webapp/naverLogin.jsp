@@ -14,7 +14,7 @@
 	<!-- (2) LoginWithNaverId Javscript 설정 정보 및 초기화 -->
 	<script type="text/javascript">
 		var naver_id_login = new naver_id_login("n2hM2OM8Nq0pdDU9ufkL",
-				"http://localhost:8081/dirverR/testmultifile.jsp");
+				"http://localhost:8081/dirverR/naverLogin.jsp");
 		// 접근 토큰 값 출력
 		console.log(naver_id_login.oauthParams.access_token);
 		// 네이버 사용자 프로필 조회
@@ -37,7 +37,7 @@
       		        },
       		        success : function (data){
       		        	console.log(data);
-      		        	location.replace("./testmultifile.jsp")
+      		        	location.replace("./Main.jsp")
       		        },
       		})
 			
