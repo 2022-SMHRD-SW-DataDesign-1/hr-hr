@@ -15,7 +15,7 @@
 
 <body>
 	<header>
-		<img src="./imgs/로고.png" class="logoimg">
+		<img src="./imgs/로고.JPG" class="logoimg">
 	</header>
 	<section id="main_container">
 		<div class="com">
@@ -23,7 +23,7 @@
 				<img src="./imgs/wow.png" class="py">
 			</div>
 			<div>
-				<img src="./imgs/로고.png" class="s-logoimg">
+				<img src="./imgs/로고.JPG" class="s-logoimg">
 				<h1 class="hii">정부정책을 더 쉽게!</h1>
 				<a href="Login.jsp"><button class="start">로그인/회원가입</button></a>
 			</div>
