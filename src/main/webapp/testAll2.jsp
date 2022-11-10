@@ -160,13 +160,18 @@
 		<input type="file" style="float: right;" name="p_filename<%=count%>" multiple="multiple">
 		<input type="submit" value="정책게시글 등록">
 	</form>
-		<input type = "submit" value="+" style='float:right;' onclick ="addbtn()"><br>
 		<%count++; %>
+		<input type = "submit" value="+" style='float:right;' onclick ="addbtn()"><br>
+		<input type = "submit" value="-" style='float:right;' onclick ="minusbtn(<%=count%>)"><br>
+		
 	
 			<script type="text/javascript">
 				function addbtn(){
 					$("#p_filelist1").append("<input type = 'file' style='float:right;' name='filename<%=count%>' multiple>")
 		
+				}
+				function minusbtn(){
+					$("#p_filelist1").children().last().remove();
 				}
 			</script> 
 	
@@ -268,7 +273,7 @@
 	
 	
 	
-	<% if(info != null) {%>
+	<% if(info != null && info.getM_Id().equals("admin")) {%>
 		<%int count = 0; %> 
 	
 	
@@ -281,11 +286,16 @@
 		<input type = "file" style= "float : right;" name = "p_filename<%=count%>" multiple="multiple">
 		<input type = "submit" value = "수정완료">
 		</form>
+			<%count++; %>
 			<input type = "submit" value="+" style='float:right;' onclick ="addbtn1()"><br>
-				<%count++; %>
+			<input type = "submit" value="-" style='float:right;' onclick ="minusbtn1(<%=count%>)">
+				
 			<script type="text/javascript">
 				function addbtn1(){
 					$("#p_filelist").append("<input type = 'file' style='float:right;' name='filename<%=count%>' multiple>")
+				}
+				function minusbtn1(){
+					$("#p_filelist").children().last().remove();
 				}
 			</script> 
 	
