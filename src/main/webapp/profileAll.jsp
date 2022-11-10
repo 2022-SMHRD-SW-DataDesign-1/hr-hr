@@ -171,6 +171,8 @@
 																</div>
 																<div class="row">
 
+																									
+																	<%if (info != null) {%>					
 																	<!-- 어.... 개인정보  -->
 																	<div class="nameEdit">
 																		<form action="#">
@@ -181,6 +183,7 @@
 																				<div class="col-8">
 																					<!-- 닉네입 수정입력 -->
 																					<input id="text" name="text"
+																					value="<%=info.getM_Nickname() %>"
 																						placeholder="Nick Name" class="form-control here"
 																						required="required" type="text">
 																				</div>
@@ -191,7 +194,7 @@
 																				<label for="publicinfo" class="col-4 col-form-label">소개</label>
 																				<div class="col-8">
 																					<textarea id="publicinfo" name="publicinfo"
-																						cols="40" rows="4" class="form-control"></textarea>
+																						cols="40" rows="4" class="form-control"><%=info.getM_Profile() %></textarea>
 																				</div>
 																			</div>
 
@@ -209,11 +212,11 @@
 																		<form action="#">
 																			<div class="form-group row">
 																				<!-- 이름 수정영역 -->
-																				<label for="username" class="col-4 col-form-label">이름</label>
+																				<label for="username" class="col-4 col-form-label">이메일</label>
 																				<div class="col-8">
 																					<!-- 이름입력 -->
 																					<input id="username" name="name"
-																						placeholder="Username" class="form-control here"
+																						value="<%=info.getM_Email() %>" class="form-control here"
 																						required="required" type="text">
 																				</div>
 																			</div>
@@ -223,7 +226,7 @@
 																				<div class="col-8">
 																					<!-- 패스워드 입력 -->
 																					<input id="pw" name="pw" placeholder="password"
-																						class="form-control here" type="text">
+																						class="form-control here" type="password">
 																				</div>
 																			</div>
 																			<!-- 패스워드 확인 -->
@@ -234,7 +237,7 @@
 																					<!-- 패스워드 확인 입력 -->
 																					<input id="pwcheck" name="pwcheck"
 																						placeholder="Pw Check" class="form-control here"
-																						type="text">
+																						type="password">
 																				</div>
 																			</div>
 																			<div class="form-group row">
@@ -242,10 +245,9 @@
 																				<label for="text" class="col-4 col-form-label">전화번호</label>
 																				<div class="col-8">
 																					<!-- 닉네입 수정입력 -->
-																					<input id="text" name="phone"
-																						placeholder="phone number"
-																						class="form-control here" required="required"
-																						type="text">
+																					<input id="text" name="m_Phone"
+																					value="<%=info.getM_Phone() %>" class="form-control here"
+																					required="required" type="text">
 																				</div>
 																			</div>
 
@@ -266,6 +268,7 @@
 													<!-- 수정창 -->
 												</div>
 												<!-- 넣는 공간 끝 -->
+												<%}%>
 											</div>
 											<!-- 팝업창 닫기 -->
 											<div class="modal-footer">
@@ -331,8 +334,7 @@
 
 
 						</div>
-
-
+						<div><%=info.getM_Profile() %></div>
 
 						<%if(info != null){ %>
                             <ul class="middle">

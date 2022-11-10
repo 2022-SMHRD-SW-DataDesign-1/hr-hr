@@ -1,3 +1,8 @@
+<%@page import="java.math.BigDecimal"%>
+<%@page import="com.smhrd.model.ReviewDTO"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.smhrd.model.ReviewDAO"%>
+<%@page import="com.smhrd.model.MemberDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
     <!DOCTYPE html>
     <html lang="en">
@@ -18,7 +23,15 @@
     </head>
 
     <body>
-
+	<%MemberDTO info = (MemberDTO) session.getAttribute("info");%>
+	<%
+	ReviewDAO r_dao = new ReviewDAO();
+	//BigDecimal p_num = new BigDecimal(request.getParameter("p_num"main페이지에서 p_num  넘겨줘야함));
+	
+	int i = 1;
+	BigDecimal p_num = new BigDecimal(i);
+	ArrayList<ReviewDTO> rList = r_dao.reviewShow(p_num);
+	%>
         <section id="container">
 
 
@@ -54,12 +67,13 @@
             <article class="review">
                 <div class="r_board_title">
                     <h2>리뷰 게시판 </h2>
-                  
+                  	<%if(info != null){ %>
                     <!-- 리뷰 등록 버튼 -->			<!-- 여기가 버튼스타일 클래스  -->
                     <button type="button" class="btn btn-primary btn btn-info" data-bs-toggle="modal"
                         data-bs-target="#staticBackdrop">
                         리뷰 등록
                     </button>
+                    <%} %>
                     <!-- 팝업창영역 -->
                     <!-- Modal -->			
                     <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
@@ -135,77 +149,27 @@
                         </thead>
                         <!-- 게시판 본문 -->
                         <tbody>
+                        <%if(rList != null){ %>
+                        
+                        <%for(ReviewDTO rdto : rList){ %>
                             <tr class="tr_height">
                                 <td>
-                                    김하랑
+                                    <%=rdto.getM_id() %>
                                 </td>
                                 <td class="r_title">
-                                    <a href="review.jsp">뭐이리 작성했어?!</a>
+                                    <a href="review.jsp?p_num=<%=rdto.getP_num()%>&r_num=<%=rdto.getR_num() %>"><%=rdto.getR_title() %></a>
                                 </td>
                                 <td class="r_date">
-                                    15:28
+                                   <%=rdto.getR_date()%>
                                 </td>
                                 <td class="r_like">
-                                    10
+                                    <%=rdto.getR_like() %>
                                 </td>
                             </tr>
-                            <tr class="tr_height">
-                                <td class="td_height">
-                                    <span class="r_writer">김영우</span>
-                                </td>
-                                <td class="r_title">
-                                    <a href="review.jsp">뭐이리 작성했어?!</a>
-                                </td>
-                                <td class="r_date">
-                                    15:28
-                                </td>
-                                <td class="r_like">
-                                    9
-                                </td>
-                            </tr>
-                            <tr class="tr_height">
-                                <td class="td_height">
-                                    <span class="r_writer">박상현</span>
-                                </td>
-                                <td class="r_title">
-                                    <a href="review.jsp">뭐이리 작성했어?!</a>
-                                </td>
-                                <td class="r_date">
-                                    15:28
-                                </td>
-                                <td class="r_like">
-                                    8
-                                </td>
-                            </tr>
-                            <tr class="tr_height">
-                                <td>
-                                    <span class="r_writer">허유리</span>
-                                </td>
-                                <td class="r_title">
-                                    <a href="review.jsp">뭐이리 작성했어?!</a>
-                                </td>
-                                <td class="r_date">
-                                    15:28
-                                </td>
-                                <td class="r_like">
-                                    7
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <span>변우경</span>
-                                </td>
-                                <td class="r_title">
-                                    <a href="review.jsp">뭐이리 작성했어?!</a>
-                                </td>
-                                <td class="r_date">
-
-                                    15:28
-                                </td>
-                                <td class="r_like">
-                                    6
-                                </td>
-                            </tr>
+                            
+                           <%} %>
+                           
+                        <%} %>
                         </tbody>
                     </table>
                 </div>
