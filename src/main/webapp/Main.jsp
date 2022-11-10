@@ -729,22 +729,6 @@
 	<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 	
-	<script>
-        let count = 5;
-
-        window.addEventListener("scroll", (e) => {
-            const isScrollEnd = window.innerHeight + window.scrollY + 200 > document.body.offsetHeight;
-
-            if (isScrollEnd && count < <%=%>) {
-                for (let i = 0; i < 5; i++) {
-                    const $newBox = document.createElement("article");
-                    $newBox.className = "contents";
-                    $newBox.textContent = ++count;
-                    document.querySelector(".contents_box").appendChild($newBox);
-                }
-            }
-        });
-    </script> 
 	
 </body>
 </html>
