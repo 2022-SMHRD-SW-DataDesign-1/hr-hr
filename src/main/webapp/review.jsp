@@ -231,13 +231,15 @@
 								
 								<!-- 댓글 입력란  -->
 								<div class="commit_field">
+									<div>
 									<input type="text" placeholder="comment~" id= "reviewComment">
-									<!-- 
-									<div class="upload_btn" onclick="writeReviewComment()">등록</div>
- 									-->	
+									</div>
+									<!--
+									<div type="button" class="please" onclick="writeReviewComment()">등록</div>
+									-->
 								</div>
 								<input type="button" onclick="writeReviewComment()" value="작성">
-
+								
 						</article>
 
 
