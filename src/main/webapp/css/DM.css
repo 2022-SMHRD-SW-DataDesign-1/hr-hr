@@ -22,16 +22,22 @@ body {
 body, html {
     height:100%;
 }
-
+ /* width: 614px;
+    border: 1px solid rgba(0,0,0,0.09);
+    border-radius: 3px;
+    margin-bottom: 15px;
+    background: white; */
 #chat-room {
     height:70%;
-    width: 50%;
+    width: 35%;
+    left : 35%;
     margin-top: 100px;
-    left: 25%;
     background-color:#fff;
+    
+    position:relative; 
     /* 임시 */
-    outline:2px solid black;
-    position:relative;
+    
+    outline:1px solid black;
 }
 
 #chat-room .message-box {
