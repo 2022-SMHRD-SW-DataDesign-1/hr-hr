@@ -515,3 +515,8 @@
     height: 24px;
     margin-top: 5px;
     }
+    .cmtlike{
+    background-color:  yellow;
+    border : none;
+    float : right;
+    }
