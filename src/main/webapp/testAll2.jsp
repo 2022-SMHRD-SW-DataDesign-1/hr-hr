@@ -307,7 +307,7 @@
 		제목 : <input type = "text" name = "p_title">
 		내용 : <textarea rows="10" style="resize:none;" name="p_content"></textarea><br>
 		
-		<input type = "file" style= "float : right;" name = "p_filename<%=count%>">
+		<input type = "file" style= "float : right;" name = "p_filename<%=count%>" multiple="multiple">
 		<input type = "submit" value = "수정완료">
 		</form>
 			<input type = "submit" value="+" style='float:right;' onclick ="addbtn1()"><br>
