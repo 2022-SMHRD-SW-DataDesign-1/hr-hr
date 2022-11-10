@@ -735,7 +735,7 @@
         window.addEventListener("scroll", (e) => {
             const isScrollEnd = window.innerHeight + window.scrollY + 200 > document.body.offsetHeight;
 
-            if (isScrollEnd && count < 15) {
+            if (isScrollEnd && count < <%=%>) {
                 for (let i = 0; i < 5; i++) {
                     const $newBox = document.createElement("article");
                     $newBox.className = "contents";
