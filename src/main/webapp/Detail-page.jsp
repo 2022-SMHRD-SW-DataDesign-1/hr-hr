@@ -219,7 +219,6 @@
 											<span class="user_id"><%=cmt_dto.getCmt_id() %></span>
 											<%=cmt_dto.getCmt_content() %>
 											
-											<button class="cmtlike">♡</button>
 										</div>
 									</div>
 									<%} %>
