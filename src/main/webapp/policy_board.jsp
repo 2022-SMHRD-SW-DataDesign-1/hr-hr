@@ -37,10 +37,23 @@
 	</head>
 
 	<body>
+		
+		
 		<%
+		
+		
 		//int num = Integer.parseInt(request.getParameter("p_num"));
 		ArrayList<PolicyDTO> policy = new PolicyDAO().showPolicy();
+		
+				
 		%>
+		<% for(String title : policy){
+			
+			
+		}%>
+
+
+<%=policy.get(0) %>
 
 		<section id="container">
 
@@ -140,6 +153,11 @@
 											  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="6" aria-label="Slide 7" class=""></button>
                                             </div>
                                             <!-- 이미지 넣는 부분 -->
+                                            
+                                            
+                                            
+                                            
+                                            
                                             <div class="carousel-inner">
                                               <div class="carousel-item active">
                                                 <!-- 여기에 사진넣기 --> 	
