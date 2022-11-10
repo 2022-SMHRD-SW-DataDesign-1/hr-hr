@@ -16,6 +16,11 @@
 		select * from t_member where m_Id = #{m_Id} and m_Pw =
 		#{m_Pw}
 	</select>
+	
+	<select id="information" parameterType="String"
+		resultType="MemberDTO">
+		select * from t_member where m_Id = #{m_Id}
+	</select>
 
 
 	<select id="IDCheck" parameterType="String" resultType="boolean">

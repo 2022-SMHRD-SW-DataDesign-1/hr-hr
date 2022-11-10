@@ -22,16 +22,15 @@ public class ProfileUpdateService extends HttpServlet {
 		String m_id = dto.getM_Id();
 		String m_Nickname = request.getParameter("m_Nickname");
 		String m_Profile = request.getParameter("m_Profile");
-		System.out.println("되나?");
 		
 		
 		MemberDTO update_dto = new MemberDTO(m_id, m_Nickname, m_Profile);
 		MemberDAO dao = new MemberDAO();
 		
-		int row = dao.profileUpdate(update_dto);
-		System.out.println(row);
+		dao.profileUpdate(update_dto);
+		MemberDTO up_aft_dto = dao.information(m_id);
 		
-		session.setAttribute("info", update_dto);
+		session.setAttribute("info", up_aft_dto);
 		response.sendRedirect("./testAll.jsp");
 	}
 

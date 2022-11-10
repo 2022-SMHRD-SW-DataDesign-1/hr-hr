@@ -13,7 +13,7 @@
 <%@page import="com.smhrd.model.BoardDAO"%>
 <%@page import="com.smhrd.model.MemberDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -47,7 +47,7 @@
                 
 				<h1 class="logo">
 					<a href="Main.jsp">
-						<img src="imgs/<%=java.net.URLEncoder.encode("로고.png","euc-kr") %>"/>
+						<img src="imgs/로고.JPG"/>
 						
 					</a>
 				</h1>
@@ -255,7 +255,7 @@
                                             <%for(String temp : p_files){%>
                                               <div class="carousel-item active">
                                                 <!-- 여기에 사진넣기 --> 	
-                                                <a href="policy_board.jsp"><img src="./imgs/<%=temp %>"></a>                                          
+                                                <a href="policy_board.jsp"><img src="./imgs/<%=temp%>"></a>                                          
                                               </div>
                                              <%} %>
                                             
@@ -350,17 +350,18 @@
 								<% count++; %>
 								<div class="timer"><%=p_dto.getP_date() %></div>
 							</div>
-							<%} %>
-						<%} %>
+							<% break; 
+							} 
+						} %>
 						</article>
   						
                     	<%if(info != null){%>
-						<script>
+						<script text="javascript/text">
 							function policylikes(p_num,clicked_id){
 								let is_like;
 								console.log(p_num);
 								console.log(clicked_id);
-								
+								let m_id = '<%=info.getM_Id()%>';
 								let policylikeBtn = document.getElementById(clicked_id);
 								
 								if(policylikeBtn.innerText == '유용해요등록'){
@@ -375,7 +376,7 @@
 								$.ajax({
 									url : 'PolicyLikesService',
 									data :{
-										'm_id' :<%=info.getM_Id()%>,
+										'm_id' :m_id,
 										'p_num' : p_num,
 										'is_like':is_like
 									},
@@ -452,7 +453,7 @@
 										<%for(String temp : b_files){%>
 										  <div class="carousel-item active">
 											<!-- 여기에 사진넣기 --> 	
-											<a href="Detail-page.jsp"><img src="imgs/<%=temp%>"></a>
+											<a href="Detail-page.jsp"><img src="./imgs/<%=temp%>"></a>
 									  
 										  </div>
 										  <%} %>
@@ -483,12 +484,6 @@
 						</div>
 						<header class="top">
 									<!-- 게시글 내용영역-->
-									<div class="admin_container">
-										<div class="comment">
-											<span class="user_id"><%=b_dto.getB_writer() %></span><%= b_dto.getB_content() %>
-											<div class="time"><%=b_dto.getB_date() %></div>
-										</div>
-									</div>
 									
 								</header>
 						
@@ -522,9 +517,19 @@
 						<br>
 						<br>
 						<div class="count_likes">
-									좋아요 <span class="count" id='like<%= count %>'><%=b_dto.getB_likes() %></span> 개
+									좋아요 <span class="count" id='like<%= count++ %>'><%=b_dto.getB_likes() %></span> 개
 						</div>
 									<%= count++ %>
+									<div class="admin_container">
+										<div class="comment">
+											<span class="user_id"><%=b_dto.getB_writer() %></span><%= b_dto.getB_content() %>
+											<div class="time"><%=b_dto.getB_date() %></div>
+											
+										</div>
+									</div>
+									<div class="comment_more">
+										<a href="Detail-page.jsp">댓글 더보기</a>
+									</div>
 						<!-- 댓글 표시 -->
 						<div class="comment_container">
 							<div class="comment" id="comments">
@@ -536,16 +541,15 @@
 											<%	for(CommentDTO cmt : cmtList){%>
 											<span class="user_id"><%=cmt.getCmt_id() %></span>
 													<%=cmt.getCmt_content() %>
+													
 											<div class="time">
 												<%=cmt.getCmt_date() %> 
 											</div>
 												<%} %>
 												<%} %>
-								
+									
 							</div>
-							<div class="small_heart">
-								<div class="sprite_small_heart_icon_outline"></div>
-							</div>
+							
 						</div>
 						<!-- 댓글 입력란 -->
 						<div class="comment_field" id="add-comment-post37">
@@ -559,12 +563,12 @@
 						<%} %>
 					</article>
 					<%if(info != null){%>
-	<script>
+	<script text="javascript/text">
 		function likes(b_num,clicked_id){
 			let is_like;
 			console.log(b_num);
 			console.log(clicked_id);
-				
+			let m_id = '<%=info.getM_Id()%>';
 			let likeBtn = document.getElementById(clicked_id);
 			
 			if(likeBtn.innerText == '유용해요'){
@@ -579,7 +583,7 @@
 			$.ajax({
 				url : 'LikesPlusService',
 				data :{
-					'm_id' :<%=info.getM_Id()%>,
+					'm_id' :m_id,
 					'b_num' : b_num,
 					'is_liked':is_like
 				},
@@ -646,7 +650,7 @@
 										<!-- 파일 추가 버튼 -->
 										
 											<input type="file" name="filename" id="id_photo" style="float: right;" required="required" >
-											<script >
+											<script text="javascript/text" >
 												function addbtn(){
 													$("#filelist").append("<input  type='file' style='float: right;' required='required' name='filename<%=count%>' multiple>");
 												}

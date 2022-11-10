@@ -27,13 +27,16 @@ public class PrivacyUpdateService extends HttpServlet {
 		System.out.println(m_Email);
 		System.out.println(m_Pw);
 		System.out.println(m_Phone);
+		
 		MemberDTO privacy_dto = new MemberDTO(m_id, m_Pw, m_Email, m_Phone);
+		
 		MemberDAO dao = new MemberDAO();
 		
-		int row = dao.privacyUpdate(privacy_dto);
-		System.out.println(row);
-
-		session.setAttribute("info", privacy_dto);
+		dao.privacyUpdate(privacy_dto);
+		
+		MemberDTO up_aft_dto = dao.information(m_id);
+		
+		session.setAttribute("info", up_aft_dto);
 		response.sendRedirect("./testAll.jsp");
 	}
 
