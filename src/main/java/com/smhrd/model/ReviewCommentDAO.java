@@ -22,7 +22,7 @@ public class ReviewCommentDAO {
 	public int writeReviewComment(ReviewCommentDTO dto) {
 		SqlSession session = sqlSessionFactory.openSession(true);
 
-		int row = session.insert("writeComment", dto);
+		int row = session.insert("writeReviewComment", dto);
 		session.close();
 		
 		
