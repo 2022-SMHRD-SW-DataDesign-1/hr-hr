@@ -13,7 +13,7 @@
 <%@page import="com.smhrd.model.BoardDAO"%>
 <%@page import="com.smhrd.model.MemberDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -47,7 +47,7 @@
                 
 				<h1 class="logo">
 					<a href="Main.jsp">
-						<img src="imgs/<%=java.net.URLEncoder.encode("로고.png","euc-kr") %>"/>
+						<img src="imgs/로고.JPG"/>
 						
 					</a>
 				</h1>
@@ -255,7 +255,7 @@
                                             <%for(String temp : p_files){%>
                                               <div class="carousel-item active">
                                                 <!-- 여기에 사진넣기 --> 	
-                                                <a href="policy_board.jsp"><img src="./imgs/<%=temp %>"></a>                                          
+                                                <a href="policy_board.jsp"><img src="./imgs/<%=temp%>"></a>                                          
                                               </div>
                                              <%} %>
                                             
@@ -350,12 +350,13 @@
 								<% count++; %>
 								<div class="timer"><%=p_dto.getP_date() %></div>
 							</div>
-							<%} %>
-						<%} %>
+							<% break; 
+							} 
+						} %>
 						</article>
   						
                     	<%if(info != null){%>
-						<script>
+						<script text="javascript/text">
 							function policylikes(p_num,clicked_id){
 								let is_like;
 								console.log(p_num);
@@ -452,7 +453,7 @@
 										<%for(String temp : b_files){%>
 										  <div class="carousel-item active">
 											<!-- 여기에 사진넣기 --> 	
-											<a href="Detail-page.jsp"><img src="imgs/<%=temp%>"></a>
+											<a href="Detail-page.jsp"><img src="./imgs/<%=temp%>"></a>
 									  
 										  </div>
 										  <%} %>
@@ -559,7 +560,7 @@
 						<%} %>
 					</article>
 					<%if(info != null){%>
-	<script>
+	<script text="javascript/text">
 		function likes(b_num,clicked_id){
 			let is_like;
 			console.log(b_num);
@@ -646,7 +647,7 @@
 										<!-- 파일 추가 버튼 -->
 										
 											<input type="file" name="filename" id="id_photo" style="float: right;" required="required" >
-											<script >
+											<script text="javascript/text" >
 												function addbtn(){
 													$("#filelist").append("<input  type='file' style='float: right;' required='required' name='filename<%=count%>' multiple>");
 												}
