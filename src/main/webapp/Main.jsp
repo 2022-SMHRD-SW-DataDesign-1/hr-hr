@@ -450,9 +450,11 @@
 									</button>
 									<ul class="dropdown-menu">
 									  <li><a class="dropdown-item" href="#">수정</a></li>
-									  <li><a class="dropdown-item" href="#">삭제</a></li>
+									  <li onclick="alert('정말로 삭제하시겠습니까?');return false"><a class="dropdown-item" href="#" >삭제</a></li>
 									  
 									</ul>
+									
+									  
 								  </div>
 							</div>
 						</header>
@@ -529,10 +531,10 @@
 								
 							</div>
 							<!-- 오른쪽영역 -->
-							<div class="right_icon">
 							<!-- 스크랩버튼 -->
+							<!-- <div class="right_icon">
 								<div class="sprite_bookmark_outline" ></div>
-							</div>
+							</div> -->
 						</div>
 						<!-- 좋아요수 표시 -->
 						
@@ -547,7 +549,9 @@
 										</div>
 									</div>
 									<div class="comment_more">
-										<a href="Detail-page.jsp">댓글 더보기</a>
+										<!-- 댓글 더보기 할때 같은 게시물로 가게 하기... ( 아직 덜함) -->
+										<a href="Detail-page.jsp?m_id<%=b_dto.getB_num()%>">댓글 더보기</a>
+										
 									</div>
 						<!-- 댓글 표시 -->
 						<div class="comment_container">
