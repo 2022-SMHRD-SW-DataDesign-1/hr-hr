@@ -1,3 +1,5 @@
+<%@page import="com.smhrd.model.ReviewLikeDTO"%>
+<%@page import="com.smhrd.model.ReviewLikeDAO"%>
 <%@page import="com.smhrd.model.ReviewCommentDTO"%>
 <%@page import="com.smhrd.model.ReviewCommentDAO"%>
 <%@page import="com.smhrd.model.ReviewDTO"%>
@@ -56,7 +58,7 @@
 		ReviewCommentDAO r_c_dao = new ReviewCommentDAO();
 		ArrayList<ReviewCommentDTO> r_c_List =r_c_dao.showReviewComment(r_num);
 		%>
-
+		
 
 
 
@@ -84,7 +86,7 @@
 
 					<div class="right_icons">
 						<a href="Login.jsp"><img src="imgs/로그인.PNG" class="sprite_compass_icon"></a>
-					<a href="ProfileAll.jsp"><img src="imgs/프로필.PNG" class="sprite_user_icon_outline"></a>
+					<a href="profileAll.jsp"><img src="imgs/프로필.PNG" class="sprite_user_icon_outline"></a>
 					</div>
 				</section>
 			</header>
@@ -128,7 +130,7 @@
                                             <div class="carousel-inner">
                                               <div class="carousel-item active">
                                                 <!-- 여기에 사진넣기 --> 	
-                                                <img src="imgs/thumb03.jpg" alt="visual01">
+                                                <img src="./file/<%=r_detail.getR_file() %>" alt="visual01">
                                           
                                               </div>
                                               <div class="carousel-item">
@@ -185,7 +187,7 @@
 										
 										<!-- 댓글 내용 -->
 										<div class="comment">
-											<span class="user_id"><%=r_c_dto.getM_id() %></span><%=r_c_dto.getR_c_content() %>
+											<span class="user_id"><%=r_c_dto.getM_nickname()%></span><%=r_c_dto.getR_c_content() %>
 										</div>
 										
 									</div>
@@ -206,14 +208,27 @@
 								
 								<!-- 하단 왼쪽 -->
 									<div class="left_icons">
-									<!-- 좋아요 버튼 -->
-										<div class="heart_btn">
-									<div class="sprite_heart_icon_outline" data-name="heartbeat">
-										<button class="heart_button"><img src="imgs/3.PNG"></button>
+									
+							<%
+						if(info != null){
+							// 리뷰 글 좋아요 여부 확인
+							ReviewLikeDAO r_l_dao = new ReviewLikeDAO();
+							ReviewLikeDTO r_l_dto = new ReviewLikeDTO(info.getM_Id(),r_num);
+							int isLikeResult = r_l_dao.reviewIsLike(r_l_dto);
+							if(isLikeResult>0){ %>
+									<div class="heart_btn">
+										<div class="sprite_heart_icon_outline" data-name="heartbeat">
+											<img src="imgs/3.PNG"><button id="reviewLikes" class="heart_button" onclick="reviewLike()">유용해요해제</button>
+										</div>
 									</div>
-								</div>
-								
-								
+							<%}else{ %>	
+									<div class="heart_btn">
+										<div class="sprite_heart_icon_outline" data-name="heartbeat">
+											<img src="imgs/3.PNG"><button id="reviewLikes" class="heart_button" onclick="reviewLike()">유용해요등록</button>
+										</div>
+									</div>										
+							<%} %>										
+						<%} %>										
 								
 								<!-- 댓글 버튼 -->
 								<div class="sprite_bubble_icon"></div>
@@ -223,7 +238,7 @@
 								
 								<!-- 좋아요수 표시 -->
 								<div class="count_likes">
-									좋아요 <span class="count"><%=r_detail.getR_like() %></span> 개
+									좋아요 <span class="count" id="count"><%=r_detail.getR_like() %></span> 개
 								</div>
 								
 
@@ -258,15 +273,18 @@
 				let r_c_content = $("#reviewComment").val();
 				let m_id = '<%=info.getM_Id()%>';
 				let r_num = <%=request.getParameter("r_num")%>;
+				let m_nickname = '<%=info.getM_Nickname()%>';
 				
-				console.log(r_c_content);
-				console.log(m_id);
-				console.log(r_num);
+				console.log("내용"+r_c_content);
+				console.log("아이디"+m_id);
+				console.log("리뷰번호"+r_num);
+				console.log("닉네임"+m_nickname);
 				
 				$.ajax({
 					url : "ReviewCommentService",
 					data : {"m_id" : m_id,
 							"r_c_content" : r_c_content,
+							"m_nickname" : m_nickname,
 							"r_num" : r_num
 							},
 					type : 'get', 
@@ -280,7 +298,7 @@
 								img
 							</div>
 							<div class="comment">
-								<span class="user_id"><%=info.getM_Id() %>
+								<span class="user_id"><%=info.getM_Nickname()%>
 								</span>${reviewComment.value}
 							</div>
 							
@@ -292,9 +310,53 @@
 						console.log("조샀다 !");
 					}
 				})
+			}
+			</script>
+	
+	<script type="text/javascript">
+	// 리뷰 좋아요 
+			let like_count = <%=r_detail.getR_like() %>; 
+			function reviewLike() {
+				let is_Like;
+				let m_id = '<%=info.getM_Id()%>';
+				let r_num = <%=request.getParameter("r_num")%>;
+				
+				let usefulBtn = document.getElementById("reviewLikes").innerText;
+				console.log(usefulBtn);
+				console.log(m_id);
+				console.log(r_num);
+				
+				if(usefulBtn == '유용해요등록'){
+					document.getElementById("reviewLikes").innerText ='유용해요해제';
+					is_Like = 0;
+				}else{
+					document.getElementById("reviewLikes").innerText ='유용해요등록';
+					is_Like = 1;
+				}
+				
+				console.log(is_Like);
+				
+				$.ajax({
+					url : "ReviewLikeService",
+					data : {"m_id" : m_id,
+							"r_num" : r_num,
+							"is_Like" : is_Like
+							},
+					type : 'get', 
+					success : function(data) {
+						if(data == 'true'){
+							like_count += 1;
+						}else{
+							
+							like_count -= 1;
+						}
+						$('#count').text(like_count);
+					},
+					error : function() {
+						console.log("조샀다 !");
+					}
+				})
 			}	
-	
-	
 			
 	</script>
 	

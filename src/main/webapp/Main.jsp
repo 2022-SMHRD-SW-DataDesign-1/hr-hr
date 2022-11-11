@@ -62,7 +62,7 @@
 				<div class="right_icons">
 					
 					<a href="Login.jsp"><img src="imgs/로그인.PNG" class="sprite_compass_icon"></a>
-					<a href="Profile.jsp"><img src="imgs/프로필.PNG" class="sprite_user_icon_outline"></a>
+					<a href="profileAll.jsp"><img src="imgs/프로필.PNG" class="sprite_user_icon_outline"></a>
 					<!-- 알람버튼 -->
 					<button type="button" class="btn btn-primary position-relative" id="liveToastBtn">
 						<span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
@@ -244,7 +244,7 @@
 								</div>
 								<!-- 리뷰 버튼영역-->
                                 <div class="right_button">
-                                    <button type="button" class="btn btn-outline-dark"><a href="reviewboard.jsp">리뷰</a></button>
+                                    <button type="button" class="btn btn-outline-dark"><a href="reviewboard.jsp?p_num=<%=p_dto.getP_num()%>">리뷰</a></button>
                                 </div>
 							</div>
 						</header>
@@ -265,7 +265,7 @@
                                             <%for(String temp : p_files){%>
                                               <div class="carousel-item active">
                                                 <!-- 여기에 사진넣기 --> 	
-                                                <a href="policy_board.jsp"><img src="./imgs/<%=temp%>"></a>                                          
+                                                <a href="policy_board.jsp?p_num=<%=p_dto.getP_num()%>"><img src="./imgs/<%=temp%>"></a>                                          
                                               </div>
                                              <%} %>
                                             
@@ -341,8 +341,7 @@
 									</div>
 									<!-- 정책 아래 오른쪽영역 -->
 									<div class="right_icon">
-									<!-- 정책 스크랩버튼 -->	
-										<div class="sprite_bookmark_outline" ></div>
+									
 									</div>
 								</div>
 								
@@ -441,7 +440,10 @@
 								</div>
 								<!-- 게시글 유저 닉네임 -->
 								<div class="user_name">
-									<div class="nick_name user_text"><%=b_dto.getB_writer() %></div>
+									<div class="nick_name user_text">
+										<a href="profileAll.jsp?m_id=<%=b_dto.getB_writer()%>"> <%=b_dto.getB_writer() %></a>
+										
+									</div>
 									<div class="top_time">
 										<div class="comment">
 											<div class="t_timer"><%=b_dto.getB_date() %></div>
@@ -529,7 +531,7 @@
 										<%}else{%>
 											<button class="heart_button" id='likes<%= count %>' onclick="likes(<%= b_dto.getB_num() %>,this.id,<%=count%>)"><img class="heart" alt="유용해요등록" src="imgs/몰라.JPG"></button>
 										<%	}%>
-											</div>
+												</div>
 											
 										</div>
 								<!-- 댓글 버튼 -->

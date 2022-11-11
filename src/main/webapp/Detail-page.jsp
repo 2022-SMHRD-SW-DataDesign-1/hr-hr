@@ -7,7 +7,7 @@
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	<!DOCTYPE html>
+	<!DOCTYPE html> 
 	<html>
 
 	<head>
@@ -204,29 +204,9 @@
 
 								<!-- 댓글 두개만 보이고 나머지는 더보기로 넘겨야함 -->
 									
+									
+									
 									<%if(cmtList != null){ %>
-									<!-- for(i = 0; i<1; i++){ -->
-									<%for(CommentDTO cmt_dto : cmtList){ %>
-									<!-- 댓글 영역 -->
-									<div class="user_container-detail">
-										<div class="user">
-										<!-- 댓글게시 유저 이미지 -->
-										<!-- 프로필 사진도 필요 -->
-											<img src="imgs/thumb02.jpg" alt="user">
-										</div>
-										<!-- 댓글 내용 -->
-										<div class="comment">
-											<span class="user_id"><%=cmt_dto.getCmt_id() %></span>
-											<%=cmt_dto.getCmt_content() %>
-											
-											<button class="cmtlike">♡</button>
-										</div>
-									</div>
-									<%} %>
-									
-									<%} %>
-									
-									<%-- <%if(cmtList != null){ %>
 									<%for(CommentDTO cmt_dto : cmtList){ %>
 									<!-- 댓글 영역 -->
 									<div class="user_container-detail">
@@ -238,13 +218,12 @@
 										<div class="comment">
 											<span class="user_id"><%=cmt_dto.getCmt_id() %></span>
 											<%=cmt_dto.getCmt_content() %>
-											
-											<button class="cmtlike">♡</button>
+										
 										</div>
 									</div>
 									<%} %>
 									
-									<%} %> --%>
+									<%} %>
 									
 								</section>
 								<!-- 댓글창 끝나는 곳 -->

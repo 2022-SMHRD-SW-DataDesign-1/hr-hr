@@ -18,10 +18,11 @@ public class ReviewCommentDTO {
 	@NonNull
 	private String m_id;
 	@NonNull
+	private BigDecimal r_num;
+	@NonNull
 	private String r_c_content;
 	@NonNull
-	private BigDecimal r_num;
-	private BigDecimal r_c_like;
+	private String m_nickname;
 	private Timestamp r_c_date;
 	
 	

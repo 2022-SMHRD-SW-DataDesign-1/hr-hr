@@ -1,52 +1,44 @@
 package com.smhrd.model;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
 
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
 import com.smhrd.db.SqlSessionManager;
 
-public class PolicyDAO {
+public class ReviewLikeDAO {
+
 	private SqlSessionFactory sqlSessionFactory = SqlSessionManager.getSqlSession();
-	
-	// 업로드
-	public int upload(PolicyDTO dto) {
+
+	public int reviewIsLike(ReviewLikeDTO dto) {
 		SqlSession session = sqlSessionFactory.openSession(true);
-		int row = session.insert("p_upload", dto);
+		int row = session.selectOne("reviewIsLike", dto);
+		session.close();
+
+		return row;
+	}
+
+	public int reviewLikePlus(ReviewLikeDTO dto) {
+		SqlSession session = sqlSessionFactory.openSession(true);
+		int row = session.insert("reviewLikePlus", dto);
 		session.close();
 		
 		return row;
 	}
 	
-	// 정책 목록 보여주기
-	public ArrayList<PolicyDTO> showPolicy(){
+	public int reviewLikeMinus(ReviewLikeDTO dto) {
 		SqlSession session = sqlSessionFactory.openSession(true);
-		ArrayList<PolicyDTO> list = (ArrayList)session.selectList("showPolicy");
-		session.close();
-		
-		return list;
-	}
-	
-	// 정책 수정
-	public int update(PolicyDTO dto) {
-		SqlSession session = sqlSessionFactory.openSession(true);
-		int row = session.update("p_update", dto);
+		int row = session.delete("reviewLikeMinus", dto);
 		session.close();
 		
 		return row;
 	}
 	
-	// 정책 세부내용 조회
-	public PolicyDTO showDetail(BigDecimal p_num) {
+	public void setReviewLikeCount(BigDecimal b_num) {
 		SqlSession session = sqlSessionFactory.openSession(true);
-		PolicyDTO policy = session.selectOne("showDetail",p_num);
+		session.update("setReviewLikeCount",b_num);
 		session.close();
 		
-		return policy;
 	}
-	
-	
-	
 }

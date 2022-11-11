@@ -75,7 +75,7 @@
                     <%if (info != null) {%>
 					<%if(info.getM_Id().equals(info.getM_Id())){ %>
 					<%}else{ %>
-					<a href="Profile.jsp"><img
+					<a href="profileAll.jsp"><img
 						src="imgs/프로필.PNG" class="sprite_user_icon_outline"></a>
 					<%} %>
 					<%} %>
@@ -281,9 +281,13 @@
 									</div>
 								</div>
 								<!-- 모달 끝! -->
-
-								<a href="#" class="logout">로그아웃</a>
-
+							<%if(info != null){ %>
+							<form action="LogoutService">
+								<button type="submit" class="btn btn-primary btn btn-light btn btn-outline-dark">
+									로그아웃
+								</button>
+							</form>
+							<%} %>
 
 							</div>
 							
@@ -421,7 +425,7 @@
             // 통신 성공 function(넘겨준데이터)
             success : function(data) {
                 console.log(typeof data);
-                if (data == 'false') {
+                if (data == 'true') {
             $("#pwCheckResult").text("같아요~");
             $("#privacyUpdateSubmit").attr("disabled",false);
                 } else {
