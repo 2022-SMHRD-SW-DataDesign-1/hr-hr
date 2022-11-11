@@ -109,7 +109,7 @@
 		사진등록 :<input  type="file" style="float: right;" name="filename" >
 		게시글 입력 : <textarea  rows="10" style="resize: none;" name="content"></textarea><br> 
 		<input type="submit" value="게시글 등록">
-		</form>
+	</form>
 	
 	<hr>
 	<!-- 게시글 목록 출력 o + 댓글 작성 o + 출력 o -->
@@ -165,15 +165,15 @@
 		<input type = "submit" value="-" style='float:right;' onclick ="minusbtn(<%=count%>)"><br>
 		
 	
-		<script type="text/javascript">
-			function addbtn(){
-				$("#p_filelist1").append("<input type = 'file' style='float:right;' name='filename<%=count%>' multiple>")
-	
-			}
-			function minusbtn(){
-				$("#p_filelist1").children().last().remove();
-			}
-		</script> 
+			<script type="text/javascript">
+				function addbtn(){
+					$("#p_filelist1").append("<input type = 'file' style='float:right;' name='filename<%=count%>' multiple>")
+		
+				}
+				function minusbtn(){
+					$("#p_filelist1").children().last().remove();
+				}
+			</script> 
 	
 	
 	
