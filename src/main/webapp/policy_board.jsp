@@ -120,7 +120,7 @@
 							<div class="user_container">
 							<!-- 게시물 유저이미지 -->
 								<div class="profile_img"><!--  -->
-									유저이미지 넣기<img src="<%=policy.getP_filename() %>" alt="">
+									<img src="<%=policy.getP_filename() %>" alt="">
 								</div>
 								<!-- 게시물 유저 정보  -->
 								<div class="user_name">
@@ -140,26 +140,36 @@
 									
 								 	<!-- 이미지 넘기기 -->
 										<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
-										<!-- 이미지수 정하기 -->
-                                            <div class="carousel-indicators">
+										<!-- 이미지 수정하기 -->
+                                         <% String file = policy.getP_filename();
+                                         	String[] files = file.split(",");
+                                         	int count = 0;
+                                         %>
                                             
+                                             <div class="carousel-indicators">
                                               <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-label="Slide 1" aria-current="true"></button>
-                                            
-                                            </div> 
-                                            <!-- 이미지 넣는 부분 -->
-                                            <!-- 이미지 넣기 -->
-                                            
-                                            
-                                            
+                                           		<%if(files.length>1){ %>
+                                           		<%for(int i = 0; i<files.length-1; i++){ %>
+                                           			<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="<%=count+1 %>" aria-label="Slide <%=count+2 %>" class=""></button>
+                                           		<% count++; %>
+                                           		<%} %>
+                                           		<%} %>
+                                           </div>
+                                           <!-- 이미지 넣는 영역 -->
                                            
-                                            
-                                           <!--for(int i = 0; i<p_files.length; i++){%>   -->
                                               <div class="carousel-inner">
+                                              <!-- 첫번째 사진 -->
                                               <div class="carousel-item active">
                                                 <!-- 여기에 사진넣기 --> 	
-                                                 <img src="imgs/<%=policy.getP_filename()%>" alt="visual01"> 
-                                          
+                                                 <img src="imgs/<%=files[0]%>" > 
                                               </div>
+												<%if(files.length>1){ %>
+													<%for(int i = 1; i<files.length; i++){ %>
+													<div class="carousel-item">
+		                                               <img src="./file/<%=files[i] %>">
+		                                             </div>
+												<%} %>
+											<%} %>
 
                                             </div>
                                              <!-- 이미지 오른쪽으로 넘기기 -->
@@ -180,12 +190,12 @@
 									</div>
 								</div>
 							</div> 
-							<!-- 게시물 상세내용영역 -->
+							<!-- 게시물 하단상세 -->
 							<div class="detail--right_box">
 
 
 								<header class="top">
-									
+									<!-- 유저 조 -->
 									<div class="admin_container">
 										<div class="comment">
 											<span class="user_id"><%=policy.getAdmin_id() %></span>
@@ -223,49 +233,7 @@
 									좋아요 <span class="count">2,351</span> 개
 								</div>
 								<div class="timer">2시간</div>
-								
-								<!-- 댓글 스크롤 -->
-								<section class="scroll_section">
-									<!-- 게시물 댓글 영역  -->
-									<div class="user_container-detail">
-										<div class="user">
-											<img src="imgs/thumb02.jpg" alt="user">
-										</div>
-										<div class="comment">
-											<span class="user_id">in0.lee</span>너무귀엽네요 ㅎㅎㅎ맞팔해요~!
-											<div class="time">
-												2시간 <span class="try_comment">답글 달기</span>
-											</div>
-											
-										</div>
-									</div>
-
-									<div class="user_container-detail">
-										<div class="user">
-											<img src="imgs/thumb03.jpg" alt="user">
-										</div>
-										<div class="comment">
-											<span class="user_id">ye_solkim</span>강아지 이름이 뭐에요???
-											<div class="time">
-												2시간 <span class="try_comment">답글 달기</span>
-											</div>
-											
-										</div>
-									</div>
-									
-									
-
-
-								</section>
-								<!-- 댓글 입력란 -->
-								<div class="commit_field">
-									<input type="text" placeholder="댓글달기..">
-
-									<div class="upload_btn">게시</div>
-								</div>
-
-
-
+						
 							</div>
 
 
