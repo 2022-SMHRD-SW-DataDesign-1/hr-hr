@@ -443,6 +443,7 @@
 
 							</div>
 							<!-- 게시글 수정 삭제 영역  -->
+									<%if(info.getM_Id().equals(b_dto.getB_writer())){ %>
 							<div class="sprite_more_icon" >
 								<div class="dropdown">
 									<button class="btn btn-secondary dropdown-toggle btn btn-light" type="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -450,13 +451,13 @@
 									</button>
 									<ul class="dropdown-menu">
 									  <li><a class="dropdown-item" href="#">수정</a></li>
-									  <li onclick="alert('정말로 삭제하시겠습니까?');return false"><a class="dropdown-item" href="#" >삭제</a></li>
+									  <li><a class="dropdown-item" onclick="deleteBoard(<%=b_dto.getB_num()%>)">삭제</a></li>
 									  
 									</ul>
-									
 									  
 								  </div>
 							</div>
+									<%} %>
 						</header>
 						<!-- 게시글 사진 영역 -->
 						<div class="img_section">
@@ -760,7 +761,42 @@
 
 
 	</section>
-
+	<script type="text/javascript">
+	// 삭제 버튼
+	function deleteBoard(b_num){
+		let m_id = '<%=info.getM_Id()%>';
+		
+		let delCheck = confirm("데이터 복구는 없다. 삭제 ㄱ?");
+		console.log("아이디 : "+m_id);
+		console.log("글 번호 : "+b_num)
+		console.log(delCheck);
+		console.log(typeof delCheck);
+		
+		$.ajax({
+			url : "DeleteBoardService",
+			data : {"m_id" : m_id,
+					"b_num" : b_num,
+					"delCheck" : delCheck
+					},
+			type : 'get', 
+			success : function(data) {
+				console.log("통신은 된다?")
+				location.replace("./Main.jsp");
+			},
+			error : function() {
+				console.log("조샀다 !");
+			}
+		})
+		
+		
+	}
+	
+	
+	</script>
+	
+	
+	
+	
 	<script src="./js/chat.js"></script>
 	<script src="js/comment.js"></script>
 	<script src="js/alert_btn.js"></script>
