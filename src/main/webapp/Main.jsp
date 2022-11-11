@@ -265,7 +265,7 @@
                                             <%for(String temp : p_files){%>
                                               <div class="carousel-item active">
                                                 <!-- 여기에 사진넣기 --> 	
-                                                <a href="policy_board.jsp?p_num=<%=ranPdto.getP_num()%>"><img src="./imgs/<%=temp%>"></a>                                          
+                                                <a href="policy_board.jsp?p_num=<%=ranPdto.getP_num()%>"><img alt = "./file/error.png" src="./imgs/<%=temp%>"></a>                                          
                                               </div>
                                              <%} %>
                                             
