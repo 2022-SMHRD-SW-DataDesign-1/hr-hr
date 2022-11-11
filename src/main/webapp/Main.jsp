@@ -244,7 +244,7 @@
 								</div>
 								<!-- 리뷰 버튼영역-->
                                 <div class="right_button">
-                                    <button type="button" class="btn btn-outline-dark"><a href="reviewboard.jsp">리뷰</a></button>
+                                    <button type="button" class="btn btn-outline-dark"><a href="reviewboard.jsp?p_num=<%=p_dto.getP_num()%>">리뷰</a></button>
                                 </div>
 							</div>
 						</header>
@@ -439,7 +439,10 @@
 								</div>
 								<!-- 게시글 유저 닉네임 -->
 								<div class="user_name">
-									<div class="nick_name user_text"><%=b_dto.getB_writer() %></div>
+									<div class="nick_name user_text">
+										<a href="profileAll.jsp?m_id=<%=b_dto.getB_writer()%>"></a>
+										<%=b_dto.getB_writer() %>
+									</div>
 									<div class="top_time">
 										<div class="comment">
 											<div class="t_timer"><%=b_dto.getB_date() %></div>
