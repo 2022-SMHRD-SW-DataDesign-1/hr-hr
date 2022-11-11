@@ -32,6 +32,7 @@
 	BigDecimal p_num = new BigDecimal(request.getParameter("p_num"));
 
 	ArrayList<ReviewDTO> rList = r_dao.reviewShow(p_num);
+	
 	%>
 	<section id="container">
 
@@ -68,17 +69,13 @@
 		<article class="review">
 			<div class="r_board_title">
 				<h2>리뷰 게시판</h2>
-				<%
-				if (info != null) {
-				%>
+				<%if (info != null) {%>
 				<!-- 리뷰 등록 버튼 -->
 				<!-- 여기가 버튼스타일 클래스  -->
 				<button type="button" class="btn btn-primary btn btn-info"
 					data-bs-toggle="modal" data-bs-target="#staticBackdrop">
 					리뷰 등록</button>
-				<%
-				}
-				%>
+				<%}%>
 				<!-- 팝업창영역 -->
 				<!-- Modal -->
 				<div class="modal fade" id="staticBackdrop"
@@ -102,6 +99,7 @@
 								
 								<!-- ////////////////////////////////////////////////////////////////////////////////////// -->
 									<!-- 리뷰게시글 정보 보내기 -->
+									<%if(info != null){ %>
 									<form action="ReviewService?p_num=<%=p_num %>" class="post_form" method="post" enctype="multipart/form-data">
 										<div class="title">
 										<input type="text" name= "r_title" placeholder="제목">
@@ -119,7 +117,7 @@
 										</div>
 										<p>
 										<!-- 리뷰 게시글사진 첨부 -->
-										<input type="file" name="r_filename" id="id_photo" required="required">
+										<input type="file" name="r_filename" id="id_photo" required="required" multiple="multiple">
 										</p>
 										<p>
 										<!-- 리뷰 글추가 -->
@@ -130,7 +128,7 @@
 										
 										
 									</form>
-
+				<%} %>
 
 
 
@@ -161,13 +159,9 @@
 					</thead>
 					<!-- 게시판 본문 -->
 					<tbody>
-						<%
-						if (rList != null) {
-						%>
+						<%if (rList != null) {%>
 
-						<%
-						for (ReviewDTO rdto : rList) {
-						%>
+						<%for (ReviewDTO rdto : rList) {%>
 						<tr class="tr_height">
 							<td><%=rdto.getM_id()%></td>
 							<td class="r_title"><a
@@ -177,13 +171,9 @@
 							<td class="r_like"><%=rdto.getR_like()%></td>
 						</tr>
 
-						<%
-						}
-						%>
+						<%}%>
 
-						<%
-						}
-						%>
+						<%}%>
 					</tbody>
 				</table>
 			</div>
