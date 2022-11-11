@@ -32,6 +32,8 @@
 		<link rel="stylesheet" href="css/common.css">
 		<link rel="stylesheet" href="css/style.css">
 		<link rel="stylesheet" href="css/detail-page.css">
+		<link rel="stylesheet" href="css/new_post.css">
+<link rel="stylesheet" href="css/bootstrap.css">
 		<link rel="shortcut icon" href="imgs/instagram.png">
         
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -114,8 +116,11 @@
 								<div class="user_name">
 									<div class="nick_name"><%=r_detail.getR_title() %></div>
 								</div>
-                              
+                              	<div class="sprite_more_icon" >
+								
 							</div>
+							</div>
+							
 							<!-- 게시글 이미지영역 -->
 							<div class="img_section">
 								<div class="trans_inner">
@@ -123,33 +128,48 @@
 									<!-- 이미지 넘기기 -->
 										<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
                                            <!-- 이미지 수정하기 -->
+                                           <%
+                                            String file = r_detail.getR_file();
+                                            String [] files = file.split(",");
+                                            int count = 0;
+                                            %>
+                                           
                                             <div class="carousel-indicators">
                                               <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-label="Slide 1" aria-current="true"></button>
-                                              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2" class=""></button>
-                                              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3" class=""></button>
+                                              <%if(files.length >1){ %>
+                                            <%for(int i = 0;i < files.length-1;i++){ %>
+                                              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="<%=count+1 %>" aria-label="Slide <%=count+2 %>" class=""></button>
+                                              <%count++; %>
+                                             <%} %>
+                                             <%} %>
                                             </div>
                                             <!-- 이미지 넣는 영역 -->
                                             
                                             
                                             
                                             <div class="carousel-inner">
-                                            <%
-                                            String file = r_detail.getR_file();
-                                            String [] files = file.split(",");
-                                            %>
-                                            <%for(String filename : files) {%>
+                                            <!-- 첫번쨰 사진 -->
                                               <div class="carousel-item active">
-                                                <!-- 여기에 사진넣기 --> 	
-                                                <img src="./file/<%=filename %>">
+                                                <img src="./file/<%=files[0] %>">
                                               </div>
-                                             <%} %>
+                                              
+                                            <!-- 두번쨰 사진이 있다면 이후부터 출력 -->
+                                            <%if(files.length >1){ %>
+                                            	<%for (int i = 1; i < files.length; i ++){ %>
+		                                             <div class="carousel-item">
+		                                               <img src="./file/<%=files[i] %>">
+		                                             </div>
+                                           		<%} %>
+                                            <%} %>
                                             </div>
+                                            
+                                            
                                             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
                                               <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                               <span class="visually-hidden">Previous</span>
                                             </button>
                                             <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                                              <span class="carousel-control	-next-icon" aria-hidden="true"></span>
+                                              <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                               <span class="visually-hidden">Next</span>
                                             </button>
                                           </div>
@@ -159,7 +179,7 @@
 
 								<!-- 게시글 하단 상세 -->
 							<div class="detail--right_box">
-
+							
 
 								<header class="top">
 									<!-- 유저 정보 -->
@@ -172,7 +192,16 @@
 									</div>
 									
 								</header>
-
+								<%if(info.getM_Id().equals(r_detail.getM_id())){%>
+								<div class="dropdown">
+									<button class="btn btn-secondary dropdown-toggle btn btn-light" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+									 ...
+									</button>
+									<ul class="dropdown-menu">
+									  <li><a class="dropdown-item" onclick="deleteReview()">삭제</a></li>
+									</ul>
+								  </div>
+								 <%} %>
 							<!-- 댓글 스크롤 -->
 								<section class="scroll_section" id="reviewComments">
 								
@@ -358,6 +387,43 @@
 				})
 			}	
 			
+	</script>
+	
+	<script type="text/javascript">
+	// 삭제 버튼
+	function deleteReview(){
+		let m_id = '<%=info.getM_Id()%>';
+		let r_num = <%=request.getParameter("r_num")%>;
+		let p_num = <%=request.getParameter("p_num")%>;
+		
+		let delCheck = confirm("데이터 복구는 없다. 삭제 ㄱ?");
+		console.log("아이디"+m_id);
+		console.log("리뷰번호"+r_num);
+		console.log("정책번호"+p_num);
+		console.log("확인"+delCheck);
+		console.log(typeof delCheck);
+		
+		$.ajax({
+			url : "DeleteReviewService",
+			data : {"m_id" : m_id,
+					"r_num" : r_num,
+					"p_num" : p_num,
+					"delCheck" : delCheck
+					},
+			type : 'get', 
+			success : function(data) {
+				console.log("통신은 된다?")
+				location.replace("./reviewboard.jsp?p_num="+<%=request.getParameter("p_num")%>);
+			},
+			error : function() {
+				console.log("조샀다 !");
+			}
+		})
+		
+		
+	}
+	
+	
 	</script>
 	
 	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
