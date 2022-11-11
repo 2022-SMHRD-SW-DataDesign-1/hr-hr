@@ -42,18 +42,6 @@
 		
 	<!------------------------------- 채팅창 판데기 -------------->
 	  
-	  <!-- ------------------------------- 템플릿용 채팅박스--------------------------------->
-	  <div class="template" style="display:none">
-    <form>
-      <!-- 메시지 텍스트 박스 -->
-      <input type="text" class="message" onkeydown="if(event.keyCode === 13) return false;">
-      <!-- 전송 버튼 -->
-      <input value="Send" type="button" class="sendBtn">
-    </form>
-    <br />
-    <!-- 서버와 메시지를 주고 받는 콘솔 텍스트 영역 -->
-    <textarea rows="10" cols="50" class="console" disabled="disabled"></textarea>
-  </div>
   <!-- ------------------------------- 템플릿용 채팅박스--------------------------------->
   
   <div class="template"></div>

@@ -71,7 +71,9 @@ public class PolicyService extends HttpServlet {
 	MemberDTO dto = (MemberDTO)session.getAttribute("info");
 	
 	//로그인한 아ㅣ디 // 작성자
-	String writer = dto.getM_Id(); 
+	//String writer = dto.getM_Id();
+	String writer = "1";
+			
 	
 	//파일 이름에 한글이 들어가면 얘를 다시 불러올 때 깨짐
 	URLEncoder.encode(uploadFile, "UTF-8");
