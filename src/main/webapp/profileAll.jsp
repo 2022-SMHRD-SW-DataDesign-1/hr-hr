@@ -366,8 +366,12 @@
 						<div class="top">
 							<div class="other_btn">
 								<!-- detail top a으로 클래스 접근 팔로우 dm영역 -->
-								<a href="profile_edit.jsp" class="profile_edit">팔로우</a> <a
-									href="#">DM</a>
+								<button type="submit" class="btn btn-primary btn btn-light btn btn-outline-dark">
+									<a href="profile_edit.jsp" class="profile_edit">팔로우</a>
+								</button>
+								<button type="submit" class="btn btn-primary btn btn-light btn btn-outline-dark"> 
+									<a href="#">DM</a>
+								</button>
 								<!-- 차단버튼 -->
 								<!--여기가 버튼스타일 클래스영역  -->
 								<button type="button"
