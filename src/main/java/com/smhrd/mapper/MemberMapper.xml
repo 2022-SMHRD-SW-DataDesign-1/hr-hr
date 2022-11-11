@@ -8,7 +8,7 @@
 		insert into t_member(M_ID, M_PW,
 		M_EMAIL, M_NICKNAME, M_PHONE, M_JOINDATE, M_PROFILE, M_POINT, M_TYPE, M_PIC)
 		values(#{m_Id}, #{m_Pw}, #{m_Email}, #{m_Nickname}, #{m_Phone}, 
-		sysdate,'자기소개를 입력하세요','0','u','프로필사진을등록하세요')
+		sysdate,'자기소개를 입력하세요','0','u','사용자프로필.png')
 	</insert>
 
 	<select id="login" parameterType="MemberDTO"
@@ -42,6 +42,18 @@
 	
 	<update id="privacyUpdate" parameterType="MemberDTO">
 		UPDATE t_member SET m_pw = #{m_Pw}, m_phone = #{m_Phone}, m_email = #{m_Email}
+		WHERE m_id = #{m_Id}
+	</update>
+	
+	<select id="UsefulPointCheck" parameterType="String" resultType="int">
+	select sum(ab)*100 as point from 
+	(select m_id, sum(b_likes)as ab from t_board group by m_id
+	union all
+	select m_id, sum(r_like)as ab from t_review group by m_id) where m_id = #{m_id} group by m_id
+	</select>
+	
+	<update id="PointUpdate" parameterType="MemberDTO">
+	UPDATE t_member SET m_point = #{m_Point}
 		WHERE m_id = #{m_Id}
 	</update>
 </mapper>

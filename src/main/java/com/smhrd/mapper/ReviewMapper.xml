@@ -22,7 +22,7 @@
 	</insert>
 
 	<delete id="reviewDelete" parameterType="ReviewDTO">
-		delete * from t_review
+		delete from t_review
 		where m_id = #{m_id} and r_num = #{r_num}
 	</delete>
 

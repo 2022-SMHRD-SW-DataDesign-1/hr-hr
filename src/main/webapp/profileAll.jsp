@@ -1,3 +1,5 @@
+<%@page import="org.apache.ibatis.reflection.SystemMetaObject"%>
+<%@page import="com.smhrd.model.MemberDAO"%>
 <%@page import="com.smhrd.model.CommentDAO"%>
 <%@page import="com.smhrd.model.FollowDAO"%>
 <%@page import="com.smhrd.model.BoardDAO"%>
@@ -49,7 +51,11 @@
 <body>
 	<%
 	// 로그인 정보 info 
-	MemberDTO info = (MemberDTO) session.getAttribute("info");
+	MemberDTO loginInfo =  (MemberDTO) session.getAttribute("info");
+	MemberDTO info;
+	String m_id = request.getParameter("m_id");//이 m_id는 내가 클릭한 사람의 아이디
+	System.out.println(m_id);
+	
 	%>
 
 	<section id="container">
@@ -72,13 +78,8 @@
 				</div>
 
 				<div class="right_icons">
-                    <%if (info != null) {%>
-					<%if(info.getM_Id().equals(info.getM_Id())){ %>
-					<%}else{ %>
-					<a href="profileAll.jsp"><img
-						src="imgs/프로필.PNG" class="sprite_user_icon_outline"></a>
-					<%} %>
-					<%} %>
+                  
+					
 					
 				</div>
 
@@ -86,8 +87,11 @@
 			</section>
 
 		</header>
-
-
+		
+	<%if (loginInfo != null) {
+	
+			if(m_id==null||m_id.equals(loginInfo.getM_Id())){
+					info = loginInfo;  %>
 		<div id="main_container">
 			<!-- 프로필 영역 -->
 			<section class="b_inner">
@@ -115,9 +119,6 @@
 
 		                    <%if (info != null) {%>
 
-
-							<%if (info.getM_Id().equals(info.getM_Id())) { %>
-
 							<div class="admin_btn">
 								<!-- 정보수정 팝업버튼  -->
 								<!-- 여기가 버튼 스타일 수정클래스 -->
@@ -126,7 +127,7 @@
 									data-bs-toggle="modal" data-bs-target="#profileEditModal">
 									정보수정</button>
 
-
+							<%} %>
                                     
 								<!-- 팝업창 영역 -->
 								<!-- Modal -->
@@ -290,17 +291,94 @@
 							<%} %>
 
 							</div>
+							<%if(info != null){ %>
+						<div class="introduce"><%=info.getM_Profile() %></div>
+						<%} %>
 							
-							
-							
-							<%}else{ %>
+						<%if(info != null){ %>
+                            <ul class="middle area">
+                                <li><span>게시물</span> <%=new BoardDAO().countBoard(info.getM_Id())%></li>
+                                <li><span>팔로우</span> <%= new FollowDAO().countFollow(info.getM_Id())%></li>
+                                <li><span>팔로워</span> <%= new FollowDAO().countFollower(info.getM_Id())%></li>
+                            </ul>				
+                            <%} %>
+                            <%if(info != null){ %>
+                            <p class="about space">
+                                <span class="nick_name">게시글</span> <span class="book_mark">유용해요</span>
+                            </p>
+                        </div>
+                        </div>
+                        </div>
+                        <!-- 게시글 영역  -->
+                        <%
+                        BoardDAO b_dao = new BoardDAO();
+                        ArrayList<BoardDTO> b_List = b_dao.showBoard(info.getM_Id());
+                        ArrayList<BoardDTO> b_useful_List = b_dao.showUsefulBoard(info.getM_Id());
+                        %>
+                        
+                        <div class="mylist_contents contents_container active">
+                    
+                        <%for(BoardDTO b_dto : b_List){ %>
+                        <%String[] files = b_dto.getB_filename().split(","); %>
+                            <div class="pic">
+                                <a href="#"><img src="./file/<%=files[0]%>"></a>
+                            </div>
+                        <%} %>
+                        </div>
+
+				<!-- 타 게시글 스크랩 영역 -->
+				
+                <div class="bookmark_contents contents_container">
+                    <%for(BoardDTO b_dto:b_useful_List){ %>
+                    <%String[] files = b_dto.getB_filename().split(","); %>
+                            <div class="pic">
+                                <a href="#"><img src="./file/<%=files[0]%>"></a>
+                            </div>
+                            
+                        </div>
+                    <%} %>
+                   </section>
+                    </div>
+                  
+				
+				<%} %>
+				
+				
+				
+				
+				<!-- 여기부터 다른 사용자인 경우에 해당 -->
+			<%}else{ 
+				MemberDAO dao = new MemberDAO();//DAO기능 하나 쓸건데
+				info = dao.information(m_id);//infomation method는 Select * from 멤버테이블임 == 리턴 타입이 m_id의 값을 다 가지고 있는 memberDTO다 
+			%>
+			<div id="main_container">
+			<!-- 프로필 영역 -->
+			<section class="b_inner">
+				<!-- 프로필 상단영역  -->
+				<div class="hori_cont">
+					<!-- 프로필 상세 -->
+					<div class="profile_wrap">
+						<!-- 프로필 유저 이미지 -->
+						<div class="profile_img">
+							<img src="imgs/thumb.jpeg" alt="착한호랑이">
+						</div>
+					</div>
+
+					<div class="detail">
+						<div class="top">
+						<div class="user_name"><%=info.getM_Nickname()%></div>
 							<div class="other_btn">
 								<!-- detail top a으로 클래스 접근 팔로우 dm영역 -->
-								<a href="profile_edit.jsp" class="profile_edit">팔로우</a> <a
-									href="#">DM</a>
+								<button type="submit" class="btn btn-primary btn btn-light btn btn-outline-dark">
+									<a href="profile_edit.jsp" class="profile_edit">팔로우</a>
+								</button>
+								
+								<button type="submit" class="btn btn-primary btn btn-light btn btn-outline-dark"> 
+									<a href="#">DM</a>
+								</button>
 								<!-- 차단버튼 -->
 								<!--여기가 버튼스타일 클래스영역  -->
-								<button tye="button"
+								<button type="button"
 									class="btn btn-primary btn btn-light btn btn-outline-dark"
 									data-bs-toggle="modal" data-bs-target="#exampleModal">
 									차단</button>
@@ -334,8 +412,7 @@
 								</div>
 
 							</div>
-							<%} %>
-							<%} %>
+							
 
 
 						</div>
@@ -384,13 +461,22 @@
                         </div>
                     <%} %>
     
-                    <%} %>
 
 
 
 
 			</section>
 		</div>
+                    
+                   <%} %>
+                   
+                   
+                 <%} %>
+                 <!-- 여기까지 다른 사용자인 경우에 해당 -->
+                 
+             <%}%>
+                   
+                   
 
 
 	</section>

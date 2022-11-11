@@ -32,6 +32,8 @@
 		<link rel="stylesheet" href="css/common.css">
 		<link rel="stylesheet" href="css/style.css">
 		<link rel="stylesheet" href="css/detail-page.css">
+		<link rel="stylesheet" href="css/new_post.css">
+<link rel="stylesheet" href="css/bootstrap.css">
 		<link rel="shortcut icon" href="imgs/instagram.png">
         
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -114,8 +116,11 @@
 								<div class="user_name">
 									<div class="nick_name"><%=r_detail.getR_title() %></div>
 								</div>
-                              
+                              	<div class="sprite_more_icon" >
+								
 							</div>
+							</div>
+							
 							<!-- 게시글 이미지영역 -->
 							<div class="img_section">
 								<div class="trans_inner">
@@ -174,7 +179,7 @@
 
 								<!-- 게시글 하단 상세 -->
 							<div class="detail--right_box">
-
+							
 
 								<header class="top">
 									<!-- 유저 정보 -->
@@ -187,7 +192,16 @@
 									</div>
 									
 								</header>
-
+								<%if(info.getM_Id().equals(r_detail.getM_id())){%>
+								<div class="dropdown">
+									<button class="btn btn-secondary dropdown-toggle btn btn-light" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+									 ...
+									</button>
+									<ul class="dropdown-menu">
+									  <li><a class="dropdown-item" onclick="deleteReview()">삭제</a></li>
+									</ul>
+								  </div>
+								 <%} %>
 							<!-- 댓글 스크롤 -->
 								<section class="scroll_section" id="reviewComments">
 								
@@ -335,6 +349,7 @@
 				let is_Like;
 				let m_id = '<%=info.getM_Id()%>';
 				let r_num = <%=request.getParameter("r_num")%>;
+				let writer = '<%=r_detail.getM_id()%>';
 				
 				let usefulBtn = document.getElementById("reviewLikes").innerText;
 				console.log(usefulBtn);
@@ -355,7 +370,8 @@
 					url : "ReviewLikeService",
 					data : {"m_id" : m_id,
 							"r_num" : r_num,
-							"is_Like" : is_Like
+							"is_Like" : is_Like,
+							"writer" : writer
 							},
 					type : 'get', 
 					success : function(data) {
@@ -373,6 +389,43 @@
 				})
 			}	
 			
+	</script>
+	
+	<script type="text/javascript">
+	// 삭제 버튼
+	function deleteReview(){
+		let m_id = '<%=info.getM_Id()%>';
+		let r_num = <%=request.getParameter("r_num")%>;
+		let p_num = <%=request.getParameter("p_num")%>;
+		
+		let delCheck = confirm("데이터 복구는 없다. 삭제 ㄱ?");
+		console.log("아이디"+m_id);
+		console.log("리뷰번호"+r_num);
+		console.log("정책번호"+p_num);
+		console.log("확인"+delCheck);
+		console.log(typeof delCheck);
+		
+		$.ajax({
+			url : "DeleteReviewService",
+			data : {"m_id" : m_id,
+					"r_num" : r_num,
+					"p_num" : p_num,
+					"delCheck" : delCheck
+					},
+			type : 'get', 
+			success : function(data) {
+				console.log("통신은 된다?")
+				location.replace("./reviewboard.jsp?p_num="+<%=request.getParameter("p_num")%>);
+			},
+			error : function() {
+				console.log("조샀다 !");
+			}
+		})
+		
+		
+	}
+	
+	
 	</script>
 	
 	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
