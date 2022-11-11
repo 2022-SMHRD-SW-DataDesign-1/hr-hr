@@ -19,11 +19,12 @@ public class ReviewCommentService extends HttpServlet {
 			throws ServletException, IOException {
 		String m_id = request.getParameter("m_id");
 		String r_c_content = request.getParameter("r_c_content");
+		String m_nickname = request.getParameter("m_nickname");
 		int r_num = Integer.parseInt(request.getParameter("r_num"));
 		BigDecimal big_r_num = new BigDecimal(r_num);
 		
 		ReviewCommentDAO dao = new ReviewCommentDAO();
-		ReviewCommentDTO dto = new ReviewCommentDTO(m_id, r_c_content, big_r_num);
+		ReviewCommentDTO dto = new ReviewCommentDTO(m_id, big_r_num, r_c_content, m_nickname);
 		dao.writeReviewComment(dto);
 		
 		PrintWriter out = response.getWriter();

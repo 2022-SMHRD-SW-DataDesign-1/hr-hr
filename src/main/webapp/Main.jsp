@@ -526,7 +526,7 @@
 										<%}else{%>
 											<button class="heart_button" id='likes<%= count %>' onclick="likes(<%= b_dto.getB_num() %>,this.id,<%=count%>)"><img class="heart" alt="유용해요등록" src="imgs/몰라.JPG"></button>
 										<%	}%>
-											</div>
+												</div>
 											
 										</div>
 								<!-- 댓글 버튼 -->
