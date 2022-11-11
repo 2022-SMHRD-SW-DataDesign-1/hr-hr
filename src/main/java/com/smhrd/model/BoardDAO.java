@@ -48,5 +48,15 @@ public class BoardDAO {
 		return board;
 		
 	}
+	
+	public int deleteBoard(BigDecimal b_num) {
+		SqlSession session = sqlSessionFactory.openSession(true);
+		int row = session.delete("deleteBoard",b_num);
+		session.close();
+		
+		return row;
+		
+				
+	}
 
 }

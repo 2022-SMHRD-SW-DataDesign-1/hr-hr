@@ -9,7 +9,10 @@
 		( m_id, b_content, b_filename, b_date, b_likes, b_cnt, b_point)
 		VALUES ( #{b_writer}, #{b_content}, #{b_filename}, sysdate, 0, 0, 0)
 	</insert>
-
+	
+	<delete id="deleteBoard" parameterType="BigDecimal">
+	delete from t_board where b_num = #{b_num}
+	</delete>
 	<select id="countBoard" parameterType="String" resultType="int">
 		SELECT count(*) from t_board
 		WHERE m_id = #{m_id}
