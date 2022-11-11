@@ -198,7 +198,11 @@
                   
 			<div class="inner">
 				<!-- 가운대 영역-->
-				<div class="contents_box">
+				
+				
+				<div class ="scrollBlind" >		
+				
+				<div class="contents_box" >
 					<!-- 정책 영역 -->
 					<article class="contents">
 			
@@ -431,6 +435,7 @@
                        <!-- 사용자 게시글  -->
                        <% for(BoardDTO b_dto : bList){%>
 							<%String[] b_files = b_dto.getB_filename().split(","); %>
+					<!-- 스크롤 버튼 만들기 -->
 					<article class="contents">
 						<header class="top">
 							<div class="user_container">
@@ -588,6 +593,7 @@
 							</form>
 						</div>
 					</article>
+				
 					<%count++; %>
 
 	<%} %>
@@ -645,7 +651,10 @@
 		
 
 				</div>
-				
+				<!-- contents box 긑나는 곳--> 
+					</div>
+
+					
 				<!-- 오른쪽영역  -->
 				<div class="side_box">
 				<!-- 게시물 등록 버튼 -->              <!-- 여기가 버튼 스타일 클래스 -->
@@ -769,6 +778,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 	<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+	
+	
 	
 	
 </body>
