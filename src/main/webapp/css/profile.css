@@ -4,7 +4,7 @@
 }
 
 .profile_wrap {
-    width: 40%;
+    width: 30%;
 
 }
 
@@ -95,30 +95,38 @@
 
 .detail .middle {
     display: flex;
-    height: 50px;
+    height: 70px;
     padding: 18px 0;
     font-size: 15px;
     font-weight: 600;
     width: 400px;
-    position: absolute;
-    right: 200px;
-    top: 60px;
+    
+    
 }
 .about{
 	width: 500px;
+}
+.introduce{
+	display:flex;
+	position: relative;
+	top: 50px;
 }
 
 
 .detail .middle>li {
     margin-right: 35px;
+    position: relative;
+    
+    top:25px;
+    
 }
 
 .detail .about>span {
    
     cursor: pointer;
     position: relative;
-    top: 100px;
-    right: 200px;
+    top: 30px;
+    right: 30px;
     width: 400px;
 }
 

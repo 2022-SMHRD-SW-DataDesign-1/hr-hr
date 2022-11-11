@@ -1,3 +1,4 @@
+<%@page import="org.apache.ibatis.reflection.SystemMetaObject"%>
 <%@page import="com.smhrd.model.MemberDAO"%>
 <%@page import="com.smhrd.model.CommentDAO"%>
 <%@page import="com.smhrd.model.FollowDAO"%>
@@ -52,9 +53,8 @@
 	// 로그인 정보 info 
 	MemberDTO loginInfo =  (MemberDTO) session.getAttribute("info");
 	MemberDTO info;
-	String m_id = request.getParameter("너희가 가져올 값 변수 명");//이 m_id는 내가 클릭한 사람의 아이디
-	
-	
+	String m_id = request.getParameter("m_id");//이 m_id는 내가 클릭한 사람의 아이디
+	System.out.println(m_id);
 	
 	%>
 
@@ -88,8 +88,8 @@
 
 		</header>
 		
-
-		 	<%if (loginInfo != null) {
+	<%if (loginInfo != null) {
+	
 			if(m_id==null||m_id.equals(loginInfo.getM_Id())){
 					info = loginInfo;  %>
 		<div id="main_container">
@@ -127,7 +127,7 @@
 									data-bs-toggle="modal" data-bs-target="#profileEditModal">
 									정보수정</button>
 
-								<%} %>
+							<%} %>
                                     
 								<!-- 팝업창 영역 -->
 								<!-- Modal -->
@@ -291,6 +291,9 @@
 							<%} %>
 
 							</div>
+							<%if(info != null){ %>
+						<div class="introduce"><%=info.getM_Profile() %></div>
+						<%} %>
 							
 						<%if(info != null){ %>
                             <ul class="middle">
@@ -343,12 +346,11 @@
 				
 				
 				
-							
-		<%}else{ 
-			MemberDAO dao = new MemberDAO();//DAO기능 하나 쓸건데
-			info = dao.information(m_id);//infomation method는 Select * from 멤버테이블임 == 리턴 타입이 m_id의 값을 다 가지고 있는 memberDTO다 
-			
-		%>
+				<!-- 여기부터 다른 사용자인 경우에 해당 -->
+			<%}else{ 
+				MemberDAO dao = new MemberDAO();//DAO기능 하나 쓸건데
+				info = dao.information(m_id);//infomation method는 Select * from 멤버테이블임 == 리턴 타입이 m_id의 값을 다 가지고 있는 memberDTO다 
+			%>
 			<div id="main_container">
 			<!-- 프로필 영역 -->
 			<section class="b_inner">
@@ -364,6 +366,7 @@
 
 					<div class="detail">
 						<div class="top">
+						<div class="user_name"><%=info.getM_Nickname()%></div>
 							<div class="other_btn">
 								<!-- detail top a으로 클래스 접근 팔로우 dm영역 -->
 								<button type="submit" class="btn btn-primary btn btn-light btn btn-outline-dark">
@@ -465,8 +468,14 @@
 		</div>
                     
                    <%} %>
-                   <%} %>
-                   <%} %>
+                   
+                   
+                 <%} %>
+                 <!-- 여기까지 다른 사용자인 경우에 해당 -->
+                 
+             <%}else{%>
+            	 
+             <% }%>
                    
                    
 
