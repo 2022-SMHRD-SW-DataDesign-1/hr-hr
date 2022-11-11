@@ -268,7 +268,33 @@
 		}
 	</script> 
 	<%} %>
+	
+
+	
+	<%int count =0; %>
+	<form action="PolicyService"  enctype="multipart/form-data"  method="post" id = "p_filelist1">
+		제목 : <input type = "text" name = "p_title">
+		내용 : <textarea rows="10" style="resize:none;" name="p_content"></textarea><br>
 		
+		<input type="file" style="float: right;" name="p_filename<%=count%>" multiple="multiple">
+		<input type="submit" value="정책게시글 등록">
+	</form>
+		<%count++; %>
+		<input type = "submit" value="+" style='float:right;' onclick ="addbtn()"><br>
+		<input type = "submit" value="-" style='float:right;' onclick ="minusbtn(<%=count%>)"><br>
+		
+	
+		<script type="text/javascript">
+			function addbtn(){
+				$("#p_filelist1").append("<input type = 'file' style='float:right;' name='filename<%=count%>' multiple>")
+	
+			}
+			function minusbtn(){
+				$("#p_filelist1").children().last().remove();
+			}
+		</script> 
+	
+	
 
 </body>
 </html>

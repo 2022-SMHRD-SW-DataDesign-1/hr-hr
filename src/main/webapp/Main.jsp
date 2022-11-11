@@ -292,7 +292,8 @@
 											  <div class="carousel-item">
                                                				
                                                <a href="policy_board.jsp"> <img src="imgs/국민취업지원제도7.png" alt="visual07"> 	</a>						  
-                                              </div>-->
+                                              </div>
+                                              -->
                                             </div>
                                             <!-- 이미지 왼쪽으로 넘기기-->
                                             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
@@ -475,7 +476,7 @@
 										  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="<%=i %>" class="active" aria-label="Slide<%=i+1 %>" aria-current="true"></button>
 										  <%} %>
 										</div>
-										<!-- 사진 넣는 영역 -->
+										<!---------------------------------- 사진 넣는 영역 ------------------------------->
 										<div class="carousel-inner">
 										<%for(String temp : b_files){%>
 										  <div class="carousel-item active">
@@ -483,7 +484,8 @@
 											<a href="Detail-page.jsp"><img src="./imgs/<%=temp%>"></a>
 									  
 										  </div>
-										  <%} %>
+										<%} %>
+										<!---------------------------------- 사진 넣기 종료 ------------------------------->
 										 <!-- <div class="carousel-item">
 															
 											<a href="Detail-page.jsp"><img src="imgs/3등.PNG" alt="visual02"> </a>								  
