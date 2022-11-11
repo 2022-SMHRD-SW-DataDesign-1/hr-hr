@@ -123,27 +123,42 @@
 									<!-- 이미지 넘기기 -->
 										<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
                                            <!-- 이미지 수정하기 -->
+                                           <%
+                                            String file = r_detail.getR_file();
+                                            String [] files = file.split(",");
+                                            int count = 0;
+                                            %>
+                                           
                                             <div class="carousel-indicators">
                                               <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-label="Slide 1" aria-current="true"></button>
-                                              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2" class=""></button>
-                                              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3" class=""></button>
+                                              <%if(files.length >1){ %>
+                                            <%for(int i = 0;i < files.length-1;i++){ %>
+                                              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="<%=count+1 %>" aria-label="Slide <%=count+2 %>" class=""></button>
+                                              <%count++; %>
+                                             <%} %>
+                                             <%} %>
                                             </div>
                                             <!-- 이미지 넣는 영역 -->
                                             
                                             
                                             
                                             <div class="carousel-inner">
-                                            <%
-                                            String file = r_detail.getR_file();
-                                            String [] files = file.split(",");
-                                            %>
-                                            <%for(String filename : files) {%>
+                                            <!-- 첫번쨰 사진 -->
                                               <div class="carousel-item active">
-                                                <!-- 여기에 사진넣기 --> 	
-                                                <img src="./file/<%=filename %>">
+                                                <img src="./file/<%=files[0] %>">
                                               </div>
-                                             <%} %>
+                                              
+                                            <!-- 두번쨰 사진이 있다면 이후부터 출력 -->
+                                            <%if(files.length >1){ %>
+                                            	<%for (int i = 1; i < files.length; i ++){ %>
+		                                             <div class="carousel-item">
+		                                               <img src="./file/<%=files[i] %>">
+		                                             </div>
+                                           		<%} %>
+                                            <%} %>
                                             </div>
+                                            
+                                            
                                             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
                                               <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                               <span class="visually-hidden">Previous</span>
