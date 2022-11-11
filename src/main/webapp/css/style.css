@@ -442,6 +442,10 @@ body{
 	
 	
 }
+.user_text >a{
+	text-decoration: none;
+	color:black;
+}
 
 
 

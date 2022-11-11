@@ -99,6 +99,13 @@
     padding: 18px 0;
     font-size: 15px;
     font-weight: 600;
+    width: 400px;
+    position: absolute;
+    right: 200px;
+    top: 60px;
+}
+.about{
+	width: 500px;
 }
 
 
@@ -107,10 +114,14 @@
 }
 
 .detail .about>span {
-    display: inline-block;
+   
     cursor: pointer;
     position: relative;
+    top: 100px;
+    right: 200px;
+    width: 400px;
 }
+
 
 .detail .about>span:nth-child(1) {
     margin-right: 50px;
