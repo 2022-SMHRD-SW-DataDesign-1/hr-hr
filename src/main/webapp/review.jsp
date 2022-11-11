@@ -57,6 +57,8 @@
 		// 리뷰글의 댓글목록 가져오기
 		ReviewCommentDAO r_c_dao = new ReviewCommentDAO();
 		ArrayList<ReviewCommentDTO> r_c_List =r_c_dao.showReviewComment(r_num);
+		
+		
 		%>
 		
 
@@ -127,28 +129,27 @@
                                               <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3" class=""></button>
                                             </div>
                                             <!-- 이미지 넣는 영역 -->
+                                            
+                                            
+                                            
                                             <div class="carousel-inner">
+                                            <%
+                                            String file = r_detail.getR_file();
+                                            String [] files = file.split(",");
+                                            %>
+                                            <%for(String filename : files) {%>
                                               <div class="carousel-item active">
                                                 <!-- 여기에 사진넣기 --> 	
-                                                <img src="./file/<%=r_detail.getR_file() %>" alt="visual01">
-                                          
+                                                <img src="./file/<%=filename %>">
                                               </div>
-                                              <div class="carousel-item">
-                                                <!-- 여기에 사진넣기 --> 				
-                                                <img src="imgs/thumb03.jpg" alt="visual01"> 								  
-                                              </div>	
-                                                <div class="carousel-item">
-                                                <!-- 여기에 사진넣기 --> 	
-                                                <img src="imgs/thumb03.jpg" alt="visual01"> 
-                                          
-                                              </div>
+                                             <%} %>
                                             </div>
                                             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
                                               <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                               <span class="visually-hidden">Previous</span>
                                             </button>
                                             <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                                              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                              <span class="carousel-control	-next-icon" aria-hidden="true"></span>
                                               <span class="visually-hidden">Next</span>
                                             </button>
                                           </div>
@@ -195,7 +196,6 @@
 							
 								<%} %>
 								<%} %>
-							
 
 								</section>
 

@@ -111,6 +111,8 @@ public class ReviewService extends HttpServlet {
 		}else {
 			System.out.println("리뷰 작성 x");
 		}
+		
+		response.sendRedirect("./reviewboard.jsp?p_num="+p_num);
 
 	}
 
