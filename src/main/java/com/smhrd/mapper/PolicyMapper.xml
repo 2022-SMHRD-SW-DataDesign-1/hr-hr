@@ -15,8 +15,8 @@
 		select * from t_Policy order by p_date desc
 	</select>
 	
-	<select id="showDetail" parameterType = "BigDecimal" resultType="PolicyDTO">
-		select * t_Policy where p_num = #{p_num}
+	<select id="p_showDetail" parameterType = "int" resultType="PolicyDTO">
+		select * from t_Policy where p_num = #{p_num}
 	</select>
 	
 	

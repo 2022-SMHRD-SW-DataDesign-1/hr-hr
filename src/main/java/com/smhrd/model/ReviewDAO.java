@@ -42,7 +42,7 @@ public class ReviewDAO {
 	// 리뷰 삭제
 	public int reviewDelete(ReviewDTO dto) {
 		SqlSession session = sqlSessionFactory.openSession(true);
-		int row = session.delete("reviewDelet", dto);
+		int row = session.delete("reviewDelete", dto);
 		session.close();
 
 		return row;

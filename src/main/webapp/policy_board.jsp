@@ -39,15 +39,20 @@
 
 	<body>
 		
-		 <%
-		int p_num = Integer.parseInt(request.getParameter("p_num"));
-		BigDecimal num = new BigDecimal(p_num); 
-		PolicyDTO policy = new PolicyDAO().showDetail(num);
-		%>
+		  <%
+
+	  
+		int p_num = Integer.parseInt(request.getParameter("p_num")); //p_num 가지고 옴
+		PolicyDTO policy = new PolicyDAO().showDetail(p_num);
 		
-
-
-
+		//PolicyDTO policy = pdao.showDetail(num); // 기능쓰는 곳에서 showdetail기능을 사용해서 p_num에 해당하는 pdto(젖체)을 가지고 왔음 
+		//BigDecimal num = new BigDecimal(p_num); // p_num을 bigDecimal로 바꿔줬음 
+		
+		//PolicyDAO pdao = new PolicyDAO(); // 기능을 쓰기 위해 생성
+		
+		
+		%> 
+		
 
 		<section id="container">
 
@@ -114,14 +119,12 @@
 							<!-- 게시물 상단 영역 -->
 							<div class="user_container">
 							<!-- 게시물 유저이미지 -->
-								<div class="profile_img">
-									<img src="imgs/thumb.jpeg" alt="">
+								<div class="profile_img"><!--  -->
+									<img src="<%=policy.getP_filename() %>" alt="">
 								</div>
 								<!-- 게시물 유저 정보  -->
 								<div class="user_name">
-									<div class="nick_name"></div>
-									
-
+									<div class="nick_name"><%=policy.getP_title() %></div>
                                     
 								</div>
 								<!-- 게시물 오른쪽 버튼영역 -->
@@ -134,33 +137,42 @@
 							<div class="img_section">
 								<div class="trans_inner">
 									<div>
-									<!-- 이미지 넘기기 -->
+									
+								 	<!-- 이미지 넘기기 -->
 										<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
-										<!-- 이미지수 정하기 -->
-                                            <div class="carousel-indicators">
+										<!-- 이미지 수정하기 -->
+                                         <% String file = policy.getP_filename();
+                                         	String[] files = file.split(",");
+                                         	int count = 0;
+                                         %>
+                                            
+                                             <div class="carousel-indicators">
                                               <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-label="Slide 1" aria-current="true"></button>
-                                              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2" class=""></button>
-                                              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3" class=""></button>
-											  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4" class=""></button>
-											  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4" aria-label="Slide 5" class=""></button>
-											  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="5" aria-label="Slide 6" class=""></button>
-											  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="6" aria-label="Slide 7" class=""></button>
-                                            </div>
-                                            <!-- 이미지 넣는 부분 -->
-                                            <!-- 이미지 넣기 -->
-                                            
-                                            
-                                            
-                                            
-                                            <div class="carousel-inner">
+                                           		<%if(files.length>1){ %>
+                                           		<%for(int i = 0; i<files.length-1; i++){ %>
+                                           			<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="<%=count+1 %>" aria-label="Slide <%=count+2 %>" class=""></button>
+                                           		<% count++; %>
+                                           		<%} %>
+                                           		<%} %>
+                                           </div>
+                                           <!-- 이미지 넣는 영역 -->
+                                           
+                                              <div class="carousel-inner">
+                                              <!-- 첫번째 사진 -->
                                               <div class="carousel-item active">
                                                 <!-- 여기에 사진넣기 --> 	
-                                                <img src="imgs/국민취업지원제도1.png" alt="visual01">
-                                          
+                                                 <img src="./file/<%=files[0]%>" > 
                                               </div>
+												<%if(files.length>1){ %>
+													<%for(int i = 1; i<files.length; i++){ %>
+													<div class="carousel-item">
+		                                               <img src="./file/<%=files[i] %>">
+		                                             </div>
+												<%} %>
+											<%} %>
 
                                             </div>
-                                            <!-- 이미지 오른쪽으로 넘기기 -->
+                                             <!-- 이미지 오른쪽으로 넘기기 -->
                                             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
                                               <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                               <span class="visually-hidden">Previous</span>
@@ -170,27 +182,33 @@
                                               <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                               <span class="visually-hidden">Next</span>
                                             </button>
-                                          </div>
+                                        
+                                            
+                                          
+                                          
+                                            </div>
 									</div>
 								</div>
-							</div>
-
-							<!-- 게시물 상세내용영역 -->
+							</div> 
+							<!-- 게시물 하단상세 -->
 							<div class="detail--right_box">
 
 
 								<header class="top">
-									
+									<!-- 유저 조 -->
 									<div class="admin_container">
 										<div class="comment">
-											<span class="user_id">Kindtiger</span>강아지가 많이 힘든가보다ㅜㅜㅜㅜㅜ조금만힘내
-											<div class="time">2시간</div>
+											<span class="user_id"><%=policy.getAdmin_id() %></span>
+											<div>
+											<%=policy.getP_content() %>
+											</div>
+											<div class="time"><%=policy.getP_date() %></div>
 										</div>
 									</div>
 									
 								</header>
 
-							
+						
 
 								<!-- 게시글 하단 버튼 영역 -->
 								<div class="bottom_icons">
@@ -207,7 +225,7 @@
 									</div>
 									<!-- 게시글 스크랩버튼 -->
 									<div class="right_icon">
-										<div class="sprite_bookmark_outline" data-name="book-mark"></div>
+									
 									</div>
 								</div>
 									<!-- 게시글 좋아요수 표시 -->
@@ -215,49 +233,7 @@
 									좋아요 <span class="count">2,351</span> 개
 								</div>
 								<div class="timer">2시간</div>
-								
-								<!-- 댓글 스크롤 -->
-								<section class="scroll_section">
-									<!-- 게시물 댓글 영역  -->
-									<div class="user_container-detail">
-										<div class="user">
-											<img src="imgs/thumb02.jpg" alt="user">
-										</div>
-										<div class="comment">
-											<span class="user_id">in0.lee</span>너무귀엽네요 ㅎㅎㅎ맞팔해요~!
-											<div class="time">
-												2시간 <span class="try_comment">답글 달기</span>
-											</div>
-											
-										</div>
-									</div>
-
-									<div class="user_container-detail">
-										<div class="user">
-											<img src="imgs/thumb03.jpg" alt="user">
-										</div>
-										<div class="comment">
-											<span class="user_id">ye_solkim</span>강아지 이름이 뭐에요???
-											<div class="time">
-												2시간 <span class="try_comment">답글 달기</span>
-											</div>
-											
-										</div>
-									</div>
-									
-									
-
-
-								</section>
-								<!-- 댓글 입력란 -->
-								<div class="commit_field">
-									<input type="text" placeholder="댓글달기..">
-
-									<div class="upload_btn">게시</div>
-								</div>
-
-
-
+						
 							</div>
 
 
