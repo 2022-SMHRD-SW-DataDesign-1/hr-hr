@@ -36,6 +36,7 @@ public class PolicyDTO {
 	private BigDecimal p_likes;
 	// 정책 조회수
 	private BigDecimal p_cnt;
+	
 	public PolicyDTO(@NonNull BigDecimal p_num, @NonNull String p_title, @NonNull String admin_id,
 			@NonNull String p_content, @NonNull String p_filename) {
 		super();
@@ -45,6 +46,7 @@ public class PolicyDTO {
 		this.p_content = p_content;
 		this.p_filename = p_filename;
 	}
+	
 	public PolicyDTO(@NonNull String p_title, @NonNull String admin_id, @NonNull String p_content,
 			@NonNull String p_filename) {
 		super();

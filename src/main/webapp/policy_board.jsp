@@ -39,15 +39,20 @@
 
 	<body>
 		
-		 <%
-		int p_num = Integer.parseInt(request.getParameter("p_num"));
-		BigDecimal num = new BigDecimal(p_num); 
-		PolicyDTO policy = new PolicyDAO().showDetail(num);
-		%>
+		  <%
+
+	  
+		int p_num = Integer.parseInt(request.getParameter("p_num")); //p_num 가지고 옴
+		PolicyDTO policy = new PolicyDAO().showDetail(p_num);
 		
-
-
-
+		//PolicyDTO policy = pdao.showDetail(num); // 기능쓰는 곳에서 showdetail기능을 사용해서 p_num에 해당하는 pdto(젖체)을 가지고 왔음 
+		//BigDecimal num = new BigDecimal(p_num); // p_num을 bigDecimal로 바꿔줬음 
+		
+		//PolicyDAO pdao = new PolicyDAO(); // 기능을 쓰기 위해 생성
+		
+		
+		%> 
+		
 
 		<section id="container">
 
@@ -114,14 +119,12 @@
 							<!-- 게시물 상단 영역 -->
 							<div class="user_container">
 							<!-- 게시물 유저이미지 -->
-								<div class="profile_img">
-									<img src="imgs/thumb.jpeg" alt="">
+								<div class="profile_img"><!--  -->
+									유저이미지 넣기<img src="<%=policy.getP_filename() %>" alt="">
 								</div>
 								<!-- 게시물 유저 정보  -->
 								<div class="user_name">
-									<div class="nick_name"></div>
-									
-
+									<div class="nick_name"><%=policy.getAdmin_id() %></div>
                                     
 								</div>
 								<!-- 게시물 오른쪽 버튼영역 -->
@@ -134,33 +137,32 @@
 							<div class="img_section">
 								<div class="trans_inner">
 									<div>
-									<!-- 이미지 넘기기 -->
+									
+								 	<!-- 이미지 넘기기 -->
 										<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
 										<!-- 이미지수 정하기 -->
                                             <div class="carousel-indicators">
+                                            
                                               <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-label="Slide 1" aria-current="true"></button>
-                                              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2" class=""></button>
-                                              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3" class=""></button>
-											  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4" class=""></button>
-											  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4" aria-label="Slide 5" class=""></button>
-											  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="5" aria-label="Slide 6" class=""></button>
-											  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="6" aria-label="Slide 7" class=""></button>
-                                            </div>
+                                            
+                                            </div> 
                                             <!-- 이미지 넣는 부분 -->
                                             <!-- 이미지 넣기 -->
                                             
                                             
                                             
+                                           
                                             
-                                            <div class="carousel-inner">
+                                           <!--for(int i = 0; i<p_files.length; i++){%>   -->
+                                              <div class="carousel-inner">
                                               <div class="carousel-item active">
                                                 <!-- 여기에 사진넣기 --> 	
-                                                <img src="imgs/국민취업지원제도1.png" alt="visual01">
+                                                 <img src="imgs/<%=policy.getP_filename()%>" alt="visual01"> 
                                           
                                               </div>
 
                                             </div>
-                                            <!-- 이미지 오른쪽으로 넘기기 -->
+                                             <!-- 이미지 오른쪽으로 넘기기 -->
                                             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
                                               <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                               <span class="visually-hidden">Previous</span>
@@ -170,11 +172,14 @@
                                               <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                               <span class="visually-hidden">Next</span>
                                             </button>
-                                          </div>
+                                        
+                                            
+                                          
+                                          
+                                            </div>
 									</div>
 								</div>
-							</div>
-
+							</div> 
 							<!-- 게시물 상세내용영역 -->
 							<div class="detail--right_box">
 
@@ -183,8 +188,11 @@
 									
 									<div class="admin_container">
 										<div class="comment">
-											<span class="user_id">Kindtiger</span>강아지가 많이 힘든가보다ㅜㅜㅜㅜㅜ조금만힘내
-											<div class="time">2시간</div>
+											<span class="user_id"><%=policy.getAdmin_id() %></span>
+											<div>
+											<%=policy.getP_content() %>
+											</div>
+											<div class="time"><%=policy.getP_date() %></div>
 										</div>
 									</div>
 									
