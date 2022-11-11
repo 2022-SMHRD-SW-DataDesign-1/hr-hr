@@ -198,7 +198,6 @@
 									 ...
 									</button>
 									<ul class="dropdown-menu">
-									  <li><a class="dropdown-item" href="#">수정</a></li>
 									  <li><a class="dropdown-item" onclick="deleteReview()">삭제</a></li>
 									</ul>
 								  </div>
