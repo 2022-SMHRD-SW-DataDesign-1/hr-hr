@@ -60,9 +60,9 @@ public class ReviewService extends HttpServlet {
 			// 실제 파일명(선택한)
 			System.out.println("실제 파일명 : " + multi.getOriginalFileName(name));
 			// 폴더에 저장되는 파일명(중복을 제거한 뒤 저장되는 파일 명)
-			System.out.println("실제 파일명 : " + multi.getFilesystemName(name));
+			System.out.println("업로드 될 파일명 : " + multi.getFilesystemName(name));
 			// 파일의 확장자
-			System.out.println("실제 파일명 : " + multi.getContentType(name));
+			System.out.println("확장자 : " + multi.getContentType(name));
 
 			if (fileNames.hasMoreElements() == false) {
 				// 마지막 파일은 ','없이 추가 후 종료
