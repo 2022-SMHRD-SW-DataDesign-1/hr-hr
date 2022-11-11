@@ -187,7 +187,7 @@
 										
 										<!-- 댓글 내용 -->
 										<div class="comment">
-											<span class="user_id"><%=r_c_dto.getM_id() %></span><%=r_c_dto.getR_c_content() %>
+											<span class="user_id"><%=r_c_dto.getM_nickname()%></span><%=r_c_dto.getR_c_content() %>
 										</div>
 										
 									</div>
@@ -273,15 +273,18 @@
 				let r_c_content = $("#reviewComment").val();
 				let m_id = '<%=info.getM_Id()%>';
 				let r_num = <%=request.getParameter("r_num")%>;
+				let m_nickname = '<%=info.getM_Nickname()%>';
 				
-				console.log(r_c_content);
-				console.log(m_id);
-				console.log(r_num);
+				console.log("내용"+r_c_content);
+				console.log("아이디"+m_id);
+				console.log("리뷰번호"+r_num);
+				console.log("닉네임"+m_nickname);
 				
 				$.ajax({
 					url : "ReviewCommentService",
 					data : {"m_id" : m_id,
 							"r_c_content" : r_c_content,
+							"m_nickname" : m_nickname,
 							"r_num" : r_num
 							},
 					type : 'get', 
@@ -295,7 +298,7 @@
 								img
 							</div>
 							<div class="comment">
-								<span class="user_id"><%=info.getM_Id() %>
+								<span class="user_id"><%=info.getM_Nickname()%>
 								</span>${reviewComment.value}
 							</div>
 							
