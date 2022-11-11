@@ -71,4 +71,19 @@ public class MemberDAO {
 		return info;
 	}
 	
+	public int UsefulPointCheck(String m_id) {
+		SqlSession session = sqlSessionFactory.openSession(true);
+		int row = session.selectOne("UsefulPointCheck", m_id);
+		session.close();
+		
+		return row;
+	}
+	
+	public void PointUpdate(MemberDTO dto) {
+		SqlSession session = sqlSessionFactory.openSession(true);
+		session.update("PointUpdate", dto);
+		session.close();
+		
+	}
+	
 }

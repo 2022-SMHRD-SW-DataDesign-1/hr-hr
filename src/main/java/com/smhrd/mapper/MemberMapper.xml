@@ -44,4 +44,16 @@
 		UPDATE t_member SET m_pw = #{m_Pw}, m_phone = #{m_Phone}, m_email = #{m_Email}
 		WHERE m_id = #{m_Id}
 	</update>
+	
+	<select id="UsefulPointCheck" parameterType="String" resultType="int">
+	select sum(ab)*100 as point from 
+	(select m_id, sum(b_likes)as ab from t_board group by m_id
+	union all
+	select m_id, sum(r_like)as ab from t_review group by m_id) where m_id = #{m_id} group by m_id
+	</select>
+	
+	<update id="PointUpdate" parameterType="MemberDTO">
+	UPDATE t_member SET m_point = #{m_Point}
+		WHERE m_id = #{m_Id}
+	</update>
 </mapper>

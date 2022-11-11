@@ -349,6 +349,7 @@
 				let is_Like;
 				let m_id = '<%=info.getM_Id()%>';
 				let r_num = <%=request.getParameter("r_num")%>;
+				let writer = '<%=r_detail.getM_id()%>';
 				
 				let usefulBtn = document.getElementById("reviewLikes").innerText;
 				console.log(usefulBtn);
@@ -369,7 +370,8 @@
 					url : "ReviewLikeService",
 					data : {"m_id" : m_id,
 							"r_num" : r_num,
-							"is_Like" : is_Like
+							"is_Like" : is_Like,
+							"writer" : writer
 							},
 					type : 'get', 
 					success : function(data) {

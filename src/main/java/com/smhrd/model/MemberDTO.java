@@ -70,6 +70,11 @@ public class MemberDTO {
 		this.m_Phone = m_Phone;
 	}
 
+	public MemberDTO(@NonNull String m_Id, BigDecimal m_Point) {
+		this.m_Id = m_Id;
+		this.m_Point = m_Point;
+	}
+
 	// 프로필 수정 DTO
 	
 
