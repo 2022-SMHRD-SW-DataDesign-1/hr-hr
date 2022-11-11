@@ -124,7 +124,7 @@
 								</div>
 								<!-- 게시물 유저 정보  -->
 								<div class="user_name">
-									<div class="nick_name"><%=policy.getAdmin_id() %></div>
+									<div class="nick_name"><%=policy.getP_title() %></div>
                                     
 								</div>
 								<!-- 게시물 오른쪽 버튼영역 -->
