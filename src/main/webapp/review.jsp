@@ -130,7 +130,7 @@
                                             <div class="carousel-inner">
                                               <div class="carousel-item active">
                                                 <!-- 여기에 사진넣기 --> 	
-                                                <img src="imgs/thumb03.jpg" alt="visual01">
+                                                <img src="./file/<%=r_detail.getR_file() %>" alt="visual01">
                                           
                                               </div>
                                               <div class="carousel-item">
