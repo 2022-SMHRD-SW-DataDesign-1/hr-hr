@@ -440,8 +440,8 @@
 								<!-- 게시글 유저 닉네임 -->
 								<div class="user_name">
 									<div class="nick_name user_text">
-										<a href="profileAll.jsp?m_id=<%=b_dto.getB_writer()%>"></a>
-										<%=b_dto.getB_writer() %>
+										<a href="profileAll.jsp?m_id=<%=b_dto.getB_writer()%>"> <%=b_dto.getB_writer() %></a>
+										
 									</div>
 									<div class="top_time">
 										<div class="comment">
