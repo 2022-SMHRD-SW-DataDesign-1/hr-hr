@@ -38,7 +38,9 @@
 		where p_num=#{p_num}  
 	</update>
 	
-	
+	<select id="showPolicy3" resultType="PolicyDTO">
+		select p_title from (select p_title from t_policy order by p_date desc) where rownum <![CDATA[ <= 3 ]]>
+	</select>
 	
 	
 	

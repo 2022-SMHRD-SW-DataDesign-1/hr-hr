@@ -47,6 +47,12 @@ public class PolicyDAO {
 		return policy;
 	}
 	
-	
-	
+	// 정책 제목 최신 3개만 조회
+	public ArrayList<PolicyDTO> showPolicy3(){
+		SqlSession session = sqlSessionFactory.openSession(true);
+		ArrayList<PolicyDTO> list3 = (ArrayList)session.selectList("showPolicy3");
+		session.close();
+		
+		return list3;
+	}
 }

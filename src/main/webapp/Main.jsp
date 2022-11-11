@@ -277,23 +277,8 @@
                                                 	
                                                 <a href="policy_board.jsp"><img src="imgs/국민취업지원제도 3.png" alt="visual03"> </a>
                                           	</div>
-											  <div class="carousel-item">
-                                               				
-                                                <a href="policy_board.jsp"><img src="imgs/국민취업지원제도 4.png" alt="visual04"></a> 								  
-                                              </div>
-											  <div class="carousel-item">
-                                               				
-                                                <a href="policy_board.jsp"><img src="imgs/국민취업지원제도 5.png" alt="visual05"> </a>							  
-                                              </div>
-											  <div class="carousel-item">
-                                               				
-                                                <a href="policy_board.jsp"><img src="imgs/국민취업지원제도 6.png" alt="visual06"> </a>							  
-                                              </div>
-											  <div class="carousel-item">
-                                               				
-                                               <a href="policy_board.jsp"> <img src="imgs/국민취업지원제도7.png" alt="visual07"> 	</a>						  
-                                              </div>
-                                              -->
+											 
+                                              
                                             </div>
                                             <!-- 이미지 왼쪽으로 넘기기-->
                                             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
@@ -721,7 +706,7 @@
 					<article class="story">
 						<header class="story_header">
 							<div>스토리</div>
-							<div class="more">모두 보기</div>
+							 <div class="more">모두 보기</div> 
 						</header>
 
 						<div class="scroll_inner">

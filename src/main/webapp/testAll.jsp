@@ -30,6 +30,7 @@
 
 	<%
 	MemberDTO info = (MemberDTO) session.getAttribute("info");
+
 	
 	%>
 	<!-- 기능 테스트 페이지 -->
@@ -294,7 +295,45 @@
 			}
 		</script> 
 	
+			<article class="story">
+						<header class="story_header">
+							<div>스토리</div>
+							 <div class="more">모두 보기</div> 
+						</header>
+
+						<div class="scroll_inner">
+							<div class="thumb_user">
+								<!-- <div class="profile_thumb">
+									<img src="#" alt="프로필사진">
+								</div> -->
+								
+								<div class="detail">
+									
+									
+								<!-- 1. 정책 목록 뽑아와서 3개만 보여주기 , 가징 많이 본 정책이라던지, 새로운 정책 보여줄 때.. 이게 더 좋은 듯 ..  -->	
+								 <!-- 정책 목록 출력 + 리뷰 작성 + 출력-->
+							<%if(info != null){%>
+								
 	
+							<% PolicyDAO dao = new PolicyDAO();
+							ArrayList<PolicyDTO> p_list = dao.showPolicy3();
+	
+							for(PolicyDTO pdto : p_list){%>
+								<div class="id"><%=pdto.getP_title() %>
+								<div class="timer"><%=pdto.getP_date() %></div>
+							<% }%>
+		 
+	
+							<%}%>  
+									
+									
+									전월세 계약 무턱대고 하지말고 '이것'부터 챙기세요</div>
+									<div class="id">늦은 밤길 지켜주는 '안심 귀가 스카우트 안심이 앱'</div>
+									
+								</div>
+							</div>
+						</div>
+					</article>
 
 </body>
 </html>
