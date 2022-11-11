@@ -161,7 +161,7 @@
                                               <!-- 첫번째 사진 -->
                                               <div class="carousel-item active">
                                                 <!-- 여기에 사진넣기 --> 	
-                                                 <img src="imgs/<%=files[0]%>" > 
+                                                 <img src="./file/<%=files[0]%>" > 
                                               </div>
 												<%if(files.length>1){ %>
 													<%for(int i = 1; i<files.length; i++){ %>
