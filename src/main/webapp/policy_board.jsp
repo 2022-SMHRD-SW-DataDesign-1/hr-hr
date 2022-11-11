@@ -198,7 +198,7 @@
 									
 								</header>
 
-							
+						
 
 								<!-- 게시글 하단 버튼 영역 -->
 								<div class="bottom_icons">
@@ -215,7 +215,7 @@
 									</div>
 									<!-- 게시글 스크랩버튼 -->
 									<div class="right_icon">
-										<div class="sprite_bookmark_outline" data-name="book-mark"></div>
+									
 									</div>
 								</div>
 									<!-- 게시글 좋아요수 표시 -->
