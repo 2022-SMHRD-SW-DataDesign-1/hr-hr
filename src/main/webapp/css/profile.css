@@ -20,6 +20,11 @@
     width: 100%;
     height: 100%;
 }
+.area{
+	position: relative;
+	top:60px;
+	right: 320px;
+}
 
 
 .detail {
@@ -35,8 +40,8 @@
 }
 
 .detail .top .user_name {
-    font-size: 35px;
-    font-weight: 200;
+    font-size: 25px;
+    font-weight:200;
     display: inline-block;
     padding-right: 25px;
     margin-top: 10px;
@@ -110,6 +115,8 @@
 	display:flex;
 	position: relative;
 	top: 50px;
+	width: 100px;
+	right: 230px;
 }
 
 
@@ -129,6 +136,12 @@
     right: 30px;
     width: 400px;
 }
+.space{
+	position: absolute;
+	right: 200px;
+	top: 120px;
+}
+
 
 
 .detail .about>span:nth-child(1) {

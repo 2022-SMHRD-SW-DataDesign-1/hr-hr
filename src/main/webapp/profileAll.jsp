@@ -296,14 +296,14 @@
 						<%} %>
 							
 						<%if(info != null){ %>
-                            <ul class="middle">
+                            <ul class="middle area">
                                 <li><span>게시물</span> <%=new BoardDAO().countBoard(info.getM_Id())%></li>
                                 <li><span>팔로우</span> <%= new FollowDAO().countFollow(info.getM_Id())%></li>
                                 <li><span>팔로워</span> <%= new FollowDAO().countFollower(info.getM_Id())%></li>
                             </ul>				
                             <%} %>
                             <%if(info != null){ %>
-                            <p class="about">
+                            <p class="about space">
                                 <span class="nick_name">게시글</span> <span class="book_mark">유용해요</span>
                             </p>
                         </div>
@@ -372,6 +372,7 @@
 								<button type="submit" class="btn btn-primary btn btn-light btn btn-outline-dark">
 									<a href="profile_edit.jsp" class="profile_edit">팔로우</a>
 								</button>
+								
 								<button type="submit" class="btn btn-primary btn btn-light btn btn-outline-dark"> 
 									<a href="#">DM</a>
 								</button>
@@ -473,9 +474,7 @@
                  <%} %>
                  <!-- 여기까지 다른 사용자인 경우에 해당 -->
                  
-             <%}else{%>
-            	 
-             <% }%>
+             <%}%>
                    
                    
 
