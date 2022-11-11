@@ -17,6 +17,16 @@
 <html>
 <head>
 <meta charset="UTF-8">
+	<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="css/common.css">
+		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="css/detail-page.css">
+		<link rel="shortcut icon" href="imgs/instagram.png">
+        
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://getbootstrap.com/docs/5.2/assets/css/docs.css" rel="stylesheet">
+
+
 <title>Insert title here</title>
 </head>
 <script type="text/javascript"
@@ -28,10 +38,6 @@
 
 
 	<h3>파일 등록 여러개 + 사진 미리보기</h3>
-<!-- 미리볼 사진 추가해줄 영역 -->
-	<div id="preview">
-				<p>포스트 이미지 추가</p>
-	</div>
 <!-- 미리볼 사진 추가해줄 영역  종료 -->
 
 
@@ -40,35 +46,119 @@
 		<div class="form-group">
 			제목 : <input type="text" name="p_title"> 
 			내용 : <textarea rows="10" style="resize: none;" name="p_content"></textarea>
-			<br> <input class="form-control form-control-user" type="file"
-				multiple="multiple" name="product_detail_image"
-				id="product_detail_image" onchange="setDetailImage(event);">
+			<br> 
+			<input class="form-control form-control-user" type="file" multiple="multiple"
+			name="product_detail_image" id="product_detail_image" onchange="setDetailImage(event);">
 		</div>
 		<input type="submit" value="정책게시글 등록">
 	</form>
 
+	
+	
+	<!-- 미리볼 사진 추가해줄 영역 -->
+	<div class="img_section">
+		<div class="trans_inner">
+			<div>
+				<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
+						포스트 이미지 추가
+				</div>
+			</div>
+		</div>
+	</div>
 
 	<script>
 		function setDetailImage(event){
-						
+			var count = 0 ; //애는 
+			//preview 내부 초기화
+			document.querySelector("div#preview #carouselExampleIndicators").innerText="";
+			
+			//버튼 indicator 설정 얘는 for문을 돌면안됨 얘 안에 indicator 갯수맞춰서 appendchild
+			var indi = document.createElement("div");
+			indi.setAttribute("class", "carousel-indicators");
+		
+			
+			
+			//이미지 넣는 영역 class carousel-inner 
+			var imgdiv = document.createElement("div");
+			imgdiv.setAttribute("class","carousel-inner");
+			
 			for(var image of event.target.files){
 				var reader = new FileReader();
-				
 				reader.onload = function(event){
-					let template = document.querySelector("div#preview");
-					console.log(template.innerText);
+
+					
+					console.log(count);
+					//인디케이터 개수 맞춰서 생성
+					var btn = document.createElement("button");
+					btn.setAttribute( "data-bs-target","#carouselExampleIndicators");
+					btn.setAttribute("data-bs-slide-to",count);
+					if(count==0){
+						btn.setAttribute("class","active");
+					}
+					btn.setAttribute("aria-label",count+1);
+					
+					//인디케이터 감싸는 태그에 추가
+					indi.appendChild(btn);
+					
+					
+					//이미지 태그 추가부분
+					var dtag = document.createElement("div");
+					if(count ==0){
+						dtag.setAttribute("class","carousel-item active");
+					}else{
+						dtag.setAttribute("class","carousel-item");
+					}
 					var img = document.createElement("img");
-					console.log(template.innerText);
 					img.setAttribute("src", event.target.result);
-					img.setAttribute("class", "col-lg-6");
-					document.querySelector("div#preview").appendChild(img);
+					dtag.appendChild(img);//이미 한개 완성
+					imgdiv.appendChild(dtag);
+					
+					count += 1;
 				};
 				
-				/* console.log(image);
-				reader.readAsDataURL(image); */
+				reader.readAsDataURL(image); 
+				
 			}
+			//완성된 태그들 for문나와서 추가
+			document.querySelector("#carouselExampleIndicators").appendChild(indi);
+			document.querySelector("#carouselExampleIndicators").appendChild(imgdiv);
+			
+			//좌우 버튼 넣는 영역
+			
+			var prebtn = document.createElement("button");
+			prebtn.setAttribute("class","carousel-control-prev");
+			prebtn.setAttribute("type","button");
+			prebtn.setAttribute("data-bs-target","#carouselExampleIndicators");
+			prebtn.setAttribute("data-bs-slide","prev");
+			var prespan1 = document.createElement("span");
+			prespan1.setAttribute("class","carousel-control-prev-icon");
+			prespan1.setAttribute("aria-hidden","true");
+			
+			var prespan2 = document.createElement("span");
+			
+			
+			var nxtbtn = document.createElement("button");
+				
+				/*
+	 
+	              	<span class="visually-hidden">Previous</span>
+            	</button>
+            	<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+	              	<span class="carousel-control-next-icon" aria-hidden="true"></span>
+	              	<span class="visually-hidden">Next</span>
+            	</button>
+            
+				*/
 		}
 	</script>
+
+
+<!-- 	<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-label="Slide 1" aria-current="true"></button>
+		<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true"> -->
+                                           
+                                           <!-- 이미지 수정하기 -->
+
+
 
 <hr>
 <hr>
@@ -82,12 +172,14 @@
 										
 <div class="form-group">
 	<input class="form-control form-control-user" type="file" multiple="multiple"
-	name="product_detail_image" id="product_detail_image" onchange="setDetailImage(event);">
+	name="product_detail_image" id="product_detail_image" onchange="setDetailImage2(event);">
 </div>
-<div id="images_container"></div>
+<div id="images_container">
+
+</div>
 
 <script>
-		function setDetailImage(event){
+		function setDetailImage2(event){
 			for(var image of event.target.files){
 				var reader = new FileReader();
 				
@@ -96,6 +188,7 @@
 					img.setAttribute("src", event.target.result);
 					img.setAttribute("class", "col-lg-6");
 					document.querySelector("div#images_container").appendChild(img);
+					console.log(document.querySelector("div#images_container"));
 				};
 				
 				console.log(image);
@@ -114,52 +207,6 @@
 
 
 
-<!-- 이미 미리보기에 적용할 머찐 기능들 -->
-
-	<div class="img_section">
-		<div class="trans_inner">
-			<div>
-				<!-- 이미지 사진 넘기기-->
-				<div id="carouselExampleIndicators" class="carousel slide"
-					data-bs-ride="true">
-					<!-- 이미지 넣을 수 정하기-->
-					<div class="carousel-indicators">
-						<%-- <%for(int i =0; i<p_files.length; i++){ %>
-						<button type="button" data-bs-target="#carouselExampleIndicators"
-							data-bs-slide-to="<%=i+1 %>" class="active"
-							aria-label="Slide <%= i+1 %>" aria-current="true"></button>
-						<%} %> --%>
-					</div>
-					<!-- 캐러셀에 사진 넣기 시작-->
-					<div class="carousel-inner">
-						<%-- <%for(String temp : p_files){%>
-						<div class="carousel-item active">
-							<a href="policy_board.jsp"><img src="./imgs/<%=temp%>"></a>
-						</div>
-						<div class="carousel-item">
-							<a href="policy_board.jsp"> <img src="imgs/국민취업지원제도2.png"
-								alt="visual02"></a>
-						</div>
-						<%} %> --%>
-
-
-						<!-- 이미지 왼쪽으로 넘기기-->
-						<button class="carousel-control-prev" type="button"
-							data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-							<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-							<span class="visually-hidden">Previous</span>
-						</button>
-						<!-- 이미지 오른쪽으로 넘기기-->
-						<button class="carousel-control-next" type="button"
-							data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-							<span class="carousel-control-next-icon" aria-hidden="true"></span>
-							<span class="visually-hidden">Next</span>
-						</button>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
 
 </body>
 </html>

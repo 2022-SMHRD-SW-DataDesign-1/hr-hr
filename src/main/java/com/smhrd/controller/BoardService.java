@@ -26,7 +26,8 @@ public class BoardService extends HttpServlet {
 		
 		// MulipartRquest 파라미터 정리 likse 객체 필드
 		//저장경로 => webapp의 file 폴더
-		String savePath = request.getServletContext().getRealPath("file");
+		//String savePath = request.getServletContext().getRealPath("file");
+		String savePath = "C:\\Users\\smhrd\\git\\hr-hr\\src\\main\\webapp\\file";
 		System.out.println(savePath);
 		
 		//사이즈 정해주기
