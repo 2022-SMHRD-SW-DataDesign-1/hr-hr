@@ -244,7 +244,7 @@
 								</div>
 								<!-- 리뷰 버튼영역-->
                                 <div class="right_button">
-                                    <button type="button" class="btn btn-outline-dark"><a href="reviewboard.jsp?p_num=<%=p_dto.getP_num()%>">리뷰</a></button>
+                                    <button type="button" class="btn btn-outline-dark"><a href="reviewboard.jsp?p_num=<%=ranPdto.getP_num()%>">리뷰</a></button>
                                 </div>
 							</div>
 						</header>
@@ -265,7 +265,7 @@
                                             <%for(String temp : p_files){%>
                                               <div class="carousel-item active">
                                                 <!-- 여기에 사진넣기 --> 	
-                                                <a href="policy_board.jsp?p_num=<%=p_dto.getP_num()%>"><img src="./imgs/<%=temp%>"></a>                                          
+                                                <a href="policy_board.jsp?p_num=<%=ranPdto.getP_num()%>"><img src="./imgs/<%=temp%>"></a>                                          
                                               </div>
                                              <%} %>
                                             
