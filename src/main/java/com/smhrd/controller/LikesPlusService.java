@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.smhrd.model.LikesDAO;
 import com.smhrd.model.LikesDTO;
+import com.smhrd.model.MemberDAO;
+import com.smhrd.model.MemberDTO;
 
 public class LikesPlusService extends HttpServlet {
 	
@@ -25,12 +27,19 @@ public class LikesPlusService extends HttpServlet {
 		LikesDAO ldao = new LikesDAO();
 		PrintWriter out = response.getWriter();
 		
+		MemberDAO m_dao = new MemberDAO();
+		String writer = m_dao.findWriter(b_num);
+		
 		if(is_liked > 0) {
 			// 좋아요 해제
 			ldao.LikesMinus(ldto);
 			System.out.println("like minus 메서드 실행이후");
 			ldao.setCount(b_num);//
 			System.out.println("set count 이후");
+			int point = m_dao.UsefulPointCheck(writer);
+			BigDecimal m_Point = new BigDecimal(point);
+			MemberDTO m_dto = new MemberDTO(writer, m_Point);
+			m_dao.PointUpdate(m_dto);
 			out.print(false);
 			
 		}else {
@@ -39,6 +48,10 @@ public class LikesPlusService extends HttpServlet {
 			System.out.println("plus 메서드 실행이후");
 			ldao.setCount(b_num);
 			System.out.println("set count 이후");
+			int point = m_dao.UsefulPointCheck(writer);
+			BigDecimal m_Point = new BigDecimal(point);
+			MemberDTO m_dto = new MemberDTO(writer, m_Point);
+			m_dao.PointUpdate(m_dto);
 			out.print(true);
 		}
 		
