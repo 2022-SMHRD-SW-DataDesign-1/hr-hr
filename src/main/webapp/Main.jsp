@@ -1,3 +1,4 @@
+<%@page import="com.smhrd.model.MemberDAO"%>
 <%@page import="com.smhrd.model.PolicyLikesDTO"%>
 <%@page import="com.smhrd.model.PolicyLikesDAO"%>
 <%@page import="com.smhrd.model.LikesDTO"%>
@@ -102,6 +103,10 @@
 			<div class="left_side_box">
 				<!--랭킹 영역 -->
                     <div class="ranking_box">
+                    <%
+                    MemberDAO m_dao = new MemberDAO();
+                    ArrayList<String> Ranking = m_dao.RankCount();
+                    %>
                         <div class="user_profile">
                         <!-- 랭킹 왕관이미지 -->
                             <div class="profile_thumb">
@@ -126,7 +131,7 @@
                                         <img src="imgs/1등.PNG" alt="프로필사진">
                                     </div>
                                     <div class="detail">
-                                        <div class="id">user1</div>
+                                        <div class="id"><%=Ranking.get(0) %></div>
                                         
                                     </div>
 									
@@ -136,7 +141,7 @@
                                         <img src="imgs/2등.PNG" alt="프로필사진">
                                     </div>
                                     <div class="detail">
-                                        <div class="id">user2</div>
+                                        <div class="id"><%=Ranking.get(1) %></div>
                                         
                                     </div>
 								</div>
@@ -145,7 +150,7 @@
                                         <img src="imgs/3등.PNG" alt="프로필사진">
                                     </div>
                                     <div class="detail">
-                                        <div class="id">user3</div>
+                                        <div class="id"><%=Ranking.get(2) %></div>
                                         
                                     </div>
 									
