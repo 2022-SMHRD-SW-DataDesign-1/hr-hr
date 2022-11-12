@@ -1135,6 +1135,23 @@ body{
   	width : 100%;
   	text-align : center;
 }
+.tr_timer{
+	font-size: 10px;
+    letter-spacing: 0.2px;
+    color: #999;
+    position: relative;
+   
+}
+.r_comment{
+	position: relative;
+	bottom: 40px;
+	left: 220px;
+	color: blue;
+	
+}
+.r_commet_area{
+	height: 80px;
+}
 
 
 

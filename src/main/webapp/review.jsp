@@ -186,7 +186,7 @@
 										<div class="comment">
 										<!-- 유저 이름  -->
 											<span class="user_id"><%=r_detail.getM_id() %></span><%=r_detail.getR_content() %>
-											<div class="time"><%=r_detail.getR_date()%></div>
+											<div class="tr_time"><%=r_detail.getR_date()%></div>
 										</div>
 									</div>
 									
@@ -270,15 +270,15 @@
 							</div>
 								
 								<!-- 댓글 입력란  -->
-								<div class="commit_field">
+								<div class="commit_field r_commet_area">
 									<div>
 									<input type="text" placeholder="comment~" id= "reviewComment">
 									</div>
 									<!--
 									<div type="button" class="please" onclick="writeReviewComment()">등록</div>
 									-->
+									<input type="button" class="r_comment" onclick="writeReviewComment()" value="댓글작성">
 								</div>
-								<input type="button" onclick="writeReviewComment()" value="작성">
 								
 						</article>
 
@@ -352,12 +352,12 @@
 				console.log(m_id);
 				console.log(r_num);
 				
-				if(usefulBtn.innerHTML == '<img class="heart" alt="유용해요해제" src="imgs/좋아.JPG">'){
+				if(usefulBtn== '<img class="heart" alt="유용해요해제" src="imgs/좋아.JPG">'){
 					document.getElementById("reviewLikes").innerHTML ='<img class="heart" alt="유용해요등록" src="imgs/몰라.JPG">';
-					is_Like = 0;
+					is_Like = 1;
 				}else{
 					document.getElementById("reviewLikes").innerHTML ='<img class="heart" alt="유용해요해제" src="imgs/좋아.JPG">';
-					is_Like = 1;
+					is_Like = 0;
 				}
 				
 				console.log(is_Like);
@@ -371,6 +371,7 @@
 							},
 					type : 'get', 
 					success : function(data) {
+						console.log(typeof data);
 						if(data == 'true'){
 							like_count += 1;
 						}else{
