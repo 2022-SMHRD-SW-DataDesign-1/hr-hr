@@ -243,20 +243,17 @@
 							// 리뷰 글 좋아요 여부 확인
 							ReviewLikeDAO r_l_dao = new ReviewLikeDAO();
 							ReviewLikeDTO r_l_dto = new ReviewLikeDTO(info.getM_Id(),r_num);
-							int isLikeResult = r_l_dao.reviewIsLike(r_l_dto);
-							if(isLikeResult>0){ %>
+							int isLikeResult = r_l_dao.reviewIsLike(r_l_dto);%>
 									<div class="heart_btn">
 										<div class="sprite_heart_icon_outline" data-name="heartbeat">
-											<img src="imgs/3.PNG"><button id="reviewLikes" class="heart_button" onclick="reviewLike()">유용해요해제</button>
+							<%if(isLikeResult>0){ %>
+											<button id="reviewLikes" class="heart_button" onclick="reviewLike()"><img class="heart" alt="유용해요해제" src="imgs/좋아.JPG"></button>
+							<%}else{ %>	
+											<button id="reviewLikes" class="heart_button" onclick="reviewLike()"><img class="heart" alt="유용해요등록" src="imgs/몰라.JPG"></button>
+							<%} %>										
 										</div>
 									</div>
-							<%}else{ %>	
-									<div class="heart_btn">
-										<div class="sprite_heart_icon_outline" data-name="heartbeat">
-											<img src="imgs/3.PNG"><button id="reviewLikes" class="heart_button" onclick="reviewLike()">유용해요등록</button>
-										</div>
-									</div>										
-							<%} %>										
+																		
 						<%} %>										
 								
 								<!-- 댓글 버튼 -->
@@ -351,16 +348,16 @@
 				let r_num = <%=request.getParameter("r_num")%>;
 				let writer = '<%=r_detail.getM_id()%>';
 				
-				let usefulBtn = document.getElementById("reviewLikes").innerText;
+				let usefulBtn = document.getElementById("reviewLikes").innerHTML;
 				console.log(usefulBtn);
 				console.log(m_id);
 				console.log(r_num);
 				
-				if(usefulBtn == '유용해요등록'){
-					document.getElementById("reviewLikes").innerText ='유용해요해제';
+				if(usefulBtn.innerHTML == '<img class="heart" alt="유용해요해제" src="imgs/좋아.JPG">'){
+					document.getElementById("reviewLikes").innerHTML ='<img class="heart" alt="유용해요등록" src="imgs/몰라.JPG">';
 					is_Like = 0;
 				}else{
-					document.getElementById("reviewLikes").innerText ='유용해요등록';
+					document.getElementById("reviewLikes").innerHTML ='<img class="heart" alt="유용해요해제" src="imgs/좋아.JPG">';
 					is_Like = 1;
 				}
 				
