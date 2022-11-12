@@ -19,6 +19,10 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
+<meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/slide.css" />
 <script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" charset="utf-8"></script>
   <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 <body>
@@ -152,6 +156,19 @@ console.log(Kakao.isInitialized()); // sdk초기화여부판단
 			    }
 			  }  
 </script>
+
+  <body>
+    <div class="slide slide_wrap">
+      <div class="slide_item">1</div>
+      <div class="slide_item">2</div>
+      <div class="slide_item">3</div>
+      <div class="slide_item">4</div>
+      <div class="slide_item">5</div>
+      <div class="slide_prev_button slide_button">◀</div>
+      <div class="slide_next_button slide_button">▶</div>
+      <ul class="slide_pagination"></ul>
+    </div>
+    <script src="js/slide.js"></script>
 
 	
 	
