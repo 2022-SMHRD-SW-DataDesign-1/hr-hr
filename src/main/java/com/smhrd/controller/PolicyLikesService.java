@@ -28,12 +28,12 @@ public class PolicyLikesService extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		
 		if(is_like >0) {
-			pl_dao.PolicyLikesMinus(pl_dto);
-			pl_dao.PolicysetCount(p_num);
-			out.print(false);
-		}else {
 			pl_dao.PolicyLikesPlus(pl_dto);
 			pl_dao.PolicysetCount(p_num);	
+			out.print(false);
+		}else {
+			pl_dao.PolicyLikesMinus(pl_dto);
+			pl_dao.PolicysetCount(p_num);
 			out.print(true);
 		}
 		

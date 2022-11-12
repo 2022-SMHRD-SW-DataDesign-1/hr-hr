@@ -65,7 +65,7 @@
 				<div class="right_icons">
 					
 					<a href="Login.jsp"><img src="imgs/로그인.PNG" class="sprite_compass_icon"></a>
-					<a href="profileAll.jsp"><img src="imgs/프로필.PNG" class="sprite_user_icon_outline"></a>
+					<a href="profileAll.jsp?m_id=<%=info.getM_Id()%>"><img src="imgs/프로필.PNG" class="sprite_user_icon_outline"></a>
 					<!-- 알람버튼 -->
 					<button type="button" class="btn btn-primary position-relative" id="liveToastBtn">
 						<span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
@@ -268,17 +268,28 @@
 										<!-- 이미지 넣을 수 정하기-->
                                             <div class="carousel-indicators">
                                             <%for(int i =0; i<p_files.length; i++){ %>
-                                              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="<%=i+1 %>" class="active" aria-label="Slide <%= i+1 %>" aria-current="true"></button>
+                                             <% if(i==0) {%>
+											  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="<%=i %>" class="active" aria-label="Slide<%=i+1 %>" aria-current="true"></button>
+											 <%}else{%>
+											  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="<%=i %>" class="active" aria-label="Slide<%=i+1 %>" aria-current="true"></button>
+											 <%} %>
                                             <%} %>
                                             </div>
                                             <!-- 이미지 여기에 넣는영역 표시-->
                                             <div class="carousel-inner">
+                                            <%int p_index=0; %>
                                             <%for(String temp : p_files){%>
-                                              <div class="carousel-item active">
-                                                <!-- 여기에 사진넣기 --> 	
-                                                <a href="policy_board.jsp?p_num=<%=ranPdto.getP_num()%>"><img alt = "./file/error.png" src="./imgs/<%=temp%>"></a>                                          
-                                              </div>
-                                             <%} %>
+                                              <%if(p_index==0){ %>
+	                                             <div class="carousel-item active">
+	                                               <a href="policy_board.jsp?p_num=<%=ranPdto.getP_num()%>"><img src="file/<%=temp%>" ></a>                                          
+	                                             </div>
+	                                             <%}else{ %>
+	                                             <div class="carousel-item">
+	                                               <a href="policy_board.jsp?p_num=<%=ranPdto.getP_num()%>"><img src="file/<%=temp%>" ></a>                                          
+	                                             </div>
+                                              <%} %>
+                                              <%p_index++; %>
+                                            <%} %>
                                             
                                              <!--  <div class="carousel-item">
                                                 				
@@ -323,9 +334,9 @@
 											<div class="sprite_heart_icon_outline" >
 											<%pl_dto = new PolicyLikesDTO(info.getM_Id(),ranPdto.getP_num()); %>
 											<%if(pl_dao.isPolicyLiked(pl_dto)>0){ %>
-												<button class="heart_button" id='policylikes<%= count %>'onclick="policylikes(<%= ranPdto.getP_num()%>,this.id,<%=count%>)"><img class="heart" alt="유용해요해제" src="imgs/몰라.JPG"></button>
-											<%}else{%>
 												<button class="heart_button" id='policylikes<%= count %>' onclick="policylikes(<%= ranPdto.getP_num() %>,this.id,<%=count%>)"><img class='heart' alt='유용해요등록' src='imgs/좋아.JPG'></button>
+											<%}else{%>
+												<button class="heart_button" id='policylikes<%= count %>'onclick="policylikes(<%= ranPdto.getP_num()%>,this.id,<%=count%>)"><img class="heart" alt="유용해요해제" src="imgs/몰라.JPG"></button>
 											<%	}%>
 											</div>
 										</div>
@@ -425,8 +436,10 @@
 					<% // 게시판 글 모음 dao에서 로그인한 아이디와 같은 글을 arraylist에 담음 
 					ArrayList<BoardDTO> bList = b_dao.showBoard(info.getM_Id()); %>
                        <!-- 사용자 게시글  -->
-                       <% for(BoardDTO b_dto : bList){%>
-							<%String[] b_files = b_dto.getB_filename().split(","); %>
+	<!-- 일반 유저 게시물 출력 영역 시작-----------------------------------------------------  -->
+					<%int indiID= 0; %>
+                    <% for(BoardDTO b_dto : bList){%>
+						<%String[] b_files = b_dto.getB_filename().split(","); %>
 					<!-- 스크롤 버튼 만들기 -->
 					<article class="contents">
 						<header class="top">
@@ -471,21 +484,31 @@
 							<div class="trans_inner">
 								<div>
 								<!-- 사진 넘기기 -->
-									<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
+									<div id="carouselExampleIndicators<%=indiID%>" class="carousel slide" data-bs-ride="true">
 									<!-- 사진 넣을수 정하기 -->
 										<div class="carousel-indicators">
 										 <%for(int i = 0; i<b_files.length; i++){%>
-										  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="<%=i %>" class="active" aria-label="Slide<%=i+1 %>" aria-current="true"></button>
-										  <%} %>
+										 <% if(i==0) {%>
+										  <button type="button" data-bs-target="#carouselExampleIndicators<%=indiID%>" data-bs-slide-to="<%=i %>" class="active" aria-label="Slide<%=i+1 %>" aria-current="true"></button>
+										 <%}else{%>
+										  <button type="button" data-bs-target="#carouselExampleIndicators<%=indiID%>" data-bs-slide-to="<%=i %>" aria-label="Slide<%=i+1 %>" aria-current="true"></button>
+										 <%} %>
+									  <%} %>
 										</div>
 										<!---------------------------------- 사진 넣는 영역 ------------------------------->
+										<%int b_index=0; %>
 										<div class="carousel-inner">
 										<%for(String temp : b_files){%>
+										<%if(b_index==0) {%>
 										  <div class="carousel-item active">
-											<!-- 여기에 사진넣기 --> 	
-											<a href="Detail-page.jsp"><img src="./imgs/<%=temp%>"></a>
-									  
+											<a href="Detail-page.jsp"><img src="file/<%=temp%>"></a>
 										  </div>
+									  <%}else{ %>
+										  <div class="carousel-item">
+											<a href="Detail-page.jsp"><img src="file/<%=temp%>"></a>
+										  </div>
+									  <%} %>
+									  <%b_index++; %>
 										<%} %>
 										<!---------------------------------- 사진 넣기 종료 ------------------------------->
 										 <!-- <div class="carousel-item">
@@ -500,12 +523,12 @@
 										</div>
 										
 										<!-- 사진 왼쪽으로 넘기기 -->
-										<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+										<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators<%=indiID%>" data-bs-slide="prev">
 										  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
 										  <span class="visually-hidden">Previous</span>
 										</button>
 										<!-- 사진 오른쪽으로 넘기기 -->
-										<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+										<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators<%=indiID%>" data-bs-slide="next">
 										  <span class="carousel-control-next-icon" aria-hidden="true"></span>
 										  <span class="visually-hidden">Next</span>
 										</button>
@@ -592,14 +615,17 @@
 					</article>
 				
 					<%count++; %>
+					<%indiID++; %>
 
 	<%} %>
+	
+	<!-- 일반 유저 게시물 출력 영역 끝-----------------------------------------------------  -->
 						
 					<%if(info != null){%>
 	<script text="javascript/text">
 		function likes(b_num,clicked_id,cnt){
 			let is_like;
-			let num1
+			let num1;
 			let m_id = '<%=info.getM_Id()%>';
 			let likeBtn = document.getElementById(clicked_id);
 			
@@ -662,7 +688,7 @@
 				<div class="side_box">
 				<!-- 게시물 등록 버튼 -->              <!-- 여기가 버튼 스타일 클래스 -->
 					<button type="button" class="btn btn-primary btn btn-info" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-						+ 게시물 등록
+						게시물 등록
 					  </button>
 					  <!-- 여기가 게시물 등록버튼 활성화시 나오는 팝업창 -->
 					  <!-- Modal -->

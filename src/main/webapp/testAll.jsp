@@ -175,7 +175,7 @@
 	
 	<form action="PolicyService"  enctype="multipart/form-data"  method="post" >
 		정책 제목 : <input type = "text" name = "p_title">
-		정책사진 등록 :<input  type="file" style="float: right;" name="p_filename">
+		정책사진 등록 :<input  type="file" style="float: right;" name="p_filename" multiple="multiple">
 		정책 게시글 입력 : <textarea  rows="10" style="resize: none;" name="p_content"></textarea><br> 
 		<input type="submit" value="정책게시글 등록">
 	</form>
@@ -312,7 +312,7 @@
 								<div class="detail">
 								<!-- 1. 정책 목록 뽑아와서 3개만 보여주기 새로운 정책 보여줄 때..   -->	
 								 <!-- 정책 목록 출력 + 리뷰 작성 + 출력-->
-									<%if(info != null){%>
+							<%-- 		<%if(info != null){%>
 										<% PolicyDAO dao = new PolicyDAO();%>
 										<% ArrayList<PolicyDTO> p_list = dao.showPolicy3();%>
 										<% for(PolicyDTO pdto : p_list){%>
@@ -320,7 +320,7 @@
 											 	<% SimpleDateFormat converter = new SimpleDateFormat ("yyyy-MM-dd");%>
 												<div class="timer"><%=converter.format(pdto.getP_date())%></div>
 										<%}%>
-									<%}%>  	
+									<%}%>  	 --%>
 									</div>
 								</div><!-- 클래스가 detail인 div태그의 끝  -->
 								

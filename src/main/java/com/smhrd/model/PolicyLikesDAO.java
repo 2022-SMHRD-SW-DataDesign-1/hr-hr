@@ -21,6 +21,7 @@ public class PolicyLikesDAO {
 	public int PolicyLikesPlus(PolicyLikesDTO dto) {
 		SqlSession session = sqlSessionFactory.openSession(true);
 		int row = session.insert("PolicyLikesPlus", dto);
+		System.out.println("이게 출력되면 db에 들어갔단 소린디");
 		session.close();
 
 		return row;
@@ -29,6 +30,7 @@ public class PolicyLikesDAO {
 	public int PolicyLikesMinus(PolicyLikesDTO dto) {
 		SqlSession session = sqlSessionFactory.openSession(true);
 		int row = session.delete("PolicyLikesMinus", dto);
+		System.out.println("이게 출력되면 db에 들어갔단 소린디");
 		session.close();
 
 		return row;

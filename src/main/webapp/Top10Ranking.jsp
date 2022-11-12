@@ -1,3 +1,4 @@
+<%@page import="com.smhrd.model.MemberDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -12,7 +13,9 @@
 <link rel="stylesheet" href="css/Top10Ranking.css">
 </head>
 <body>
-
+	<%
+		MemberDTO info = (MemberDTO) session.getAttribute("info");
+	%>
 	<header id="header">
 			<section class="inner">
                 
@@ -34,7 +37,7 @@
 				<div class="right_icons">
 					
 					<a href="Login.jsp"><img src="imgs/로그인.PNG" class="sprite_compass_icon"></a>
-					<a href="profileAll.jsp"><img src="imgs/프로필.PNG" class="sprite_user_icon_outline"></a>
+					<a href="profileAll.jsp?m_id-<%=info.getM_Id()%>"><img src="imgs/프로필.PNG" class="sprite_user_icon_outline"></a>
 				</div>
 				
 
