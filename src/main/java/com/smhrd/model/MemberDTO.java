@@ -75,7 +75,11 @@ public class MemberDTO {
 		this.m_Point = m_Point;
 	}
 
-	// 프로필 수정 DTO
+	public MemberDTO(@NonNull String m_Id) {
+		this.m_Id = m_Id;
+	}
+
+	
 	
 
 }

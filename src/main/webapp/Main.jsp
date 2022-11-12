@@ -1,3 +1,4 @@
+<%@page import="java.text.SimpleDateFormat"%>
 <%@page import="com.smhrd.model.MemberDAO"%>
 <%@page import="com.smhrd.model.PolicyLikesDTO"%>
 <%@page import="com.smhrd.model.PolicyLikesDAO"%>
@@ -21,7 +22,7 @@
 <meta charset="UTF-8">
 <meta name="viewport"
 	content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-<title>Title</title>
+<title>Peasy</title>
 
 
 <link rel="stylesheet" href="css/reset.css">
@@ -556,7 +557,7 @@
 									</div>
 									<div class="comment_more">
 										<!-- 댓글 더보기 할때 같은 게시물로 가게 하기... ( 아직 덜함) -->
-										<a href="Detail-page.jsp?m_id<%=b_dto.getB_num()%>">댓글 더보기</a>
+										<a href="Detail-page.jsp?b_num=<%=b_dto.getB_num()%>">댓글 더보기</a>
 										
 									</div>
 						<!-- 댓글 표시 -->
@@ -729,8 +730,9 @@
 					
 					<article class="story">
 						<header class="story_header">
-							<div>스토리</div>
-							<div class="more">모두 보기</div> 
+							<div>정책게시물</div>
+							
+							<!-- <div class="more">모두 보기</div>  -->
 						</header>
 
 						<div class="scroll_inner">
@@ -740,12 +742,13 @@
 						PolicyDTO ranPdto= p_list.get(ranp);
 						%>
 							<div class="thumb_user">
-								<div class="profile_thumb">
-									<img src="imgs/thumb02.jpg" alt="프로필사진">
-								</div>
+								<!-- <div class="profile_thumb">
+								 	<img src="imgs/thumb02.jpg" alt="프로필사진"> 
+								</div> -->
 								<div class="detail">
 									<div class="id"><%=ranPdto.getP_title() %></div>
-									<div class="timer"><%=ranPdto.getP_date() %></div>
+									<% SimpleDateFormat converter = new SimpleDateFormat ("yyyy-MM-dd");%>
+									<div class="timer"><%=converter.format(ranPdto.getP_date())%></div>
 								</div>
 							</div>
 							<%} %>
@@ -754,22 +757,24 @@
 					<!-- ////////////////////////////////////////////////////////  -->
 
 
-
-
 					<!-- //////////   타 회원 추천?   //////////// -->
+					
+				
+					
 					<article class="recommend">
 						<header class="reco_header">
 							<div>회원님을 위한 추천</div>
-							<div class="more">모두 보기</div>
+							<!-- <div class="more">모두 보기</div> -->
 						</header>
+						<%-- <% MemberDTO userList = new MemberDTO(m_id); %> --%>
 
 						<div class="thumb_user">
 							<div class="profile_thumb">
 								<img src="imgs/thumb02.jpg" alt="프로필사진">
 							</div>
 							<div class="detail">
-								<div class="id">그르르</div>
-								<div class="time">1시간 전</div>
+								<div class="id"></div>
+								<!-- <div class="time">1시간 전</div> -->
 							</div>
 						</div>
 					</article>

@@ -115,7 +115,7 @@ public class PolicyUpdateService extends HttpServlet {
 		}else {
 			System.out.println("DB에 파일 안드루감");
 		}
-		response.sendRedirect("testAll2.jsp");
+		response.sendRedirect("Main.jsp");
 		
 		
 	}

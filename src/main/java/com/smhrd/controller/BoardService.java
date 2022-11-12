@@ -99,7 +99,7 @@ public class BoardService extends HttpServlet {
 		}else {
 			System.out.println("DB에 파일 안드루감");
 		}
-		response.sendRedirect("testAll.jsp");
+		response.sendRedirect("Main.jsp");
 	}
 
 }
