@@ -1,3 +1,4 @@
+<%@page import="com.smhrd.model.MemberDAO"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="com.smhrd.model.PolicyLikesDTO"%>
 <%@page import="com.smhrd.model.PolicyLikesDAO"%>
@@ -103,6 +104,9 @@
 			<div class="left_side_box">
 				<!--랭킹 영역 -->
                     <div class="ranking_box">
+                    <% MemberDAO m_dao = new MemberDAO();
+                    	ArrayList<String> RankCount = m_dao.RankCount();
+                    %>
                         <div class="user_profile">
                         <!-- 랭킹 왕관이미지 -->
                             <div class="profile_thumb">
@@ -127,7 +131,7 @@
                                         <img src="imgs/1등.PNG" alt="프로필사진">
                                     </div>
                                     <div class="detail">
-                                        <div class="id">user1</div>
+                                        <div class="id"><%=RankCount.get(0) %></div>
                                         
                                     </div>
 									
@@ -137,7 +141,7 @@
                                         <img src="imgs/2등.PNG" alt="프로필사진">
                                     </div>
                                     <div class="detail">
-                                        <div class="id">user2</div>
+                                        <div class="id"><%=RankCount.get(1) %></div>
                                         
                                     </div>
 								</div>
@@ -146,7 +150,7 @@
                                         <img src="imgs/3등.PNG" alt="프로필사진">
                                     </div>
                                     <div class="detail">
-                                        <div class="id">user3</div>
+                                        <div class="id"><%=RankCount.get(2) %></div>
                                         
                                     </div>
 									
@@ -155,9 +159,9 @@
                             </div>
                         </article>
 						<!-- 일간 랭킹-->
-						<article class="daily_ranking">
+						<article class="weekliy_ranking">
                             <header class="story_header">
-                                <div>일간랭킹</div>
+                                <div>주간랭킹</div>
                                 <div class="more"><a href="Top10Ranking.jsp" class="ranking_a">모두 보기</a></div>
                             </header>
     

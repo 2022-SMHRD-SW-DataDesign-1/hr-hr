@@ -86,4 +86,12 @@ public class MemberDAO {
 		
 	}
 	
+	public ArrayList<String> RankCount(){
+		SqlSession session = sqlSessionFactory.openSession(true);
+		ArrayList<String> rank = (ArrayList)session.selectList("RankCount");
+		session.close();
+		
+		return rank;
+	}
+	
 }
