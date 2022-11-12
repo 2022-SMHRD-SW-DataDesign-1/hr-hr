@@ -68,6 +68,6 @@
 	<select id="RandomUser" parameterType = "String" resultType = "String">
 	select m_id from t_member where m_id != #{m_id}
 	minus
-	select follow_id from t_follow where m_id = #{m_id};
+	select follow_id from t_follow where m_id = #{m_id}
 	</select>
 </mapper>

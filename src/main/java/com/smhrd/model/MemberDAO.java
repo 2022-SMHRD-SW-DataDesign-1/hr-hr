@@ -102,9 +102,9 @@ public class MemberDAO {
 		
 		return writer;
 	}
-	public ArrayList<String> RandomUser(String m_id) {
+	public ArrayList<MemberDTO> RandomUser(String m_id) {
 		SqlSession session = sqlSessionFactory.openSession(true);
-		ArrayList<String> userList = (ArrayList)session.selectList("RandomUser",m_id);
+		ArrayList<MemberDTO> userList = (ArrayList)session.selectList("RandomUser",m_id);
 		session.close();
 		
 		return userList;

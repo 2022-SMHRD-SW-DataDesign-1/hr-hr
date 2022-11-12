@@ -1,3 +1,4 @@
+<%@page import="org.apache.ibatis.reflection.SystemMetaObject"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="com.smhrd.model.MemberDAO"%>
 <%@page import="com.smhrd.model.PolicyLikesDTO"%>
@@ -766,14 +767,14 @@
 							<div>회원님을 위한 추천</div>
 							<!-- <div class="more">모두 보기</div> -->
 						</header>
-						<%-- <% MemberDTO userList = new MemberDTO(m_id); %> --%>
-
+					
+					
 						<div class="thumb_user">
 							<div class="profile_thumb">
 								<img src="imgs/thumb02.jpg" alt="프로필사진">
 							</div>
 							<div class="detail">
-								<div class="id"></div>
+								<div class="id"> </div>
 								<!-- <div class="time">1시간 전</div> -->
 							</div>
 						</div>
