@@ -728,13 +728,15 @@
 					<!-- 여기에 게시글 요약본 넣기 아직 구현못함.. 게시글이 없어서... -->
 					
 					<!-- ///////////////정책글 3~5개정도 랜덤뽑아서 제목보여주고 링크붙이기 //////////////////  -->
+					
 					<article class="story">
 						<header class="story_header">
 							<div>스토리</div>
-							 <div class="more">모두 보기</div> 
+							<div class="more">모두 보기</div> 
 						</header>
 
 						<div class="scroll_inner">
+						
 							<div class="thumb_user">
 								<div class="profile_thumb">
 									<img src="imgs/thumb02.jpg" alt="프로필사진">
