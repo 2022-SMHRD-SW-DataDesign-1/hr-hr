@@ -303,7 +303,7 @@
 									</div>
 								</div>
 							</div>
-							
+							</div>
 							<div class="detail--right_box">
 
 
@@ -751,7 +751,6 @@
 									
 								</div>
 							</div>
-						</div>
 					</article>
 
 					<article class="recommend">
@@ -773,7 +772,6 @@
 				</div>
 
 
-			</div>
 		</section>
 
 
