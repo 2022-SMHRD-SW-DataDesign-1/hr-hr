@@ -39,7 +39,7 @@
 	</update>
 	
 	<select id="showPolicy3" resultType="PolicyDTO">
-		SELECT p_title, TO_CHAR(p_date, 'YYYY-MM-DD HH24:MI:SS') as p_date from (select p_title,p_date from t_policy order by p_date desc) where rownum <![CDATA[ <= 3 ]]> 
+		SELECT p_title,p_num, TO_CHAR(p_date, 'YYYY-MM-DD HH24:MI:SS') as p_date from (select p_title,p_date from t_policy order by p_date desc) where rownum <![CDATA[ <= 3 ]]> 
 	</select>
 	
 	

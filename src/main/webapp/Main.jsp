@@ -1,5 +1,3 @@
-<%@page import="com.smhrd.model.MemberDAO"%>
-<%@page import="java.text.SimpleDateFormat"%>
 <%@page import="com.smhrd.model.PolicyLikesDTO"%>
 <%@page import="com.smhrd.model.PolicyLikesDAO"%>
 <%@page import="com.smhrd.model.LikesDTO"%>
@@ -104,9 +102,6 @@
 			<div class="left_side_box">
 				<!--랭킹 영역 -->
                     <div class="ranking_box">
-                    <% MemberDAO m_dao = new MemberDAO();
-                    	ArrayList<String> RankCount = m_dao.RankCount();
-                    %>
                         <div class="user_profile">
                         <!-- 랭킹 왕관이미지 -->
                             <div class="profile_thumb">
@@ -131,7 +126,7 @@
                                         <img src="imgs/1등.PNG" alt="프로필사진">
                                     </div>
                                     <div class="detail">
-                                        <div class="id"><%=RankCount.get(0) %></div>
+                                        <div class="id">user1</div>
                                         
                                     </div>
 									
@@ -141,7 +136,7 @@
                                         <img src="imgs/2등.PNG" alt="프로필사진">
                                     </div>
                                     <div class="detail">
-                                        <div class="id"><%=RankCount.get(1) %></div>
+                                        <div class="id">user2</div>
                                         
                                     </div>
 								</div>
@@ -150,7 +145,7 @@
                                         <img src="imgs/3등.PNG" alt="프로필사진">
                                     </div>
                                     <div class="detail">
-                                        <div class="id"><%=RankCount.get(2) %></div>
+                                        <div class="id">user3</div>
                                         
                                     </div>
 									
@@ -159,9 +154,9 @@
                             </div>
                         </article>
 						<!-- 일간 랭킹-->
-						<article class="weekliy_ranking">
+						<article class="daily_ranking">
                             <header class="story_header">
-                                <div>주간랭킹</div>
+                                <div>일간랭킹</div>
                                 <div class="more"><a href="Top10Ranking.jsp" class="ranking_a">모두 보기</a></div>
                             </header>
     
@@ -303,7 +298,7 @@
 									</div>
 								</div>
 							</div>
-							</div>
+							
 							<div class="detail--right_box">
 
 
@@ -694,8 +689,15 @@
 										<p id="filelist">
 										<!-- 파일 추가 버튼 -->
 										
-											<input type="file" name="filename" id="id_photo" style="float: right;" required="required" multiple="multiple">
-											
+											<input type="file" name="filename" id="id_photo" style="float: right;" required="required" >
+											<script text="javascript/text" >
+												function addbtn(){
+													$("#filelist").append("<input  type='file' style='float: right;' required='required' name='filename<%=count%>' multiple>");
+												}
+											</script>
+										</p>
+											<input type="button" value="+" onclick="addbtn()"> <%count++; %>
+										<p>
 										<!-- 게시글 폰트 작성  -->
 											<textarea name="content" id="text_field" style="resize: none;" cols="50" rows="10" placeholder="140자 까지 등록 가능합니다. #태그명 을 통해서 검색 태그를 등록할 수 있습니다.
 						예시 : I # love # insta!"></textarea>
@@ -717,40 +719,21 @@
 					<!-- 여기에 게시글 요약본 넣기 아직 구현못함.. 게시글이 없어서... -->
 					<article class="story">
 						<header class="story_header">
-							<div>정책게시물</div>
+							<div>스토리</div>
+							 <div class="more">모두 보기</div> 
 						</header>
 
 						<div class="scroll_inner">
 							<div class="thumb_user">
-								
-										<div class="detail">
-									
-									
-								<!-- 1. 정책 목록 뽑아와서 3개만 보여주기 , 가징 많이 본 정책이라던지, 새로운 정책 보여줄 때.. 이게 더 좋은 듯 ..  -->	
-								 <!-- 정책 목록 출력 + 리뷰 작성 + 출력-->
-							<%if(info != null){%>
-								
-	
-							<% PolicyDAO dao = new PolicyDAO();
-							ArrayList<PolicyDTO> p_list = dao.showPolicy3();
-							for(PolicyDTO pdto : p_list){%>
-								<div class="id"><%=pdto.getP_title() %></div>
-								
-								 <% SimpleDateFormat converter = new SimpleDateFormat ("yyyy-MM-dd");%>
-								
-								<div class="timer"><%=converter.format(pdto.getP_date())%></div>
-								
-							<% }%>
-		 
-	
-							<%}%>  
-									
-									
-									<!-- 전월세 계약 무턱대고 하지말고 '이것'부터 챙기세요 --></div>
-									<div class="id"><!-- 늦은 밤길 지켜주는 '안심 귀가 스카우트 안심이 앱' --></div>
-									
+								<div class="profile_thumb">
+									<img src="imgs/thumb02.jpg" alt="프로필사진">
+								</div>
+								<div class="detail">
+									<div class="id">그르르르</div>
+									<div class="timer">1시간 전</div>
 								</div>
 							</div>
+						</div>
 					</article>
 
 					<article class="recommend">
@@ -772,6 +755,7 @@
 				</div>
 
 
+			</div>
 		</section>
 
 
