@@ -21,7 +21,7 @@
 <meta charset="UTF-8">
 <meta name="viewport"
 	content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-<title>Peasy</title>
+<title>Title</title>
 
 
 <link rel="stylesheet" href="css/reset.css">
@@ -648,7 +648,13 @@
 				</div>
 				<!-- contents box 긑나는 곳--> 
 					</div>
-
+					<%
+					PolicyDAO p_dao = new PolicyDAO();
+					ArrayList<PolicyDTO> p_list = p_dao.showPolicy();
+					double min = 0;
+					double max = p_list.size();
+					
+					%>
 					
 				<!-- 오른쪽영역  -->
 				<div class="side_box">
@@ -672,7 +678,6 @@
 							<div class="modal-body">
 								<div class="post_form_container">
 								<!-- 게시물 등록 영역 -->
-								<%int count = 0; %>
 									<form action="BoardService" class="post_form"  enctype="multipart/form-data"  method="post">
 										<div class="title">
 											NEW POST
@@ -724,21 +729,26 @@
 					
 					<article class="story">
 						<header class="story_header">
-							<div>정책게시물</div>
+							<div>스토리</div>
 							<div class="more">모두 보기</div> 
 						</header>
 
 						<div class="scroll_inner">
-						
+						<%for(int i = 0; i < 3; i++){ %>
+						<%
+						int ranp = (int) ((Math.random() * (max - min)) + min);
+						PolicyDTO ranPdto= p_list.get(ranp);
+						%>
 							<div class="thumb_user">
 								<div class="profile_thumb">
 									<img src="imgs/thumb02.jpg" alt="프로필사진">
 								</div>
 								<div class="detail">
-									<div class="id">그르르르</div>
-									<div class="timer">1시간 전</div>
+									<div class="id"><%=ranPdto.getP_title() %></div>
+									<div class="timer"><%=ranPdto.getP_date() %></div>
 								</div>
 							</div>
+							<%} %>
 						</div>
 					</article>
 					<!-- ////////////////////////////////////////////////////////  -->
