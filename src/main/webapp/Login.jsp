@@ -145,7 +145,7 @@
 
 								<!-- 카카오 로그인 버튼 -->
 								<div onclick="kakaoLogin();">
-									<img src="./imgs/kakao_login_small.png">
+									<img class="social_icon" src="./imgs/kakao_login_small.png">
 								</div>
 							</div>
 							<!-- 로그인 정보입력 -->

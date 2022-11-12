@@ -212,6 +212,11 @@ span {
 #header .search_box{
   display:none;
 }
+.social_icon{
+	width: 39px;
+	height: 39px;
+	background-color: #EBECF0;
+}
 
 
 

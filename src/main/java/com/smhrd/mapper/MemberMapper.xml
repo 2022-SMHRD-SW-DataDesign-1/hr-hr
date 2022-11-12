@@ -52,8 +52,16 @@
 	select m_id, sum(r_like)as ab from t_review group by m_id) where m_id = #{m_id} group by m_id
 	</select>
 	
+	<select id="findWriter" parameterType="BigDecimal" resultType="String">
+	select m_id from t_board where b_num = #{b_num}
+	</select>
+	
 	<update id="PointUpdate" parameterType="MemberDTO">
 	UPDATE t_member SET m_point = #{m_Point}
 		WHERE m_id = #{m_Id}
 	</update>
+	
+	<select id="RankCount" resultType="String">
+		select m_id from (select m_id,m_point from t_member order by m_point desc) where rownum <![CDATA[ <= 3 ]]>
+	</select>
 </mapper>

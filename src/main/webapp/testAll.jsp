@@ -1,3 +1,5 @@
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="org.apache.ibatis.reflection.SystemMetaObject"%>
 <%@page import="com.smhrd.model.LikesDTO"%>
 <%@page import="com.smhrd.model.LikesDAO"%>
 <%@page import="com.smhrd.model.PolicyDAO"%>
@@ -317,18 +319,21 @@
 	
 							<% PolicyDAO dao = new PolicyDAO();
 							ArrayList<PolicyDTO> p_list = dao.showPolicy3();
-	
 							for(PolicyDTO pdto : p_list){%>
 								<div class="id"><%=pdto.getP_title() %>
-								<div class="timer"><%=pdto.getP_date() %></div>
+								
+								 <% SimpleDateFormat converter = new SimpleDateFormat ("yyyy-MM-dd");%>
+								
+								<div class="timer"><%=converter.format(pdto.getP_date())%></div>
+								
 							<% }%>
 		 
 	
 							<%}%>  
 									
 									
-									전월세 계약 무턱대고 하지말고 '이것'부터 챙기세요</div>
-									<div class="id">늦은 밤길 지켜주는 '안심 귀가 스카우트 안심이 앱'</div>
+									<!-- 전월세 계약 무턱대고 하지말고 '이것'부터 챙기세요 --></div>
+									<div class="id"><!-- 늦은 밤길 지켜주는 '안심 귀가 스카우트 안심이 앱' --></div>
 									
 								</div>
 							</div>

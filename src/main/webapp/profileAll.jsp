@@ -1,3 +1,4 @@
+<%@page import="com.smhrd.model.FollowDTO"%>
 <%@page import="org.apache.ibatis.reflection.SystemMetaObject"%>
 <%@page import="com.smhrd.model.MemberDAO"%>
 <%@page import="com.smhrd.model.CommentDAO"%>
@@ -345,7 +346,6 @@
 				
 				
 				
-				
 				<!-- 여기부터 다른 사용자인 경우에 해당 -->
 			<%}else{ 
 				MemberDAO dao = new MemberDAO();//DAO기능 하나 쓸건데
@@ -367,15 +367,28 @@
 					<div class="detail">
 						<div class="top">
 						<div class="user_name"><%=info.getM_Nickname()%></div>
+						
 							<div class="other_btn">
 								<!-- detail top a으로 클래스 접근 팔로우 dm영역 -->
-								<button type="submit" class="btn btn-primary btn btn-light btn btn-outline-dark">
-									<a href="profile_edit.jsp" class="profile_edit">팔로우</a>
-								</button>
-								
+								<%if(info != null){%>
+								<%FollowDTO fc_dto = new FollowDTO(loginInfo.getM_Id() ,info.getM_Id()); 
+								  FollowDAO fdao = new FollowDAO(); %>
+								<%if(fdao.followCheck(fc_dto)>0){ %>
+									<button class="btn btn-primary btn-light btn-outline-dark" id="follows" onclick="follows('<%=info.getM_Id()%>',this.id)">
+										언팔로우
+									</button>
+								<%}else{%>
+									<button class="btn btn-primary btn-light btn-outline-dark" id="follows" onclick="follows('<%=info.getM_Id()%>',this.id)">
+										팔로우
+									</button>
+									<%}%>
+									<%}%>
+									
 								<button type="submit" class="btn btn-primary btn btn-light btn btn-outline-dark"> 
 									<a href="#">DM</a>
 								</button>
+								
+								
 								<!-- 차단버튼 -->
 								<!--여기가 버튼스타일 클래스영역  -->
 								<button type="button"
@@ -420,10 +433,13 @@
 						<div><%=info.getM_Profile() %></div>
 						<%} %>
 						<%if(info != null){ %>
+						<%int count = new BoardDAO().countBoard(info.getM_Id());%>
+						<%int count2 = new FollowDAO().countFollow(info.getM_Id());%>
+						<%int count3 = new FollowDAO().countFollower(info.getM_Id());%>
                             <ul class="middle">
-                                <li><span>게시물</span> <%=new BoardDAO().countBoard(info.getM_Id())%></li>
-                                <li><span>팔로우</span> <%= new FollowDAO().countFollow(info.getM_Id())%></li>
-                                <li><span>팔로워</span> <%= new FollowDAO().countFollower(info.getM_Id())%></li>
+                                <li><span>게시물 </span><%=count %> </li>
+                                <li>팔로우 <span id="isFollow"><%=count2 %></span> </li>
+                                <li>팔로워 <span id="isFollowed"><%=count3 %></span> </li>
                             </ul>				
                             <%} %>
 						<%if(info != null){ %>
@@ -494,6 +510,7 @@
 <!-- 비밀번호 같은지 체크 -->
 	
 <script>
+//비번 중복체크
     function checkPW() {
         let inputPW = $("#pw").val();
         let inputPWCheck = $("#pwcheck").val();
@@ -525,6 +542,56 @@
             }
         })
     }
+    //팔로우
+    <%if(loginInfo != null){%>
+    let followCnt = <%=new FollowDAO().countFollower(request.getParameter("m_id"))%>;
+	
+	function follows(follow_id,clicked_id){
+		let Follow_cnt;
+		let m_id = '<%=loginInfo.getM_Id()%>';
+		
+		console.log("팔로우 아이디 : "+follow_id);
+		console.log(clicked_id);
+		
+		
+		
+		
+		let followsBtn = document.getElementById(clicked_id);
+		
+		if(followsBtn.innerText == '팔로우'){
+			followsBtn.innerText = '언팔로우'
+			Follow_cnt = 0;
+		}else{
+			followsBtn.innerText = '팔로우'
+			Follow_cnt = 1;
+		}
+		
+		$.ajax({
+				url: 'FollowService',
+				data :{
+					'm_id' :m_id,
+					'follow_id' : follow_id,
+					'Follow_cnt' : Follow_cnt
+				},
+				type:'get',
+				success:function(data){
+					console.log(data);
+					if(data =="true"){
+						followCnt += 1;
+					}else{
+						followCnt -= 1;
+					}						
+					$('#isFollowed').text(followCnt);
+					
+				},
+			error:function(){
+				console.log("errrrr");
+			}
+	
+		})
+	
+		}
+	<%}%>
 </script>
 <script>
 

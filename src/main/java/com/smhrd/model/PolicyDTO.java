@@ -56,6 +56,14 @@ public class PolicyDTO {
 		this.p_filename = p_filename;
 	}
 	
+
+	public PolicyDTO(@NonNull BigDecimal p_num, @NonNull String p_title, Timestamp p_date) {
+		super();
+		this.p_num = p_num;
+		this.p_title = p_title;
+		this.p_date = p_date;
+	}
+	
 	
 	
 	// 정책 업로드 DTO @NonNull

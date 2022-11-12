@@ -1,3 +1,6 @@
+<%@page import="com.smhrd.model.LikesDAO"%>
+<%@page import="com.smhrd.model.LikesDTO"%>
+<%@page import="com.smhrd.model.MemberDTO"%>
 <%@page import="java.math.BigDecimal"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.smhrd.model.CommentDAO"%>
@@ -52,7 +55,9 @@
 
 	<body>
 
-		<%
+		<%	
+			
+			MemberDTO info = (MemberDTO) session.getAttribute("info");
 			//int num = Integer.parseInt(request.getParameter("b_num"));
 			BoardDTO board = new BoardDAO().showDetail(4);
 			
@@ -61,6 +66,8 @@
 			int num = 4;
 			BigDecimal bignum = new BigDecimal(num);
 			ArrayList<CommentDTO>  cmtList = new CommentDAO().showComment(bignum);
+			LikesDTO l_dto = new LikesDTO();
+			LikesDAO l_dao = new LikesDAO();;
 		%>
 		<section id="container">
 
@@ -178,11 +185,17 @@
 									<!-- 게시글 좋아요버튼 -->
 										<div class="heart_btn">
 											<div class="sprite_heart_icon_outline" data-name="heartbeat">
-												<button class="heart_button"><img src="imgs/3.PNG"></button>
+											<% int count = 0; %>
+												<%l_dto = new LikesDTO(info.getM_Id(),board.getB_num()); %>
+										<%if(l_dao.isLiked(l_dto)>0){ %>
+											<button class="heart_button" id='likes<%= count %>'onclick="likes(<%= board.getB_num()%>,this.id,<%=count%>)"><img class="heart" alt="유용해요해제" src="imgs/좋아.JPG"></button>
+										<%}else{%>
+											<button class="heart_button" id='likes<%= count %>' onclick="likes(<%= board.getB_num() %>,this.id,<%=count%>)"><img class="heart" alt="유용해요등록" src="imgs/몰라.JPG"></button>
+										<%	}%>
 											</div>
 										</div>
 								<!-- 댓글 버튼 -->
-								<div class ="thumbs">따봉</div>
+								
 								<div class="sprite_bubble_icon"></div>
 									</div>
 									<!-- 게시글 스크랩 버튼 -->
@@ -192,7 +205,7 @@
 								</div>
 								<!-- 게시글 좋아요수 표시 -->
 								<div class="count_likes">좋아요 
-								<span class="count">2,351</span> 개
+								<span class="count" id='likes<%= count %>'><%=board.getB_likes() %></span> 개
 								<div class="timer">2시간</div>
 								</div>
 								<!-- 댓글 스크롤  -->
@@ -254,6 +267,56 @@
 			</div>
 
 		</section>
+				
+					<%if(info != null){%>
+	<script text="javascript/text">
+		function likes(b_num,clicked_id,cnt){
+			let is_like;
+			let num1
+			let m_id = '<%=info.getM_Id()%>';
+			let likeBtn = document.getElementById(clicked_id);
+			
+			if(likeBtn.innerHTML == '<img class="heart" alt="유용해요등록" src="imgs/몰라.JPG">'){
+				likeBtn.innerHTML = '<img class="heart" alt="유용해요해제" src="imgs/좋아.JPG">';
+				is_like = 0;
+				
+			}else{
+				likeBtn.innerHTML = '<img class="heart" alt="유용해요등록" src="imgs/몰라.JPG">';
+				is_like = 1;
+			}
+			
+			
+			$.ajax({
+				url : 'LikesPlusService',
+				data :{
+					'm_id' :m_id,
+					'b_num' : b_num,
+					'is_liked':is_like
+				},
+				type:'get', // 요청 타입
+				success:function(data){// 통신성공(function(넘겨준데이터))
+					if(data =="true"){
+						let test = 'like'+cnt;
+						num1 = Number(document.getElementById(test).innerText);
+						document.getElementById(test).innerText = num1+1;
+						
+					}else {
+						let test = 'like'+cnt;
+						num1 = Number(document.getElementById(test).innerText);
+						document.getElementById(test).innerText = num1-1;
+					}
+				},
+			error:function(){
+				console.log("asfknaskm");
+			}
+							<%} %>
+
+			
+			})//속성
+			
+
+		}
+	</script> 
 
 	
 		<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>

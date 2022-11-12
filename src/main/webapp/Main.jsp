@@ -1,3 +1,4 @@
+<%@page import="com.smhrd.model.MemberDAO"%>
 <%@page import="com.smhrd.model.PolicyLikesDTO"%>
 <%@page import="com.smhrd.model.PolicyLikesDAO"%>
 <%@page import="com.smhrd.model.LikesDTO"%>
@@ -102,6 +103,10 @@
 			<div class="left_side_box">
 				<!--랭킹 영역 -->
                     <div class="ranking_box">
+                    <%
+                    MemberDAO m_dao = new MemberDAO();
+                    ArrayList<String> Ranking = m_dao.RankCount();
+                    %>
                         <div class="user_profile">
                         <!-- 랭킹 왕관이미지 -->
                             <div class="profile_thumb">
@@ -126,7 +131,7 @@
                                         <img src="imgs/1등.PNG" alt="프로필사진">
                                     </div>
                                     <div class="detail">
-                                        <div class="id">user1</div>
+                                        <div class="id"><%=Ranking.get(0) %></div>
                                         
                                     </div>
 									
@@ -136,7 +141,7 @@
                                         <img src="imgs/2등.PNG" alt="프로필사진">
                                     </div>
                                     <div class="detail">
-                                        <div class="id">user2</div>
+                                        <div class="id"><%=Ranking.get(1) %></div>
                                         
                                     </div>
 								</div>
@@ -145,7 +150,7 @@
                                         <img src="imgs/3등.PNG" alt="프로필사진">
                                     </div>
                                     <div class="detail">
-                                        <div class="id">user3</div>
+                                        <div class="id"><%=Ranking.get(2) %></div>
                                         
                                     </div>
 									
@@ -298,7 +303,7 @@
 									</div>
 								</div>
 							</div>
-							
+							</div>
 							<div class="detail--right_box">
 
 
@@ -443,6 +448,7 @@
 
 							</div>
 							<!-- 게시글 수정 삭제 영역  -->
+									<%if(info.getM_Id().equals(b_dto.getB_writer())){ %>
 							<div class="sprite_more_icon" >
 								<div class="dropdown">
 									<button class="btn btn-secondary dropdown-toggle btn btn-light" type="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -450,11 +456,13 @@
 									</button>
 									<ul class="dropdown-menu">
 									  <li><a class="dropdown-item" href="#">수정</a></li>
-									  <li><a class="dropdown-item" href="#">삭제</a></li>
+									  <li><a class="dropdown-item" onclick="deleteBoard(<%=b_dto.getB_num()%>)">삭제</a></li>
 									  
 									</ul>
+									  
 								  </div>
 							</div>
+									<%} %>
 						</header>
 						<!-- 게시글 사진 영역 -->
 						<div class="img_section">
@@ -529,10 +537,10 @@
 								
 							</div>
 							<!-- 오른쪽영역 -->
-							<div class="right_icon">
 							<!-- 스크랩버튼 -->
+							<!-- <div class="right_icon">
 								<div class="sprite_bookmark_outline" ></div>
-							</div>
+							</div> -->
 						</div>
 						<!-- 좋아요수 표시 -->
 						
@@ -547,7 +555,9 @@
 										</div>
 									</div>
 									<div class="comment_more">
-										<a href="Detail-page.jsp">댓글 더보기</a>
+										<!-- 댓글 더보기 할때 같은 게시물로 가게 하기... ( 아직 덜함) -->
+										<a href="Detail-page.jsp?m_id<%=b_dto.getB_num()%>">댓글 더보기</a>
+										
 									</div>
 						<!-- 댓글 표시 -->
 						<div class="comment_container">
@@ -684,15 +694,8 @@
 										<p id="filelist">
 										<!-- 파일 추가 버튼 -->
 										
-											<input type="file" name="filename" id="id_photo" style="float: right;" required="required" >
-											<script text="javascript/text" >
-												function addbtn(){
-													$("#filelist").append("<input  type='file' style='float: right;' required='required' name='filename<%=count%>' multiple>");
-												}
-											</script>
-										</p>
-											<input type="button" value="+" onclick="addbtn()"> <%count++; %>
-										<p>
+											<input type="file" name="filename" id="id_photo" style="float: right;" required="required" multiple="multiple">
+										
 										<!-- 게시글 폰트 작성  -->
 											<textarea name="content" id="text_field" style="resize: none;" cols="50" rows="10" placeholder="140자 까지 등록 가능합니다. #태그명 을 통해서 검색 태그를 등록할 수 있습니다.
 						예시 : I # love # insta!"></textarea>
@@ -711,14 +714,22 @@
 						  </div>
 						</div>
 					  </div>
+					  
+					  
+					  
+					  
 					<!-- 여기에 게시글 요약본 넣기 아직 구현못함.. 게시글이 없어서... -->
+					
+					<!-- ///////////////정책글 3~5개정도 랜덤뽑아서 제목보여주고 링크붙이기 //////////////////  -->
+					
 					<article class="story">
 						<header class="story_header">
 							<div>스토리</div>
-							 <div class="more">모두 보기</div> 
+							<div class="more">모두 보기</div> 
 						</header>
 
 						<div class="scroll_inner">
+						
 							<div class="thumb_user">
 								<div class="profile_thumb">
 									<img src="imgs/thumb02.jpg" alt="프로필사진">
@@ -730,7 +741,12 @@
 							</div>
 						</div>
 					</article>
+					<!-- ////////////////////////////////////////////////////////  -->
 
+
+
+
+					<!-- //////////   타 회원 추천?   //////////// -->
 					<article class="recommend">
 						<header class="reco_header">
 							<div>회원님을 위한 추천</div>
@@ -746,7 +762,13 @@
 								<div class="time">1시간 전</div>
 							</div>
 						</div>
-				</article>
+					</article>
+					<!-- //////////////////////////////////////// -->
+					
+					
+					
+					
+					
 				</div>
 
 
@@ -756,7 +778,42 @@
 
 
 	</section>
-
+	<script type="text/javascript">
+	// 삭제 버튼
+	function deleteBoard(b_num){
+		let m_id = '<%=info.getM_Id()%>';
+		
+		let delCheck = confirm("데이터 복구는 없다. 삭제 ㄱ?");
+		console.log("아이디 : "+m_id);
+		console.log("글 번호 : "+b_num)
+		console.log(delCheck);
+		console.log(typeof delCheck);
+		
+		$.ajax({
+			url : "DeleteBoardService",
+			data : {"m_id" : m_id,
+					"b_num" : b_num,
+					"delCheck" : delCheck
+					},
+			type : 'get', 
+			success : function(data) {
+				console.log("통신은 된다?")
+				location.replace("./Main.jsp");
+			},
+			error : function() {
+				console.log("조샀다 !");
+			}
+		})
+		
+		
+	}
+	
+	
+	</script>
+	
+	
+	
+	
 	<script src="./js/chat.js"></script>
 	<script src="js/comment.js"></script>
 	<script src="js/alert_btn.js"></script>
