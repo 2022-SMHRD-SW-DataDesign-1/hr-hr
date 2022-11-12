@@ -694,15 +694,8 @@
 										<p id="filelist">
 										<!-- 파일 추가 버튼 -->
 										
-											<input type="file" name="filename" id="id_photo" style="float: right;" required="required" >
-											<script text="javascript/text" >
-												function addbtn(){
-													$("#filelist").append("<input  type='file' style='float: right;' required='required' name='filename<%=count%>' multiple>");
-												}
-											</script>
-										</p>
-											<input type="button" value="+" onclick="addbtn()"> <%count++; %>
-										<p>
+											<input type="file" name="filename" id="id_photo" style="float: right;" required="required" multiple="multiple">
+										
 										<!-- 게시글 폰트 작성  -->
 											<textarea name="content" id="text_field" style="resize: none;" cols="50" rows="10" placeholder="140자 까지 등록 가능합니다. #태그명 을 통해서 검색 태그를 등록할 수 있습니다.
 						예시 : I # love # insta!"></textarea>
