@@ -130,7 +130,7 @@
 								<!-- 게시물 오른쪽 버튼영역 -->
                                 <div class="right_button">
                                 <!-- 리뷰버튼 -->
-                                    <button type="button" class="btn btn-outline-dark"><a href="reviewboard.jsp">리뷰</a></button>
+                                    <button type="button" class="btn btn-outline-dark"><a href="reviewboard.jsp?p_num=<%=request.getParameter("p_num")%>">리뷰</a></button>
                                 </div>
 							</div>
 							<!-- 게시물 이미지 영역 --> <!-- //사진 넣어줘야한단 말이야 -->

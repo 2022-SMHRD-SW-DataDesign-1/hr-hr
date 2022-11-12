@@ -224,7 +224,12 @@
 							PolicyDAO p_dao = new PolicyDAO();
 							ArrayList<PolicyDTO> p_list = p_dao.showPolicy();
 							double min = 0;
-							double max = p_list.size();
+							double max;
+							if(p_list != null){
+							max = 0;
+							}else{
+							max = p_list.size();
+							}
 							int ranp = (int) ((Math.random() * (max - min)) + min);
 							PolicyDTO ranPdto= p_list.get(ranp);
 							
