@@ -33,8 +33,7 @@
 		<link rel="stylesheet" href="css/style.css">
 		<link rel="stylesheet" href="css/detail-page.css">
 		<link rel="stylesheet" href="css/new_post.css">
-<link rel="stylesheet" href="css/bootstrap.css">
-		<link rel="shortcut icon" href="imgs/instagram.png">
+		<link rel="stylesheet" href="css/bootstrap.css">
         
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
         <link href="https://getbootstrap.com/docs/5.2/assets/css/docs.css" rel="stylesheet">
