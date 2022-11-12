@@ -21,7 +21,7 @@
 <meta charset="UTF-8">
 <meta name="viewport"
 	content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-<title>Title</title>
+<title>Peasy</title>
 
 
 <link rel="stylesheet" href="css/reset.css">
@@ -724,7 +724,7 @@
 					
 					<article class="story">
 						<header class="story_header">
-							<div>스토리</div>
+							<div>정책게시물</div>
 							<div class="more">모두 보기</div> 
 						</header>
 
