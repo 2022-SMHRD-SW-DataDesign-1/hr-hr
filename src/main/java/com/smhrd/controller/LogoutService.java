@@ -25,7 +25,7 @@ public class LogoutService extends HttpServlet {
 		// 전체 세션 종료
 		// session.invalidate();
 
-		RequestDispatcher rd = request.getRequestDispatcher("./testAll.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("./homepage.jsp");
 		rd.forward(request, response);
 
 	}

@@ -45,7 +45,7 @@ public class JoinService extends HttpServlet {
 			System.out.println("회원가입 실패");
 		}
 		
-		response.sendRedirect("./testAll.jsp");
+		response.sendRedirect("./Login.jsp");
 		
 		
 	}

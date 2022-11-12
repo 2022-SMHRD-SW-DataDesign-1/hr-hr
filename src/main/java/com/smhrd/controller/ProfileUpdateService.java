@@ -31,7 +31,7 @@ public class ProfileUpdateService extends HttpServlet {
 		MemberDTO up_aft_dto = dao.information(m_id);
 		
 		session.setAttribute("info", up_aft_dto);
-		response.sendRedirect("./testAll.jsp");
+		response.sendRedirect("./Main.jsp");
 	}
 
 }

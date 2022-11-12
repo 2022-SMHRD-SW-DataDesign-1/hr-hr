@@ -31,7 +31,7 @@ public class CommentService extends HttpServlet {
 		CommentDAO dao = new CommentDAO();
 		int row = dao.writeComment(cdto);
 		
-		response.sendRedirect("./testAll.jsp");
+		response.sendRedirect("./Main.jsp");
 		 
 	}
 
