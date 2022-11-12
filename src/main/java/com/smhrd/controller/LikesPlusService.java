@@ -23,6 +23,10 @@ public class LikesPlusService extends HttpServlet {
 		BigDecimal b_num = new BigDecimal(Integer.parseInt(request.getParameter("b_num"))); 
 		int is_liked = Integer.parseInt(request.getParameter("is_liked"));
 		
+		System.out.println(m_id);
+		System.out.println(b_num);
+		System.out.println(is_liked);
+		
 		LikesDTO ldto = new LikesDTO(m_id, b_num);
 		LikesDAO ldao = new LikesDAO();
 		PrintWriter out = response.getWriter();

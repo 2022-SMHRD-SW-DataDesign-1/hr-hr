@@ -40,7 +40,7 @@
 		<meta itemprop="image" content="http://kindtiger.dothome.co.kr/insta/imgs/instagram.jpeg">
 
 
-		<title>instagram</title>
+		<title></title>
 		<link rel="stylesheet" href="css/reset.css">
 		<link rel="stylesheet" href="css/common.css">
 		<link rel="stylesheet" href="css/style.css">
@@ -55,19 +55,19 @@
 
 	<body>
 
-		<%	
-			
+		<%
 			MemberDTO info = (MemberDTO) session.getAttribute("info");
 			//int num = Integer.parseInt(request.getParameter("b_num"));
-			BoardDTO board = new BoardDAO().showDetail(4);
+			
+			int num = 91;//test코드 메인수정후 삭제
+			BoardDTO board = new BoardDAO().showDetail(num);
 			
 			//int cmt = Integer.parseInt(request.getParameter("b_num"));
 			//BigDecimal b_num_cmt = new BigDecimal(cmt);
-			int num = 4;
-			BigDecimal bignum = new BigDecimal(num);
+			BigDecimal bignum = new BigDecimal(num);//test코드 메인수정후 삭제
 			ArrayList<CommentDTO>  cmtList = new CommentDAO().showComment(bignum);
-			LikesDTO l_dto = new LikesDTO();
-			LikesDAO l_dao = new LikesDAO();;
+			LikesDTO l_dto = new LikesDTO(); 
+			LikesDAO l_dao = new LikesDAO();
 		%>
 		<section id="container">
 
@@ -94,7 +94,7 @@
 
 					<!-- 오른쪽 메뉴 아이콘 -->
                     <div class="right_icons">
-                        <a href="ProfileAll.jsp"><img src="imgs/프로필.PNG" class="sprite_user_icon_outline"></a>
+                        <a href="ProfileAll.jsp?"><img src="imgs/프로필.PNG" class="sprite_user_icon_outline"></a>
                         <a href="Top10Ranking.jsp"><img src="imgs/랭킹버튼.PNG" class="sprite_user_icon_outline"></a>
                         <a href="DM.jsp"> <img src="imgs/채팅.PNG" class="sprite_user_icon_outline"></a>
                         <!-- 알람버튼 -->
@@ -139,7 +139,7 @@
 							<div class="user_container">
 							<!-- 게시물 유저 이미지 -->
 								<div class="profile_img">
-									<img src="<%=board.getB_filename() %>" alt="">
+									<img src="/imgs/<%=board.getB_filename() %>" alt="">
 									
 								</div>
 								<!-- 유저 이름 및 정보 -->
@@ -151,7 +151,7 @@
 							<div class="img_section">
 								<div class="trans_inner">
 									<div>
-										<img src="<%=board.getB_filename() %>" alt="">
+										<img src="imgs/<%=board.getB_filename() %>" alt=""> 
 									</div>
 								</div>
 							</div>
@@ -170,7 +170,7 @@
 											<%=board.getB_content() %>
 											</div>
 											<!-- 게시 시간 -->
-											<div class="time"><%=board.getB_date() %></div>
+											<div class="t_timer"><%=board.getB_date() %></div>
 										</div>
 									</div>
 									
@@ -185,17 +185,17 @@
 									<!-- 게시글 좋아요버튼 -->
 										<div class="heart_btn">
 											<div class="sprite_heart_icon_outline" data-name="heartbeat">
-											<% int count = 0; %>
-												<%l_dto = new LikesDTO(info.getM_Id(),board.getB_num()); %>
-										<%if(l_dao.isLiked(l_dto)>0){ %>
-											<button class="heart_button" id='likes<%= count %>'onclick="likes(<%= board.getB_num()%>,this.id,<%=count%>)"><img class="heart" alt="유용해요해제" src="imgs/좋아.JPG"></button>
-										<%}else{%>
-											<button class="heart_button" id='likes<%= count %>' onclick="likes(<%= board.getB_num() %>,this.id,<%=count%>)"><img class="heart" alt="유용해요등록" src="imgs/몰라.JPG"></button>
-										<%	}%>
+											<%l_dto = new LikesDTO(info.getM_Id(),board.getB_num()); 
+											  int isLikeResult = l_dao.isLiked(l_dto);%>
+												<%if(isLikeResult>0){ %>
+													<button id="likes" class="heart_button" onclick="likes()"><img class="heart" alt="유용해요해제" src="imgs/좋아.JPG"></button>
+												<%}else{ %>	
+													<button id="likes" class="heart_button" onclick="likes()"><img class="heart" alt="유용해요등록" src="imgs/몰라.JPG"></button>
+												<%} %>				
 											</div>
 										</div>
 								<!-- 댓글 버튼 -->
-								
+								<div class ="thumbs"></div>
 								<div class="sprite_bubble_icon"></div>
 									</div>
 									<!-- 게시글 스크랩 버튼 -->
@@ -205,8 +205,8 @@
 								</div>
 								<!-- 게시글 좋아요수 표시 -->
 								<div class="count_likes">좋아요 
-								<span class="count" id='likes<%= count %>'><%=board.getB_likes() %></span> 개
-								<div class="timer">2시간</div>
+									<span class="count" id="count"><%=board.getB_likes() %></span> 개
+									<div class="tr_timer">2시간</div>
 								</div>
 								<!-- 댓글 스크롤  -->
 								<div>view all comment</div>
@@ -244,10 +244,10 @@
 								
 								
 								<!-- 댓글 입력란 -->
-								<div class="comment_field" id="add-comment-post37">
+							<div class="comment_field" id="add-comment-post37">
 								<form action="CommentService?b_num=<%=board.getB_num()%>" method="post" id="commentform">
-								<input type="text" name="c_content" placeholder="댓글달기...">
-								<button type="submit" class="upload_btn user_text">댓글등록</button>
+									<input type="text" id="Comment" placeholder="댓글달기..." >
+									<button type="submit" class="upload_btn user_text" onclick="writeComment()">댓글등록</button>
 								</form>
 							</div>
 
@@ -267,64 +267,104 @@
 			</div>
 
 		</section>
-				
-					<%if(info != null){%>
-	<script text="javascript/text">
-		function likes(b_num,clicked_id,cnt){
-			let is_like;
-			let num1
-			let m_id = '<%=info.getM_Id()%>';
-			let likeBtn = document.getElementById(clicked_id);
-			
-			if(likeBtn.innerHTML == '<img class="heart" alt="유용해요등록" src="imgs/몰라.JPG">'){
-				likeBtn.innerHTML = '<img class="heart" alt="유용해요해제" src="imgs/좋아.JPG">';
-				is_like = 0;
-				
-			}else{
-				likeBtn.innerHTML = '<img class="heart" alt="유용해요등록" src="imgs/몰라.JPG">';
-				is_like = 1;
-			}
-			
-			
-			$.ajax({
-				url : 'LikesPlusService',
-				data :{
-					'm_id' :m_id,
-					'b_num' : b_num,
-					'is_liked':is_like
-				},
-				type:'get', // 요청 타입
-				success:function(data){// 통신성공(function(넘겨준데이터))
-					if(data =="true"){
-						let test = 'like'+cnt;
-						num1 = Number(document.getElementById(test).innerText);
-						document.getElementById(test).innerText = num1+1;
-						
-					}else {
-						let test = 'like'+cnt;
-						num1 = Number(document.getElementById(test).innerText);
-						document.getElementById(test).innerText = num1-1;
-					}
-				},
-			error:function(){
-				console.log("asfknaskm");
-			}
-							<%} %>
-
-			
-			})//속성
-			
-
-		}
-	</script> 
 
 	
 		<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 		<!--<script src="js/detail.js"></script>-->
 		
 		<script>
-		
+		function writeComment() {
+			let c_content = $("#Comment").val();
+			let m_id = '<%=info.getM_Id()%>';
+			let b_num = <%=request.getParameter("b_num")%>;
+			let m_nickname = '<%=info.getM_Nickname()%>';
+			
+			console.log("내용"+c_content);
+			console.log("아이디"+m_id);
+			console.log("게시물번호"+b_num);
+			console.log("닉네임"+m_nickname);
+			
+			$.ajax({
+				url : "BoardService",
+				data : {"m_id" : m_id,
+						"c_content" : r_c_content,
+						"m_nickname" : m_nickname,
+						"b_num" : r_num
+						},
+				type : 'get', 
+				success : function(data) {
+					//1. 쿼리 셀렉터로 가져와서 innerHTML로 댓글을 그냥 추가해줘
+					let Comments = document.getElementById('Comments');
+					let Comment = document.getElementById('Comment');
+					reviewComments.innerHTML += 
+						`<div class="user_container-detail" >
+						<div class="user">
+							img
+						</div>
+						<div class="comment">
+							<span class="user_id"><%=info.getM_Nickname()%>
+							</span>${Comment.value}
+						</div>
+						
+					</div>`;
+					Comment.value = null;
+					//2. 댓글 작성창 쿼"리셀렉터로 다시가져와서.value=""
+				},
+				error : function() {
+					console.log("조샀다 !");
+				}
+			})
+		}
 		</script>
+		<script type="text/javascript">
+	// 리뷰 좋아요 
+			let like_count = <%=board.getB_likes() %>; 
+			function likes() {
+				let is_Like;
+				let m_id = '<%=info.getM_Id()%>';
+				let b_num = <%=request.getParameter("b_num")%>;
+				b_num = 91; //테스트코드임 삭제필요
+				let writer = '<%=board.getB_writer()%>';
+				let usefulBtn = document.getElementById("likes").innerHTML;
+				console.log(usefulBtn);
+				console.log(m_id);
+				console.log(b_num);
+				
+				if(usefulBtn== '<img class="heart" alt="유용해요해제" src="imgs/좋아.JPG">'){
+					document.getElementById("likes").innerHTML ='<img class="heart" alt="유용해요등록" src="imgs/몰라.JPG">';
+					is_Like = 1;
+				}else{
+					document.getElementById("likes").innerHTML ='<img class="heart" alt="유용해요해제" src="imgs/좋아.JPG">';
+					is_Like = 0;
+				}
+				
+				console.log(is_Like);
+				
+				$.ajax({
+					url : "LikesPlusService",
+					data : {"m_id" : m_id,
+							"b_num" : b_num,
+							"is_liked" : is_Like,
+							"writer" : writer
+							},
+					type : 'get', 
+					success : function(data) {
+						console.log(typeof data);
+						if(data == 'true'){
+							like_count += 1;
+						}else{
+							
+							like_count -= 1;
+						}
+						$('#count').text(like_count);
+					},
+					error : function() {
+						console.log("조샀다 !");
+					}
+				})
+			}	
+			
+	</script>
 
 	</body>
 
