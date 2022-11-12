@@ -1,3 +1,7 @@
+<%@page import="com.smhrd.model.PolicyDAO"%>
+<%@page import="com.smhrd.model.PolicyDTO"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.smhrd.model.MemberDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -15,6 +19,7 @@
 <link rel="stylesheet" href="css/common.css">
 <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
 		<!-- 헤더영역(상단 메뉴바) -->
 	<section id="container">
@@ -39,6 +44,110 @@
 	</section>
 		<!---------------------------- 메뉴바 종료  ---------------------------->
 		
+		
+		<!-- 왼쪽 랭킹 표시 페이지 ------------------------  -->
+		  <!--왼쪽 영역 -->
+			<div class="left_side_box_rank">
+				<!--랭킹 영역 -->
+                    <div class="ranking_box">
+                    <%
+                    MemberDAO m_dao = new MemberDAO();
+                    ArrayList<String> Ranking = m_dao.RankCount();
+                    %>
+                        <div class="user_profile">
+                        <!-- 랭킹 왕관이미지 -->
+                            <div class="profile_thumb">
+                                <img src="imgs/랭킹.PNG" alt="프로필사진">
+                            </div>
+                            <!-- 랭킹 글자 -->
+                            <div class="detail">
+                                <div class="id r_text">Ranking</div>
+                               
+                            </div>
+                        </div>
+    					<!-- 월간랭킹 -->
+                        <article class="month_ranking">
+                            <header class="ranking_header">
+                                <div>월간랭킹</div>
+                                <div class="more"><a href="Top10Ranking.jsp" class="ranking_a">모두 보기</a></div>
+                            </header>
+    
+                            <div class="scroll_inner">
+                                <div class="thumb_user">
+                                    <div class="profile_thumb">
+                                        <img src="imgs/1등.PNG" alt="프로필사진">
+                                    </div>
+                                    <div class="detail">
+                                        <div class="id"><%=Ranking.get(0) %></div>
+                                        
+                                    </div>
+									
+                                </div>
+								<div class="thumb_user">
+                                    <div class="profile_thumb">
+                                        <img src="imgs/2등.PNG" alt="프로필사진">
+                                    </div>
+                                    <div class="detail">
+                                        <div class="id"><%=Ranking.get(1) %></div>
+                                        
+                                    </div>
+								</div>
+								<div class="thumb_user">
+                                    <div class="profile_thumb">
+                                        <img src="imgs/3등.PNG" alt="프로필사진">
+                                    </div>
+                                    <div class="detail">
+                                        <div class="id"><%=Ranking.get(2) %></div>
+                                        
+                                    </div>
+									
+                                </div>
+								
+                            </div>
+                        </article>
+						<!-- 일간 랭킹-->
+						<article class="daily_ranking">
+                            <header class="story_header">
+                                <div>일간랭킹</div>
+                                <div class="more"><a href="Top10Ranking.jsp" class="ranking_a">모두 보기</a></div>
+                            </header>
+    
+                            <div class="scroll_inner">
+                                <div class="thumb_user">
+                                    <div class="profile_thumb">
+                                        <img src="imgs/1등.PNG" alt="프로필사진">
+                                    </div>
+                                    <div class="detail">
+                                        <div class="id">user1</div>
+                                        
+                                    </div>
+									
+                                </div>
+								<div class="thumb_user">
+                                    <div class="profile_thumb">
+                                        <img src="imgs/2등.PNG" alt="프로필사진">
+                                    </div>
+                                    <div class="detail">
+                                        <div class="id">user2</div>
+                                        
+                                    </div>
+								</div>
+								<div class="thumb_user">
+                                    <div class="profile_thumb">
+                                        <img src="imgs/3등.PNG" alt="프로필사진">
+                                    </div>
+                                    <div class="detail">
+                                        <div class="id">user3</div>
+                                        
+                                    </div>
+									
+                                </div>
+								
+                            </div>
+                        </article>
+						</div>
+                    </div>
+		<!-- 왼쪽 랭킹 표시 페이지 종료 ------------------------  -->
 		
 	<!------------------------------- 채팅창 판데기 -------------->
 	  
@@ -109,6 +218,128 @@
 			</div>
 		</div>
 	</div>
+	
+	<!-- 우측 박스 디자인   ------------------------->
+		<!-- 오른쪽영역  -->
+				<div class="side_box">
+				<!-- 게시물 등록 버튼 -->              <!-- 여기가 버튼 스타일 클래스 -->
+					<button type="button" class="btn btn-primary btn btn-info" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+						+ 게시물 등록
+					  </button>
+					  <!-- 여기가 게시물 등록버튼 활성화시 나오는 팝업창 -->
+					  <!-- Modal -->
+					  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+						<!-- 팝업창 크기 클래스 조절 -->
+						<div class="modal-dialog modal-lg">
+						  <div class="modal-content">
+						  <!-- 팝업창 머리글 -->
+							<div class="modal-header">
+							  <h1 class="modal-title fs-5" id="staticBackdropLabel">게시물 등록</h1>
+							  <!-- 팝업창 닫기버튼 -->
+							  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+							</div>
+							<!-- 팝업창 본문 -->
+							<div class="modal-body">
+								<div class="post_form_container">
+								<!-- 게시물 등록 영역 -->
+									<form action="BoardService" class="post_form"  enctype="multipart/form-data"  method="post">
+										<div class="title">
+											NEW POST
+										</div>
+										<!-- 가운데 이미지 영역 -->
+										<div class="preview">
+											<div class="upload">
+												<div class="post_btn">
+													<div class="plus_icon">
+														<span></span>
+														<span></span>
+													</div>
+													<p>포스트 이미지 추가</p>
+													<canvas id="imageCanvas"></canvas>
+													<!--<p><img id="img_id" src="#" style="width: 300px; height: 300px; object-fit: cover" alt="thumbnail"></p>-->
+												</div>
+											</div>
+										</div>
+										<p id="filelist">
+										<!-- 파일 추가 버튼 -->
+										
+											<input type="file" name="filename" id="id_photo" style="float: right;" required="required" multiple="multiple">
+										
+										<!-- 게시글 폰트 작성  -->
+											<textarea name="content" id="text_field" style="resize: none;" cols="50" rows="10" placeholder="140자 까지 등록 가능합니다. #태그명 을 통해서 검색 태그를 등록할 수 있습니다.
+						예시 : I # love # insta!"></textarea>
+						
+										</p>
+										<!-- 게시글 등록 버튼 -->
+										<input class="submit_btn" type="submit" value="게시글 등록">
+									</form>
+			
+								</div>
+							</div>
+							<!-- 팝업창 닫기 버튼 -->
+							<div class="modal-footer">
+							  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+							</div>
+						  </div>
+						</div>
+					  </div>
+					  
+					  
+					  
+					  
+					<!-- 여기에 게시글 요약본 넣기 아직 구현못함.. 게시글이 없어서... -->
+					
+					<!-- ///////////////정책글 3~5개정도 랜덤뽑아서 제목보여주고 링크붙이기 //////////////////  -->
+					
+					<article class="story">
+						<header class="story_header">
+							<div>스토리</div>
+							<div class="more">모두 보기</div> 
+						</header>
+
+						<div class="scroll_inner">
+						<% PolicyDAO p_dao = new PolicyDAO(); %>
+						<%ArrayList<PolicyDTO> p_list = p_dao.showPolicy(); %>
+						<%for(int i = 0; i < 3; i++){ %>
+						<%
+						int ranp = (int) ((Math.random() * (max - min)) + min);
+						PolicyDTO ranPdto= p_list.get(ranp);
+						%>
+							<div class="thumb_user">
+								<div class="profile_thumb">
+									<img src="imgs/thumb02.jpg" alt="프로필사진">
+								</div>
+								<div class="detail">
+									<div class="id"><%=ranPdto.getP_title() %></div>
+									<div class="timer"><%=ranPdto.getP_date() %></div>
+								</div>
+							</div>
+							<%} %>
+						</div>
+					</article>
+					<!-- ////////////////////////////////////////////////////////  -->
+
+
+
+
+					<!-- //////////   타 회원 추천?   //////////// -->
+					<article class="recommend">
+						<header class="reco_header">
+							<div>회원님을 위한 추천</div>
+							<div class="more">모두 보기</div>
+						</header>
+
+						<div class="thumb_user">
+							<div class="profile_thumb">
+								<img src="imgs/thumb02.jpg" alt="프로필사진">
+							</div>
+							<div class="detail">
+								<div class="id">그르르</div>
+								<div class="time">1시간 전</div>
+							</div>
+						</div>
+					</article>
+					<!-- //////////////////////////////////////// -->
 	
 	
 	 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>

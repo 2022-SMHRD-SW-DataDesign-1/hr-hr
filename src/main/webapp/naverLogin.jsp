@@ -29,7 +29,7 @@
       		   type: "post",
       		        
       		        data :{
-		        		       	"m_id": naver_id_login.getProfileData('id'),
+		        		       	"m_id": naver_id_login.getProfileData('email'),
 		        		       	"m_pw": m_Pw,
 		        		       	"m_email":naver_id_login.getProfileData('email'),
 		        		       	"m_nickname": naver_id_login.getProfileData('nickname'),

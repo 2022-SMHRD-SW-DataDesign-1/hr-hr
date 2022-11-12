@@ -241,7 +241,7 @@
 	        		   url : "KakaoService",    
 	        		   type : "post",
 	        		   data :{
-	        		       	"m_id": response.id,
+	        		       	"m_id": response.kakao_account.email,
 	        		       	"m_pw": m_Pw,
 	        		       	"m_email": response.kakao_account.email,
 	        		       	"m_nickname": response.properties.nickname,

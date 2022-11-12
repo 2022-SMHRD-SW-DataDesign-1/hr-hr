@@ -135,6 +135,12 @@
         top: 100%;
     }
     
+    .left_side_box_rank {
+    position: absolute;
+    width: 296px;
+    height: 700px;
+    top: 235px;
+}
       
     
       

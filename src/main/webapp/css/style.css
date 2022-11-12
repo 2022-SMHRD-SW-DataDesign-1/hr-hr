@@ -1088,11 +1088,6 @@ body{
 /*---------------------------detail-page*/
 
 
-
-.detail--right_box {}
-
-
-
 .scroll_section {
     flex-direction: column;
     flex-wrap: wrap;
@@ -1135,23 +1130,15 @@ body{
   	width : 100%;
   	text-align : center;
 }
-.tr_timer{
-	font-size: 10px;
-    letter-spacing: 0.2px;
-    color: #999;
-    position: relative;
-   
+
+.left_side_box_rank {
+    position: fixed;
+    width: 296px;
+    height: 700px;
+    top: 100px;
 }
-.r_comment{
-	position: relative;
-	bottom: 40px;
-	left: 220px;
-	color: blue;
-	
-}
-.r_commet_area{
-	height: 80px;
-}
+
+
 
 
 

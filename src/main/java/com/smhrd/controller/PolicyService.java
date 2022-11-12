@@ -25,7 +25,8 @@ public class PolicyService extends HttpServlet {
 	System.out.println("정책서비스 도착");
 	request.setCharacterEncoding("UTF-8");
 	
-	String savePath = request.getServletContext().getRealPath("file");
+	//String savePath = request.getServletContext().getRealPath("file");
+	String savePath = "C:\\Users\\smhrd\\git\\hr-hr\\src\\main\\webapp\\file";
 	System.out.println(savePath);
 	
 	int maxSize = 10*1024*1024;
@@ -71,8 +72,7 @@ public class PolicyService extends HttpServlet {
 	MemberDTO dto = (MemberDTO)session.getAttribute("info");
 	
 	//로그인한 아ㅣ디 // 작성자
-	//String writer = dto.getM_Id();
-	String writer = "1";
+	String writer = dto.getM_Id();
 			
 	
 	//파일 이름에 한글이 들어가면 얘를 다시 불러올 때 깨짐
