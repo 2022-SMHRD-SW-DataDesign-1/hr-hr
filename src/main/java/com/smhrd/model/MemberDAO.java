@@ -1,5 +1,6 @@
 package com.smhrd.model;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 
 import org.apache.ibatis.session.SqlSession;
@@ -94,4 +95,11 @@ public class MemberDAO {
 		return rank;
 	}
 	
+	public String findWriter(BigDecimal b_num) {
+		SqlSession session = sqlSessionFactory.openSession(true);
+		String writer = session.selectOne("findWriter", b_num);
+		session.close();
+		
+		return writer;
+	}
 }
