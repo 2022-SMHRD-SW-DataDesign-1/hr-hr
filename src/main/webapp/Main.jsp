@@ -731,7 +731,7 @@
 					<article class="story">
 						<header class="story_header">
 							<div>정책게시물</div>
-							<!--  정책 목록 나중에 할 수 있으면 구현..-->
+							
 							<!-- <div class="more">모두 보기</div>  -->
 						</header>
 
@@ -766,8 +766,7 @@
 							<div>회원님을 위한 추천</div>
 							<!-- <div class="more">모두 보기</div> -->
 						</header>
-					
-
+						<%-- <% MemberDTO userList = new MemberDTO(m_id); %> --%>
 
 						<div class="thumb_user">
 							<div class="profile_thumb">
