@@ -374,11 +374,11 @@
 								<%FollowDTO fc_dto = new FollowDTO(loginInfo.getM_Id() ,info.getM_Id()); 
 								  FollowDAO fdao = new FollowDAO(); %>
 								<%if(fdao.followCheck(fc_dto)>0){ %>
-									<button class="btn btn-primary btn-light btn-outline-dark" id="follows" onclick="follows(<%=info.getM_Id()%>,this.id)">
+									<button class="btn btn-primary btn-light btn-outline-dark" id="follows" onclick="follows('<%=info.getM_Id()%>',this.id)">
 										언팔로우
 									</button>
 								<%}else{%>
-									<button class="btn btn-primary btn-light btn-outline-dark" id="follows" onclick="follows(<%=info.getM_Id()%>,this.id)">
+									<button class="btn btn-primary btn-light btn-outline-dark" id="follows" onclick="follows('<%=info.getM_Id()%>',this.id)">
 										팔로우
 									</button>
 									<%}%>
@@ -544,11 +544,11 @@
     }
     //팔로우
     <%if(loginInfo != null){%>
-    let followCnt = <%=new FollowDAO().countFollow(loginInfo.getM_Id())%>;
+    let followCnt = <%=new FollowDAO().countFollower(request.getParameter("m_id"))%>;
 	
 	function follows(follow_id,clicked_id){
 		let Follow_cnt;
-		let m_id = <%=loginInfo.getM_Id()%>;
+		let m_id = '<%=loginInfo.getM_Id()%>';
 		
 		console.log("팔로우 아이디 : "+follow_id);
 		console.log(clicked_id);
@@ -581,7 +581,7 @@
 					}else{
 						followCnt -= 1;
 					}						
-					$('#isFollow').text(followCnt);
+					$('#isFollowed').text(followCnt);
 					
 				},
 			error:function(){
