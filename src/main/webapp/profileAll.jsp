@@ -1,3 +1,5 @@
+<%@page import="com.smhrd.model.BlockDAO"%>
+<%@page import="com.smhrd.model.BlockDTO"%>
 <%@page import="com.smhrd.model.FollowDTO"%>
 <%@page import="org.apache.ibatis.reflection.SystemMetaObject"%>
 <%@page import="com.smhrd.model.MemberDAO"%>
@@ -90,7 +92,7 @@
 		</header>
 		
 	<%if (loginInfo != null) {
-	
+	//내가 내 프로필을 보는 경우에 해당하는 영역
 			if(m_id==null||m_id.equals(loginInfo.getM_Id())){
 					info = loginInfo;  %>
 		<div id="main_container">
@@ -392,10 +394,20 @@
 								
 								<!-- 차단버튼 -->
 								<!--여기가 버튼스타일 클래스영역  -->
-								<button type="button"
+								<%
+								BlockDTO bdto = new BlockDTO(loginInfo.getM_Id(),info.getM_Id());
+								BlockDAO bdao = new BlockDAO();
+								if(bdao.blockCheck(bdto)>0){%>
+								<button type="button" id="blockMbtn"
+									class="btn btn-primary btn btn-light btn btn-outline-dark"
+									data-bs-toggle="modal" data-bs-target="#exampleModal">
+									차단 해제</button>
+								<%}else{%>
+								<button type="button" id="blockMbtn"
 									class="btn btn-primary btn btn-light btn btn-outline-dark"
 									data-bs-toggle="modal" data-bs-target="#exampleModal">
 									차단</button>
+								<%} %>
 
 								<!-- Modal -->
 								<!-- 버튼활성화시 보이는 부분 -->
@@ -412,22 +424,69 @@
 													data-bs-dismiss="modal" aria-label="Close"></button>
 											</div>
 											<!-- 팝업창 본문영역 -->
+											<%if(bdao.blockCheck(bdto)>0){%>
+											<div class="modal-body">해당 사용자의 차단을 해제합니다.</div>
+											<%}else{%>
 											<div class="modal-body">해당 사용자를 차단합니다</div>
+											<%} %>
 											<!-- 팝업창 하단 버튼영역 -->
 											<div class="modal-footer">
 												<!-- 팝업창 닫기 버튼 -->
 												<button type="button" class="btn btn-secondary"
 													data-bs-dismiss="modal">취소</button>
 												<!-- 팝업창 (차단)실행버튼 -->
-												<button type="button" class="blockbtn">차단</button>
+												<%if(bdao.blockCheck(bdto)>0){%>
+												<button type="button" class="blockbtn" onclick="blockM()">해제</button>
+												<%}else{%>
+												<button type="button" class="blockbtn" onclick="blockM()">차단</button>
+												<%} %>
 											</div>
 										</div>
 									</div>
 								</div>
 
 							</div>
+							<script type="text/javascript">
+							let Block_cnt;
+							let block_id = '<%=info.getM_Id()%>';
+							let m_id ='<%=loginInfo.getM_Id()%>'
+							let blockBtn = document.getElementById("blockMbtn");
+							function blockM(){
+								
+								console.log("(현재 페이지의 m_id)차단하는 아이디 : "+block_id);
+								console.log("현재 session에 담긴 아이디(로그인한 사용자의 아이디) : "+m_id);
+								
+								
+								if(blockBtn.innerText == '차단'){
+									blockBtn.innerText = '차단 해제'
+									Block_cnt = 0;
+								}else{
+									Block_cnt.innerText = '차단'
+									Block_cnt = 1;
+								}
+								
+								$.ajax({
+										url: 'BlockService',
+										data :{
+											'm_id' :m_id,
+											'block_id' : block_id,
+											'Block_cnt' : Block_cnt
+										},
+										type:'get',
+										success:function(data){
+											console.log(data);
+											if(data =="true"){
+											}else{
+											}						
+											
+										},
+									error:function(){
+										console.log("블락기능 실패");
+									}
 							
-
+								})
+							}
+							</script>
 
 						</div>
 						<%if(info != null){ %>
@@ -449,6 +508,11 @@
                                 <span class="book_mark">유용해요</span>
                             </p>
                         </div>
+                        <%if(bdao.blockCheck(bdto)>0){ //차단한 경우에는 게시글 보여주면 안되니까%>
+                         <div class="mylist_contents contents_container">
+                         	<h1 style="text-align: center posi;">차단한 사용자입니다. 게시글을 보시려면 차단을 해제해 주세요</h1>
+                         </div>
+                        <%}else{ %>
                         </div>
                         <!-- 게시글 영역  -->
                         <%
@@ -469,25 +533,21 @@
 
 				<!-- 타 게시글 스크랩 영역 -->
 				
-                <div class="bookmark_contents contents_container">
-                    <%for(BoardDTO b_dto:b_useful_List){ %>
-                    <%String[] files = b_dto.getB_filename().split(","); %>
+		                <div class="bookmark_contents contents_container">
+		                    <%for(BoardDTO b_dto:b_useful_List){ %>
+		                    <%String[] files = b_dto.getB_filename().split(","); %>
                             <div class="pic">
                                 <a href="#"><img src="./file/<%=files[0]%>"></a>
                             </div>
                         </div>
                     <%} %>
-    
-
-
-
 
 			</section>
 		</div>
                     
                    <%} %>
                    
-                   
+                   <%} %><!-- 차단한 사용자 else문 종료 중괄호 -->
                  <%} %>
                  <!-- 여기까지 다른 사용자인 경우에 해당 -->
                  
@@ -594,32 +654,7 @@
 		}
 	<%}%>
 </script>
-<script>
 
-
- document.getElementById("profile_edit").addEventListener("click", function () {
-     console.log("profile_edit클릭");
-     this.style.backgroundColor = "white";
-     document.getElementById("profile_edit").style.backgroundColor = "#0a58ca";
-     document.getElementById("profile_edit").style.color = "white";
-     document.getElementById("pw_edit").style.backgroundColor = "white";
-     document.getElementById("pw_edit").style.color = "black";
-
- })
- document.getElementById("pw_edit").addEventListener("click", function () {
-     console.log("edit클릭");
-     this.style.backgroundColor = "white";
-     document.getElementById("profile_edit").style.backgroundColor = "white";
-     document.getElementById("profile_edit").style.color = "black";
-     document.getElementById("pw_edit").style.backgroundColor = "#0a58ca";
-     document.getElementById("pw_edit").style.color = "white";
-
- });
-
-
- 
-
-</script>
 
 </body>
 

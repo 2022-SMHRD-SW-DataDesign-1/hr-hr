@@ -38,17 +38,15 @@ public class LoginService extends HttpServlet {
 				HttpSession session = request.getSession();
 				
 				session.setAttribute("info", info);
+				response.sendRedirect("./Main.jsp");
 			
 		}else {
+			HttpSession session = request.getSession();
 			System.out.println("로그인 객체 못받아옴");
+			session.setAttribute("errMsg", "입력하신 정보가 올바르지 않습니다!");
+			response.sendRedirect("./Login.jsp");
 		}
-
-		response.sendRedirect("./Main.jsp");
 		
-//		//일단은 메인으로 가게끔 하고 나중에 수정..!
-//		RequestDispatcher rd = request.getRequestDispatcher("./testAll.jsp");
-//		rd.forward(request, response);
-//		
 		
 	}
 
