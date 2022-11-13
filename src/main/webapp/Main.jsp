@@ -1,3 +1,4 @@
+<%@page import="java.lang.reflect.Array"%>
 <%@page import="java.util.Random"%>
 <%@page import="org.apache.ibatis.reflection.SystemMetaObject"%>
 <%@page import="java.text.SimpleDateFormat"%>
@@ -444,7 +445,7 @@
 					<% // 게시판 글 모음 dao에서 로그인한 아이디와 같은 글을 arraylist에 담음 
 					ArrayList<BoardDTO> bList = b_dao.showBoard(info.getM_Id()); %>
                        <!-- 사용자 게시글  -->
-	<!-- 일반 유저 게시물 출력 영역 시작-----------------------------------------------------  -->
+			<!-- 일반 유저 게시물 출력 영역 시작-----------------------------------------------------  -->
 					<%int indiID= 0; %>
                     <% for(BoardDTO b_dto : bList){%>
 						<%String[] b_files = b_dto.getB_filename().split(","); %>
@@ -678,15 +679,18 @@
 					
 					%>
 					
-				<!-- 오른쪽영역  -->
-				<div class="side_box">
-				<!-- 게시물 등록 버튼 -->              <!-- 여기가 버튼 스타일 클래스 -->
+					
+				<!-- 게시물 등록 버튼 -->        
+				      <!-- 여기가 버튼 스타일 클래스 -->
+				    <div id="uploadbtn">
 					<button type="button" class="btn btn-primary btn btn-info" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
 						게시물 등록
 					  </button>
 					  <!-- 여기가 게시물 등록버튼 활성화시 나오는 팝업창 -->
 					  <!-- Modal -->
-					  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+					  <div class="modal fade" id="staticBackdrop" 
+					  	data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" 
+					  	aria-labelledby="staticBackdropLabel" aria-hidden="true">
 						<!-- 팝업창 크기 클래스 조절 -->
 						<div class="modal-dialog modal-lg">
 						  <div class="modal-content">
@@ -694,13 +698,14 @@
 							<div class="modal-header">
 							  <h1 class="modal-title fs-5" id="staticBackdropLabel">게시물 등록</h1>
 							  <!-- 팝업창 닫기버튼 -->
-							  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+							  <button type="button" class="btn-close" data-bs-dismiss="modal" 
+							  	aria-label="Close"></button>
 							</div>
 							<!-- 팝업창 본문 -->
 							<div class="modal-body">
 								<div class="post_form_container">
 								<!-- 게시물 등록 영역 -->
-									<form action="BoardService" class="post_form"  enctype="multipart/form-data"  method="post">
+									<form action="BoardService" class="post_form" method="post" enctype="multipart/form-data">
 										<div class="title">
 											NEW POST
 										</div>
@@ -717,9 +722,13 @@
       											<ul class="slide_pagination"></ul>
 											</div>
 										</div>
-										<p id="filelist">
+										
+										
 										<!-- 파일 추가 버튼 -->
-										<input class="form-control form-control-user"  type="file" name="filename" multiple="multiple" name="r_filename" id="product_detail_image" onchange="setDetailImage(event);"  accept="image/png, image/jpeg, image/gif, image/bmp, image/tif">
+										<p>
+										<input class="form-control form-control-user"  type="file" name="filename" multiple="multiple" 
+										name="b_filename" id="product_detail_image" onchange="setDetailImage(event);" 
+										accept="image/png, image/jpeg, image/gif, image/bmp, image/tif">
 										</p>
 										<p id="maxover"></p>
 										<!-- 게시글 내용 작성  -->
@@ -739,6 +748,7 @@
 						  </div>
 						</div>
 					  </div>
+				  </div>
 				  	<script src="js/slide.js"></script>
 				  	<script>
 					var count = 0;
@@ -781,11 +791,12 @@
 					<!-- 여기에 게시글 요약본 넣기 아직 구현못함.. 게시글이 없어서... -->
 					
 					<!-- ///////////////정책글 3~5개정도 랜덤뽑아서 제목보여주고 링크붙이기 //////////////////  -->
-					
+				<!-- 오른쪽영역  -->
+				<div class="side_box">
 					<article class="story">
 						<header class="story_header">
-							<div>정책게시물</div>
-							
+							<div>이런 정책도 있어요!</div>
+							<div class="more" id="p_more">모두 보기</div>
 							<!-- <div class="more">모두 보기</div>  -->
 						</header>
 
@@ -793,7 +804,6 @@
 						<%
 						int checkArr[] = new int[p_list.size()]; 
 						Random rd = new Random();
-			  	   		System.out.println(p_list.size());
 				  	   	for(int i=0;i<p_list.size();i++)
 				        {
 				            checkArr[i] = rd.nextInt(p_list.size()); 
@@ -802,10 +812,10 @@
 				                if(checkArr[i]==checkArr[j])
 				                {
 				                    i--;
+				                    break;
 				                }
 				            }
 				        }
-						//int ranp = (int) ((Math.random() * (max - min)) + min);
 						%>
 						<%for(int i = 0; i < 3; i++){ %>
 						<%
@@ -827,26 +837,50 @@
 					<!-- ////////////////////////////////////////////////////////  -->
 
 
+
+
 					<!-- //////////   타 회원 추천?   //////////// -->
+					<%
+					MemberDAO dao = new MemberDAO();
+					ArrayList<MemberDTO> rmList = dao.RandomUser(info.getM_Id());
+					System.out.println("나를 제외한 전체 멤버 숫자 = 길이"+rmList.size());
+					int checkRmList[] = new int[rmList.size()];
+					System.out.println("체크 알엠리스트 길이"+checkRmList.length);
 					
-				
-					
+				 	for(int i=0;i<rmList.size();i++)
+			        {
+				 		checkRmList[i] = rd.nextInt(rmList.size()); 
+			            for(int j=0;j<i;j++) 
+			            {
+			                if(checkRmList[i]==checkRmList[j])
+			                {
+			                    i--;
+			                    break;
+			                }
+			            }
+			            
+			        }
+				 	for(int i =0;i<checkRmList.length;i++){
+				 		System.out.println(checkRmList[i]);
+				 	}
+					%>
 					<article class="recommend">
 						<header class="reco_header">
 							<div>회원님을 위한 추천</div>
-							<!-- <div class="more">모두 보기</div> -->
 						</header>
-					
-					
+					<div class="scroll_inner">
+					<%for(int i = 0; i<rmList.size();i++){ %>
 						<div class="thumb_user">
 							<div class="profile_thumb">
-								<img src="imgs/thumb02.jpg" alt="프로필사진">
+								<img src="file/<%=rmList.get(checkRmList[i]).getT_pic()%>" alt="프로필사진">
 							</div>
 							<div class="detail">
-								<div class="id"> </div>
-								<!-- <div class="time">1시간 전</div> -->
+								<div class="id"><%=rmList.get(checkRmList[i]).getM_Id()%></div>
+								<div class="timer"><%=rmList.get(checkRmList[i]).getM_Nickname()%></div>
 							</div>
 						</div>
+					<%} %>
+					</div>
 					</article>
 					<!-- //////////////////////////////////////// -->
 					

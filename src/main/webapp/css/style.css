@@ -490,6 +490,12 @@ body{
     
 }
 
+#uploadbtn{
+    left: 800px;
+    top: 200px;
+    position : absolute;
+}
+
 .side_box{
     width: 293px;
     /*height: 300px;*/

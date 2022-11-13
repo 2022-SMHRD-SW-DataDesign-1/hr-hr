@@ -26,7 +26,6 @@ public class NaverService extends HttpServlet {
 		String m_nickname = request.getParameter("m_nickname");
 		String m_phone = request.getParameter("m_Phone");
 		
-		m_id = m_id.substring(5, 20);
 		System.out.println(m_id);
 		System.out.println(m_pw);
 		System.out.println(m_email);

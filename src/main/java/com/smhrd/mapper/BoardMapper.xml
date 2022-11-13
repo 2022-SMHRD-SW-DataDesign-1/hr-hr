@@ -20,7 +20,7 @@
 
 	<select id="showBoard" parameterType="String" resultType="BoardDTO">
 		select * from t_board
-		WHERE m_id in (select follow_id from t_follow where m_id = #{m_id}) or m_id = #{m_id} 
+		WHERE m_id in (select follow_id from t_follow where m_id = #{m_id}) or m_id = #{m_id} order by b_date desc
 	</select>
 	
 	<select id="showUsefulBoard" parameterType="String" resultType="BoardDTO">
