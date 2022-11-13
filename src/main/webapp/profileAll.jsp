@@ -24,7 +24,7 @@
 	content="http://kindtiger.dothome.co.kr/insta/imgs/instagram.jpeg">
 
 
-    <title>----------수정이필요한 부분--------------</title>
+    <title>Peasy</title>
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/style.css">
@@ -154,7 +154,8 @@
 														<div class="list-group">
 															<a href="#"
 																class="list-group-item list-group-item-action active"
-																id="profile_edit">프로필 수정</a> <a href="#"
+																id="profile_edit">프로필 수정</a> 
+															<a href="#"
 																class="list-group-item list-group-item-action"
 																id="pw_edit">개인정보 수정</a>
 														</div>
@@ -346,7 +347,7 @@
 				
 				
 				
-				<!-- 여기부터 다른 사용자인 경우에 해당 -->
+				<!-- 여기부터 다른 사용자인 경우에 해당---------------------------------------- -->
 			<%}else{ 
 				MemberDAO dao = new MemberDAO();//DAO기능 하나 쓸건데
 				info = dao.information(m_id);//infomation method는 Select * from 멤버테이블임 == 리턴 타입이 m_id의 값을 다 가지고 있는 memberDTO다 
@@ -444,7 +445,8 @@
                             <%} %>
 						<%if(info != null){ %>
                             <p class="about">
-                                <span class="nick_name">게시글</span> <span class="book_mark">유용해요</span>
+                                <span class="nick_name">게시글</span> 
+                                <span class="book_mark">유용해요</span>
                             </p>
                         </div>
                         </div>
@@ -473,7 +475,6 @@
                             <div class="pic">
                                 <a href="#"><img src="./file/<%=files[0]%>"></a>
                             </div>
-                            
                         </div>
                     <%} %>
     

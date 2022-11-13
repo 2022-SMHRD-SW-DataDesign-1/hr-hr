@@ -121,8 +121,10 @@
 										<p>
 										<!-- 리뷰 게시글사진 첨부 -->
 										<input class="form-control form-control-user" type="file" multiple="multiple"
-										name="r_filename" id="product_detail_image" onchange="setDetailImage(event);">
+										name="r_filename" id="product_detail_image" onchange="setDetailImage(event);"
+										accept="image/png, image/jpeg, image/gif, image/bmp, image/tif">
 										</p>
+										<p id="maxover"></p>
 										<p>
 										<!-- 리뷰 글추가 -->
 										<textarea name="r_content" id="text_field" cols="50" rows="5" placeholder="140자 까지 등록 가능합니다."></textarea>
@@ -136,7 +138,18 @@
 											var  count = 0;
 											/* document.querySelector(".slide.slide_wrap").innerHTML=""; */
 												function setDetailImage(event){
+												 	try {
+												 		if(event.target.files.length>5)
+												        throw("선택하신 파일이 5개를 초과 했습니다!");
+												    } catch ( e ) {
+												    	document.querySelector("#maxover").innerText=e;
+												    }
 													for(var image of event.target.files){
+														if(event.target.files.length>5){
+															continue;
+														}else{
+															document.querySelector("#maxover").innerText="";
+														}
 														var reader = new FileReader();
 														
 														reader.onload = function(event){

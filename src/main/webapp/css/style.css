@@ -482,8 +482,8 @@ body{
     opacity: 0.6;
 }
 .left_side_box{
-    position: relative;
-    right: 90px;
+    position: fixed;
+    right: 1560px;
     width: 293px;
     height: 700px;
     
@@ -494,15 +494,17 @@ body{
     width: 293px;
     /*height: 300px;*/
     /*background: rgba(255, 0, 0, 0.16);*/
-    position:absolute;
+    position:fixed;
     right: 0;
-    top: 0;
+    top: 100px;
+    left : 1460px;
 
 }
 
 .side_box.on{
     position: fixed;
     top: 80px;
+    
 }
 .side_box .profile_thumb{
     width: 50px;

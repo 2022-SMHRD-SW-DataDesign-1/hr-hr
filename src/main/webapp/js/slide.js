@@ -32,8 +32,8 @@ nextBtn.addEventListener("click", () => {
   // 마지막 슬라이드 이상으로 넘어가지 않게 하기 위해서
   if (currSlide <= maxSlide) {
     // 슬라이드를 이동시키기 위한 offset 계산
-    if(slideWidth==0){
 		slideWidth = 467;
+    if(slideWidth==0){
 	}
     const offset = slideWidth * (currSlide - 1);
     // 각 슬라이드 아이템의 left에 offset 적용

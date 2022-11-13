@@ -1,3 +1,4 @@
+<%@page import="java.util.Random"%>
 <%@page import="org.apache.ibatis.reflection.SystemMetaObject"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="com.smhrd.model.MemberDAO"%>
@@ -31,6 +32,7 @@
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/new_post.css">
 <link rel="stylesheet" href="css/bootstrap.css">
+<link rel="stylesheet" href="css/slide.css" />
 
 
 <body>
@@ -230,8 +232,9 @@
 							}else{
 							max = p_list.size();
 							}
+							Random r = new Random();
 							int ranp = (int) ((Math.random() * (max - min)) + min);
-							PolicyDTO ranPdto= p_list.get(ranp);
+							PolicyDTO ranPdto= p_list.get(r.nextInt(p_list.size()));
 							
 							
 							PolicyLikesDAO pl_dao = new PolicyLikesDAO();
@@ -516,15 +519,6 @@
 									  <%b_index++; %>
 										<%} %>
 										<!---------------------------------- 사진 넣기 종료 ------------------------------->
-										 <!-- <div class="carousel-item">
-															
-											<a href="Detail-page.jsp"><img src="imgs/3등.PNG" alt="visual02"> </a>								  
-										  </div>	
-											<div class="carousel-item">
-												
-											<a href="Detail-page.jsp"><img src="imgs/img_section/img01.jpg" alt="visual03"></a>
-									  
-										  </div>-->
 										</div>
 										
 										<!-- 사진 왼쪽으로 넘기기 -->
@@ -553,24 +547,19 @@
 							<!-- 좋아요 버튼 -->
 								<div class="heart_btn">
 									<div class="sprite_heart_icon_outline" >
-										<%l_dto = new LikesDTO(info.getM_Id(),b_dto.getB_num()); %>
+										<%l_dto = new LikesDTO(info.getM_Id(),b_dto.getB_num());%>
 										<%if(l_dao.isLiked(l_dto)>0){ %>
 											<button class="heart_button" id='likes<%= count %>'onclick="likes(<%= b_dto.getB_num()%>,this.id,<%=count%>)"><img class="heart" alt="유용해요해제" src="imgs/좋아.JPG"></button>
 										<%}else{%>
 											<button class="heart_button" id='likes<%= count %>' onclick="likes(<%= b_dto.getB_num() %>,this.id,<%=count%>)"><img class="heart" alt="유용해요등록" src="imgs/몰라.JPG"></button>
-										<%	}%>
-												</div>
-											
-										</div>
+										<%}%>
+									</div>
+								</div>
 								<!-- 댓글 버튼 -->
 								<div class="sprite_bubble_icon"></div>
-								
 							</div>
 							<!-- 오른쪽영역 -->
 							<!-- 스크랩버튼 -->
-							<!-- <div class="right_icon">
-								<div class="sprite_bookmark_outline" ></div>
-							</div> -->
 						</div>
 						<!-- 좋아요수 표시 -->
 						
@@ -604,8 +593,8 @@
 											<div class="timer">
 												<%=cmt.getCmt_date() %> 
 											</div>
-												<%} %>
-												<%} %>
+											<%} %>
+										<%} %>
 									
 							</div>
 							
@@ -716,28 +705,26 @@
 											NEW POST
 										</div>
 										<!-- 가운데 이미지 영역 -->
-										<div class="preview">
-											<div class="upload">
-												<div class="post_btn">
-													<div class="plus_icon">
-														<span></span>
-														<span></span>
-													</div>
-													<p>포스트 이미지 추가</p>
-													<canvas id="imageCanvas"></canvas>
-													<!--<p><img id="img_id" src="#" style="width: 300px; height: 300px; object-fit: cover" alt="thumbnail"></p>-->
-												</div>
+										<div class="img_section">
+											<div class="slide slide_wrap">
+										      	<div id="slide_item0" class="slide_item">최대 5장 까지 사진을 추가할 수 있습니다!</div>
+										      	<div id="slide_item1" class="slide_item">최대 5장 까지 사진을 추가할 수 있습니다!</div>
+										      	<div id="slide_item2" class="slide_item">최대 5장 까지 사진을 추가할 수 있습니다!</div>
+										      	<div id="slide_item3" class="slide_item">최대 5장 까지 사진을 추가할 수 있습니다!</div>
+										      	<div id="slide_item4" class="slide_item">최대 5장 까지 사진을 추가할 수 있습니다!</div>
+												<div class="slide_prev_button slide_button">◀</div>
+      											<div class="slide_next_button slide_button">▶</div>
+      											<ul class="slide_pagination"></ul>
 											</div>
 										</div>
 										<p id="filelist">
 										<!-- 파일 추가 버튼 -->
-										
-											<input type="file" name="filename" id="id_photo" style="float: right;" required="required" multiple="multiple">
-										
-										<!-- 게시글 폰트 작성  -->
-											<textarea name="content" id="text_field" style="resize: none;" cols="50" rows="10" placeholder="140자 까지 등록 가능합니다. #태그명 을 통해서 검색 태그를 등록할 수 있습니다.
-						예시 : I # love # insta!"></textarea>
-						
+										<input class="form-control form-control-user"  type="file" name="filename" multiple="multiple" name="r_filename" id="product_detail_image" onchange="setDetailImage(event);"  accept="image/png, image/jpeg, image/gif, image/bmp, image/tif">
+										</p>
+										<p id="maxover"></p>
+										<!-- 게시글 내용 작성  -->
+										<p>
+										<textarea name="content" id="text_field" style="resize: none;" cols="50" rows="10" placeholder="140자 까지 등록 가능합니다."></textarea>
 										</p>
 										<!-- 게시글 등록 버튼 -->
 										<input class="submit_btn" type="submit" value="게시글 등록">
@@ -752,8 +739,43 @@
 						  </div>
 						</div>
 					  </div>
-					  
-					  
+				  	<script src="js/slide.js"></script>
+				  	<script>
+					var count = 0;
+						/* document.querySelector(".slide.slide_wrap").innerHTML=""; */
+							function setDetailImage(event){
+								
+							 	try {
+							 		if(event.target.files.length>5){
+							 			count=0;
+							        throw("선택하신 파일이 5개를 초과 했습니다!");
+							 		}
+							 		
+							    } catch ( e ) {
+							    	document.querySelector("#maxover").innerText=e;
+							    }
+								for(var image of event.target.files){
+									if(event.target.files.length>5){
+										continue;
+									}else{
+										document.querySelector("#maxover").innerText="";
+									}
+									
+									var reader = new FileReader();
+									
+									reader.onload = function(event){
+										var img = document.createElement("img");
+										img.setAttribute("src", event.target.result);
+										document.querySelector("#slide_item"+count).innerText="";
+										document.querySelector("#slide_item"+count).appendChild(img);
+										count +=1;
+									};
+									reader.readAsDataURL(image);
+								}
+							}
+						
+					</script>
+			  
 					  
 					  
 					<!-- 여기에 게시글 요약본 넣기 아직 구현못함.. 게시글이 없어서... -->
@@ -768,10 +790,26 @@
 						</header>
 
 						<div class="scroll_inner">
+						<%
+						int checkArr[] = new int[p_list.size()]; 
+						Random rd = new Random();
+			  	   		System.out.println(p_list.size());
+				  	   	for(int i=0;i<p_list.size();i++)
+				        {
+				            checkArr[i] = rd.nextInt(p_list.size()); 
+				            for(int j=0;j<i;j++) 
+				            {
+				                if(checkArr[i]==checkArr[j])
+				                {
+				                    i--;
+				                }
+				            }
+				        }
+						//int ranp = (int) ((Math.random() * (max - min)) + min);
+						%>
 						<%for(int i = 0; i < 3; i++){ %>
 						<%
-						int ranp = (int) ((Math.random() * (max - min)) + min);
-						PolicyDTO ranPdto= p_list.get(ranp);
+						PolicyDTO ranPdto= p_list.get(checkArr[i]);
 						%>
 							<div class="thumb_user">
 								<!-- <div class="profile_thumb">
@@ -861,7 +899,6 @@
 	
 	
 	
-	<script src="./js/chat.js"></script>
 	<script src="js/comment.js"></script>
 	<script src="js/alert_btn.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>

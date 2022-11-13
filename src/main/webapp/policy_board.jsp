@@ -1,3 +1,4 @@
+<%@page import="com.smhrd.model.MemberDTO"%>
 <%@page import="java.math.BigDecimal"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.smhrd.model.PolicyDAO"%>
@@ -22,7 +23,7 @@
 		<meta itemprop="image" content="http://kindtiger.dothome.co.kr/insta/imgs/instagram.jpeg">
 
 
-		<title>instagram</title>
+		<title>Peasy</title>
 		<link rel="stylesheet" href="css/reset.css">
 		<link rel="stylesheet" href="css/common.css">
 		<link rel="stylesheet" href="css/style.css">
@@ -39,9 +40,8 @@
 
 	<body>
 		
-		  <%
-
-	  
+		<%
+		MemberDTO info = (MemberDTO) session.getAttribute("info");
 		int p_num = Integer.parseInt(request.getParameter("p_num")); //p_num 가지고 옴
 		PolicyDTO policy = new PolicyDAO().showDetail(p_num);
 		
