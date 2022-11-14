@@ -470,6 +470,7 @@
 										type:'get',
 										success:function(data){
 											console.log(data);
+											location.reload();
 											if(data =="true"){
 											}else{
 											}						
@@ -504,9 +505,6 @@
                             </p>
                         </div>
                         <%if(bdao.blockCheck(bdto)>0){ //차단한 경우에는 게시글 보여주면 안되니까%>
-                         <div class="mylist_contents contents_container">
-                         	<h1 style="text-align: center posi;">차단한 사용자입니다. 게시글을 보시려면 차단을 해제해 주세요</h1>
-                         </div>
                         <%}else{ %>
                         </div>
                         <!-- 게시글 영역  -->
