@@ -1,5 +1,5 @@
 .hori_cont {
-    display: none;
+    display: flex;
     margin-bottom: 30px;
     align-content: center;
 }
