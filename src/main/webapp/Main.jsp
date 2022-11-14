@@ -891,7 +891,7 @@
 
 
 			</div>
-			<a href="Main.jsp" class="top_btn"><img src="imgs/top버튼.JPG"></a>
+			<a href="#header" class="top_btn"><img src="imgs/top버튼.JPG"></a>
 		</section>
 
 
