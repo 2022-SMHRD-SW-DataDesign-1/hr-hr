@@ -151,6 +151,18 @@
 		<description></description>
 		<servlet-class>com.smhrd.controller.ReviewLikeService</servlet-class>
 	</servlet>
+	<servlet>
+		<servlet-name>DMService</servlet-name>
+		<display-name>DMService</display-name>
+		<description></description>
+		<servlet-class>com.smhrd.controller.DMService</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>DmDTO</servlet-name>
+		<display-name>DmDTO</display-name>
+		<description></description>
+		<servlet-class>com.smhrd.model.DmDTO</servlet-class>
+	</servlet>
 
 	<servlet-mapping>
 		<servlet-name>test</servlet-name>
@@ -249,6 +261,14 @@
 	<servlet-mapping>
 		<servlet-name>ReviewLikeService</servlet-name>
 		<url-pattern>/ReviewLikeService</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>DMService</servlet-name>
+		<url-pattern>/DMService</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>DmDTO</servlet-name>
+		<url-pattern>/DmDTO</url-pattern>
 	</servlet-mapping>
 	
 

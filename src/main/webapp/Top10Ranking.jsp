@@ -36,8 +36,7 @@
               <!-- 오른쪽 메뉴아이콘 -->
 				<div class="right_icons">
 					
-					<a href="Login.jsp"><img src="imgs/로그인.PNG" class="sprite_compass_icon"></a>
-					<a href="profileAll.jsp?m_id-<%=info.getM_Id()%>"><img src="imgs/프로필.PNG" class="sprite_user_icon_outline"></a>
+					<a href="profileAll.jsp?m_id=<%=info.getM_Id()%>"><img src="imgs/프로필.PNG" class="sprite_user_icon_outline"></a>
 				</div>
 				
 

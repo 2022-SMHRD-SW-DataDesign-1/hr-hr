@@ -175,7 +175,7 @@
 																	<%if (info != null) {%>					
 																	<!-- 어.... 개인정보  -->
 																	<div class="nameEdit">
-																		<form action="PrivacyUpdateService" method="post">
+																		<form action="ProfileUpdateService" method="post">
 																			<!-- 정보수정 입력 보내기 -->
 																			<div class="form-group row">
 																				<!-- 닉네입입력 -->
@@ -334,8 +334,8 @@
                                 <a href="#"><img src="./file/<%=files[0]%>"></a>
                             </div>
                             
-                        </div>
                     <%} %>
+                  </div>
                    </section>
                     </div>
                   
