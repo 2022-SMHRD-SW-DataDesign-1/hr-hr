@@ -565,6 +565,13 @@ body{
     margin-bottom: 5px;
 }
 
+
+.side_box .detail .id>a:hover{
+    margin-bottom: 5px;
+	color:blue;
+
+}
+
 .side_box .detail .ko_name{
     font-size: 12px;
     color:#999;
