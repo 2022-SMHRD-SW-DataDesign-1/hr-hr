@@ -19,11 +19,6 @@
 <meta name="viewport"
 	content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 
-<!-- Google / Search Engine Tags / 구글 검색 엔진 -->
-<meta itemprop="name" content="instagram">
-<meta itemprop="description" content="instagram clone">
-<meta itemprop="image"
-	content="http://kindtiger.dothome.co.kr/insta/imgs/instagram.jpeg">
 
 
     <title>Peasy</title>
@@ -104,7 +99,7 @@
 					<div class="profile_wrap">
 						<!-- 프로필 유저 이미지 -->
 						<div class="profile_img">
-							<img src="imgs/thumb.jpeg" alt="착한호랑이">
+							<img src="file/<%=loginInfo.getT_pic() %>" alt="착한호랑이">
 						</div>
 					</div>
 
@@ -363,7 +358,7 @@
 					<div class="profile_wrap">
 						<!-- 프로필 유저 이미지 -->
 						<div class="profile_img">
-							<img src="imgs/thumb.jpeg" alt="착한호랑이">
+							<img src="file/<%=info.getT_pic() %>" alt="착한호랑이">
 						</div>
 					</div>
 
@@ -461,7 +456,7 @@
 									blockBtn.innerText = '차단 해제'
 									Block_cnt = 0;
 								}else{
-									Block_cnt.innerText = '차단'
+									blockBtn.innerText = '차단'
 									Block_cnt = 1;
 								}
 								
