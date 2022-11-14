@@ -24,6 +24,9 @@
     }
 
     }
+     @media screen and (max-width:991.98px) {
+	
+	}
     @media screen and (max-width:991.98px) {
     /* 타블렛 */
     .left_side_box{
@@ -73,7 +76,9 @@
     .board_add{
     	left: 140px;
     }
-    
+    .logo{
+    	right:100px;
+    }
     
     }
 
@@ -557,16 +562,6 @@ body{
 }
 .side_box .detail .id{
     margin-bottom: 5px;
-}
-
-.side_box .detail .id>a{
-	text-decoration: none;
-	color:black;
-}
-
-.side_box .detail .id>a:hover{
-	text-decoration: none;
-	color:blue;
 }
 
 .side_box .detail .ko_name{

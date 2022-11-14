@@ -211,7 +211,7 @@
 				
 				<div class ="scrollBlind" >		
 				
-				<div class="contents_box" >
+				<div class="contents_box content_area" >
 					<!-- 정책 영역 -->
 					<article class="contents">
 			
@@ -682,7 +682,7 @@
 				<!-- 게시물 등록 버튼 -->        
 				      <!-- 여기가 버튼 스타일 클래스 -->
 				    <div id="uploadbtn">
-					<button type="button" class="btn btn-primary btn btn-info" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+					<button type="button" class="btn btn-primary btn btn-info2 board_add" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
 						게시물 등록
 					  </button>
 					  <!-- 여기가 게시물 등록버튼 활성화시 나오는 팝업창 -->
