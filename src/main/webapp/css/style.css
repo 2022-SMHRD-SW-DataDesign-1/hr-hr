@@ -24,6 +24,9 @@
     }
 
     }
+     @media screen and (max-width:991.98px) {
+	
+	}
     @media screen and (max-width:991.98px) {
     /* 타블렛 */
     .left_side_box{
@@ -63,10 +66,20 @@
         }
         
     }
-    @media screen and (max-width:1100px) {
+    @media screen and (max-width:1100.98px) {
     .left_side_box{
         margin-left: 10%;
     }
+    #main_container .inner{
+    	right: 160px;
+    }
+    .board_add{
+    	left: 140px;
+    }
+    .logo{
+    	right:100px;
+    }
+    
     }
 
     
@@ -79,6 +92,12 @@
         display: none;
     }
 
+    }
+    @media screen and (max-width:1500.98px) {
+    	.side_box{
+    		margin-right: 300px;
+    	}
+    	
     }
 button>a{
     text-decoration: none;
@@ -268,6 +287,10 @@ body{
     margin-bottom: 15px;
     background: white;
    
+}
+.content_area{
+	position:relative;
+	left: 150px;
 }
 
 .cont02 {
@@ -484,7 +507,7 @@ body{
 }
 .left_side_box{
     position: fixed;
-    right: 1560px;
+    right: 1370px;
     width: 293px;
     height: 700px;
     
@@ -503,8 +526,8 @@ body{
     /*background: rgba(255, 0, 0, 0.16);*/
     position:fixed;
     right: 0;
-    top: 100px;
-    left : 1460px;
+    top: 200px;
+    left : 1280px;
 
 }
 
@@ -520,6 +543,11 @@ body{
     overflow:hidden;
     margin-right: 10px;
 }
+.uploadbtn>.board_add{
+	position: absolute;
+	bottom: 100px;
+}
+
 
 
 .side_box .profile_thumb img{
@@ -535,16 +563,6 @@ body{
 }
 .side_box .detail .id{
     margin-bottom: 5px;
-}
-
-.side_box .detail .id>a{
-	text-decoration: none;
-	color:black;
-}
-
-.side_box .detail .id>a:hover{
-	text-decoration: none;
-	color:blue;
 }
 
 .side_box .detail .ko_name{
