@@ -18,9 +18,6 @@
 		<meta name="apple-mobile-web-app-status-bar-style" content="default">
 		
 		<!-- Google / Search Engine Tags / 구글 검색 엔진 -->
-		<meta itemprop="name" content="instagram">
-		<meta itemprop="description" content="instagram clone">
-		<meta itemprop="image" content="http://kindtiger.dothome.co.kr/insta/imgs/instagram.jpeg">
 
 
 		<title>Peasy</title>

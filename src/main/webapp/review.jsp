@@ -174,14 +174,13 @@
 
 								<!-- 게시글 하단 상세 -->
 							<div class="detail--right_box">
-							
 
 								<header class="top">
 									<!-- 유저 정보 -->
 									<div class="admin_container">
 										<div class="comment">
 										<!-- 유저 이름  -->
-											<span class="user_id"><%=r_detail.getM_id() %></span><%=r_detail.getR_content() %>
+											<div class="user_name"><div class="nick_name user_text"><a href="profileAll.jsp?m_id=<%=r_detail.getM_id()%>"><%=r_detail.getM_id() %></a></div></div><br><%=r_detail.getR_content() %>
 											<div class="tr_time"><%=r_detail.getR_date()%></div>
 										</div>
 									</div>

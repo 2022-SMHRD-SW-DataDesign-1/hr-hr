@@ -175,7 +175,7 @@
 																	<%if (info != null) {%>					
 																	<!-- 어.... 개인정보  -->
 																	<div class="nameEdit">
-																		<form action="ProfileUpdateService" method="post">
+																		<form action="ProfileUpdateService" method="post"  enctype="multipart/form-data">
 																			<!-- 정보수정 입력 보내기 -->
 																			<div class="form-group row">
 																				<!-- 닉네입입력 -->
@@ -187,12 +187,23 @@
 																						required="required" type="text">
 																				</div>
 																			</div>
+																			<!-- 프로필 사진 업로드 -->
+																			<div class="form-group row">
+																				<!-- 사진 미리보기 -->
+																				<div id="slide_item"></div>
+																				<!-- 사진 선택 -->
+																				<input class="form-control form-control-user" type="file"
+																				name="m_pic" id="product_detail_image" onchange="setDetailImage(event);"
+																				accept="image/png, image/jpeg, image/gif, image/bmp, image/tif">
+																				<div class="col-8">
+																				</div>
+																			</div>
 
 																			<!-- 프로필 소개글 수정 -->
 																			<div class="form-group row">
 																				<label for="publicinfo" class="col-4 col-form-label">소개</label>
 																				<div class="col-8">
-																					<textarea id="publicinfo" name="publicinfo"
+																					<textarea id="publicinfo" name="m_Profile"
 																						cols="40" rows="4" class="form-control"><%=info.getM_Profile() %></textarea>
 																				</div>
 																			</div>
@@ -204,7 +215,24 @@
 																						Profile</button>
 																				</div>
 																			</div>
+																			
 																		</form>
+																		<script>
+																				function setDetailImage(event){
+																					for(var image of event.target.files){
+																						var reader = new FileReader();
+																						
+																						reader.onload = function(event){
+																							var img = document.createElement("img");
+																							img.setAttribute("src", event.target.result);
+																							document.querySelector("#slide_item").innerText="";
+																							document.querySelector("#slide_item").appendChild(img);
+																						};
+																						
+																						reader.readAsDataURL(image);
+																					}
+																				}
+																		</script>
 																	</div>
 																	<!-- 비밀번호 수정 .... -->
 																	<div class="nameEdit1" style="display: none;">
@@ -311,7 +339,7 @@
                         <!-- 게시글 영역  -->
                         <%
                         BoardDAO b_dao = new BoardDAO();
-                        ArrayList<BoardDTO> b_List = b_dao.showBoard(info.getM_Id());
+                        ArrayList<BoardDTO> b_List = b_dao.profileBoard(info.getM_Id());
                         ArrayList<BoardDTO> b_useful_List = b_dao.showUsefulBoard(info.getM_Id());
                         %>
                         
@@ -510,7 +538,7 @@
                         <!-- 게시글 영역  -->
                         <%
                         BoardDAO b_dao = new BoardDAO();
-                        ArrayList<BoardDTO> b_List = b_dao.showBoard(info.getM_Id());
+                        ArrayList<BoardDTO> b_List = b_dao.profileBoard(info.getM_Id());
                         ArrayList<BoardDTO> b_useful_List = b_dao.showUsefulBoard(info.getM_Id());
                         %>
                         

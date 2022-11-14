@@ -36,7 +36,7 @@
 
 
 	<update id="profileUpdate" parameterType="MemberDTO">
-		UPDATE t_member SET m_nickname = #{m_Nickname}, m_profile = #{m_Profile}
+		UPDATE t_member SET m_nickname = #{m_Nickname}, m_profile = #{m_Profile}, m_pic = #{t_pic}
 		WHERE m_id = #{m_Id}
 	</update>
 	

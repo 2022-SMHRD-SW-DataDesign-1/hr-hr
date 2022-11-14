@@ -57,11 +57,6 @@ public class MemberDTO {
 		this.m_Phone = m_Phone;
 	}
 
-	public MemberDTO(String m_Id, String m_Nickname, String m_Profile) {
-		this.m_Id = m_Id;
-		this.m_Nickname = m_Nickname;
-		this.m_Profile = m_Profile;
-	}
 
 	public MemberDTO(@NonNull String m_Id, @NonNull String m_Pw, String m_Email, String m_Phone) {
 		this.m_Id = m_Id;
@@ -77,6 +72,18 @@ public class MemberDTO {
 
 	public MemberDTO(@NonNull String m_Id) {
 		this.m_Id = m_Id;
+	}
+
+
+	public MemberDTO(@NonNull String m_Id, @NonNull String m_Pw, String m_Email, String m_Nickname,
+			String m_Profile, String m_Type, String t_pic) {
+		this.m_Id = m_Id;
+		this.m_Pw = m_Pw;
+		this.m_Email = m_Email;
+		this.m_Nickname = m_Nickname;
+		this.m_Profile = m_Profile;
+		this.m_Type = m_Type;
+		this.t_pic = t_pic;
 	}
 
 	
