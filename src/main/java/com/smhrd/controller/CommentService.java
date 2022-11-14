@@ -1,6 +1,7 @@
 package com.smhrd.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.math.BigDecimal;
 
 import javax.servlet.ServletException;
@@ -31,7 +32,9 @@ public class CommentService extends HttpServlet {
 		CommentDAO dao = new CommentDAO();
 		int row = dao.writeComment(cdto);
 		
-		response.sendRedirect("./Main.jsp");
+		PrintWriter out = response.getWriter();
+		
+		out.print(true);
 		 
 	}
 

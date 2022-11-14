@@ -299,17 +299,6 @@
                                               <%p_index++; %>
                                             <%} %>
                                             
-                                             <!--  <div class="carousel-item">
-                                                				
-                                               <a href="policy_board.jsp"> <img src="imgs/국민취업지원제도2.png" alt="visual02"></a> 								  
-                                              </div>	
-                                                <div class="carousel-item">
-                                                	
-                                                <a href="policy_board.jsp"><img src="imgs/국민취업지원제도 3.png" alt="visual03"> </a>
-                                          	</div>
-											 
-                                              
-                                            </div>
                                             <!-- 이미지 왼쪽으로 넘기기-->
                                             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
                                               <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -509,11 +498,11 @@
 										<%for(String temp : b_files){%>
 										<%if(b_index==0) {%>
 										  <div class="carousel-item active">
-											<a href="Detail-page.jsp"><img src="file/<%=temp%>"></a>
+											<a href="Detail-page.jsp?b_num=<%=b_dto.getB_num()%>"><img src="file/<%=temp%>"></a>
 										  </div>
 									  <%}else{ %>
 										  <div class="carousel-item">
-											<a href="Detail-page.jsp"><img src="file/<%=temp%>"></a>
+											<a href="Detail-page.jsp?b_num=<%=b_dto.getB_num()%>"><img src="file/<%=temp%>"></a>
 										  </div>
 									  <%} %>
 									  <%b_index++; %>
