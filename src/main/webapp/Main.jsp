@@ -826,7 +826,7 @@
 								 	<img src="imgs/thumb02.jpg" alt="프로필사진"> 
 								</div> -->
 								<div class="detail">
-									<div class="id"><%=ranPdto.getP_title() %></div>
+									<div class="id"><a href="policy_board.jsp?p_num=<%=ranPdto.getP_num()%>"><%=ranPdto.getP_title() %></a></div>
 									<% SimpleDateFormat converter = new SimpleDateFormat ("yyyy-MM-dd");%>
 									<div class="timer"><%=converter.format(ranPdto.getP_date())%></div>
 								</div>
@@ -875,7 +875,7 @@
 								<img src="file/<%=rmList.get(checkRmList[i]).getT_pic()%>" alt="프로필사진">
 							</div>
 							<div class="detail">
-								<div class="id"><%=rmList.get(checkRmList[i]).getM_Id()%></div>
+								<div class="id"><a href="profileAll.jsp?m_id=<%=rmList.get(checkRmList[i]).getM_Id()%>"><%=rmList.get(checkRmList[i]).getM_Id()%></a></div>
 								<div class="timer"><%=rmList.get(checkRmList[i]).getM_Nickname()%></div>
 							</div>
 						</div>
