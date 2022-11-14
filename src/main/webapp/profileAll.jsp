@@ -19,11 +19,6 @@
 <meta name="viewport"
 	content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 
-<!-- Google / Search Engine Tags / 구글 검색 엔진 -->
-<meta itemprop="name" content="instagram">
-<meta itemprop="description" content="instagram clone">
-<meta itemprop="image"
-	content="http://kindtiger.dothome.co.kr/insta/imgs/instagram.jpeg">
 
 
     <title>Peasy</title>
@@ -104,7 +99,7 @@
 					<div class="profile_wrap">
 						<!-- 프로필 유저 이미지 -->
 						<div class="profile_img">
-							<img src="imgs/thumb.jpeg" alt="착한호랑이">
+							<img src="file/<%=loginInfo.getT_pic() %>" alt="착한호랑이">
 						</div>
 					</div>
 
@@ -180,7 +175,7 @@
 																	<%if (info != null) {%>					
 																	<!-- 어.... 개인정보  -->
 																	<div class="nameEdit">
-																		<form action="PrivacyUpdateService" method="post">
+																		<form action="ProfileUpdateService" method="post">
 																			<!-- 정보수정 입력 보내기 -->
 																			<div class="form-group row">
 																				<!-- 닉네입입력 -->
@@ -339,8 +334,8 @@
                                 <a href="#"><img src="./file/<%=files[0]%>"></a>
                             </div>
                             
-                        </div>
                     <%} %>
+                  </div>
                    </section>
                     </div>
                   
@@ -363,7 +358,7 @@
 					<div class="profile_wrap">
 						<!-- 프로필 유저 이미지 -->
 						<div class="profile_img">
-							<img src="imgs/thumb.jpeg" alt="착한호랑이">
+							<img src="file/<%=info.getT_pic() %>" alt="착한호랑이">
 						</div>
 					</div>
 
@@ -461,7 +456,7 @@
 									blockBtn.innerText = '차단 해제'
 									Block_cnt = 0;
 								}else{
-									Block_cnt.innerText = '차단'
+									blockBtn.innerText = '차단'
 									Block_cnt = 1;
 								}
 								
@@ -475,6 +470,7 @@
 										type:'get',
 										success:function(data){
 											console.log(data);
+											location.reload();
 											if(data =="true"){
 											}else{
 											}						
@@ -509,9 +505,6 @@
                             </p>
                         </div>
                         <%if(bdao.blockCheck(bdto)>0){ //차단한 경우에는 게시글 보여주면 안되니까%>
-                         <div class="mylist_contents contents_container">
-                         	<h1 style="text-align: center posi;">차단한 사용자입니다. 게시글을 보시려면 차단을 해제해 주세요</h1>
-                         </div>
                         <%}else{ %>
                         </div>
                         <!-- 게시글 영역  -->

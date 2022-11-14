@@ -559,6 +559,16 @@ body{
     margin-bottom: 5px;
 }
 
+.side_box .detail .id>a{
+	text-decoration: none;
+	color:black;
+}
+
+.side_box .detail .id>a:hover{
+	text-decoration: none;
+	color:blue;
+}
+
 .side_box .detail .ko_name{
     font-size: 12px;
     color:#999;
