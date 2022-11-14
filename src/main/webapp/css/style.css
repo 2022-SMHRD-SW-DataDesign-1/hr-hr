@@ -1173,6 +1173,10 @@ body{
     height: 700px;
     top: 100px;
 }
+.detail>.id>a{
+	text-decoration: none;
+	color: black;
+}
 
 
 
