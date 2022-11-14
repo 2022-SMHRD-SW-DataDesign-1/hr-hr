@@ -315,7 +315,7 @@
 						reviewComments.innerHTML += 
 							`<div class="user_container-detail" >
 							<div class="user">
-								img
+								<%= info.getT_pic()%>
 							</div>
 							<div class="comment">
 								<span class="user_id"><%=info.getM_Nickname()%>

@@ -23,5 +23,7 @@
 	INSERT INTO T_REVIEW_COMMENT ( m_id, r_num, r_c_content, r_c_date, m_nickname) VALUES (#{m_id},#{r_num}, #{r_c_content}, sysdate, #{m_nickname})
 	</insert>
 	
+
+	
 	
 </mapper>
