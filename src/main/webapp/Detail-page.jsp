@@ -19,28 +19,9 @@
 		<meta name="viewport"
 			content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 
-		<meta name="mobile-web-app-capable" content="yes">
-		<meta name="apple-mobile-web-app-status-bar-style" content="default">
-		<!-- Facebook Meta Tags / 페이스북 오픈 그래프 -->
-		<meta property="og:url" content="http://kindtiger.dothome.co.kr/insta">
-		<meta property="og:type" content="website">
-		<meta property="og:title" content="instagram">
-		<meta property="og:description" content="instagram clone">
-		<meta property="og:image" content="http://kindtiger.dothome.co.kr/insta/imgs/instagram.jpeg">
-		
-		<!-- Twitter Meta Tags / 트위터 -->
-		<meta name="twitter:card" content="instagram clone">
-		<meta name="twitter:title" content="instagram">
-		<meta name="twitter:description" content="instagram clone">
-		<meta name="twitter:image" content="http://kindtiger.dothome.co.kr/insta/imgs/instagram.jpeg">
-
-		<!-- Google / Search Engine Tags / 구글 검색 엔진 -->
-		<meta itemprop="name" content="instagram">
-		<meta itemprop="description" content="instagram clone">
-		<meta itemprop="image" content="http://kindtiger.dothome.co.kr/insta/imgs/instagram.jpeg">
 
 
-		<title></title>
+		<title>Peasy</title>
 		<link rel="stylesheet" href="css/reset.css">
 		<link rel="stylesheet" href="css/common.css">
 		<link rel="stylesheet" href="css/style.css">
@@ -57,13 +38,12 @@
 
 		<%
 			MemberDTO info = (MemberDTO) session.getAttribute("info");
-			//int num = Integer.parseInt(request.getParameter("b_num"));
+			int num = Integer.parseInt(request.getParameter("b_num"));
 			
-			int num = 91;//test코드 메인수정후 삭제
 			BoardDTO board = new BoardDAO().showDetail(num);
 			
-			//int cmt = Integer.parseInt(request.getParameter("b_num"));
-			//BigDecimal b_num_cmt = new BigDecimal(cmt);
+			int cmt = Integer.parseInt(request.getParameter("b_num"));
+			BigDecimal b_num_cmt = new BigDecimal(cmt);
 			BigDecimal bignum = new BigDecimal(num);//test코드 메인수정후 삭제
 			ArrayList<CommentDTO>  cmtList = new CommentDAO().showComment(bignum);
 			LikesDTO l_dto = new LikesDTO(); 
@@ -139,26 +119,64 @@
 							<div class="user_container">
 							<!-- 게시물 유저 이미지 -->
 								<div class="profile_img">
-									<img src="/imgs/<%=board.getB_filename() %>" alt="">
-									
+									<img src="/imgs/<%=info.getT_pic() %>" alt="">
 								</div>
 								<!-- 유저 이름 및 정보 -->
 								<div class="user_name">
-									<div class="nick_name"><%=board.getB_writer() %></div>
+									<div class="nick_name"><%=info.getM_Id() %></div>
 								</div>
 							</div>
+							<%int indiID= 0; %>
+							<%	String[] b_files = board.getB_filename().split(",");%>
 							<!-- 게시물 이미지 영역 -->
 							<div class="img_section">
+								
 								<div class="trans_inner">
-									<div>
-										<img src="imgs/<%=board.getB_filename() %>" alt=""> 
-									</div>
+								<div>
+								<!-- 캐러셀 인디케이터 깔아놓기 -->
+								<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
+								<div class="carousel-indicators">
+                                <%for(int i =0; i<b_files.length; i++){ %>
+                                <% if(i==0) {%>
+							 	<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="<%=i %>" class="active" aria-label="Slide<%=i+1 %>" aria-current="true"></button>
+								<%}else{%>
+								 <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="<%=i %>"  aria-label="Slide<%=i+1 %>" aria-current="true"></button>
+								<%} %>
+                                <%} %>
+                                </div>
+                                <!-- 이미지 등록하기 -->
+                                <div class="carousel-inner">
+                                    <%int b_index=0; %>
+                                    <%for(String temp : b_files){%>
+                                      <%if(b_index==0){ %>
+                                      <div class="carousel-item active">
+                                        <img src="file/<%=temp%>" >                                          
+                                      </div>
+                                      <%}else{ %>
+                                      <div class="carousel-item">
+                                        <img src="file/<%=temp%>">                                          
+                                      </div>
+                                      <%} %>
+                                      <%b_index++; %>
+                                    <%}%>
+                                    <!-- 이미지 왼쪽으로 넘기기-->
+                                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                      <span class="visually-hidden">Previous</span>
+                                    </button>
+                                    <!-- 이미지 오른쪽으로 넘기기-->
+                                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                      <span class="visually-hidden">Next</span>
+                                    </button>
+                                  </div>
+								</div>
+								</div>
 								</div>
 							</div>
 
 							<!-- 게시물 하단 상세영역  -->
 							<div class="detail--right_box">
-
 
 								<header class="top">
 
@@ -170,54 +188,40 @@
 											<%=board.getB_content() %>
 											</div>
 											<!-- 게시 시간 -->
-											<div class="t_timer"><%=board.getB_date() %></div>
-										</div>
+											<div class="t_timer">    <%=board.getB_date() %></div>
+											<!-- 게시글 수정 삭제 영역  -->
+									  </div>
 									</div>
 									
 								</header>
 
 								
 
-								<!-- 게시글 하단 버튼  -->
-								<div class="bottom_icons">
-									<!-- 하단 왼쪽버튼 -->
-									<div class="left_icons">
-									<!-- 게시글 좋아요버튼 -->
-										<div class="heart_btn">
-											<div class="sprite_heart_icon_outline" data-name="heartbeat">
-											<%l_dto = new LikesDTO(info.getM_Id(),board.getB_num()); 
-											  int isLikeResult = l_dao.isLiked(l_dto);%>
-												<%if(isLikeResult>0){ %>
-													<button id="likes" class="heart_button" onclick="likes()"><img class="heart" alt="유용해요해제" src="imgs/좋아.JPG"></button>
-												<%}else{ %>	
-													<button id="likes" class="heart_button" onclick="likes()"><img class="heart" alt="유용해요등록" src="imgs/몰라.JPG"></button>
-												<%} %>				
-											</div>
+							<!-- 게시글 하단 버튼  -->
+							<div class="bottom_icons">
+								<!-- 하단 왼쪽버튼 -->
+								<div class="left_icons">
+								<!-- 게시글 좋아요버튼 -->
+									<div class="heart_btn">
+										<div class="sprite_heart_icon_outline" data-name="heartbeat">
+										<%l_dto = new LikesDTO(info.getM_Id(),board.getB_num()); 
+										  int isLikeResult = l_dao.isLiked(l_dto);%>
+											<%if(isLikeResult>0){ %>
+												<button id="likes" class="heart_button" onclick="likes()"><img class="heart" alt="유용해요해제" src="imgs/좋아.JPG"></button>
+											<%}else{ %>	
+												<button id="likes" class="heart_button" onclick="likes()"><img class="heart" alt="유용해요등록" src="imgs/몰라.JPG"></button>
+											<%} %>				
 										</div>
-								<!-- 댓글 버튼 -->
-								<div class ="thumbs"></div>
-								<div class="sprite_bubble_icon"></div>
 									</div>
-									<!-- 게시글 스크랩 버튼 -->
-									<div class="right_icon">
-										<div class="sprite_bookmark_outline" data-name="book-mark"></div>
+								<!-- 댓글 버튼 -->
 									</div>
 								</div>
 								<!-- 게시글 좋아요수 표시 -->
 								<div class="count_likes">좋아요 
 									<span class="count" id="count"><%=board.getB_likes() %></span> 개
-									<div class="tr_timer">2시간</div>
 								</div>
-								<!-- 댓글 스크롤  -->
-								<div>view all comment</div>
 								<section class="scroll_section">
 
-
-
-
-								<!-- 댓글 두개만 보이고 나머지는 더보기로 넘겨야함 -->
-									
-									
 									
 									<%if(cmtList != null){ %>
 									<%for(CommentDTO cmt_dto : cmtList){ %>
@@ -246,7 +250,7 @@
 								<!-- 댓글 입력란 -->
 							<div class="comment_field" id="add-comment-post37">
 								<form action="CommentService?b_num=<%=board.getB_num()%>" method="post" id="commentform">
-									<input type="text" id="Comment" placeholder="댓글달기..." >
+									<input type="text" id="Comment" name="c_content" placeholder="댓글달기..." >
 									<button type="submit" class="upload_btn user_text" onclick="writeComment()">댓글등록</button>
 								</form>
 							</div>
@@ -309,6 +313,7 @@
 					</div>`;
 					Comment.value = null;
 					//2. 댓글 작성창 쿼"리셀렉터로 다시가져와서.value=""
+					location.replace();
 				},
 				error : function() {
 					console.log("조샀다 !");
@@ -323,7 +328,6 @@
 				let is_Like;
 				let m_id = '<%=info.getM_Id()%>';
 				let b_num = <%=request.getParameter("b_num")%>;
-				b_num = 91; //테스트코드임 삭제필요
 				let writer = '<%=board.getB_writer()%>';
 				let usefulBtn = document.getElementById("likes").innerHTML;
 				console.log(usefulBtn);
