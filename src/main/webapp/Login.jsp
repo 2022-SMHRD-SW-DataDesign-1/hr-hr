@@ -40,7 +40,7 @@
 			<section class="h_inner">
 
 				<h1 class="logo">
-					<a href="Main.jsp"> <img src="imgs/로고.JPG">
+					<a href="homepage.jsp"> <img src="imgs/로고.JPG">
 
 					</a>
 				</h1>
