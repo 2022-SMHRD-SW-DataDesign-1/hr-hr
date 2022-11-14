@@ -22,8 +22,9 @@
     .left_side_box{
         display: none;
     }
-
+  
     }
+    
      @media screen and (max-width:991.98px) {
 	
 	}
@@ -99,6 +100,11 @@
     	}
     	
     }
+     @media screen and (max-width:1630.98px) {
+	.ranking_box{
+		margin-left:65%;
+	}
+	}
 button>a{
     text-decoration: none;
     color: #000;
@@ -1186,7 +1192,11 @@ body{
 	color: black;
 }
 
-
+.top_btn{
+	position: fixed;
+	top:90%;
+	left:90%;
+}
 
 
 
