@@ -23,14 +23,11 @@ public class CommentService extends HttpServlet {
 		String m_id = dto.getM_Id();
 		BigDecimal b_num = new BigDecimal(Integer.parseInt(request.getParameter("b_num")));
 		String cmt_content = request.getParameter("c_content");
-		System.out.println(m_id);
-		System.out.println(b_num);
-		System.out.println(cmt_content);
 		
 		
-		CommentDTO cdto = new CommentDTO(b_num, cmt_content , m_id );
 		CommentDAO dao = new CommentDAO();
-		int row = dao.writeComment(cdto);
+		CommentDTO cdto = new CommentDTO(b_num, cmt_content , m_id );
+		dao.writeComment(cdto);
 		
 		PrintWriter out = response.getWriter();
 		

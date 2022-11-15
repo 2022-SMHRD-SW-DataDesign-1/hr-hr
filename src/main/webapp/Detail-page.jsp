@@ -1,3 +1,4 @@
+<%@page import="com.smhrd.model.MemberDAO"%>
 <%@page import="com.smhrd.model.LikesDAO"%>
 <%@page import="com.smhrd.model.LikesDTO"%>
 <%@page import="com.smhrd.model.MemberDTO"%>
@@ -223,13 +224,14 @@
 								<section class="scroll_section">
 
 									
+									<%MemberDAO mdao = new MemberDAO(); %>
 									<%if(cmtList != null){ %>
 									<%for(CommentDTO cmt_dto : cmtList){ %>
 									<!-- 댓글 영역 -->
-									<div class="user_container-detail">
+									<div  id="Comments">
 										<div class="user">
 										<!-- 댓글게시 유저 이미지 -->
-											<img src="imgs/thumb02.jpg" alt="user">
+											<img src="file/<%=mdao.information(cmt_dto.getCmt_id()).getT_pic()%>" alt="user" style= "width: 50px;">
 										</div>
 										<!-- 댓글 내용 -->
 										<div class="comment">
@@ -248,11 +250,9 @@
 								
 								
 								<!-- 댓글 입력란 -->
-							<div class="comment_field" id="add-comment-post37">
-								<form action="CommentService?b_num=<%=board.getB_num()%>" method="post" id="commentform">
+							<div class="comment_field">
 									<input type="text" id="Comment" name="c_content" placeholder="댓글달기..." >
-									<button type="submit" class="upload_btn user_text" onclick="writeComment()">댓글등록</button>
-								</form>
+									<button type="button" class="upload_btn user_text" onclick="writeComment()">댓글등록</button>
 							</div>
 
 
@@ -289,23 +289,23 @@
 			console.log("닉네임"+m_nickname);
 			
 			$.ajax({
-				url : "BoardService",
+				url : "CommentService",
 				data : {"m_id" : m_id,
-						"c_content" : r_c_content,
+						"c_content" : c_content,
 						"m_nickname" : m_nickname,
-						"b_num" : r_num
+						"b_num" : b_num
 						},
 				type : 'get', 
 				success : function(data) {
 					//1. 쿼리 셀렉터로 가져와서 innerHTML로 댓글을 그냥 추가해줘
 					let Comments = document.getElementById('Comments');
 					let Comment = document.getElementById('Comment');
-					reviewComments.innerHTML += 
+					Comments.innerHTML += 
 						`<div class="user_container-detail" >
 						<div class="user">
-							img
+							<%=info.getT_pic() %>
 						</div>
-						<div class="comment">
+						<div class="Comment">
 							<span class="user_id"><%=info.getM_Nickname()%>
 							</span>${Comment.value}
 						</div>
@@ -313,7 +313,6 @@
 					</div>`;
 					Comment.value = null;
 					//2. 댓글 작성창 쿼"리셀렉터로 다시가져와서.value=""
-					location.replace();
 				},
 				error : function() {
 					console.log("조샀다 !");
@@ -326,9 +325,9 @@
 			let like_count = <%=board.getB_likes() %>; 
 			function likes() {
 				let is_Like;
-				let m_id = '<%=info.getM_Id()%>';
+				let m_id = <%=info.getM_Id()%>;
 				let b_num = <%=request.getParameter("b_num")%>;
-				let writer = '<%=board.getB_writer()%>';
+				let writer = <%=board.getB_writer()%>;
 				let usefulBtn = document.getElementById("likes").innerHTML;
 				console.log(usefulBtn);
 				console.log(m_id);
@@ -369,7 +368,9 @@
 			}	
 			
 	</script>
-
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 	</body>
 
 	</html>

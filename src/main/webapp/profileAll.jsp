@@ -88,8 +88,12 @@
 		
 	<%if (loginInfo != null) {
 	//내가 내 프로필을 보는 경우에 해당하는 영역
-			if(m_id==null||m_id.equals(loginInfo.getM_Id())){
-					info = loginInfo;  %>
+			if(m_id==null||m_id.equals(loginInfo.getM_Id())){%>
+					<% info = loginInfo;%>
+					<%
+						System.out.println("여기는 들어오나?");
+					%>
+					
 		<div id="main_container">
 			<!-- 프로필 영역 -->
 			<section class="b_inner">
@@ -339,8 +343,8 @@
                         <!-- 게시글 영역  -->
                         <%
                         BoardDAO b_dao = new BoardDAO();
-                        ArrayList<BoardDTO> b_List = b_dao.profileBoard(info.getM_Id());
-                        ArrayList<BoardDTO> b_useful_List = b_dao.showUsefulBoard(info.getM_Id());
+                        ArrayList<BoardDTO> b_List = b_dao.profileBoard(loginInfo.getM_Id());
+                        ArrayList<BoardDTO> b_useful_List = b_dao.showUsefulBoard(loginInfo.getM_Id());
                         %>
                         
                         <div class="mylist_contents contents_container active">
