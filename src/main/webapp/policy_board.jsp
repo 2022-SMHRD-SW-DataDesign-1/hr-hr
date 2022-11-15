@@ -1,3 +1,5 @@
+<%@page import="com.smhrd.model.PolicyLikesDAO"%>
+<%@page import="com.smhrd.model.PolicyLikesDTO"%>
 <%@page import="com.smhrd.model.MemberDTO"%>
 <%@page import="java.math.BigDecimal"%>
 <%@page import="java.util.ArrayList"%>
@@ -199,13 +201,14 @@
 											<div>
 											<%=policy.getP_content() %>
 											</div>
-											<div class="time"><%=policy.getP_date() %></div>
+											<div class="t_time"><%=policy.getP_date() %></div>
 										</div>
 									</div>
 									
 								</header>
 
-						
+						<%PolicyLikesDTO pl_dto = new PolicyLikesDTO();
+						  PolicyLikesDAO pl_dao = new PolicyLikesDAO();%>
 
 								<!-- 게시글 하단 버튼 영역 -->
 								<div class="bottom_icons">
@@ -213,10 +216,15 @@
 									<div class="left_icons">
 									<!-- 좋아요 버튼 -->
 										<div class="heart_btn">
-									<div class="sprite_heart_icon_outline" data-name="heartbeat">
-										<button class="heart_button"><img src="imgs/3.PNG"></button>
-									</div>
-								</div>
+											<div class="sprite_heart_icon_outline" >
+											<%pl_dto = new PolicyLikesDTO(info.getM_Id(),policy.getP_num()); %>
+											<%if(pl_dao.isPolicyLiked(pl_dto)>0){ %>
+												<button class="heart_button" id='policylikes<%= count %>' onclick="policylikes(<%= policy.getP_num() %>,this.id,<%=count%>)"><img class='heart' alt='유용해요등록' src='imgs/좋아.JPG'></button>
+											<%}else{%>
+												<button class="heart_button" id='policylikes<%= count %>'onclick="policylikes(<%= policy.getP_num()%>,this.id,<%=count%>)"><img class="heart" alt="유용해요해제" src="imgs/몰라.JPG"></button>
+											<%	}%>
+											</div>
+										</div>
 								<!-- 댓글 버튼 -->
 								<div class="sprite_bubble_icon"></div>
 									</div>
@@ -227,7 +235,7 @@
 								</div>
 									<!-- 게시글 좋아요수 표시 -->
 								<div class="count_likes">
-									좋아요 <span class="count">2,351</span> 개
+										좋아요 <span class="count" id='policylike<%= count %>'><%=policy.getP_likes() %></span> 개
 								</div>
 								<div class="timer">2시간</div>
 						
@@ -252,7 +260,58 @@
 	
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 		<!--<script src="js/detail.js"></script>-->
-
+				<%if(info != null){%>
+						<script text="javascript/text">
+							let test;
+							function policylikes(p_num,clicked_id,cnt){
+								let is_like;
+								console.log(p_num);
+								console.log(clicked_id);
+								let m_id = '<%=info.getM_Id()%>';
+								let policylikeBtn = document.getElementById(clicked_id);
+								console.log(policylikeBtn.innerHTML);
+								
+								if(policylikeBtn.innerHTML == '<img class="heart" alt="유용해요등록" src="imgs/좋아.JPG">'){
+									policylikeBtn.innerHTML = '<img class="heart" alt="유용해요해제" src="imgs/몰라.JPG">'
+									is_like = 0;
+								}else{
+									policylikeBtn.innerHTML = '<img class="heart" alt="유용해요등록" src="imgs/좋아.JPG">'
+									is_like = 1;
+								}
+								
+								console.log(is_like);
+								$.ajax({
+									url : 'PolicyLikesService',
+									data :{
+										'm_id' :m_id,
+										'p_num' : p_num,
+										'is_like':is_like
+									},
+									type:'get', // 요청 타입
+									success:function(data){// 통신성공(function(넘겨준데이터))
+										if(data =="true"){
+											let test = 'policylike'+cnt;
+											console.log(test);
+											num1 = Number(document.getElementById(test).innerText);
+											document.getElementById(test).innerText = num1-1;
+											
+										}else {
+											let test = 'policylike'+cnt;
+											console.log(test);
+											num1 = Number(document.getElementById(test).innerText);
+											document.getElementById(test).innerText = num1+1;
+										}
+									},
+								error:function(){
+									console.log("asfknaskm");
+								}
+								
+								})//속성
+								
+					
+									}
+							</script> 
+							<%} %>
 
 	</body>
 </html>
