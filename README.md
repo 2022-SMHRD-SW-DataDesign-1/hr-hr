@@ -58,8 +58,8 @@
     </tr>
    <tr>
         <td>협업도구</td>
-        <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=GitHub&logoColor=white"/>
-        </td>
+        <td><img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=GitHub&logoColor=white"/></td>
+        
     </tr>
 </table>
 ## 시스템 아키텍처
