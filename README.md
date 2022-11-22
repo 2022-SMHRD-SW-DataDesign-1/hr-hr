@@ -100,13 +100,7 @@
 <tr>
   <td><img src="https://user-images.githubusercontent.com/112475656/203227962-8cd78112-266e-4895-b182-c816e02d2525.JPG"/></td>
   <td><img src="https://user-images.githubusercontent.com/112475656/203228038-c9df41c6-2877-478a-9975-63cea0afa956.JPG"/></td>
-  <td><img src=""/></td>
-  <td><img src=""/></td>
-  <td><img src=""/></td>
-  <td><img src=""/></td>
-  <td><img src=""/></td>
-  <td><img src=""/></td>
-  <td><img src=""/></td>
+  
 </tr>
 ## 팀원역할
 <table>
