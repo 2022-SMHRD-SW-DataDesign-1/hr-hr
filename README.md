@@ -92,13 +92,21 @@
 ## 팀원역할
 <table>
   <tr>
-    <td> 팀원역할</td>
-    <td>김하랑 :Full Stack</td>
-    <td>박상현 :Back-end</td>
-    <td>김영우 :Front-End</td>
-    <td>변우경 :Back-end</td>
-    <td>허유리 :PM,Front-end </td>
-    <td><img scr=""></td>
+    <th> 이름 </th>
+    <th>김하랑</th>
+    <th>박상현</th>
+    <th>김영우</th>
+    <th>변우경</th>
+    <th>허유리</th>
+    <th><img scr=""></th>
+  </tr>
+  <tr>
+    <td>팀원역할</td>
+    <td>Full Stack</td>
+    <td>Back-end</td>
+    <td>Front-End</td>
+    <td>Back-end</td>
+    <td>PM,Front-end</td>
   </tr>
 </table>
 ## 트러블슈팅
