@@ -9,8 +9,10 @@
 <br>
 
 ## ⭐ 주요 기능
+* 회원가입, 로그인
+* 게시글 작성, 수정, 삭제
 * 채팅
-* 리뷰
+* 팔로우, 차단
 
 ## ⛏ 기술스택
 <table>
@@ -70,7 +72,7 @@
 <br>
 
 ## 📌 서비스 흐름도
-<img src="https://user-images.githubusercontent.com/112475656/203226314-ac0f8a21-2137-45b5-922e-e8a5cc4ded43.JPG"/>
+<img src="https://user-images.githubusercontent.com/112142281/203276297-2e77f89f-dd3e-4e37-8d7c-2f3bde05ad38.png"/>
 <br>
 
 ## 📌 ER다이어그램
@@ -78,10 +80,20 @@
 <br>
 
 ## 🖥 화면 구성
-### 로그인/회원가입/회원괸리/회원수정/회원탈퇴
-![image](https://user-images.githubusercontent.com/25995055/178401098-95f15a0e-a2de-415e-83d5-883bb4cb0656.png)
-<br>
+### 로그인/회원가입
+ <img src="https://user-images.githubusercontent.com/112475656/203228038-c9df41c6-2877-478a-9975-63cea0afa956.JPG"/>
+ <img src="https://user-images.githubusercontent.com/112142281/203275137-1f4f72f3-8007-4646-9560-13b75d1395a6.JPG"/>
+ 
+ ### 메인페이지
+ <img src="https://user-images.githubusercontent.com/112475656/203227962-8cd78112-266e-4895-b182-c816e02d2525.JPG"/>
 
+ ### 채팅
+ <img src="https://user-images.githubusercontent.com/112142281/203275657-14e68210-ffee-4954-a052-08b723466b83.png"/>
+
+ ### 리뷰 게시판
+ <img src="https://user-images.githubusercontent.com/112142281/203276390-0abe5542-05f4-42c7-bc9b-fd9014e6c326.png"/>
+
+ 
 ## 👨‍👩‍👦‍👦 팀원 역할
 <table>
   <tr>
