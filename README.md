@@ -119,7 +119,8 @@
     <th>허유리</th>
   </tr>
   <tr>
-    <td>팀원역할</td>
+    <td>팀원
+    역할</td>
     <td>Full Stack</td>
     <td>Back-end</td>
     <td>Front-End</td>
