@@ -63,9 +63,48 @@
     </tr>
 </table>
 ## 시스템 아키텍처
+<tr>
+  <td> 시스템 아키텍쳐</td>
+  <td><img scr=""></td>
+</tr>
+
 ## 유스케이스
+<tr>
+  <td> 유스케이스</td>
+  <td><img scr=""></td>
+</tr>
+
 ## 서비스 흐름도
+<tr>
+  <td>서비스 흐름도</td>
+  <td><img scr=""></td>
+</tr>
 ## ER 다이어그램
+<tr>
+  <td>ER 다이어그램</td>
+  <td><img scr=""></td>
+</tr>
 ## 화면구성
+<tr>
+  <td>화면구성</td>
+  <td><img scr=""></td>
+</tr>
 ## 팀원역할
+<tr>
+  <td> 팀원역할</td>
+  <td>김하랑 :Full Stack</td>
+  <td>박상현 :Back-end</td>
+  <td>김영우 :Front-End</td>
+  <td>변우경 :Back-end</td>
+  <td>허유리 :PM,Front-end </td>
+  <td><img scr=""></td>
+</tr>
 ## 트러블슈팅
+<tr>
+  <td>트러블슈팅</td>
+  <td>소셜 api 로그인</td>
+  <td>외부 템플릿 적용</td>
+  <td>웹서버 실시간 알림, 채팅 기능</td>
+
+
+</tr>
