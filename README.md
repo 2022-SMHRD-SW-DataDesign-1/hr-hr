@@ -70,24 +70,43 @@
 
 ## 유스케이스
 <tr>
-  <td> 유스케이스</td>
-  <td><img scr="https://user-images.githubusercontent.com/112475656/203226221-dca118e4-f9e4-40f8-bced-f8a664a5b8cf.JPG"></td>
+
+  <td> 유스케이스 다이어그램</td>
+  <td><img src="https://user-images.githubusercontent.com/112475656/203226221-dca118e4-f9e4-40f8-bced-f8a664a5b8cf.JPG"/></td>
 </tr>
 
 ## 서비스 흐름도
 <tr>
   <td>서비스 흐름도</td>
-  <td><img scr="https://user-images.githubusercontent.com/112475656/203226314-ac0f8a21-2137-45b5-922e-e8a5cc4ded43.JPG"></td>
+  <td><img src="https://user-images.githubusercontent.com/112475656/203226314-ac0f8a21-2137-45b5-922e-e8a5cc4ded43.JPG"/></td>
 </tr>
 ## ER 다이어그램
 <tr>
   <td>ER 다이어그램</td>
-  <td><img scr="https://user-images.githubusercontent.com/112475656/203226095-dc6be1db-2b31-4d46-bcf1-1c9e3bd142b2.JPG"></td>
+  <td><img src="https://user-images.githubusercontent.com/112475656/203226095-dc6be1db-2b31-4d46-bcf1-1c9e3bd142b2.JPG"/></td>
 </tr>
 ## 화면구성
 <tr>
-  <td>화면구성</td>
-  <td><img scr=""></td>
+  <th>화면구성</th>
+  <th>메인화면</th>
+  <th>로그인</th>
+  <th></th>
+  <th></th>
+  <th></th>
+  <th></th>
+  <th></th>
+  <th></th>
+</tr>
+<tr>
+  <td><img src="https://user-images.githubusercontent.com/112475656/203227962-8cd78112-266e-4895-b182-c816e02d2525.JPG"/></td>
+  <td><img src="https://user-images.githubusercontent.com/112475656/203228038-c9df41c6-2877-478a-9975-63cea0afa956.JPG"/></td>
+  <td><img src=""/></td>
+  <td><img src=""/></td>
+  <td><img src=""/></td>
+  <td><img src=""/></td>
+  <td><img src=""/></td>
+  <td><img src=""/></td>
+  <td><img src=""/></td>
 </tr>
 ## 팀원역할
 <table>
