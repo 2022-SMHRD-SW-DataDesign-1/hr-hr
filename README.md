@@ -90,16 +90,19 @@
   <td><img scr=""></td>
 </tr>
 ## 팀원역할
-<tr>
-  <td> 팀원역할</td>
-  <td>김하랑 :Full Stack</td>
-  <td>박상현 :Back-end</td>
-  <td>김영우 :Front-End</td>
-  <td>변우경 :Back-end</td>
-  <td>허유리 :PM,Front-end </td>
-  <td><img scr=""></td>
-</tr>
+<table>
+  <tr>
+    <td> 팀원역할</td>
+    <td>김하랑 :Full Stack</td>
+    <td>박상현 :Back-end</td>
+    <td>김영우 :Front-End</td>
+    <td>변우경 :Back-end</td>
+    <td>허유리 :PM,Front-end </td>
+    <td><img scr=""></td>
+  </tr>
+</table>
 ## 트러블슈팅
+
 <tr>
   <td>트러블슈팅</td>
   <td>소셜 api 로그인</td>
