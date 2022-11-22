@@ -7,16 +7,16 @@
 정부 정책의 낮은 인지도를 개선하고자 정보를 전달하는 서비스
 <br>
 
-## 프로젝트기간
-2022.11.03(Thu) ~ 2022.11.16(Wed)(2주)
+## 📅 프로젝트기간
+2022.10.14 ~ 2022.11.15
 <br>
 
-## 주요기능
+## ✨ 주요기능
 * 채팅
 * 리뷰
 <br>
 
-## 기술스택
+## ⛏ 기술스택
 <table>
   <tr>
     <th>구분</th>
@@ -62,30 +62,30 @@
         
     </tr>
 </table>
-## 시스템 아키텍처
+## ⚙ 시스템 아키텍처
 <tr>
   <td> 시스템 아키텍쳐</td>
   <td><img scr=""></td>
 </tr>
 
-## 유스케이스
+## 📌 유스케이스
 <tr>
 
   <td> 유스케이스 다이어그램</td>
   <td><img src="https://user-images.githubusercontent.com/112475656/203226221-dca118e4-f9e4-40f8-bced-f8a664a5b8cf.JPG"/></td>
 </tr>
 
-## 서비스 흐름도
+## 📌 서비스 흐름도
 <tr>
   <td>서비스 흐름도</td>
   <td><img src="https://user-images.githubusercontent.com/112475656/203226314-ac0f8a21-2137-45b5-922e-e8a5cc4ded43.JPG"/></td>
 </tr>
-## ER 다이어그램
+## 📌 ER 다이어그램
 <tr>
   <td>ER 다이어그램</td>
   <td><img src="https://user-images.githubusercontent.com/112475656/203226095-dc6be1db-2b31-4d46-bcf1-1c9e3bd142b2.JPG"/></td>
 </tr>
-## 화면구성
+## 🖥 화면구성
 <tr>
   <th>화면구성</th>
   <th>메인화면</th>
@@ -102,7 +102,7 @@
   <td><img src="https://user-images.githubusercontent.com/112475656/203228038-c9df41c6-2877-478a-9975-63cea0afa956.JPG"/></td>
   
 </tr>
-## 팀원역할
+## 👨‍👩‍👦‍👦 팀원역할 👨‍👩‍👦‍👦
 <table>
   <tr>
     <th> 이름 </th>
@@ -122,7 +122,7 @@
     <td>PM,Front-end</td>
   </tr>
 </table>
-## 트러블슈팅
+## 💣 트러블슈팅
 
 <tr>
   <td>트러블슈팅</td>
