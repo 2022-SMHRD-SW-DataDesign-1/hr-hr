@@ -71,18 +71,18 @@
 ## 유스케이스
 <tr>
   <td> 유스케이스</td>
-  <td><img scr=""></td>
+  <td><img scr="https://user-images.githubusercontent.com/112475656/203226221-dca118e4-f9e4-40f8-bced-f8a664a5b8cf.JPG"></td>
 </tr>
 
 ## 서비스 흐름도
 <tr>
   <td>서비스 흐름도</td>
-  <td><img scr=""></td>
+  <td><img scr="https://user-images.githubusercontent.com/112475656/203226314-ac0f8a21-2137-45b5-922e-e8a5cc4ded43.JPG"></td>
 </tr>
 ## ER 다이어그램
 <tr>
   <td>ER 다이어그램</td>
-  <td><img scr=""></td>
+  <td><img scr="https://user-images.githubusercontent.com/112475656/203226095-dc6be1db-2b31-4d46-bcf1-1c9e3bd142b2.JPG"></td>
 </tr>
 ## 화면구성
 <tr>
@@ -98,7 +98,6 @@
     <th>김영우</th>
     <th>변우경</th>
     <th>허유리</th>
-    <th><img scr=""></th>
   </tr>
   <tr>
     <td>팀원역할</td>
