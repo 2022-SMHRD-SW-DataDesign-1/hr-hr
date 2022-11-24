@@ -117,6 +117,13 @@
     <td align="center"><b>PM,Front-end</b></td>
     <td align="center"><b>Back-end</b></td>
   </tr>
+  <tr>
+    <td align="center"><b>API, DB설계, 채팅 기능 수집, 알림 기능 수집, ajax 프론트 부분</b></td>
+    <td align="center"><b>main 페이지, 로그인 페이지, 리뷰 페이지, 랭킹 페이지, 채팅 페이지, 화면 구현</b></td>
+    <td align="center"><b>API, DB 설계, 랭킹 보드 시스템, ajax 프론트 부분, 사용자 팔로우, 리뷰 게시글, 스크랩</b></td>
+    <td align="center"><b>main 페이지, 시작 페이지, 프로필 페이지, 게시글 상세 페이지, 화면 구현</b></td>
+    <td align="center"><b>회원가입, 로그인, 게시글 수정삭제, 사용자 차단, 메인 정책 목록 구현</b></td>
+  </tr>
 </table>
 
 ## 🤾‍♂️ 트러블슈팅
