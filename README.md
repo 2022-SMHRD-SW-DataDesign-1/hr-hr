@@ -118,11 +118,11 @@
     <td align="center"><b>Back-end</b></td>
   </tr>
   <tr>
-    <td align="center"><p>API, DB설계, 채팅 기능 수집, 알림 기능 수집, ajax 프론트 부분</p></td>
-    <td align="center"><p>main 페이지, 로그인 페이지, 리뷰 페이지, 랭킹 페이지, 채팅 페이지, 화면 구현</p></td>
-    <td align="center"><p>API DB 설계 랭킹 보드 시스템 ajax 프론트 부분 사용자 팔로우, 리뷰 게시글, 스크랩</p></td>
-    <td align="center"><p>main 페이지 시작 페이지 프로필 페이지 게시글 상세 페이지 화면 구현</p></td>
-    <td align="center"><p>회원가입 로그인 게시글 수정삭제 사용자 차단 메인 정책 목록 구현</p></td>
+    <td>총괄, API, DB설계, 기능 수집(채팅, 알림), ajax 프론트 파트</td>
+    <td>화면 구현(main,로그인,리뷰, 랭킹, 채팅)</td>
+    <td>API, DB 설계, ajax 프론트 파트, 기능 구현(랭킹, 팔로우, 리뷰, 게시글, 스크랩)</td>
+    <td>화면 구현(시작화면, 프로필, 게시글, 개인 페이지)</td>
+    <td>기능 구현(회원가입, 로그인, 게시글, 수정삭제, 사용자 차단), 화면 구현(메인 정책목록)</td>
   </tr>
 </table>
 
