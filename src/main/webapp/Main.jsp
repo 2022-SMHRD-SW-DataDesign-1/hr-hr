@@ -668,7 +668,8 @@
 					%>
 					
 					
-				<!-- 게시물 등록 버튼 -->        
+				<!-- 게시물 등록 버튼 -->      
+				  
 				      <!-- 여기가 버튼 스타일 클래스 -->
 				    <div id="uploadbtn">
 					<button type="button" class="btn btn-primary btn btn-info2 board_add" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
